@@ -1,0 +1,1 @@
+scan a file or directory for all inline effects and lists them in groups.
