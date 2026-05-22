@@ -1,0 +1,62 @@
+/* ============================================================
+   ccg-tokens.css
+   Single source of truth for all design tokens.
+   Import into every component shadow root or global stylesheet.
+
+   Usage:
+     @import './ccg-tokens.css';
+     OR inject into Shadow DOM:
+       const style = document.createElement('style')
+       style.textContent = await fetch('./ccg-tokens.css').then(r => r.text())
+       shadowRoot.appendChild(style)
+   ============================================================ */
+
+:root,
+:host {
+  /* Base surfaces */
+  --base:         #1c2230;
+  --base-whisper: #232a3a;
+  --base-mute:    #131825;
+
+  /* Text */
+  --ink:          #e4e8ef;
+  --ink-whisper:  #b5bdcc;
+  --ink-mute:     #7d8597;
+
+  /* Brand */
+  --accent:       #d4ec5a;
+  --accent-mute:  #2f3a20;
+  --sedona:       #c46850;
+
+  /* Utility */
+  --divider:      rgba(255,255,255,0.06);
+  --neu-dark:     rgba(6,9,15,0.78);
+  --neu-light:    rgba(72,86,110,0.42);
+  --scrim:        rgba(0,0,0,0.45);
+  --bg-outer:     #0a0d14;
+
+  /* Status */
+  --online:       #3ecf82;
+
+  /* Typography */
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+
+/* Light theme — toggled by adding .light to .phone or :host */
+.light,
+:host(.light) {
+  --base:         #e8ecf2;
+  --base-whisper: #dfe4ec;
+  --base-mute:    #f1f4f9;
+  --ink:          #2b3445;
+  --ink-whisper:  #4a5363;
+  --ink-mute:     #8893a6;
+  --accent:       #1a82c8;
+  --accent-mute:  #cee5f5;
+  --sedona:       #8e7470;
+  --divider:      rgba(0,0,0,0.07);
+  --neu-dark:     rgba(146,158,178,0.55);
+  --neu-light:    rgba(255,255,255,0.95);
+  --scrim:        rgba(43,52,69,0.35);
+  --bg-outer:     #c8cdd8;
+}

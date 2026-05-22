@@ -1,0 +1,100 @@
+
+// ─────────────────────────────────────────────────────────
+// NAME — semantic $variables assigned directly from
+// custom properties. No intermediate $base step.
+// Each name describes where it's used, not what it is.
+// ─────────────────────────────────────────────────────────
+
+$panel-background:            var(--base);
+$panel-close-track:           var(--base);
+$panel-close-button:          var(--base-whisper);
+$panel-close-icon:            var(--ink-whisper);
+$panel-drag-bar:              var(--accent);
+$panel-breadcrumb:            var(--ink-mute);
+$panel-scrim:                 var(--scrim);
+
+$nav-background:              var(--base);
+$nav-icon-inactive:           var(--ink-mute);
+$nav-icon-active:             var(--accent);
+$nav-fab-background:          var(--base);
+$nav-fab-active-background:   var(--accent);
+
+$drawer-background:           var(--base);
+$drawer-handle-bar:           var(--ink-mute);
+$drawer-back-button:          var(--base-whisper);
+$drawer-back-icon:            var(--ink-mute);
+$drawer-hint-text:            var(--ink-mute);
+$drawer-title:                var(--ink);
+$drawer-item-label:           var(--ink);
+$drawer-item-label-new:       var(--accent);
+$drawer-item-arrow:           var(--ink-mute);
+$drawer-item-arrow-new:       var(--sedona);
+$drawer-item-divider:         var(--divider);
+$drawer-scrim:                var(--scrim);
+
+$tile-background:             var(--base);
+$tile-active-background:      var(--accent);
+$tile-label:                  var(--ink-mute);
+$tile-label-active:           var(--accent-mute);
+$tile-number:                 var(--ink);
+$tile-number-active:          var(--base-mute);
+$tile-message:                var(--ink-mute);
+$tile-dot-inactive:           var(--accent);
+$tile-dot-active:             #fff;
+
+$bubble-admin-background:     var(--base-whisper);
+$bubble-admin-text:           var(--ink);
+$bubble-user-background:      var(--accent);
+$bubble-user-text:            var(--base-mute);
+$bubble-meta-text:            var(--ink-mute);
+
+$input-background-dark:       rgba(255,255,255,0.09);
+$input-background-light:      rgba(255,255,255,0.9);
+$input-text:                  var(--ink);
+$input-placeholder:           var(--ink-mute);
+$input-border:                var(--divider);
+
+$send-button-background:      var(--sedona);
+$send-button-icon:            #fff7f3;
+
+$tab-track-background:        var(--base-mute);
+$tab-active-background:       var(--accent);
+$tab-active-text:             var(--base-mute);
+$tab-inactive-text:           var(--ink-mute);
+
+$inquiry-id:                  var(--ink-mute);
+$inquiry-title:               var(--ink);
+$inquiry-status:              var(--ink-mute);
+$inquiry-arrow-active:        var(--sedona);
+$inquiry-arrow-neutral:       var(--ink-mute);
+$inquiry-divider:             var(--divider);
+$inquiry-item-pressed:        var(--base-whisper);
+
+$section-title-idle:          var(--ink-mute);
+$section-title-active:        var(--sedona);
+$section-toggle-background:   var(--base-whisper);
+$section-toggle-text:         var(--ink-mute);
+
+$shop-card-image-background:  var(--base-whisper);
+$shop-card-footer-dark:       #2a3142;
+$shop-card-footer-light:      #bcbcc4;
+$shop-card-text:              var(--ink);
+$heart-active:                var(--sedona);
+$heart-inactive:              var(--ink-whisper);
+
+$star-active:                 #ffb84d;
+$star-inactive:               var(--ink-mute);
+
+$review-button:               var(--sedona);
+$review-button-text:          #fff7f3;
+$review-textarea-background:  var(--base);
+$review-saved-text:           var(--ink-whisper);
+
+$phone-frame-background:      var(--base);
+$phone-outer-background:      var(--bg-outer);
+$status-bar-text:             var(--ink-mute);
+$status-notch:                var(--base-mute);
+
+$online-dot:                  var(--online);
+$shadow-dark:                 var(--neu-dark);
+$shadow-light:                var(--neu-light);

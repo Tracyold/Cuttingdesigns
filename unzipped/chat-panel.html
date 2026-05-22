@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+╔══════════════════════════════════════════════════════════════╗
+║  ccg-chat-panel.html                                         ║
+║  Self-contained working demo of the chat panel.              ║
+║                                                              ║
+║  FILE MAP — each section below maps to a real file:          ║
+║  ─────────────────────────────────────────────────────────── ║
+║  ccg-tokens.css           Design tokens (CSS vars)           ║
+║  ccg-theme.js             setTheme / toggleTheme             ║
+║  ccg-panel.js             openPanel / closePanel / swipe     ║
+║  ccg-bubble-menu.js       initBubbleMenu                     ║
+║  ccg-chat-bubble.js       createBubble / createMeta          ║
+║  ccg-chat-input.js        initChatInput                      ║
+║  ccg-typing-indicator.js  showTyping / hideTyping            ║
+║  ccg-chat-panel.js        initChatPanel / open / close       ║
+║                                                              ║
+║  FUTURE CUSTOM ELEMENTS:                                     ║
+║  <ccg-status-bar>                                            ║
+║  <ccg-bottom-nav>                                            ║
+║  <ccg-panel>                                                 ║
+║  <ccg-panel-header>                                          ║
+║  <ccg-bubble-menu>                                           ║
+║  <ccg-chat-messages>                                         ║
+║  <ccg-chat-bubble type="user|admin">                         ║
+║  <ccg-chat-input>                                            ║
+║  <ccg-typing-indicator>                                      ║
+║  <ccg-chat-panel>                                            ║
+╚══════════════════════════════════════════════════════════════╝
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* ── ccg-tokens.css ────────────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --base:         #1c2230;
+  --base-whisper: #232a3a;
+  --base-mute:    #131825;
+  --ink:          #e4e8ef;
+  --ink-whisper:  #b5bdcc;
+  --ink-mute:     #7d8597;
+  --accent:       #d4ec5a;
+  --accent-mute:  #2f3a20;
+  --sedona:       #c46850;
+  --divider:      rgba(255,255,255,0.06);
+  --neu-dark:     rgba(6,9,15,0.78);
+  --neu-light:    rgba(72,86,110,0.42);
+  --scrim:        rgba(0,0,0,0.45);
+  --bg-outer:     #0a0d14;
+  --online:       #3ecf82;
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+.light {
+  --base:         #e8ecf2;
+  --base-whisper: #dfe4ec;
+  --base-mute:    #f1f4f9;
+  --ink:          #2b3445;
+  --ink-whisper:  #4a5363;
+  --ink-mute:     #8893a6;
+  --accent:       #1a82c8;
+  --accent-mute:  #cee5f5;
+  --sedona:       #8e7470;
+  --divider:      rgba(0,0,0,0.07);
+  --neu-dark:     rgba(146,158,178,0.55);
+  --neu-light:    rgba(255,255,255,0.95);
+  --scrim:        rgba(43,52,69,0.35);
+  --bg-outer:     #c8cdd8;
+}
+
+/* ── ccg-theme.css ─────────────────────────────────────────── */
+body {
+  background: var(--bg-outer);
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; font-family: var(--font);
+  padding: 40px 20px; transition: background 0.3s ease;
+}
+/* dev-only — remove in production */
+#theme-switcher {
+  position: fixed; top: 20px; right: 20px;
+  z-index: 9999; display: flex; gap: 8px;
+}
+.theme-btn {
+  padding: 8px 18px; border-radius: 999px; border: none;
+  cursor: pointer; font-size: 12px; font-weight: 700;
+  font-family: var(--font); letter-spacing: 0.5px;
+}
+.theme-btn.dark-btn  { background: #1c2230; color: #d4ec5a; }
+.theme-btn.light-btn { background: #e8ecf2; color: #1a82c8; }
+
+/* ── ccg-phone-frame.css ───────────────────────────────────── */
+.phone {
+  width: 390px; height: 844px; border-radius: 50px; overflow: hidden;
+  background: var(--base); position: relative;
+  display: flex; flex-direction: column;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+  transition: background 0.3s ease;
+}
+
+/* ── ccg-status-bar.css ────────────────────────────────────── */
+.status-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 28px 0; font-size: 12px; font-weight: 600;
+  color: var(--ink-mute); flex-shrink: 0; position: relative; z-index: 5;
+}
+.status-notch {
+  width: 120px; height: 28px; background: var(--base-mute);
+  border-radius: 0 0 18px 18px; margin-top: -14px;
+  transition: background 0.3s ease;
+}
+
+/* ── ccg-bottom-nav.css ────────────────────────────────────── */
+/* z-index 20 — always above panels and scrim */
+.bottom-nav {
+  height: 100px; background: var(--base);
+  box-shadow: 0 -8px 24px var(--neu-dark);
+  display: flex; align-items: center; justify-content: space-around;
+  padding: 12px 20px 24px; flex-shrink: 0;
+  z-index: 20; position: relative; transition: background 0.3s ease;
+}
+.nav-btn {
+  width: 40px; height: 40px; border-radius: 50%; border: none;
+  cursor: pointer; background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--ink-mute);
+  transition: all 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.nav-btn:active { transform: scale(0.88); }
+.nav-btn.fab {
+  width: 54px; height: 54px; background: var(--base); font-size: 20px;
+  box-shadow: 3px 3px 7px var(--neu-dark), -3px -3px 7px var(--neu-light);
+}
+.nav-btn.active:not(.fab) { color: var(--accent); }
+
+/* ── ccg-panel.css ─────────────────────────────────────────── */
+/* Scrim: z-index 15, stops at nav (bottom:100px) so nav stays visible */
+.panel-scrim {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 100px;
+  z-index: 15; background: var(--scrim);
+  opacity: 0; pointer-events: none; transition: opacity 0.38s ease;
+}
+.panel-scrim.open { opacity: 1; pointer-events: auto; }
+
+/* Panel: z-index 18, bottom:100px, slides up behind nav */
+.panel {
+  position: absolute; left: 0; right: 0; bottom: 100px;
+  height: calc(100% - 48px - 100px);
+  background: var(--base); border-radius: 28px 28px 0 0;
+  z-index: 18; display: flex; flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.44s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform; overflow: hidden;
+}
+.panel.open    { transform: translateY(0); }
+.panel.closing {
+  transform: translateY(100%);
+  transition: transform 0.30s cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* ── ccg-panel-header.css ──────────────────────────────────── */
+/* Transparent, full-width drag zone for swipe-to-close */
+.panel-header {
+  background: transparent; border-radius: 28px 28px 0 0;
+  padding: 10px 20px 14px; flex-shrink: 0;
+  position: relative; cursor: grab;
+  touch-action: none; user-select: none;
+}
+.panel-drag-pill { display: flex; justify-content: center; padding-bottom: 10px; }
+.panel-drag-bar {
+  width: 36px; height: 4px; border-radius: 2px;
+  background: var(--accent); opacity: 0.4;
+}
+.panel-breadcrumb {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; margin-bottom: 4px;
+  display: flex; align-items: center; gap: 5px;
+}
+
+/* ── ccg-panel-title.css ───────────────────────────────────── */
+/* Sunken text — slightly lighter/darker than base, pressed into surface */
+.panel-title {
+  font-size: 30px; font-weight: 800; letter-spacing: -1px;
+  line-height: 1.1;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  color: #2a3347;
+  text-shadow: -1px -1px 1px rgba(6,9,15,0.9), 1px 1px 2px rgba(72,86,110,0.5);
+}
+.light .panel-title {
+  color: #c8cdd8;
+  text-shadow: -1px -1px 1px rgba(146,158,178,0.6), 1px 1px 2px rgba(255,255,255,0.95);
+}
+/* Active state when bubble menu is open */
+.panel-title.menu-active {
+  color: var(--accent) !important;
+  text-shadow: none !important;
+}
+
+/* ── ccg-bubble-menu.css ───────────────────────────────────── */
+/* Plus button track — flat, transparent, just a size container */
+.header-plus-track {
+  position: absolute; top: 11px; right: 89px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: transparent; border: 1.5px solid transparent;
+  display: flex; align-items: center; justify-content: center; z-index: 2;
+}
+/* Plus button — flat, dimmed sedona at rest, sinks on active */
+.header-plus {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--sedona); opacity: 0.65;
+  box-shadow: none; border: none; cursor: pointer;
+  font-size: 17px; font-weight: 400; line-height: 1; color: #fff7f3;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275); flex-shrink: 0;
+}
+.header-plus:hover { opacity: 1; }
+.header-plus:active {
+  opacity: 1; background: var(--sedona); color: #fff7f3;
+  box-shadow: inset 3px 3px 7px rgba(0,0,0,0.45), inset -1px -1px 3px rgba(255,255,255,0.07);
+  transform: scale(0.95);
+}
+
+/* Close button track — sunken groove */
+.panel-close-track {
+  position: absolute; top: 11px; right: 16px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--base);
+  box-shadow: inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light);
+  display: flex; align-items: center; justify-content: center; z-index: 2;
+}
+/* Close button — raised inside the track */
+.panel-close {
+  width: 26px; height: 26px; border-radius: 50%; border: none;
+  cursor: pointer; background: var(--base-whisper);
+  color: var(--ink-whisper); opacity: 0.9; font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 3px 3px 7px var(--neu-dark), -2px -2px 5px var(--neu-light);
+  transition: all 0.14s ease; z-index: 2;
+}
+.panel-close:hover  { opacity: 1; color: var(--accent); }
+.panel-close:active {
+  opacity: 1; color: var(--accent);
+  box-shadow: inset 3px 3px 7px var(--neu-dark), inset -1px -1px 3px var(--neu-light);
+  transform: scale(0.95);
+}
+
+/* Floating bubble icon menu — horizontal, slides left from + */
+.bubble-menu {
+  position: absolute; top: 108px; right: 58px;
+  z-index: 80; display: flex; flex-direction: row;
+  align-items: center; gap: 10px; pointer-events: none;
+}
+.bubble-menu-btn {
+  width: 44px; height: 44px; border-radius: 50%; border: none;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  box-shadow: 4px 4px 10px var(--neu-dark), -2px -2px 6px var(--neu-light);
+  opacity: 0; transform: translateX(20px) scale(0.6);
+  transition: opacity 0.2s ease, transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.bubble-menu-btn.save-btn { background: var(--base-whisper); transition-delay: 0.06s; }
+.bubble-menu-btn.img-btn  { background: var(--sedona); }
+
+/* ── ccg-chat-messages.css ─────────────────────────────────── */
+.chat-messages {
+  flex: 1; overflow-y: auto; overflow-x: hidden;
+  scroll-behavior: smooth; scrollbar-width: none;
+  padding: 16px 20px 8px; display: flex; flex-direction: column; gap: 3px;
+  -webkit-overflow-scrolling: touch;
+}
+.chat-messages::-webkit-scrollbar { display: none; }
+.chat-date-stamp {
+  text-align: center; font-size: 10px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-mute); opacity: 0.55; padding: 12px 0 8px;
+}
+.bubble-row { display: flex; align-items: flex-end; margin-bottom: 1px; }
+.bubble-row.user  { justify-content: flex-end; }
+.bubble-row.admin { justify-content: flex-start; }
+
+/* ccg-chat-bubble — user variant */
+.bubble {
+  max-width: 74%; padding: 11px 15px;
+  font-size: 15px; line-height: 1.45; font-weight: 400;
+}
+.bubble.admin {
+  background: var(--base-whisper); color: var(--ink);
+  border-radius: 4px 18px 18px 18px;
+  box-shadow: 3px 3px 7px var(--neu-dark), -2px -2px 5px var(--neu-light);
+}
+.bubble.user {
+  background: var(--accent); color: var(--base-mute);
+  border-radius: 18px 4px 18px 18px;
+  box-shadow: 3px 3px 7px var(--neu-dark), -1px -1px 4px var(--neu-light);
+  font-weight: 500;
+}
+.bubble-meta {
+  font-size: 10px; font-weight: 500; color: var(--ink-mute);
+  opacity: 0.6; padding: 1px 4px 6px; text-align: right; letter-spacing: 0.3px;
+}
+.bubble-meta.admin { text-align: left; }
+
+/* ── ccg-chat-input.css ────────────────────────────────────── */
+.chat-input-bar {
+  flex-shrink: 0; padding: 10px 16px 14px;
+  display: flex; align-items: center; gap: 10px;
+  border-top: 0.5px solid var(--divider);
+  background: var(--base); transition: background 0.3s ease;
+}
+/* Sunken white input — 25px radius */
+.chat-input {
+  flex: 1; padding: 12px 18px; border-radius: 25px;
+  background: rgba(255,255,255,0.09); border: none; outline: none;
+  box-shadow: inset 3px 3px 7px var(--neu-dark), inset -2px -2px 5px var(--neu-light);
+  font-size: 14px; color: var(--ink); font-family: var(--font);
+  resize: none; line-height: 1.4; max-height: 80px;
+  overflow-y: auto; scrollbar-width: none;
+  transition: background 0.3s ease, box-shadow 0.2s ease;
+}
+.light .chat-input { background: rgba(255,255,255,0.9); }
+.chat-input::placeholder { color: var(--ink-mute); opacity: 0.7; }
+.chat-input:focus {
+  box-shadow: inset 4px 4px 9px var(--neu-dark), inset -3px -3px 7px var(--neu-light);
+}
+.chat-input::-webkit-scrollbar { display: none; }
+/* Send button — sedona always */
+.send-btn {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--sedona); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: #fff7f3; flex-shrink: 0;
+  box-shadow: 3px 3px 7px var(--neu-dark), -2px -2px 5px var(--neu-light);
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+.send-btn:active {
+  transform: scale(0.88);
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.25);
+}
+
+/* ── ccg-typing-indicator.css ──────────────────────────────── */
+@keyframes typing-dot {
+  0%,60%,100% { transform: translateY(0); opacity: 0.4; }
+  30%          { transform: translateY(-4px); opacity: 1; }
+}
+.dot {
+  display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ink-mute); opacity: 0.5;
+  animation: typing-dot 1.2s ease-in-out infinite;
+}
+.dot:nth-child(2) { animation-delay: 0.18s; }
+.dot:nth-child(3) { animation-delay: 0.36s; }
+</style>
+</head>
+<body>
+
+<!-- dev-only theme switcher — remove in production -->
+<div id="theme-switcher">
+  <button class="theme-btn dark-btn"  onclick="setTheme(true)">● dark</button>
+  <button class="theme-btn light-btn" onclick="setTheme(false)">○ light</button>
+</div>
+
+<!-- <ccg-phone-frame> ──────────────────────────────────────── -->
+<div class="phone" id="phone">
+
+  <!-- <ccg-status-bar> -->
+  <div class="status-bar">
+    <span>9:41</span>
+    <div class="status-notch"></div>
+    <span id="status-label">home · B</span>
+  </div>
+
+  <!-- Home screen placeholder -->
+  <div style="flex:1;display:flex;flex-direction:column;padding:32px 28px 0;">
+    <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px;">TUESDAY · MAY 12</div>
+    <div style="font-size:58px;font-weight:800;line-height:1;color:var(--ink);letter-spacing:-2px;">User<br>gems.</div>
+  </div>
+
+  <!-- Panel scrim — shared, one per screen, stops at nav -->
+  <div class="panel-scrim" id="panel-scrim"></div>
+
+  <!-- <ccg-bubble-menu> — outside panel so overflow:hidden doesn't clip it -->
+  <div class="bubble-menu" id="bubble-menu">
+    <!-- Save transcript — slides out first, furthest left -->
+    <button class="bubble-menu-btn save-btn" id="save-btn" aria-label="Save transcript">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--ink-whisper)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+    </button>
+    <!-- Upload image — slides out second, closest to + -->
+    <button class="bubble-menu-btn img-btn" id="upload-btn" aria-label="Upload image">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff7f3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="3"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
+      </svg>
+    </button>
+  </div>
+  <!-- Hidden file input — outside panel for same reason -->
+  <input type="file" id="file-input" accept="image/*" style="display:none;">
+
+  <!-- <ccg-chat-panel> ──────────────────────────────────────── -->
+  <div class="panel" id="chat-panel" role="dialog" aria-label="Chat">
+
+    <!-- <ccg-panel-header> — full drag zone, swipe down to close -->
+    <div class="panel-header" id="chat-header">
+      <div class="panel-drag-pill"><div class="panel-drag-bar"></div></div>
+
+      <!-- Breadcrumb — green when admin online, grey when offline -->
+      <div class="panel-breadcrumb" id="chat-breadcrumb" style="color:var(--online);">
+        <span id="online-dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--online);flex-shrink:0;"></span>
+        LIVE CHAT
+      </div>
+
+      <!-- Panel title — sunken, lights accent when bubble menu open -->
+      <div class="panel-title" id="panel-title">admin</div>
+
+      <!-- Plus button — flat sedona circle, triggers bubble menu -->
+      <div class="header-plus-track">
+        <button class="header-plus" id="header-plus" aria-label="Options">+</button>
+      </div>
+
+      <!-- Close button — raised in sunken track, X turns accent on hover -->
+      <div class="panel-close-track">
+        <button class="panel-close" id="chat-close" aria-label="Close">✕</button>
+      </div>
+    </div>
+    <!-- /<ccg-panel-header> -->
+
+    <!-- <ccg-chat-messages> — seed messages, replaced by Supabase query in production -->
+    <div class="chat-messages" id="chat-messages">
+
+      <div class="chat-date-stamp">may 10</div>
+
+      <!-- <ccg-chat-bubble type="admin"> -->
+      <div class="bubble-row admin">
+        <div class="bubble admin">feasibility report came in — your emerald is a go.</div>
+      </div>
+      <div class="bubble-row admin">
+        <div class="bubble admin">want me to start the work order?</div>
+      </div>
+      <div class="bubble-meta admin">14:02</div>
+
+      <!-- <ccg-chat-bubble type="user"> -->
+      <div class="bubble-row user" style="margin-top:6px;">
+        <div class="bubble user">yes, please. minimize loss.</div>
+      </div>
+      <div class="bubble-meta">read ✓ · 14:05</div>
+
+      <div class="bubble-row admin" style="margin-top:6px;">
+        <div class="bubble admin">on it. WO-44 created · I'll keep you posted.</div>
+      </div>
+
+      <div class="bubble-row user" style="margin-top:6px;">
+        <div class="bubble user">thanks Mira ✦</div>
+      </div>
+      <div class="bubble-meta">read ✓ · 14:08</div>
+
+      <div class="chat-date-stamp">may 20 · today</div>
+
+      <div class="bubble-row admin">
+        <div class="bubble admin">hey — the garnet lot came in. want photos?</div>
+      </div>
+      <div class="bubble-meta admin">09:14</div>
+
+    </div>
+    <!-- /<ccg-chat-messages> -->
+
+    <!-- <ccg-chat-input> -->
+    <div class="chat-input-bar">
+      <textarea class="chat-input" id="chat-input" placeholder="message admin..." rows="1"></textarea>
+      <button class="send-btn" id="send-btn" aria-label="Send">↑</button>
+    </div>
+    <!-- /<ccg-chat-input> -->
+
+  </div>
+  <!-- /<ccg-chat-panel> -->
+
+  <!-- <ccg-bottom-nav> — z-index 20, always above everything -->
+  <div class="bottom-nav">
+    <button class="nav-btn fab" aria-label="Menu">≡</button>
+    <button class="nav-btn active" id="nav-chat" aria-label="Chat" onclick="openChatPanel()">◐</button>
+    <button class="nav-btn" aria-label="Invoices">₪</button>
+    <button class="nav-btn" aria-label="Theme" onclick="toggleTheme()">◑</button>
+  </div>
+  <!-- /<ccg-bottom-nav> -->
+
+</div>
+<!-- /<ccg-phone-frame> -->
+
+<script>
+/*
+  In production replace this entire script block with:
+    <script type="module">
+      import { setTheme, toggleTheme } from './ccg-theme.js'
+      import { initChatPanel, openChatPanel } from './ccg-chat-panel.js'
+      window.setTheme     = setTheme
+      window.toggleTheme  = toggleTheme
+      window.openChatPanel = openChatPanel
+      initChatPanel()
+      document.getElementById('nav-chat').onclick = openChatPanel
+      addEventListener('load', () => setTimeout(openChatPanel, 300))
+    </script>
+
+  Everything below mirrors the module files exactly.
+  Search the filename comments to find each boundary.
+*/
+
+// ── ccg-theme.js ─────────────────────────────────────────────
+var isDark = true;
+function setTheme(dark) {
+  isDark = dark;
+  var phone = document.getElementById('phone');
+  dark ? phone.classList.remove('light') : phone.classList.add('light');
+  dark ? document.body.classList.remove('light') : document.body.classList.add('light');
+}
+function toggleTheme() { setTheme(!isDark); }
+
+// ── ccg-panel.js ─────────────────────────────────────────────
+function openPanel(panelId, scrimId) {
+  var panel = document.getElementById(panelId);
+  var scrim = document.getElementById(scrimId);
+  if (!panel) return;
+  panel.classList.remove('closing');
+  panel.classList.add('open');
+  if (scrim) { scrim.classList.add('open'); scrim.style.pointerEvents = 'auto'; }
+}
+
+function closePanel(panelId, scrimId, cb) {
+  var panel = document.getElementById(panelId);
+  var scrim = document.getElementById(scrimId);
+  if (!panel) return;
+  panel.classList.add('closing');
+  panel.classList.remove('open');
+  if (scrim) { scrim.classList.remove('open'); scrim.style.pointerEvents = 'none'; }
+  setTimeout(function() {
+    panel.classList.remove('closing');
+    panel.style.transform  = '';
+    panel.style.transition = '';
+    if (scrim) { scrim.style.opacity = ''; scrim.style.transition = ''; }
+    if (cb) cb();
+  }, 320);
+}
+
+function initPanelSwipe(panelId, headerId, scrimId, onClose) {
+  var panel  = document.getElementById(panelId);
+  var header = document.getElementById(headerId);
+  if (!panel || !header) return;
+
+  var THRESHOLD = 0.35;
+  var startY = null, startX = null, curY = 0, dragging = false;
+
+  function applyDrag(dy) {
+    var h = panel.offsetHeight || 600;
+    var progress = Math.min(Math.max(dy / h, 0), 1);
+    panel.style.transform = 'translateY(' + dy + 'px)';
+    var scrim = document.getElementById(scrimId);
+    if (scrim) scrim.style.opacity = String(1 - progress);
+  }
+
+  function onStart(e) {
+    var t = e.touches ? e.touches[0] : e;
+    startY = t.clientY; startX = t.clientX;
+    dragging = false; curY = 0;
+    panel.style.transition = 'none';
+    var scrim = document.getElementById(scrimId);
+    if (scrim) scrim.style.transition = 'none';
+  }
+
+  function onMove(e) {
+    if (startY === null) return;
+    var t  = e.touches ? e.touches[0] : e;
+    var dy = t.clientY - startY;
+    var dx = Math.abs(t.clientX - startX);
+    if (!dragging) {
+      if (Math.abs(dy) < 5 && dx < 5) return;
+      if (dx > Math.abs(dy)) { startY = null; return; }
+      dragging = true;
+    }
+    if (dy <= 0) return;
+    curY = dy;
+    applyDrag(curY);
+    if (e.cancelable) e.preventDefault();
+  }
+
+  function onEnd() {
+    if (!dragging) { startY = null; return; }
+    startY = null; dragging = false;
+    var scrim = document.getElementById(scrimId);
+    var h = panel.offsetHeight || 600;
+
+    if (curY > h * THRESHOLD) {
+      var ms = Math.max((h - curY) / h * 280, 80);
+      panel.style.transition = 'transform ' + ms + 'ms cubic-bezier(0.4,0,1,1)';
+      if (scrim) scrim.style.transition = 'opacity ' + ms + 'ms linear';
+      applyDrag(h);
+      setTimeout(function() {
+        panel.style.transform  = '';
+        panel.style.transition = '';
+        if (scrim) { scrim.style.opacity = ''; scrim.style.transition = ''; }
+        panel.classList.remove('open', 'closing');
+        if (scrim) { scrim.classList.remove('open'); scrim.style.pointerEvents = 'none'; }
+        if (onClose) onClose();
+      }, ms);
+    } else {
+      var ms2 = Math.max(curY / h * 280, 80);
+      panel.style.transition = 'transform ' + ms2 + 'ms cubic-bezier(0.16,1,0.3,1)';
+      if (scrim) scrim.style.transition = 'opacity ' + ms2 + 'ms ease';
+      applyDrag(0);
+      setTimeout(function() {
+        panel.style.transition = '';
+        if (scrim) scrim.style.transition = '';
+      }, ms2);
+    }
+  }
+
+  header.addEventListener('touchstart', onStart, { passive: true });
+  header.addEventListener('touchmove',  onMove,  { passive: false });
+  header.addEventListener('touchend',   onEnd);
+  header.addEventListener('mousedown',  onStart);
+  window.addEventListener('mousemove',  onMove);
+  window.addEventListener('mouseup',    onEnd);
+}
+
+// ── ccg-bubble-menu.js ────────────────────────────────────────
+function initBubbleMenu(opts) {
+  var trigger = document.getElementById(opts.triggerId);
+  var menu    = document.getElementById(opts.menuId);
+  if (!trigger || !menu) return { open: function(){}, close: function(){}, isOpen: function(){ return false; } };
+
+  var _isOpen = false;
+  var btns    = (opts.buttons || []).map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  var title   = opts.titleId ? document.getElementById(opts.titleId) : document.querySelector('.panel-title');
+
+  function open() {
+    _isOpen = true;
+    trigger.style.opacity    = '1';
+    menu.style.pointerEvents = 'auto';
+    btns.forEach(function(btn) { btn.style.opacity = '1'; btn.style.transform = 'translateX(0) scale(1)'; });
+    if (title) title.classList.add('menu-active');
+  }
+
+  function close() {
+    _isOpen = false;
+    trigger.style.opacity    = '0.5';
+    menu.style.pointerEvents = 'none';
+    btns.forEach(function(btn) { btn.style.opacity = '0'; btn.style.transform = 'translateX(20px) scale(0.6)'; });
+    if (title) title.classList.remove('menu-active');
+  }
+
+  trigger.addEventListener('click', function(e) { e.stopPropagation(); _isOpen ? close() : open(); });
+
+  if (opts.panelId) {
+    var panel = document.getElementById(opts.panelId);
+    if (panel) {
+      panel.addEventListener('mousedown', function(e) {
+        if (_isOpen && e.target !== trigger && !menu.contains(e.target)) close();
+      });
+    }
+  }
+
+  return { open: open, close: close, isOpen: function() { return _isOpen; } };
+}
+
+// ── ccg-chat-bubble.js ────────────────────────────────────────
+function createBubble(text, type) {
+  var row = document.createElement('div');
+  row.className = 'bubble-row ' + type;
+  row.style.marginTop = '6px';
+  var b = document.createElement('div');
+  b.className = 'bubble ' + type;
+  b.textContent = text;
+  row.appendChild(b);
+  return row;
+}
+
+function createMeta(text, align) {
+  var m = document.createElement('div');
+  m.className = 'bubble-meta' + (align === 'admin' ? ' admin' : '');
+  m.textContent = text;
+  return m;
+}
+
+function nowTime() {
+  return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+}
+
+// ── ccg-typing-indicator.js ───────────────────────────────────
+function showTyping(container) {
+  var row = document.createElement('div');
+  row.className = 'bubble-row admin';
+  row.style.marginTop = '6px';
+  row.innerHTML = '<div class="bubble admin" style="display:flex;gap:5px;align-items:center;padding:14px 18px;"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>';
+  container.appendChild(row);
+  return row;
+}
+
+function hideTyping(row) {
+  if (row && row.parentNode) row.parentNode.removeChild(row);
+}
+
+// ── ccg-chat-input.js ─────────────────────────────────────────
+function initChatInput(opts) {
+  var input = document.getElementById(opts.inputId);
+  var btn   = document.getElementById(opts.sendId);
+  if (!input || !btn) return;
+  input.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 80) + 'px';
+  });
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+  });
+  btn.addEventListener('click', send);
+  function send() {
+    var text = input.value.trim();
+    if (!text) return;
+    input.value = ''; input.style.height = 'auto';
+    if (opts.onSend) opts.onSend(text);
+  }
+}
+
+// ── ccg-chat-panel.js ─────────────────────────────────────────
+/*
+  SUPABASE INTEGRATION MAP — uncomment each block when ready:
+  ─────────────────────────────────────────────────────────────
+  1. Auth          → get USER_ID from supabase.auth.getUser()
+  2. loadHistory   → fetch chat_messages for this user
+  3. subscribe     → realtime INSERT on chat_messages
+  4. sendMessage   → insert new user message row
+  5. markRead      → update read=true on admin messages
+  6. uploadImage   → storage upload + message insert with URL
+  7. presence      → admin online/typing via channel presence
+*/
+
+// SUPABASE 1: Auth
+// var USER_ID = null
+// async function authInit() {
+//   var result = await supabase.auth.getUser()
+//   USER_ID = result.data.user.id
+// }
+
+var _chatInitialized = false;
+var _bubbleMenu      = null;
+var _replyIdx        = 0;
+var _historyLoaded   = false;
+
+var SIMULATED_REPLIES = [
+  "got it — I'll look into that for you.",
+  "noted. give me a moment.",
+  "on it ✦",
+  "sounds good. I'll follow up shortly.",
+  "checking now — standby.",
+  "already on it, actually.",
+  "interesting — let me pull that up."
+];
+
+function initChatPanel() {
+  if (_chatInitialized) return;
+  _chatInitialized = true;
+
+  // Swipe-down-to-close on the header
+  initPanelSwipe('chat-panel', 'chat-header', 'panel-scrim', function() {
+    document.getElementById('status-label').textContent = 'home · B';
+    if (_bubbleMenu) _bubbleMenu.close();
+  });
+
+  // Bubble menu — + reveals save + upload circles
+  _bubbleMenu = initBubbleMenu({
+    triggerId: 'header-plus',
+    menuId:    'bubble-menu',
+    buttons:   ['save-btn', 'upload-btn'],
+    panelId:   'chat-panel',
+    titleId:   'panel-title',
+  });
+
+  // Close button
+  document.getElementById('chat-close').addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (_bubbleMenu) _bubbleMenu.close();
+    closeChatPanel();
+  });
+
+  // Scrim tap
+  document.getElementById('panel-scrim').addEventListener('click', function() {
+    if (_bubbleMenu) _bubbleMenu.close();
+    closeChatPanel();
+  });
+
+  // Upload button
+  document.getElementById('upload-btn').addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (_bubbleMenu) _bubbleMenu.close();
+    document.getElementById('file-input').click();
+  });
+
+  // File selected
+  document.getElementById('file-input').addEventListener('change', function() {
+    if (!this.files || !this.files[0]) return;
+    var file = this.files[0];
+
+    // SUPABASE 6: Upload image to storage, insert message with URL
+    // async function handleUpload(file) {
+    //   var path = 'chat/' + USER_ID + '/' + Date.now() + '-' + file.name
+    //   var uploadResult = await supabase.storage.from('chat-attachments').upload(path, file)
+    //   if (uploadResult.error) { console.error(uploadResult.error); return }
+    //   var urlResult = supabase.storage.from('chat-attachments').getPublicUrl(path)
+    //   await supabase.from('chat_messages').insert({
+    //     user_id: USER_ID, content: urlResult.data.publicUrl,
+    //     type: 'image', sender_role: 'user', read: false,
+    //   })
+    // }
+    // handleUpload(file)
+
+    var msgs = document.getElementById('chat-messages');
+    msgs.appendChild(createBubble('📎 ' + file.name, 'user'));
+    msgs.appendChild(createMeta('sent · ' + nowTime(), 'user'));
+    scrollToBottom();
+    this.value = '';
+  });
+
+  // Save transcript
+  document.getElementById('save-btn').addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (_bubbleMenu) _bubbleMenu.close();
+    downloadTranscript();
+  });
+
+  // Input bar
+  initChatInput({
+    inputId: 'chat-input',
+    sendId:  'send-btn',
+    onSend:  handleSend,
+  });
+
+  // SUPABASE 7: Subscribe to admin presence
+  // subscribePresence()
+}
+
+function openChatPanel() {
+  openPanel('chat-panel', 'panel-scrim');
+  document.getElementById('status-label').textContent = 'chat · live';
+  scrollToBottom();
+
+  // SUPABASE 2 + 3 + 5: Load history, subscribe, mark read on first open
+  // if (!_historyLoaded) {
+  //   _historyLoaded = true
+  //   loadHistory()
+  //   subscribeMessages()
+  //   markRead()
+  // }
+}
+
+function closeChatPanel() {
+  closePanel('chat-panel', 'panel-scrim', function() {
+    document.getElementById('status-label').textContent = 'home · B';
+  });
+}
+
+// SUPABASE 2: Load history
+// async function loadHistory() {
+//   var result = await supabase.from('chat_messages')
+//     .select('id,content,type,sender_role,created_at,read')
+//     .eq('user_id', USER_ID)
+//     .order('created_at', { ascending: true })
+//   if (result.error) { console.error(result.error); return }
+//   var msgs = document.getElementById('chat-messages')
+//   msgs.innerHTML = ''
+//   result.data.forEach(function(msg) {
+//     var type = msg.sender_role === 'admin' ? 'admin' : 'user'
+//     msgs.appendChild(createBubble(msg.content, type))
+//     msgs.appendChild(createMeta(
+//       new Date(msg.created_at).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',hour12:false}),
+//       type === 'admin' ? 'admin' : ''
+//     ))
+//   })
+//   scrollToBottom()
+// }
+
+// SUPABASE 3: Realtime subscription
+// function subscribeMessages() {
+//   supabase.channel('chat:' + USER_ID)
+//     .on('postgres_changes', {
+//       event: 'INSERT', schema: 'public', table: 'chat_messages',
+//       filter: 'user_id=eq.' + USER_ID,
+//     }, function(payload) {
+//       var msg = payload.new
+//       if (msg.sender_role !== 'admin') return
+//       var msgs = document.getElementById('chat-messages')
+//       msgs.appendChild(createBubble(msg.content, 'admin'))
+//       msgs.appendChild(createMeta(
+//         new Date(msg.created_at).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',hour12:false}),
+//         'admin'
+//       ))
+//       scrollToBottom()
+//     })
+//     .subscribe()
+// }
+
+// SUPABASE 4: Send message
+function handleSend(text) {
+  var msgs = document.getElementById('chat-messages');
+  var t    = nowTime();
+  msgs.appendChild(createBubble(text, 'user'));
+  var meta = createMeta('sent · ' + t, 'user');
+  msgs.appendChild(meta);
+  scrollToBottom();
+
+  // SUPABASE 4: Insert to database
+  // supabase.from('chat_messages').insert({
+  //   user_id: USER_ID, content: text,
+  //   type: 'text', sender_role: 'user', read: false,
+  // })
+
+  // Optimistic read receipt — REMOVE when realtime read events are wired
+  setTimeout(function() { meta.textContent = 'read ✓ · ' + t; }, 1200);
+
+  // REMOVE: simulated reply — replaced by SUPABASE 3 realtime subscription
+  setTimeout(function() { simulatedReply(msgs); }, 1800);
+}
+
+// SUPABASE 5: Mark read
+// async function markRead() {
+//   await supabase.from('chat_messages')
+//     .update({ read: true })
+//     .eq('user_id', USER_ID)
+//     .eq('sender_role', 'admin')
+//     .eq('read', false)
+// }
+
+// SUPABASE 7: Presence
+// function subscribePresence() {
+//   var channel = supabase.channel('presence:admin')
+//   channel.on('presence', { event: 'sync' }, function() {
+//     var state   = channel.presenceState()
+//     var admin   = Object.values(state).find(function(u) { return u[0].role === 'admin' })
+//     var online  = !!admin
+//     var crumb   = document.getElementById('chat-breadcrumb')
+//     var dot     = document.getElementById('online-dot')
+//     var color   = online ? 'var(--online)' : 'var(--ink-mute)'
+//     if (crumb) crumb.style.color = color
+//     if (dot) dot.style.background = online ? 'var(--online)' : 'var(--ink-mute)'
+//   }).subscribe()
+// }
+
+// REMOVE: simulated reply — keep showTyping/hideTyping, wire to presence typing event
+function simulatedReply(msgs) {
+  var row = showTyping(msgs);
+  scrollToBottom();
+  setTimeout(function() {
+    hideTyping(row);
+    var text = SIMULATED_REPLIES[_replyIdx % SIMULATED_REPLIES.length];
+    _replyIdx++;
+    msgs.appendChild(createBubble(text, 'admin'));
+    msgs.appendChild(createMeta(nowTime(), 'admin'));
+    scrollToBottom();
+  }, 1600);
+}
+
+function downloadTranscript() {
+  var msgs  = document.getElementById('chat-messages');
+  var nodes = msgs.querySelectorAll('.bubble, .chat-date-stamp, .bubble-meta');
+  var lines = ['CCG CHAT TRANSCRIPT', 'exported ' + new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}), '----------------------------------------', ''];
+  nodes.forEach(function(el) {
+    if (el.classList.contains('chat-date-stamp')) {
+      lines.push(''); lines.push('── ' + el.textContent.trim() + ' ──'); lines.push('');
+    } else if (el.classList.contains('bubble')) {
+      lines.push((el.classList.contains('user') ? 'you:   ' : 'admin: ') + el.textContent.trim());
+    } else if (el.classList.contains('bubble-meta')) {
+      lines.push('       ' + el.textContent.trim()); lines.push('');
+    }
+  });
+  lines.push(''); lines.push('----------------------------------------'); lines.push('end of transcript');
+  var blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+  var url  = URL.createObjectURL(blob);
+  var a    = document.createElement('a');
+  a.href = url; a.download = 'ccg-chat-' + Date.now() + '.txt';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  var stamp = document.createElement('div');
+  stamp.className = 'chat-date-stamp'; stamp.textContent = 'transcript saved ↓';
+  msgs.appendChild(stamp); scrollToBottom();
+}
+
+function scrollToBottom() {
+  var m = document.getElementById('chat-messages');
+  if (m) setTimeout(function() { m.scrollTop = m.scrollHeight; }, 60);
+}
+
+// ── Boot ──────────────────────────────────────────────────────
+window.addEventListener('load', function() {
+  initChatPanel();
+  document.getElementById('nav-chat').addEventListener('click', openChatPanel);
+  setTimeout(openChatPanel, 300);
+});
+</script>
+</body>
+</html>
