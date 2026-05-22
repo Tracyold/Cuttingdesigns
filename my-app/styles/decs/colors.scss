@@ -1,100 +1,366 @@
-
+// src/styles/decs/colors.scss
+//
 // ─────────────────────────────────────────────────────────
-// NAME — semantic $variables assigned directly from
-// custom properties. No intermediate $base step.
-// Each name describes where it's used, not what it is.
+// STRUCTURE (different from other dec files by design):
+//
+//   1. .dark  declares --variable names with dark theme values
+//   2. .light declares the same --variable names with light values
+//   3. $names reference var(--variable) — never raw hex
+//
+// Theme is toggled by adding .dark or .light class to .phone.
+// All tokens resolve automatically — no JS color logic in components.
 // ─────────────────────────────────────────────────────────
 
-$panel-background:            var(--base);
-$panel-close-track:           var(--base);
-$panel-close-button:          var(--base-whisper);
-$panel-close-icon:            var(--ink-whisper);
-$panel-drag-bar:              var(--accent);
-$panel-breadcrumb:            var(--ink-mute);
-$panel-scrim:                 var(--scrim);
+// ── 1. Dark theme ─────────────────────────────────────────
 
-$nav-background:              var(--base);
-$nav-icon-inactive:           var(--ink-mute);
-$nav-icon-active:             var(--accent);
-$nav-fab-background:          var(--base);
-$nav-fab-active-background:   var(--accent);
+.dark {
+  // Surfaces
+  --base:          #1c2230;
+  --base-whisper:  #232a3a;
+  --base-mute:     #131825;
 
-$drawer-background:           var(--base);
-$drawer-handle-bar:           var(--ink-mute);
-$drawer-back-button:          var(--base-whisper);
-$drawer-back-icon:            var(--ink-mute);
-$drawer-hint-text:            var(--ink-mute);
-$drawer-title:                var(--ink);
-$drawer-item-label:           var(--ink);
-$drawer-item-label-new:       var(--accent);
-$drawer-item-arrow:           var(--ink-mute);
-$drawer-item-arrow-new:       var(--sedona);
-$drawer-item-divider:         var(--divider);
-$drawer-scrim:                var(--scrim);
+  // Text
+  --ink:           #e4e8ef;
+  --ink-whisper:   #b5bdcc;
+  --ink-mute:      #7d8597;
+  --button-text:   #fff7f3;
 
-$tile-background:             var(--base);
-$tile-active-background:      var(--accent);
-$tile-label:                  var(--ink-mute);
-$tile-label-active:           var(--accent-mute);
-$tile-number:                 var(--ink);
-$tile-number-active:          var(--base-mute);
-$tile-message:                var(--ink-mute);
-$tile-dot-inactive:           var(--accent);
-$tile-dot-active:             #fff;
+  // Brand
+  --accent:        #d1e850;
+  --accent-mute:   #b1c441;
+  --sedona:        #c34d3b;
 
-$bubble-admin-background:     var(--base-whisper);
-$bubble-admin-text:           var(--ink);
-$bubble-user-background:      var(--accent);
-$bubble-user-text:            var(--base-mute);
-$bubble-meta-text:            var(--ink-mute);
+  // System
+  --divider:       rgba(255, 255, 255, 0.06);
+  --scrim:         rgba(0, 0, 0, 0.45);
+  --bg-outer:      #0a0d14;
+  --online:        #3ecf82;
 
-$input-background-dark:       rgba(255,255,255,0.09);
-$input-background-light:      rgba(255,255,255,0.9);
-$input-text:                  var(--ink);
-$input-placeholder:           var(--ink-mute);
-$input-border:                var(--divider);
+  // Neumorphic shadows
+  --neu-dark:      rgba(6, 9, 15, 0.78);
+  --neu-light:     rgba(72, 86, 110, 0.42);
 
-$send-button-background:      var(--sedona);
-$send-button-icon:            #fff7f3;
+  // Shadow shortcuts
+  --neu-xs: 2px 2px 5px var(--neu-dark), -2px -2px 5px var(--neu-light);
+  --neu-sm: 3px 3px 7px var(--neu-dark), -3px -3px 7px var(--neu-light);
+  --neu-md: 6px 6px 14px var(--neu-dark), -6px -6px 14px var(--neu-light);
+  --neu-lg: 8px 8px 18px var(--neu-dark), -8px -8px 18px var(--neu-light);
+  --neu-in: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
 
-$tab-track-background:        var(--base-mute);
-$tab-active-background:       var(--accent);
-$tab-active-text:             var(--base-mute);
-$tab-inactive-text:           var(--ink-mute);
+  // Scroll fade gradients — from surface to transparent
+  --gradient-fade-down: linear-gradient(to bottom, #1c2230, transparent);
+  --gradient-fade-up:   linear-gradient(to top,    #1c2230, transparent);
+}
 
-$inquiry-id:                  var(--ink-mute);
-$inquiry-title:               var(--ink);
-$inquiry-status:              var(--ink-mute);
-$inquiry-arrow-active:        var(--sedona);
-$inquiry-arrow-neutral:       var(--ink-mute);
-$inquiry-divider:             var(--divider);
-$inquiry-item-pressed:        var(--base-whisper);
+// ── 2. Light theme ────────────────────────────────────────
 
-$section-title-idle:          var(--ink-mute);
-$section-title-active:        var(--sedona);
-$section-toggle-background:   var(--base-whisper);
-$section-toggle-text:         var(--ink-mute);
+.light {
+  // Surfaces
+  --base:          #e8ecf2;
+  --base-whisper:  #dfe4ec;
+  --base-mute:     #f1f4f9;
 
-$shop-card-image-background:  var(--base-whisper);
-$shop-card-footer-dark:       #2a3142;
-$shop-card-footer-light:      #bcbcc4;
-$shop-card-text:              var(--ink);
-$heart-active:                var(--sedona);
-$heart-inactive:              var(--ink-whisper);
+  // Text
+  --ink:           #2b3445;
+  --ink-whisper:   #4a5363;
+  --ink-mute:      #8893a6;
+  --button-text:   #fff7f3;
 
-$star-active:                 #ffb84d;
-$star-inactive:               var(--ink-mute);
+  // Brand
+  --accent:        #1a82c8;
+  --accent-mute:   #cee5f5;
+  --sedona:        #8c4f46;
 
-$review-button:               var(--sedona);
-$review-button-text:          #fff7f3;
-$review-textarea-background:  var(--base);
-$review-saved-text:           var(--ink-whisper);
+  // System
+  --divider:       rgba(0, 0, 0, 0.07);
+  --scrim:         rgba(43, 52, 69, 0.35);
+  --bg-outer:      #c8cdd8;
+  --stem:          #269c5d;
 
-$phone-frame-background:      var(--base);
-$phone-outer-background:      var(--bg-outer);
-$status-bar-text:             var(--ink-mute);
-$status-notch:                var(--base-mute);
+  // Neumorphic shadows
+  --neu-dark:      rgba(146, 158, 178, 0.55);
+  --neu-light:     rgba(255, 255, 255, 0.95);
 
-$online-dot:                  var(--online);
-$shadow-dark:                 var(--neu-dark);
-$shadow-light:                var(--neu-light);
+  // Shadow shortcuts (same names, values resolve from overridden --neu-dark/light)
+  --neu-xs: 2px 2px 5px var(--neu-dark), -2px -2px 5px var(--neu-light);
+  --neu-sm: 3px 3px 7px var(--neu-dark), -3px -3px 7px var(--neu-light);
+  --neu-md: 6px 6px 14px var(--neu-dark), -6px -6px 14px var(--neu-light);
+  --neu-lg: 8px 8px 18px var(--neu-dark), -8px -8px 18px var(--neu-light);
+  --neu-in: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+
+  // Scroll fade gradients — from surface to transparent
+  --gradient-fade-down: linear-gradient(to bottom, #e8ecf2, transparent);
+  --gradient-fade-up:   linear-gradient(to top,    #e8ecf2, transparent);
+}
+
+// ── 3. Semantic $names ─────────────────────────────────────
+// All reference var(--variable) from above.
+// These are the only names that leave this file.
+
+// Panel
+$panel-background:               var(--base);
+$panel-close-track:              var(--base);
+$panel-close-button:             var(--base-whisper);
+$panel-close-icon:               var(--ink-whisper);
+$panel-drag-bar:                 var(--accent);
+$panel-hint-text:                var(--ink-mute);
+$panel-scrim:                    var(--scrim);
+$panel-title-archived:           var(--sedona);
+$panel-title-unread:             var(--accent);
+
+// Bottom nav
+$nav-background:                 var(--base);
+$nav-icon-inactive:              var(--ink-mute);
+$nav-icon-active:                var(--accent);
+$nav-fab-background:             var(--base);
+$nav-fab-active-background:      var(--accent);
+
+// Drawer
+$drawer-background:              var(--base);
+$drawer-handle-bar:              var(--ink-mute);
+$drawer-back-button:             var(--base-whisper);
+$drawer-back-icon:               var(--ink-mute);
+$drawer-hint-text:               var(--ink-mute);
+$drawer-title:                   var(--ink);
+$drawer-item-label:              var(--ink);
+$drawer-item-label-new:          var(--accent);
+$drawer-item-arrow:              var(--ink-mute);
+$drawer-item-arrow-new:          var(--sedona);
+$drawer-item-divider:            var(--divider);
+$drawer-scrim:                   var(--scrim);
+
+// Drawer product page
+$drw-photo-circle:               var(--base-whisper);
+$drw-photo-letter:               var(--ink-mute);
+$drw-product-id:                 var(--ink-mute);
+$drw-product-title:              var(--ink);
+$drw-user-message:               var(--ink-whisper);
+$drw-admin-message:              var(--ink);
+$drw-admin-border:               var(--accent);
+$drw-detail-key:                 var(--ink-mute);
+$drw-detail-val:                 var(--ink);
+$drw-divider:                    var(--divider);
+
+// Status pill
+$status-pill-read-bg:            var(--accent-mute);
+$status-pill-read-text:          var(--accent);
+$status-pill-waiting-bg:         var(--base-whisper);
+$status-pill-waiting-text:       var(--ink-mute);
+
+// Tab switcher
+$tab-track-background:           var(--base-mute);
+$tab-active-background:          var(--accent);
+$tab-inactive-text:              var(--ink-mute);
+
+// Inquiry list
+$inq-item-pressed:               var(--base-whisper);
+$inq-title:                      var(--ink);
+$inq-sender:                     var(--ink-mute);
+$inq-arrow-dim:                  var(--ink-mute);
+$inq-id:                         var(--ink-mute);
+$inq-date-corner:                var(--ink-mute);
+$inq-divider:                    var(--divider);
+$inq-section-label:              var(--ink-mute);
+
+// Show/hide toggle
+$section-toggle-background:      var(--base-whisper);
+$section-toggle-text:            var(--ink-mute);
+$show-more-label-closed:         var(--ink-mute);
+$show-more-label-open:           var(--sedona);
+
+// Recover flow
+$recover-link:                   var(--accent);
+$recover-selected-outline:       var(--accent);
+$recover-selected-bg:            var(--accent-mute);
+$recover-confirm-bg:             var(--accent);
+$recover-confirm-text:           var(--base-mute);
+$recover-cancel-bg:              var(--base-whisper);
+$recover-cancel-text:            var(--ink-mute);
+
+// CTA buttons
+$cta-background:                 var(--sedona);
+$cta-text:                       var(--button-text);
+
+// Tile (dashboard)
+$tile-background:                var(--base);
+$tile-active-background:         var(--accent);
+$tile-label:                     var(--ink-mute);
+$tile-label-active:              var(--accent-mute);
+$tile-number:                    var(--ink);
+$tile-number-active:             var(--base-mute);
+$tile-message:                   var(--ink-mute);
+$tile-dot-inactive:              var(--accent);
+$tile-dot-active:                var(--divider);
+
+// Chat bubbles
+$bubble-admin-background:        var(--base-whisper);
+$bubble-admin-text:              var(--ink);
+$bubble-user-background:         var(--accent);
+$bubble-user-text:               var(--base-mute);
+$bubble-meta-text:               var(--ink-mute);
+
+// Chat input
+$input-background-dark:          rgba(255, 255, 255, 0.09);
+$input-background-light:         rgba(255, 255, 255, 0.9);
+$input-text:                     var(--ink);
+$input-placeholder:              var(--ink-mute);
+$input-border:                   var(--divider);
+$send-button-background:         var(--sedona);
+$send-button-icon:               #fff7f3;
+
+// Shop / store
+$shop-card-image-background:     var(--base-whisper);
+$shop-card-text:                 var(--ink);
+$heart-active:                   var(--sedona);
+$heart-inactive:                 var(--ink-whisper);
+$star-active:                    #ffb84d;
+$star-inactive:                  var(--ink-mute);
+$review-button:                  var(--sedona);
+$review-button-text:             #fff7f3;
+$review-textarea-background:     var(--base);
+$review-saved-text:              var(--ink-whisper);
+
+// Phone chrome
+$phone-frame-background:         var(--base);
+$phone-outer-background:         var(--bg-outer);
+$status-bar-text:                var(--ink-mute);
+$status-notch:                   var(--base-mute);
+
+// Presence
+$online-dot:                     var(--online);
+
+// Chat panel — panel header
+$chat-breadcrumb:                var(--ink-mute);
+$chat-title:                     var(--ink);
+$chat-online-dot:                var(--online);
+$chat-panel-background:          var(--base);
+
+// Chat panel — scroll fade gradients
+$chat-scroll-fade-base:          var(--base);
+
+// Chat panel — typing indicator
+$chat-typing-dot:                var(--ink-mute);
+
+// Chat panel — bubble menu buttons
+$chat-bubble-menu-btn-bg:        var(--base-whisper);
+$chat-bubble-menu-btn-icon:      var(--ink-mute);
+$chat-bubble-menu-btn-bg-active: var(--accent);
+$chat-bubble-menu-btn-icon-active: var(--base-mute);
+
+// Chat panel — send button
+$chat-send-btn-background:       var(--sedona);
+$chat-send-btn-icon:             #fff7f3;
+
+// Chat panel — read receipt
+$chat-read-receipt:              var(--ink-mute);
+
+// Tab switcher — active text (theme-specific, dec here, applied in loc)
+$tab-active-text-dark:           var(--base-mute);
+$tab-active-text-light:          #ffffff;
+
+// Tile — light theme active overrides (rgba, not token)
+$tile-label-active-light:        rgba(255, 255, 255, 0.85);
+$tile-number-active-light:       #ffffff;
+$tile-msg-active-light:          rgba(255, 255, 255, 0.85);
+$tile-dot-outline-inactive:      var(--base);
+$tile-dot-outline-active:        rgba(255, 255, 255, 0.3);
+
+// Dashboard
+$dash-date:                      var(--ink-mute);
+$dash-title:                     var(--ink);
+$dash-profile-text:              var(--ink-mute);
+$dash-scroll-hint:               var(--ink-mute);
+$dash-section-title-idle:        var(--ink-mute);
+$dash-section-title-active:      var(--sedona);
+
+// Shop card — footer (raw hex, theme-specific)
+$shop-card-footer-dark:          #2a3142;
+$shop-card-footer-light:         #bcbcc4;
+$shop-card-footer-text:          var(--ink);
+
+// Store layout toggle
+$store-toggle-knob-on:           var(--accent);
+$store-toggle-knob-off:          transparent;
+
+// Portfolio
+$portfolio-circle-bg:            var(--base);
+$portfolio-circle-icon:          var(--ink-mute);
+$portfolio-modal-bg:             rgba(0, 0, 0, 0.6);
+$portfolio-gem-icon:             var(--ink);
+$portfolio-zoom-hint:            var(--ink-mute);
+$portfolio-close-btn-bg:         var(--base);
+$portfolio-close-btn-icon:       var(--ink-mute);
+
+// Profile card
+$profile-overlay-bg:             var(--scrim);
+$profile-card-bg:                var(--base);
+$profile-card-title:             var(--ink);
+$profile-close-btn-bg:           var(--base-whisper);
+$profile-close-btn-icon:         var(--ink-mute);
+$profile-label:                  var(--ink-mute);
+$profile-input-bg:               var(--base);
+$profile-input-text:             var(--ink);
+$profile-role-text:              var(--ink-mute);
+$profile-role-active-text:       var(--accent);
+$profile-role-active-bg:         var(--base-whisper);
+$profile-save-text:              var(--ink-mute);
+
+// Review
+$review-title:                   var(--ink);
+$review-star-active:             #ffb84d;
+$review-star-inactive:           var(--ink-mute);
+$review-textarea-bg:             var(--base);
+$review-textarea-text:           var(--ink);
+$review-cancel-bg:               var(--base);
+$review-cancel-text:             var(--ink-mute);
+$review-submit-bg:               var(--sedona);
+$review-submit-text:             #fff7f3;
+$review-leave-bg:                var(--sedona);
+$review-leave-text:              #fff7f3;
+$review-saved-text:              var(--ink-whisper);
+
+// Theme switcher buttons (preview only)
+$theme-btn-dark-bg:              #1c2230;
+$theme-btn-dark-text:            #d4ec5a;
+$theme-btn-light-bg:             #e8ecf2;
+$theme-btn-light-text:           #1a82c8;
+
+// Gradients — scroll fades (theme-correct per block above)
+$gradient-fade-down:             var(--gradient-fade-down);
+$gradient-fade-up:               var(--gradient-fade-up);
+
+// Aliases per use-case — all reference the same two variables
+$gradient-scroll-top:            var(--gradient-fade-down);
+$gradient-scroll-bot:            var(--gradient-fade-up);
+$gradient-store-top:             var(--gradient-fade-down);
+$gradient-store-bot:             var(--gradient-fade-up);
+$gradient-portfolio-top:         var(--gradient-fade-down);
+$gradient-portfolio-bot:         var(--gradient-fade-up);
+$gradient-chat-top:              var(--gradient-fade-down);
+$gradient-chat-bot:              var(--gradient-fade-up);
+
+// Shadow aliases
+$shadow-dark:                    var(--neu-dark);
+$shadow-light:                   var(--neu-light);
+
+// Non-neumorphic elevation shadow colors
+// Each theme gets its own appropriate values.
+.dark {
+  --shadow-phone-glow:      rgba(0, 0, 0, 0.6);
+  --shadow-phone-ring:      rgba(255, 255, 255, 0.06);
+  --shadow-profile-card:    rgba(0, 0, 0, 0.5);
+  --shadow-portfolio-close: rgba(0, 0, 0, 0.3);
+  --shadow-tile-dot-active: rgba(255, 255, 255, 0.3);
+}
+.light {
+  --shadow-phone-glow:      rgba(0, 0, 0, 0.18);
+  --shadow-phone-ring:      rgba(0, 0, 0, 0.08);
+  --shadow-profile-card:    rgba(43, 52, 69, 0.22);
+  --shadow-portfolio-close: rgba(43, 52, 69, 0.18);
+  --shadow-tile-dot-active: rgba(255, 255, 255, 0.5);
+}
+$shadow-phone-glow:           var(--shadow-phone-glow);
+$shadow-phone-ring:           var(--shadow-phone-ring);
+$shadow-elevation-profile:    var(--shadow-profile-card);
+$shadow-elevation-portfolio:  var(--shadow-portfolio-close);
+$shadow-tile-dot-active-ring: var(--shadow-tile-dot-active);

@@ -1,0 +1,27 @@
+// src/styles/decs/text-align.scss
+
+// ─────────────────────────────────────────────────────────
+// RAW — private. Never used outside this file.
+// ─────────────────────────────────────────────────────────
+
+$_a: left;
+$_b: center;
+$_c: right;
+
+// ─────────────────────────────────────────────────────────
+// NAME
+// ─────────────────────────────────────────────────────────
+
+$align-default:              $_a;   // left — most text
+$align-center:               $_b;   // drag pill, panel hint, section toggles
+$align-right:                $_c;   // profile gem/role, scroll hint, shop card footer
+
+// Component-specific
+$align-drag-pill:            $_b;
+$align-panel-hint:           $_b;
+$align-section-toggle:       $_b;
+$align-dash-profile:         $_c;
+$align-dash-scroll-hint:     $_c;
+$align-shop-card-footer:     $_b;
+$align-portfolio-zoom-hint:  $_b;
+$align-inq-corner:           $_c;

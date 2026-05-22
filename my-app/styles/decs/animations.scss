@@ -1,0 +1,71 @@
+// src/styles/decs/animations.scss
+//
+// ─────────────────────────────────────────────────────────
+// All @keyframes and named animation $variables.
+// Import into any component loc file that uses animation.
+// ─────────────────────────────────────────────────────────
+
+// ─────────────────────────────────────────────────────────
+// RAW — private color stops (hex, not tokens, by design —
+// animations need concrete values, not var() references,
+// because CSS custom properties don't interpolate in
+// @keyframes in all browsers).
+// ─────────────────────────────────────────────────────────
+
+$_a: #c3563b;   // sedona dark  — pulse start
+$_b: #d4ec5a;   // accent dark  — pulse mid
+$_c: #976a63;   // sedona light — pulse start
+$_d: #1a82c8;   // accent light — pulse mid
+$_e: 0;         // translateY zero
+$_f: -4px;      // typing dot lift
+$_g: 0.4;       // typing dot opacity dim
+$_h: 1;         // typing dot opacity full
+$_i: 0deg;      // rotation start
+$_j: 360deg;    // rotation end
+
+// ─────────────────────────────────────────────────────────
+// KEYFRAMES
+// ─────────────────────────────────────────────────────────
+
+// Pulse — dark theme (sedona ↔ accent)
+// Used on: menu-item.is-new arrow, inquiry-item hot arrow
+@keyframes ccg-pulse-dark {
+  0%, 100% { color: $_a; }
+  50%       { color: $_b; }
+}
+
+// Pulse — light theme
+@keyframes ccg-pulse-light {
+  0%, 100% { color: $_c; }
+  50%       { color: $_d; }
+}
+
+// Typing indicator dot bounce
+// Used on: chat typing indicator (3 dots, staggered)
+@keyframes ccg-typing-dot {
+  0%, 60%, 100% { transform: translateY($_e); opacity: $_g; }
+  30%            { transform: translateY($_f); opacity: $_h; }
+}
+
+// ─────────────────────────────────────────────────────────
+// NAME — named animation $variables
+// Compose duration + easing from motion.scss when combined.
+// These stand alone as the animation shorthand value.
+// ─────────────────────────────────────────────────────────
+
+// Arrow pulse — dark theme
+$anim-pulse-dark:    ccg-pulse-dark  2.2s ease-in-out infinite;
+
+// Arrow pulse — light theme
+$anim-pulse-light:   ccg-pulse-light 2.2s ease-in-out infinite;
+
+// Typing dot — base (delay applied per-dot in loc file)
+$anim-typing-dot:    ccg-typing-dot  1.2s ease-in-out infinite;
+
+// Typing dot stagger delays
+$anim-typing-delay-1: 0s;
+$anim-typing-delay-2: 0.18s;
+$anim-typing-delay-3: 0.36s;
+
+// None (stops animation — used when hot arrow is read)
+$anim-none:          none;

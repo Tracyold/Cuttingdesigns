@@ -1,0 +1,43 @@
+// src/styles/decs/line-height.scss
+
+// ─────────────────────────────────────────────────────────
+// RAW — private. Never used outside this file.
+// ─────────────────────────────────────────────────────────
+
+$_a: 1;
+$_b: 1.1;
+$_c: 1.15;
+$_d: 1.2;
+$_e: 1.45;
+$_f: 1.5;
+$_g: 1.6;
+$_h: 1.65;
+
+// ─────────────────────────────────────────────────────────
+// NAME
+// ─────────────────────────────────────────────────────────
+
+// Titles
+$lh-dash-title:              $_a;   // 1   — 58px display title
+$lh-drawer-title:            $_a;   // 1   — 52px drawer title
+$lh-panel-title:             $_b;   // 1.1 — 30px panel title
+$lh-menu-label:              $_c;   // 1.15 — menu item labels
+
+// Inquiry items
+$lh-inq-title:               $_d;   // 1.2
+$lh-drw-product-title:       $_b;   // 1.1
+
+// Chat bubbles
+$lh-bubble:                  $_e;   // 1.45
+
+// Body / inputs
+$lh-body:                    $_f;   // 1.5
+$lh-drw-message:             $_h;   // 1.65
+$lh-review-saved:            $_g;   // 1.6
+$lh-chat-input:              $_f;   // 1.5
+
+// Tile number
+$lh-tile-number:             $_a;   // 1
+
+// Profile input
+$lh-profile-input:           $_f;   // 1.5

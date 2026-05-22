@@ -1,0 +1,147 @@
+// src/styles/decs/dimensions.scss
+
+// ─────────────────────────────────────────────────────────
+// RAW — private. Never used outside this file.
+// ─────────────────────────────────────────────────────────
+
+// Fixed pixel sizes
+$_a: 4px;
+$_b: 10px;
+$_c: 16px;
+$_d: 24px;
+$_e: 26px;
+$_f: 28px;
+$_g: 32px;
+$_h: 36px;
+$_i: 40px;
+$_j: 42px;
+$_k: 44px;
+$_l: 48px;
+$_m: 54px;
+$_n: 64px;
+$_o: 88px;
+$_p: 100px;
+$_q: 110px;
+$_r: 120px;
+$_s: 160px;
+$_t: 240px;
+$_u: 260px;
+$_v: 318px;
+$_w: 390px;
+$_x: 844px;
+
+// Percentage / calc
+$_y: 85%;     // menu drawer width
+$_z: 88%;     // inquiry drawer width
+
+// ─────────────────────────────────────────────────────────
+// NAME
+// ─────────────────────────────────────────────────────────
+
+// Drag / handle bars
+$dim-drag-bar-w:             $_h;
+$dim-drag-bar-h:             $_a;
+$dim-handle-bar-w:           $_h;
+$dim-handle-bar-h:           $_a;
+
+// Tile strip dot
+$dim-tile-dot:               $_b;
+
+// Close button track
+$dim-close-track:            $_h;
+
+// Close button
+$dim-close-btn:              $_e;
+
+// Back button
+$dim-back-btn:               $_g;
+
+// Nav buttons
+$dim-nav-btn:                $_i;
+$dim-nav-fab:                $_m;
+
+// Section toggle
+$dim-section-toggle-min-w:   $_n;
+
+// Status notch
+$dim-status-notch-w:         $_r;
+$dim-status-notch-h:         $_f;
+$dim-status-notch-margin-top:-14px;
+
+// Shop cards
+$dim-shop-card-w:            $_s;
+$dim-shop-card-img-h:        180px;
+$dim-shop-card-wide-w:       $_v;
+$dim-shop-card-wide-img-h:   287px;
+$dim-shop-card-wide-footer-h:$_l;
+$dim-shop-card-heart:        $_h;
+
+// Store layout toggle
+$dim-store-toggle-w:         $_k;
+$dim-store-toggle-h:         $_d;
+$dim-store-toggle-knob:      $_c;
+
+// Portfolio circles (horizontal strip)
+$dim-portfolio-circle:       $_q;
+
+// Portfolio modal circle
+$dim-portfolio-modal-circle: $_u;
+
+// Gem photo circle (drawer)
+$dim-drw-photo-circle:       $_q;
+
+// Profile card close btn
+$dim-profile-close-btn:      $_f;
+
+// Portfolio close btn
+$dim-portfolio-close-btn:    $_g;
+
+// Bottom nav
+$dim-nav-h:                  $_p;
+
+// Phone frame
+$dim-phone-w:                $_w;
+$dim-phone-h:                $_x;
+
+// Drawers
+$dim-menu-drawer-w:          $_y;
+$dim-inq-drawer-w:           $_z;
+
+// Star buttons
+$dim-star-btn:               $_i;
+
+// Review textarea min-height
+$dim-review-textarea-h:      $_o;
+
+// Tab button height
+$dim-tab-btn-h:              $_j;
+
+// Chat panel
+$dim-chat-input-max-h:        80px;   // one-off — auto-resize cap
+$dim-chat-send-btn:           $_k;    // 44px
+$dim-chat-bubble-menu-btn:    $_k;    // 44px
+$dim-chat-typing-dot:         6px;    // one-off — 6×6px dot
+$dim-chat-online-dot:         10px;   // one-off — presence dot
+
+// Tile
+$dim-tile-min-w:              $_t;    // 240px
+$dim-tile-dot:                $_b;    // 10px
+
+// Store grid
+$dim-store-grid-max-h:        460px;  // one-off — scroll container cap
+
+// Store layout knob
+$dim-store-knob-translate-on: 18px;   // one-off — knob slide distance
+
+// Shop card wide footer
+$dim-shop-wide-footer-h:      $_l;    // 48px
+
+// Profile card
+$dim-profile-card-w:          100%;   // full width of overlay
+
+// Portfolio modal
+$dim-portfolio-modal-close-offset-top:  calc(50% - 130px);  // one-off
+$dim-portfolio-modal-close-offset-left: calc(50% + 114px);  // one-off
+
+// Review textarea
+$dim-review-textarea-min-h:   $_o;    // 88px

@@ -1,0 +1,36 @@
+// src/styles/decs/z-index.scss
+
+// ─────────────────────────────────────────────────────────
+// RAW — private. Never used outside this file.
+// ─────────────────────────────────────────────────────────
+
+$_a: 5;
+$_b: 10;
+$_c: 15;
+$_d: 18;
+$_e: 20;
+$_f: 30;
+$_g: 31;
+$_h: 40;
+$_i: 70;
+
+// ─────────────────────────────────────────────────────────
+// NAME
+// ─────────────────────────────────────────────────────────
+
+$z-status-bar:       $_a;
+$z-gradient-fade:    $_b;
+$z-panel-scrim:      $_c;
+$z-panel:            $_d;
+$z-bottom-nav:       $_e;
+$z-drawer-scrim:     $_f;
+$z-drawer:           $_g;
+$z-portfolio-modal:  $_h;
+$z-menu-drawer:      $_i;
+
+// Additional layers
+$z-profile-overlay:          35;    // above drawer scrim (30) and drawer (31)
+$z-scroll-fade:              $_b;   // 10 — fade gradients above scroll content
+$z-tile-dot:                 $_a;   // 5 — dot above tile content
+$z-close-track:              2;     // one-off — above panel header content
+$z-preview-theme-switcher:   9999;  // preview only — always on top

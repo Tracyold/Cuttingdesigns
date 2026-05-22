@@ -1,0 +1,37 @@
+// src/styles/decs/text-transform.scss
+
+// ─────────────────────────────────────────────────────────
+// RAW — private. Never used outside this file.
+// ─────────────────────────────────────────────────────────
+
+$_a: uppercase;
+$_b: none;
+$_c: capitalize;
+
+// ─────────────────────────────────────────────────────────
+// NAME
+// ─────────────────────────────────────────────────────────
+
+$transform-label:              $_a;
+$transform-breadcrumb:         $_a;
+$transform-inquiry-id:         $_a;
+$transform-inq-corner-id:      $_a;
+$transform-section-label:      $_a;
+$transform-drawer-hint:        $_a;
+$transform-tile-label:         $_a;
+$transform-profile-label:      $_a;
+$transform-recover-link:       $_a;
+$transform-review-cancel:      $_a;
+$transform-portfolio-zoom:     $_a;
+$transform-panel-hint:         $_a;
+$transform-chat-breadcrumb:    $_a;
+$transform-drw-product-id:     $_a;
+$transform-drw-details-label:  $_a;
+$transform-drw-show-more:      $_a;
+$transform-drw-detail-key:     $_a;
+$transform-dash-date:          $_a;
+$transform-theme-btn:          $_b;
+$transform-body-text:          $_b;
+$transform-bubble:             $_b;
+$transform-menu-label:         $_b;
+$transform-inq-title:          $_b;

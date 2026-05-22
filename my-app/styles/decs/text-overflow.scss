@@ -1,0 +1,19 @@
+// src/styles/decs/text-overflow.scss
+
+// ─────────────────────────────────────────────────────────
+// RAW — private. Never used outside this file.
+// ─────────────────────────────────────────────────────────
+
+$_a: ellipsis;
+$_b: clip;
+
+// ─────────────────────────────────────────────────────────
+// NAME
+// Always paired with white-space: nowrap and overflow: hidden
+// ─────────────────────────────────────────────────────────
+
+// Single-line truncation with ellipsis
+$overflow-text-inq-title:    $_a;   // inquiry item titles
+$overflow-text-shop-footer:  $_a;   // shop card footer gem name
+$overflow-text-menu-label:   $_a;   // menu drawer item labels (if too long)
+$overflow-text-default:      $_a;   // general truncation pattern

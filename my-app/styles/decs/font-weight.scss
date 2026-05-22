@@ -1,0 +1,104 @@
+// src/styles/decs/font-weight.scss
+
+// ─────────────────────────────────────────────────────────
+// RAW — private. Never used outside this file.
+// ─────────────────────────────────────────────────────────
+
+$_a: 400;
+$_b: 500;
+$_c: 600;
+$_d: 700;
+$_e: 800;
+
+// ─────────────────────────────────────────────────────────
+// NAME
+// ─────────────────────────────────────────────────────────
+
+$weight-body:               $_a;
+$weight-drawer-item:        $_a;
+$weight-bubble-admin:       $_a;
+$weight-inq-title:          $_a;
+$weight-drw-message-user:   $_a;
+$weight-status:             $_b;
+$weight-inquiry-status:     $_b;
+$weight-bubble-meta:        $_b;
+$weight-tile-message:       $_b;
+$weight-inq-sender:         $_b;
+$weight-bubble-user:        $_b;
+$weight-drw-detail-val:     $_b;
+$weight-inq-corner-date:    $_b;
+$weight-label:              $_c;
+$weight-status-bar:         $_c;
+$weight-tab:                $_c;
+$weight-nav-icon:           $_c;
+$weight-section-toggle:     $_c;
+$weight-recover-link:       $_d;
+$weight-drw-product-id:     $_c;
+$weight-inq-id:             $_c;
+$weight-drw-details-label:  $_d;
+$weight-drw-detail-key:     $_c;
+$weight-drw-show-more-label:$_c;
+$weight-profile-title:      $_d;
+$weight-review-title:       $_d;
+$weight-drawer-arrow:       $_d;
+$weight-button:             $_d;
+$weight-inq-cta-btn:        $_d;
+$weight-cta-btn:            $_d;
+$weight-recover-confirm:    $_d;
+$weight-recover-cancel:     $_d;
+$weight-section-title:      $_e;
+$weight-tile-number:        $_e;
+$weight-panel-title:        $_e;
+$weight-drawer-title:       $_e;
+$weight-dash-title:         $_e;
+$weight-drw-product-title:  $_d;
+$weight-breadcrumb:         $_d;
+
+// Chat panel
+$weight-chat-breadcrumb:     $_d;   // 700
+$weight-chat-title:          $_e;   // 800
+$weight-chat-bubble-admin:   $_a;   // 400
+$weight-chat-bubble-user:    $_b;   // 500
+$weight-chat-bubble-meta:    $_b;   // 500
+$weight-chat-input:          $_a;   // 400
+$weight-chat-send:           $_d;   // 700
+
+// Dashboard
+$weight-dash-date:           $_c;   // 600
+$weight-dash-title:          $_e;   // 800
+$weight-dash-profile-text:   $_b;   // 500
+$weight-dash-profile-edit:   $_c;   // 600
+$weight-dash-scroll-hint:    $_b;   // 500
+
+// Tile
+$weight-tile-label:          $_c;   // 600
+$weight-tile-number:         $_e;   // 800
+$weight-tile-msg:            $_b;   // 500
+
+// Shop / store
+$weight-shop-footer:         $_c;   // 600
+$weight-shop-img-letter:     $_d;   // 700
+
+// Portfolio
+$weight-portfolio-zoom-hint: $_c;   // 600
+
+// Review
+$weight-review-title:        $_d;   // 700
+$weight-review-cancel:       $_d;   // 700
+$weight-review-submit:       $_d;   // 700
+$weight-review-leave:        $_d;   // 700
+
+// Profile
+$weight-profile-title:       $_d;   // 700
+$weight-profile-label:       $_d;   // 700
+$weight-profile-role:        $_a;   // 400
+$weight-profile-role-active: $_c;   // 600
+$weight-profile-save:        $_d;   // 700
+
+// Menu drawer
+$weight-menu-label:          $_a;   // 400
+$weight-menu-sub:            $_b;   // 500
+$weight-menu-arrow:          $_d;   // 700
+
+// Theme switcher (preview only)
+$weight-theme-btn:           $_d;   // 700

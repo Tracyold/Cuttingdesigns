@@ -1,0 +1,85 @@
+// src/styles/decs/letter-spacing.scss
+
+// ─────────────────────────────────────────────────────────
+// RAW — private. Never used outside this file.
+// ─────────────────────────────────────────────────────────
+
+$_a: -2px;
+$_b: -1.5px;
+$_c: -1px;
+$_d: -0.5px;
+$_e: -0.3px;
+$_f: -0.2px;
+$_g: 0.1px;
+$_h: 0.3px;
+$_i: 0.5px;
+$_j: 0.6px;
+$_k: 0.8px;
+$_l: 1px;
+$_m: 1.2px;
+$_n: 1.5px;
+$_o: 1.6px;
+$_p: 1.8px;
+$_q: 2px;
+
+// ─────────────────────────────────────────────────────────
+// NAME
+// ─────────────────────────────────────────────────────────
+
+$track-dash-title:           $_a;
+$track-drawer-title:         $_a;
+$track-tile-number:          $_b;
+$track-panel-title:          $_i;
+$track-drawer-item:          $_d;
+$track-bubble-meta:          $_h;
+$track-review-saved:         $_g;
+$track-profile-title:        $_e;
+$track-theme-btn:            $_i;
+$track-inq-cta-btn:          $_f;
+$track-inq-corner-id:        $_j;
+$track-inquiry-id:           $_k;
+$track-tile-label:           $_m;
+$track-profile-label:        $_m;
+$track-drw-product-id:       $_l;
+$track-drw-detail-key:       $_i;
+$track-drw-show-more-label:  $_i;
+$track-drw-details-label:    $_m;
+$track-recover-link:         $_m;
+$track-drawer-hint:          $_n;
+$track-panel-hint:           $_o;
+$track-section-label:        $_p;
+$track-breadcrumb:           $_p;
+$track-date:                 $_q;
+$track-review-cancel:        $_l;
+
+// Chat panel
+$track-chat-breadcrumb:      $_p;   // 1.8px
+$track-chat-title:           $_c;   // -1px
+$track-chat-bubble:          0px;   // no tracking on bubbles
+$track-chat-meta:            $_h;   // 0.3px
+
+// Dashboard
+$track-dash-date:            $_q;   // 2px
+$track-dash-profile-edit:    $_i;   // 0.5px
+$track-dash-scroll-hint:     0px;
+
+// Tiles
+$track-tile-label:           $_m;   // 1.2px (matches existing, confirm alias)
+$track-tile-number:          $_b;   // -1.5px
+
+// Shop / store
+$track-shop-footer:          $_e;   // -0.1px (letter-spacing: -0.1px)
+
+// Review
+$track-review-cancel:        $_l;   // 1px
+
+// Profile
+$track-profile-label:        $_m;   // 1.2px
+$track-profile-zoom-hint:    $_l;   // 1px
+
+// Menu drawer
+$track-menu-label:           $_d;   // -0.5px
+$track-menu-sub:             0px;
+
+// Theme switcher (preview only)
+$track-theme-btn:            $_i;   // 0.5px

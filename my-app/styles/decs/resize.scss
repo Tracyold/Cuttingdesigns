@@ -1,0 +1,19 @@
+// src/styles/decs/resize.scss
+
+// ─────────────────────────────────────────────────────────
+// RAW — private. Never used outside this file.
+// ─────────────────────────────────────────────────────────
+
+$_a: none;
+$_b: vertical;
+$_c: both;
+
+// ─────────────────────────────────────────────────────────
+// NAME
+// ─────────────────────────────────────────────────────────
+
+// Review textarea — no resize handle, auto-height via JS
+$resize-review-textarea:     $_a;
+
+// Chat input — no resize handle, auto-height via JS
+$resize-chat-input:          $_a;

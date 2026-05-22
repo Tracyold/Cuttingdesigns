@@ -1,0 +1,54 @@
+// src/styles/decs/cursor.scss
+
+// ─────────────────────────────────────────────────────────
+// RAW — private. Never used outside this file.
+// ─────────────────────────────────────────────────────────
+
+$_a: pointer;
+$_b: grab;
+$_c: grabbing;
+$_d: zoom-in;
+$_e: zoom-out;
+$_f: default;
+$_g: text;
+$_h: none;
+
+// ─────────────────────────────────────────────────────────
+// NAME
+// ─────────────────────────────────────────────────────────
+
+// Interactive elements — buttons, items, toggles
+$cursor-btn:                 $_a;   // pointer
+$cursor-nav-btn:             $_a;
+$cursor-tile:                $_a;
+$cursor-inq-item:            $_a;
+$cursor-menu-item:           $_a;
+$cursor-tab-btn:             $_a;
+$cursor-section-toggle:      $_a;
+$cursor-recover-link:        $_a;
+$cursor-recover-btn:         $_a;
+$cursor-shop-heart:          $_a;
+$cursor-star-btn:            $_a;
+$cursor-portfolio-circle:    $_a;
+$cursor-store-toggle:        $_a;
+$cursor-profile-edit:        $_a;
+$cursor-close-btn:           $_a;
+$cursor-back-btn:            $_a;
+$cursor-cta-btn:             $_a;
+$cursor-send-btn:            $_a;
+
+// Drag handles — panels and drawers
+$cursor-panel-header:        $_b;   // grab
+$cursor-panel-header-active: $_c;   // grabbing
+
+// Portfolio modal zoom
+$cursor-portfolio-zoom-in:   $_d;   // zoom-in
+$cursor-portfolio-zoom-out:  $_e;   // zoom-out (when scale > 1)
+$cursor-portfolio-pan:       $_b;   // grab (when panning)
+
+// Non-interactive
+$cursor-scroll-fade:         $_h;   // none (pointer-events also none)
+$cursor-zoom-hint:           $_h;   // none
+
+// Input fields
+$cursor-input:               $_g;   // text

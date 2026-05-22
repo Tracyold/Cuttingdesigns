@@ -1,0 +1,24 @@
+// src/styles/decs/user-select.scss
+
+// ─────────────────────────────────────────────────────────
+// RAW — private. Never used outside this file.
+// ─────────────────────────────────────────────────────────
+
+$_a: none;
+$_b: text;
+$_c: auto;
+
+// ─────────────────────────────────────────────────────────
+// NAME
+// ─────────────────────────────────────────────────────────
+
+// Drag zones — prevent text selection during swipe gestures
+$select-panel-header:        $_a;
+$select-tile:                $_a;
+$select-drawer-handle:       $_a;
+$select-portfolio-modal:     $_a;
+
+// Input and readable content
+$select-input:               $_b;
+$select-bubble:              $_b;
+$select-body:                $_c;

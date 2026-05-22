@@ -1,0 +1,22 @@
+// src/styles/decs/text-decoration.scss
+
+// ─────────────────────────────────────────────────────────
+// RAW — private. Never used outside this file.
+// ─────────────────────────────────────────────────────────
+
+$_a: none;
+$_b: underline;
+
+// ─────────────────────────────────────────────────────────
+// NAME
+// ─────────────────────────────────────────────────────────
+
+// Profile edit link — only decorated element in the system
+$decoration-profile-edit:    $_b;
+
+// All buttons and interactive elements — reset decoration
+$decoration-btn:             $_a;
+$decoration-nav-btn:         $_a;
+$decoration-menu-item:       $_a;
+$decoration-inq-item:        $_a;
+$decoration-tile:            $_a;

@@ -1,0 +1,179 @@
+// src/styles/decs/shadows.scss
+//
+// ─────────────────────────────────────────────────────────
+// All shadows use var(--neu-dark) and var(--neu-light) only.
+// No hardcoded rgba() colors anywhere in this file.
+// Colors resolve from the active theme automatically.
+//
+// RAW values are offset/blur numbers only.
+// $names compose the full box-shadow string.
+// ─────────────────────────────────────────────────────────
+
+// ─────────────────────────────────────────────────────────
+// RAW — private offset + blur primitives (px only)
+// ─────────────────────────────────────────────────────────
+
+$_a: 1px;
+$_b: 2px;
+$_c: 3px;
+$_d: 4px;
+$_e: 5px;
+$_f: 6px;
+$_g: 7px;
+$_h: 8px;
+$_i: 9px;
+$_j: 10px;
+$_k: 11px;
+$_l: 14px;
+$_m: 18px;
+$_n: 24px;
+$_o: 32px;
+$_p: 40px;
+$_q: 80px;
+
+// ─────────────────────────────────────────────────────────
+// NAME — raised (element pops up from surface)
+// ─────────────────────────────────────────────────────────
+
+$shadow-raised-xs: #{$_b} #{$_b} #{$_e} var(--neu-dark), -#{$_b} -#{$_b} #{$_e} var(--neu-light);
+$shadow-raised-sm: #{$_c} #{$_c} #{$_g} var(--neu-dark), -#{$_c} -#{$_c} #{$_g} var(--neu-light);
+$shadow-raised-md: #{$_f} #{$_f} #{$_l} var(--neu-dark), -#{$_f} -#{$_f} #{$_l} var(--neu-light);
+$shadow-raised-lg: #{$_h} #{$_h} #{$_m} var(--neu-dark), -#{$_h} -#{$_h} #{$_m} var(--neu-light);
+
+// ─────────────────────────────────────────────────────────
+// NAME — sunken / inset (element pressed into surface)
+// ─────────────────────────────────────────────────────────
+
+$shadow-inset-xs:  inset #{$_a} #{$_a} #{$_c} var(--neu-dark), inset -#{$_a} -#{$_a} #{$_c} var(--neu-light);
+$shadow-inset-sm:  inset #{$_b} #{$_b} #{$_e} var(--neu-dark), inset -#{$_b} -#{$_b} #{$_e} var(--neu-light);
+$shadow-inset-md:  inset #{$_c} #{$_c} #{$_f} var(--neu-dark), inset -#{$_c} -#{$_c} #{$_f} var(--neu-light);
+$shadow-inset-lg:  inset #{$_d} #{$_d} #{$_i} var(--neu-dark), inset -#{$_c} -#{$_c} #{$_g} var(--neu-light);
+
+// ─────────────────────────────────────────────────────────
+// NAME — component-specific raised
+// ─────────────────────────────────────────────────────────
+
+// Bottom nav
+$shadow-bottom-nav:          0 -#{$_h} #{$_n} var(--neu-dark);
+
+// Panel close track (sunken ring)
+$shadow-close-track:         inset #{$_b} #{$_b} #{$_e} var(--neu-dark), inset -#{$_b} -#{$_b} #{$_e} var(--neu-light);
+
+// Panel close button (raised inside track)
+$shadow-close-btn:           #{$_c} #{$_c} #{$_g} var(--neu-dark), -#{$_b} -#{$_b} #{$_e} var(--neu-light);
+
+// Drawer back button
+$shadow-back-btn:            #{$_b} #{$_b} #{$_e} var(--neu-dark), -#{$_b} -#{$_b} #{$_e} var(--neu-light);
+
+// Tab highlight pill (active)
+$shadow-tab-active:          #{$_b} #{$_b} #{$_f} var(--neu-dark), -#{$_a} -#{$_a} #{$_d} var(--neu-light);
+
+// Tab track (sunken container)
+$shadow-tab-track:           inset #{$_b} #{$_b} #{$_e} var(--neu-dark), inset -#{$_b} -#{$_b} #{$_e} var(--neu-light);
+
+// Section toggle collapsed (inset)
+$shadow-toggle-collapsed:    inset #{$_a} #{$_a} #{$_c} var(--neu-dark), inset -#{$_a} -#{$_a} #{$_c} var(--neu-light);
+
+// Section toggle expanded (raised)
+$shadow-toggle-expanded:     #{$_b} #{$_b} #{$_e} var(--neu-dark), -#{$_b} -#{$_b} #{$_e} var(--neu-light);
+
+// Recover confirm (raised pill)
+$shadow-recover-confirm:     $shadow-raised-sm;
+
+// Recover cancel (raised pill)
+$shadow-recover-cancel:      #{$_c} #{$_c} #{$_g} var(--neu-dark), -#{$_c} -#{$_c} #{$_g} var(--neu-light);
+
+// CTA pill button
+$shadow-cta:                 $shadow-raised-sm;
+
+// Shop card heart (fav = sunken)
+$shadow-heart-fav:           inset #{$_b} #{$_b} #{$_d} var(--neu-dark), inset -#{$_b} -#{$_b} #{$_d} var(--neu-light);
+
+// Shop card heart (not fav = raised)
+$shadow-heart-neutral:       $shadow-raised-xs;
+
+// Star button active (sunken)
+$shadow-star-active:         $shadow-inset-md;
+
+// Star button inactive (raised)
+$shadow-star-inactive:       $shadow-raised-xs;
+
+// Store layout toggle track (sunken when wide-on)
+$shadow-store-toggle-on:     inset #{$_a} #{$_a} #{$_c} var(--neu-dark), inset -#{$_a} -#{$_a} #{$_c} var(--neu-light);
+
+// Store layout knob off (raised small)
+$shadow-store-knob-off:      #{$_b} #{$_b} #{$_d} var(--neu-dark), -#{$_b} -#{$_b} #{$_d} var(--neu-light);
+
+// Store layout knob on (raised)
+$shadow-store-knob-on:       $shadow-raised-sm;
+
+// Portfolio circle (sunken)
+$shadow-portfolio-circle:    inset #{$_b} #{$_b} #{$_d} var(--neu-dark), inset -#{$_b} -#{$_b} #{$_d} var(--neu-light);
+
+// Portfolio circle active/pressed (raised)
+$shadow-portfolio-active:    #{$_c} #{$_c} #{$_f} var(--neu-dark), -#{$_c} -#{$_c} #{$_f} var(--neu-light);
+
+// Gem photo circle (drawer, sunken)
+$shadow-drw-photo-circle:    inset #{$_c} #{$_c} #{$_g} var(--neu-dark), inset -#{$_c} -#{$_c} #{$_g} var(--neu-light);
+
+// Review textarea (sunken)
+$shadow-review-textarea:     $shadow-inset-md;
+
+// Profile input (sunken)
+$shadow-profile-input:       inset #{$_b} #{$_b} #{$_d} var(--neu-dark), inset -#{$_b} -#{$_b} #{$_d} var(--neu-light);
+
+// Profile card close button
+$shadow-profile-close:       #{$_b} #{$_b} #{$_e} var(--neu-dark), -#{$_b} -#{$_b} #{$_e} var(--neu-light);
+
+// Nav FAB
+$shadow-nav-fab:             $shadow-raised-sm;
+
+// Tile resting
+$shadow-tile:                $shadow-raised-sm;
+
+// Tile hover (slightly larger)
+$shadow-tile-hover:          #{$_e} #{$_e} #{$_k} var(--neu-dark), -#{$_e} -#{$_e} #{$_k} var(--neu-light);
+
+// Tile pressed (sunken)
+$shadow-tile-pressed:        $shadow-inset-md;
+
+// ─────────────────────────────────────────────────────────
+// NAME — chat panel specific
+// ─────────────────────────────────────────────────────────
+
+// Chat bubble admin
+$shadow-bubble-admin:        #{$_c} #{$_c} #{$_g} var(--neu-dark), -#{$_b} -#{$_b} #{$_e} var(--neu-light);
+
+// Chat bubble user (lighter lift)
+$shadow-bubble-user:         #{$_c} #{$_c} #{$_g} var(--neu-dark), -#{$_a} -#{$_a} #{$_d} var(--neu-light);
+
+// Chat input resting (sunken)
+$shadow-chat-input:          inset #{$_c} #{$_c} #{$_g} var(--neu-dark), inset -#{$_b} -#{$_b} #{$_e} var(--neu-light);
+
+// Chat input focused (deeper sunken)
+$shadow-chat-input-focus:    inset #{$_d} #{$_d} #{$_i} var(--neu-dark), inset -#{$_c} -#{$_c} #{$_g} var(--neu-light);
+
+// Bubble menu buttons
+$shadow-bubble-menu-btn:     #{$_d} #{$_d} #{$_j} var(--neu-dark), -#{$_b} -#{$_b} #{$_f} var(--neu-light);
+
+// Send button
+$shadow-send-btn:            $shadow-raised-sm;
+
+// ─────────────────────────────────────────────────────────
+// NAME — non-neumorphic elevation shadows
+// Colors declared as --variables in colors.scss.
+// No hardcoded rgba anywhere in this file.
+// ─────────────────────────────────────────────────────────
+
+// Phone frame outer glow + ring
+$shadow-phone-frame:         0 #{$_p} #{$_q} var(--shadow-phone-glow), 0 0 0 1px var(--shadow-phone-ring);
+
+// Profile card drop shadow
+$shadow-profile-card:        0 #{$_h} #{$_o} var(--shadow-profile-card);
+
+// Portfolio close button drop shadow
+$shadow-portfolio-close:     0 #{$_b} #{$_h} var(--shadow-portfolio-close);
+
+// Tile dot rings (outline rings, not neumorphic)
+$shadow-tile-dot-inactive:   0 0 0 #{$_b} var(--base);
+$shadow-tile-dot-active:     0 0 0 #{$_b} var(--shadow-tile-dot-active);

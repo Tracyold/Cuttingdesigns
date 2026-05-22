@@ -1,0 +1,62 @@
+// src/styles/decs/transform.scss
+
+// ─────────────────────────────────────────────────────────
+// RAW — private. Never used outside this file.
+// ─────────────────────────────────────────────────────────
+
+// Scale values
+$_a: scale(0.88);
+$_b: scale(0.92);
+$_c: scale(0.95);
+$_d: scale(0.96);
+$_e: scale(0.97);
+$_f: scale(1);
+$_g: scale(1.06);
+
+// TranslateX values
+$_h: translateX(0);
+$_i: translateX(18px);
+$_j: translateX(20px);
+
+// TranslateX(-50%) for centering
+$_k: translateX(-50%);
+
+// Bubble menu entry
+$_l: translateX(20px) scale(0.6);
+
+// Combined — store knob off state (no translate, just scale ref)
+$_m: scale(1);
+
+// ─────────────────────────────────────────────────────────
+// NAME
+// ─────────────────────────────────────────────────────────
+
+// Press states
+$transform-nav-btn-press:       $_a;   // 0.88 — nav buttons
+$transform-close-btn-press:     $_c;   // 0.95 — panel close button
+$transform-tile-press:          $_d;   // 0.96 — tile
+$transform-cta-press:           $_e;   // 0.97 — CTA pill buttons
+$transform-recover-btn-press:   $_e;   // 0.97
+$transform-shop-heart-press:    $_b;   // 0.92 (heart button active)
+$transform-send-btn-press:      $_b;   // 0.92
+
+// Nav FAB active (slightly enlarged)
+$transform-nav-fab-active:      $_g;   // 1.06
+
+// Resting (identity)
+$transform-none:                $_f;   // scale(1)
+
+// Store layout knob
+$transform-store-knob-off:      $_h;   // translateX(0)
+$transform-store-knob-on:       $_i;   // translateX(18px)
+
+// Bubble menu button entry animation start
+$transform-bubble-menu-enter:   $_l;   // translateX(20px) scale(0.6)
+$transform-bubble-menu-rest:    $_f;   // scale(1)
+
+// Portfolio zoom hint centering
+$transform-center-x:            $_k;   // translateX(-50%)
+
+// Typing dot lift (in @keyframes — value lives in animations.scss)
+// Referenced here for documentation only
+// $transform-typing-dot-up: translateY(-4px) — see animations.scss
