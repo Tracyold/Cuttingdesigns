@@ -23,18 +23,19 @@
   --ink:           #e4e8ef;
   --ink-whisper:   #b5bdcc;
   --ink-mute:      #7d8597;
-  --button-text:   #fff7f3;
+  --cold-white:    #f3f6ff;
 
   // Brand
   --accent:        #d1e850;
   --accent-mute:   #b1c441;
   --sedona:        #c34d3b;
+  --sedona-text:   #fff7f3;
 
   // System
   --divider:       rgba(255, 255, 255, 0.06);
   --scrim:         rgba(0, 0, 0, 0.45);
   --bg-outer:      #0a0d14;
-  --online:        #3ecf82;
+  --stem:          #3ecf82;
 
   // Neumorphic shadows
   --neu-dark:      rgba(6, 9, 15, 0.78);
@@ -64,12 +65,13 @@
   --ink:           #2b3445;
   --ink-whisper:   #4a5363;
   --ink-mute:      #8893a6;
-  --button-text:   #fff7f3;
+  --cold-white:    #f3f6ff;
 
   // Brand
   --accent:        #1a82c8;
   --accent-mute:   #cee5f5;
   --sedona:        #8c4f46;
+  --sedona-text:#fff7f3;
 
   // System
   --divider:       rgba(0, 0, 0, 0.07);
@@ -206,7 +208,7 @@ $input-text:                     var(--ink);
 $input-placeholder:              var(--ink-mute);
 $input-border:                   var(--divider);
 $send-button-background:         var(--sedona);
-$send-button-icon:               #fff7f3;
+$send-button-icon:               #f3f8ff;
 
 // Shop / store
 $shop-card-image-background:     var(--base-whisper);
@@ -216,7 +218,7 @@ $heart-inactive:                 var(--ink-whisper);
 $star-active:                    #ffb84d;
 $star-inactive:                  var(--ink-mute);
 $review-button:                  var(--sedona);
-$review-button-text:             #fff7f3;
+$review-button-text:             var(button-text);
 $review-textarea-background:     var(--base);
 $review-saved-text:              var(--ink-whisper);
 
@@ -227,12 +229,12 @@ $status-bar-text:                var(--ink-mute);
 $status-notch:                   var(--base-mute);
 
 // Presence
-$online-dot:                     var(--online);
+$online-dot:                     var(--stem);
 
 // Chat panel — panel header
 $chat-breadcrumb:                var(--ink-mute);
 $chat-title:                     var(--ink);
-$chat-online-dot:                var(--online);
+$chat-online-dot:                var(--stem);
 $chat-panel-background:          var(--base);
 
 // Chat panel — scroll fade gradients
@@ -249,7 +251,7 @@ $chat-bubble-menu-btn-icon-active: var(--base-mute);
 
 // Chat panel — send button
 $chat-send-btn-background:       var(--sedona);
-$chat-send-btn-icon:             #fff7f3;
+$chat-send-btn-icon:             var(button-text);
 
 // Chat panel — read receipt
 $chat-read-receipt:              var(--ink-mute);
