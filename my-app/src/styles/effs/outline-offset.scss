@@ -1,0 +1,24 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/outline-offset.scss
+// Every outline-offset value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  outline-offset: $component-outline-offset;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique outline-offset value
+// ────────────────────────────────────────────
+
+$_a_:    -2px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── ITEM — recover selection mode ─────────────────
+$item-outline-offset:       $_a_;  // recover selection mode
+
+// ── RECOVER — recover selection mode ──────────────
+$recover-outline-offset:    $_a_;  // recover selection mode

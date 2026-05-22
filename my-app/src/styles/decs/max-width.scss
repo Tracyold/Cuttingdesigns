@@ -1,0 +1,21 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/max-width.scss
+// Every max-width value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  max-width: $component-max-width;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique max-width value
+// ────────────────────────────────────────────
+
+$_a_:    74%;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BUBBLE — Chat bubbles ─────────────────────────
+$bubble-max-width:    $_a_;  // Chat bubbles

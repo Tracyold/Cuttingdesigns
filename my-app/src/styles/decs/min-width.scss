@@ -1,0 +1,33 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/min-width.scss
+// Every min-width value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  min-width: $component-min-width;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique min-width value
+// ────────────────────────────────────────────
+
+$_a_:    0;
+$_b_:    64px;
+$_c_:    240px;
+$_d_:    160px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BODY — section label row (e.g. "top three" ────
+$body-min-width:      $_a_;  // section label row (e.g. "top three"
+
+// ── CARD — Shop card ──────────────────────────────
+$card-min-width:      $_d_;  // Shop card
+
+// ── TILE — Tile strip ─────────────────────────────
+$tile-min-width:      $_c_;  // Tile strip
+
+// ── TOGGLE — bottomright corner: date · id ────────
+$toggle-min-width:    $_b_;  // bottomright corner: date · id

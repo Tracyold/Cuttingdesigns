@@ -1,0 +1,72 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/z-index.scss
+// Every z-index value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  z-index: $component-z-index;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique z-index value
+// ────────────────────────────────────────────
+
+$_a_:    9999;
+$_b_:    5;
+$_c_:    20;
+$_d_:    15;
+$_e_:    18;
+$_f_:    2;
+$_g_:    1;
+$_h_:    30;
+$_i_:    31;
+$_j_:    4;
+$_k_:    35;
+$_l_:    80;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BAR — phone shell ─────────────────────────────
+$bar-z-index:         $_b_;  // phone shell
+
+// ── BTN — sliding highlight pill ──────────────────
+$btn-z-index:         $_g_;  // sliding highlight pill
+
+// ── CLOSE — Close button — raised inside the track ─
+$close-z-index:       $_f_;  // Close button — raised inside the track
+
+// ── DRAWER — drawer sheet ─────────────────────────
+$drawer-z-index:      $_i_;  // drawer sheet
+
+// ── FADE — Scroll area ────────────────────────────
+$fade-z-index:        $_j_;  // Scroll area
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-z-index:       $_g_;  // Shop card
+
+// ── MENU — Sits outside .panel so overflow:hidden never clips it ─
+$menu-z-index:        $_l_;  // Sits outside .panel so overflow:hidden never clips it
+
+// ── NAV — dashboard placeholder ───────────────────
+$nav-z-index:         $_c_;  // dashboard placeholder
+
+// ── OVERLAY — Profile overlay ─────────────────────
+$overlay-z-index:     $_k_;  // Profile overlay
+
+// ── PANEL — panel sheet ───────────────────────────
+$panel-z-index:       $_e_;  // panel sheet
+
+// ── ROW — theme toggle buttons — preview only ─────
+$row-z-index:         $_a_;  // theme toggle buttons — preview only
+
+// ── SCRIM — background scrim behind panel ─────────
+$scrim-z-index:       $_d_;  // background scrim behind panel
+$scrim-z-index-2:     $_h_;  // backdrop scrim with blur
+
+// ── SWITCHER — Body ───────────────────────────────
+$switcher-z-index:    $_a_;  // Body
+
+// ── TRACK — close button (× in topright) ──────────
+$track-z-index:       $_f_;  // close button (× in topright)

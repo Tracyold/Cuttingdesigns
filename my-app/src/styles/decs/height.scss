@@ -1,0 +1,107 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/height.scss
+// Every height value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  height: $component-height;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique height value
+// ────────────────────────────────────────────
+
+$_a_:    844px;
+$_b_:    28px;
+$_c_:    100px;
+$_d_:    40px;
+$_e_:    54px;
+$_f_:    calc(100% - 48px - 100px);
+$_g_:    4px;
+$_h_:    36px;
+$_i_:    26px;
+$_j_:    30px;
+$_k_:    32px;
+$_l_:    110px;
+$_m_:    7px;
+$_n_:    0.5px;
+$_o_:    24px;
+$_p_:    10px;
+$_q_:    180px;
+$_r_:    287px;
+$_s_:    48px;
+$_t_:    16px;
+$_u_:    42px;
+$_v_:    44px;
+$_w_:    6px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BACK — nav row: back btn + hint ───────────────
+$back-height:       $_k_;  // nav row: back btn + hint
+
+// ── BAR — drag handle header ──────────────────────
+$bar-height:        $_g_;  // drag handle header
+
+// ── BTN — dashboard placeholder ───────────────────
+$btn-height:        $_d_;  // dashboard placeholder
+$btn-height-2:      $_j_;  // sliding highlight pill
+$btn-height-3:      $_u_;  // Inquiries tabs
+$btn-height-4:      $_v_;  // Sits outside .panel so overflow:hidden never clips it
+
+// ── CIRCLE — gem photo placeholder circle ─────────
+$circle-height:     $_l_;  // gem photo placeholder circle
+
+// ── CLOSE — close button (× in topright) ──────────
+$close-height:      $_i_;  // close button (× in topright)
+$close-height-2:    $_b_;  // Profile overlay
+
+// ── DIVIDER — section divider ─────────────────────
+$divider-height:    $_n_;  // section divider
+
+// ── DOT — status pill ─────────────────────────────
+$dot-height:        $_m_;  // status pill
+$dot-height-2:      $_p_;  // Tile strip
+$dot-height-3:      $_w_;  // Typing indicator
+
+// ── FAB — dashboard placeholder ───────────────────
+$fab-height:        $_e_;  // dashboard placeholder
+
+// ── FADE — Scroll area ────────────────────────────
+$fade-height:       $_o_;  // Scroll area
+
+// ── FOOTER — Wide shop card ───────────────────────
+$footer-height:     $_s_;  // Wide shop card
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-height:      $_h_;  // Shop card
+
+// ── IMG — Shop card ───────────────────────────────
+$img-height:        $_q_;  // Shop card
+$img-height-2:      $_r_;  // Wide shop card
+
+// ── KNOB — Store layout toggle ────────────────────
+$knob-height:       $_t_;  // Store layout toggle
+
+// ── NAV — dashboard placeholder ───────────────────
+$nav-height:        $_c_;  // dashboard placeholder
+
+// ── NOTCH — phone shell ───────────────────────────
+$notch-height:      $_b_;  // phone shell
+
+// ── PANEL — panel sheet ───────────────────────────
+$panel-height:      $_f_;  // panel sheet
+
+// ── PHONE — phone shell ───────────────────────────
+$phone-height:      $_a_;  // phone shell
+
+// ── PLUS — Header plus button ─────────────────────
+$plus-height:       $_i_;  // Header plus button
+
+// ── TOGGLE — Store layout toggle ──────────────────
+$toggle-height:     $_o_;  // Store layout toggle
+
+// ── TRACK — close button (× in topright) ──────────
+$track-height:      $_h_;  // close button (× in topright)

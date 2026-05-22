@@ -1,0 +1,35 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/min-height.scss
+// Every min-height value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  min-height: $component-min-height;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique min-height value
+// ────────────────────────────────────────────
+
+$_a_:    100vh;
+$_b_:    0;
+$_c_:    88px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── AREA — Scroll area ────────────────────────────
+$area-min-height:        $_b_;  // Scroll area
+
+// ── BODY — Light theme token overrides ────────────
+$body-min-height:        $_a_;  // Light theme token overrides
+
+// ── CONTENT — Scroll area ─────────────────────────
+$content-min-height:     $_b_;  // Scroll area
+
+// ── LIST — sliding highlight pill ─────────────────
+$list-min-height:        $_b_;  // sliding highlight pill
+
+// ── TEXTAREA — Review section ─────────────────────
+$textarea-min-height:    $_c_;  // Review section

@@ -1,0 +1,193 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/display.scss
+// Every display value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  display: $component-display;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique display value
+// ────────────────────────────────────────────
+
+$_a_:    flex;
+$_b_:    none;
+$_c_:    block;
+$_d_:    inline;
+$_e_:    inline-flex;
+$_f_:    grid;
+$_g_:    inline-block;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── ACTIVE — sliding highlight pill ───────────────
+$active-display:               $_a_;  // sliding highlight pill
+$active-display-2:             $_c_;  // Inquiries list
+
+// ── AREA — Scroll area ────────────────────────────
+$area-display:                 $_a_;  // Scroll area
+
+// ── BACK — nav row: back btn + hint ───────────────
+$back-display:                 $_a_;  // nav row: back btn + hint
+
+// ── BAR — phone shell ─────────────────────────────
+$bar-display:                  $_a_;  // phone shell
+$bar-display-2:                $_b_;  // recover action bar
+
+// ── BODY — Light theme token overrides ────────────
+$body-display:                 $_a_;  // Light theme token overrides
+$body-display-2:               $_b_;  // scrollable body
+
+// ── BREADCRUMB — Online dot ───────────────────────
+$breadcrumb-display:           $_a_;  // Online dot
+
+// ── BTN — dashboard placeholder ───────────────────
+$btn-display:                  $_a_;  // dashboard placeholder
+
+// ── CIRCLE — gem photo placeholder circle ─────────
+$circle-display:               $_a_;  // gem photo placeholder circle
+
+// ── CLOSE — close button (× in topright) ──────────
+$close-display:                $_a_;  // close button (× in topright)
+
+// ── CONTENT — Scroll area ─────────────────────────
+$content-display:              $_b_;  // Scroll area
+
+// ── CONTROLS — Store layout toggle ────────────────
+$controls-display:             $_a_;  // Store layout toggle
+
+// ── CORNER — bottomright corner: date · id ────────
+$corner-display:               $_a_;  // bottomright corner: date · id
+
+// ── DOT — Typing indicator ────────────────────────
+$dot-display:                  $_g_;  // Typing indicator
+
+// ── DRAWER — drawer sheet ─────────────────────────
+$drawer-display:               $_a_;  // drawer sheet
+
+// ── FOOTER — Wide shop card ───────────────────────
+$footer-display:               $_a_;  // Wide shop card
+
+// ── FORM — Review section ─────────────────────────
+$form-display:                 $_b_;  // Review section
+
+// ── GRID — Store grid ─────────────────────────────
+$grid-display:                 $_f_;  // Store grid
+
+// ── HANDLE — drag handle ──────────────────────────
+$handle-display:               $_a_;  // drag handle
+
+// ── HEADER — Dashboard header ─────────────────────
+$header-display:               $_a_;  // Dashboard header
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-display:                $_a_;  // Shop card
+
+// ── HOME — dashboard placeholder ──────────────────
+$home-display:                 $_b_;  // dashboard placeholder
+
+// ── IMG — Shop card ───────────────────────────────
+$img-display:                  $_a_;  // Shop card
+
+// ── INPUT — Chat input bar ────────────────────────
+$input-display:                $_b_;  // Chat input bar
+
+// ── ITEM — section label row (e.g. "top three" ────
+$item-display:                 $_a_;  // section label row (e.g. "top three"
+
+// ── ITEMS — z31 — absolute top of stack ───────────
+$items-display:                $_b_;  // z31 — absolute top of stack
+
+// ── LABEL — section label row (e.g. "top three" ───
+$label-display:                $_a_;  // section label row (e.g. "top three"
+$label-display-2:              $_c_;  // 14. NEW SR FORM DRAWER
+
+// ── LINK — recover link — hidden in active, accent in archived ─
+$link-display:                 $_b_;  // recover link — hidden in active, accent in archived
+$link-display-2:               $_d_;  // recover link — hidden in active, accent in archived
+
+// ── LIST — sliding highlight pill ─────────────────
+$list-display:                 $_b_;  // sliding highlight pill
+
+// ── MENU — Sits outside .panel so overflow:hidden never clips it ─
+$menu-display:                 $_a_;  // Sits outside .panel so overflow:hidden never clips it
+
+// ── MESSAGES — Chat messages area ─────────────────
+$messages-display:             $_a_;  // Chat messages area
+$messages-display-2:           $_b_;  // Chat messages area
+
+// ── META — section label row (e.g. "top three" ────
+$meta-display:                 $_a_;  // section label row (e.g. "top three"
+
+// ── NAV — dashboard placeholder ───────────────────
+$nav-display:                  $_a_;  // dashboard placeholder
+
+// ── OPEN — sliding highlight pill ─────────────────
+$open-display:                 $_c_;  // sliding highlight pill
+$open-display-2:               $_a_;  // Review section
+
+// ── OVERFLOW — sliding highlight pill ─────────────
+$overflow-display:             $_b_;  // sliding highlight pill
+
+// ── OVERLAY — Profile overlay ─────────────────────
+$overlay-display:              $_b_;  // Profile overlay
+
+// ── PANE — sliding highlight pill ─────────────────
+$pane-display:                 $_b_;  // sliding highlight pill
+
+// ── PANEL — panel sheet ───────────────────────────
+$panel-display:                $_a_;  // panel sheet
+
+// ── PHONE — phone shell ───────────────────────────
+$phone-display:                $_a_;  // phone shell
+
+// ── PILL — drag handle header ─────────────────────
+$pill-display:                 $_a_;  // drag handle header
+$pill-display-2:               $_e_;  // status pill
+
+// ── PLUS — Header plus button ─────────────────────
+$plus-display:                 $_a_;  // Header plus button
+
+// ── PROFILE — Dashboard header ────────────────────
+$profile-display:              $_a_;  // Dashboard header
+
+// ── ROW — theme toggle buttons — preview only ─────
+$row-display:                  $_a_;  // theme toggle buttons — preview only
+
+// ── SAVED — Review section ────────────────────────
+$saved-display:                $_b_;  // Review section
+
+// ── SCROLL — Horizontal card scroll ───────────────
+$scroll-display:               $_b_;  // Horizontal card scroll
+
+// ── STRIP — Tile strip ────────────────────────────
+$strip-display:                $_b_;  // Tile strip
+
+// ── SWITCHER — Body ───────────────────────────────
+$switcher-display:             $_a_;  // Body
+
+// ── TABS — close button (× in topright) ───────────
+$tabs-display:                 $_a_;  // close button (× in topright)
+
+// ── TOGGLE — Store layout toggle ──────────────────
+$toggle-display:               $_a_;  // Store layout toggle
+
+// ── TRACK — close button (× in topright) ──────────
+$track-display:                $_a_;  // close button (× in topright)
+
+// ── TYPING(CONTAINER) — Chat helpers ──────────────
+$typing(container)-display:    $_a_;  // Chat helpers
+
+// ── VISIBLE — recover action bar ──────────────────
+$visible-display:              $_a_;  // recover action bar
+$visible-display-2:            $_c_;  // Review section
+
+// ── WIDE — Store grid ─────────────────────────────
+$wide-display:                 $_a_;  // Store grid
+
+// ── WRAP — gem photo placeholder circle ───────────
+$wrap-display:                 $_a_;  // gem photo placeholder circle
+$wrap-display-2:               $_b_;  // Store grid

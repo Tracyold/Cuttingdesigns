@@ -1,0 +1,51 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/line-height.scss
+// Every line-height value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  line-height: $component-line-height;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique line-height value
+// ────────────────────────────────────────────
+
+$_a_:    1;
+$_b_:    1.1;
+$_c_:    1.2;
+$_d_:    1.65;
+$_e_:    1.6;
+$_f_:    1.15;
+$_g_:    1.45;
+$_h_:    1.4;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BUBBLE — Chat bubbles ─────────────────────────
+$bubble-line-height:     $_g_;  // Chat bubbles
+
+// ── INPUT — Chat input bar ────────────────────────
+$input-line-height:      $_h_;  // Chat input bar
+
+// ── LABEL — z31 — absolute top of stack ───────────
+$label-line-height:      $_f_;  // z31 — absolute top of stack
+
+// ── MESSAGE — section divider ─────────────────────
+$message-line-height:    $_d_;  // section divider
+
+// ── NUM — Tile strip ──────────────────────────────
+$num-line-height:        $_a_;  // Tile strip
+
+// ── PLUS — Header plus button ─────────────────────
+$plus-line-height:       $_a_;  // Header plus button
+
+// ── SAVED — Review section ────────────────────────
+$saved-line-height:      $_e_;  // Review section
+
+// ── TITLE — dashboard placeholder ─────────────────
+$title-line-height:      $_a_;  // dashboard placeholder
+$title-line-height-2:    $_b_;  // panel title — sunken neumorphic style
+$title-line-height-3:    $_c_;  // section label row (e.g. "top three"

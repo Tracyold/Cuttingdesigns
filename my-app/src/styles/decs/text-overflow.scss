@@ -1,0 +1,24 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/text-overflow.scss
+// Every text-overflow value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  text-overflow: $component-text-overflow;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique text-overflow value
+// ────────────────────────────────────────────
+
+$_a_:    ellipsis;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── FOOTER — Shop card ────────────────────────────
+$footer-text-overflow:    $_a_;  // Shop card
+
+// ── TITLE — section label row (e.g. "top three" ───
+$title-text-overflow:     $_a_;  // section label row (e.g. "top three"

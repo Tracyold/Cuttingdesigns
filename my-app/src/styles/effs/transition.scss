@@ -1,0 +1,137 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/transition.scss
+// Every transition value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  transition: $component-transition;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique transition value
+// ────────────────────────────────────────────
+
+$_a_:    background 0.3s ease;
+$_b_:    background 0.3s ease, box-shadow 0.18s ease, transform 0.18s ease;
+$_c_:    opacity 0.38s ease;
+$_d_:    none;
+$_e_:    all 0.14s ease;
+$_f_:    color 0.18s ease;
+$_g_:    background 0.14s ease;
+$_h_:    none !important;
+$_i_:    box-shadow 0.2s ease;
+$_j_:    transform 0.12s ease;
+$_k_:    transform 0.12s ease, box-shadow 0.12s ease;
+$_l_:    transform 0.14s ease, box-shadow 0.14s ease;
+$_m_:    opacity 0.46s ease, backdrop-filter 0.46s ease, -webkit-backdrop-filter 0.46s ease;
+$_n_:    opacity 0.28s ease, backdrop-filter 0.28s ease, -webkit-backdrop-filter 0.28s ease;
+$_o_:    box-shadow 0.16s ease, transform 0.16s ease;
+$_p_:    color 0.2s ease;
+$_q_:    transform 0.14s ease;
+$_r_:    box-shadow 0.25s ease;
+$_s_:    color 0.2s ease, text-shadow 0.2s ease;
+$_t_:    all 0.1s ease;
+$_u_:    opacity 0.2s ease;
+$_v_:    background 0.3s ease, box-shadow 0.2s ease;
+$_w_:    opacity 0.46s ease, backdrop-filter 0.46s ease;
+$_x_:    opacity 0.28s ease, backdrop-filter 0.28s ease;
+$_y_:    box-shadow 0.14s ease;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── ARROW — notification arrow — pulsed via JS when activity=hot ─
+$arrow-transition:        $_h_;  // notification arrow — pulsed via JS when activity=hot
+$arrow-transition-2:      $_p_;  // Inquiries list
+
+// ── BAR — Chat input bar ──────────────────────────
+$bar-transition:          $_a_;  // Chat input bar
+
+// ── BODY — Light theme token overrides ────────────
+$body-transition:         $_a_;  // Light theme token overrides
+
+// ── BTN — sliding highlight pill ──────────────────
+$btn-transition:          $_f_;  // sliding highlight pill
+$btn-transition-2:        $_l_;  // recover action bar
+$btn-transition-3:        $_k_;  // recover action bar
+$btn-transition-4:        $_u_;  // Sits outside .panel so overflow:hidden never clips it
+
+// ── CANCEL — recover action bar ───────────────────
+$cancel-transition:       $_k_;  // recover action bar
+
+// ── CARD — Profile overlay ────────────────────────
+$card-transition:         $_a_;  // Profile overlay
+
+// ── CIRCLE — Portfolio circles ────────────────────
+$circle-transition:       $_e_;  // Portfolio circles
+
+// ── CLOSE — close button (× in topright) ──────────
+$close-transition:        $_e_;  // close button (× in topright)
+
+// ── CLOSING — backdrop scrim with blur ────────────
+$closing-transition:      $_n_;  // backdrop scrim with blur
+$closing-transition-2:    $_x_;  // 12. DRAWER SYSTEM
+
+// ── CONFIRM — recover action bar ──────────────────
+$confirm-transition:      $_j_;  // recover action bar
+
+// ── FAB — dashboard placeholder ───────────────────
+$fab-transition:          $_b_;  // dashboard placeholder
+
+// ── FOOTER — Shop card ────────────────────────────
+$footer-transition:       $_a_;  // Shop card
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-transition:        $_q_;  // Shop card
+
+// ── HIGHLIGHT — sliding highlight pill ────────────
+$highlight-transition:    $_d_;  // sliding highlight pill
+
+// ── IMG — Shop card ───────────────────────────────
+$img-transition:          $_a_;  // Shop card
+
+// ── INPUT — Chat input bar ────────────────────────
+$input-transition:        $_v_;  // Chat input bar
+$input-transition-2:      $_y_;  // 14. NEW SR FORM DRAWER
+
+// ── ITEM — section label row (e.g. "top three" ────
+$item-transition:         $_g_;  // section label row (e.g. "top three"
+
+// ── LEAVE — Review section ────────────────────────
+$leave-transition:        $_j_;  // Review section
+
+// ── NAV — dashboard placeholder ───────────────────
+$nav-transition:          $_a_;  // dashboard placeholder
+
+// ── NOTCH — phone shell ───────────────────────────
+$notch-transition:        $_a_;  // phone shell
+
+// ── OPTION — Profile overlay ──────────────────────
+$option-transition:       $_t_;  // Profile overlay
+
+// ── PHONE — phone shell ───────────────────────────
+$phone-transition:        $_a_;  // phone shell
+
+// ── SCRIM — background scrim behind panel ─────────
+$scrim-transition:        $_c_;  // background scrim behind panel
+$scrim-transition-2:      $_m_;  // backdrop scrim with blur
+$scrim-transition-3:      $_w_;  // 12. DRAWER SYSTEM
+
+// ── TABS — Inquiries tabs ─────────────────────────
+$tabs-transition:         $_a_;  // Inquiries tabs
+
+// ── TILE — Tile strip ─────────────────────────────
+$tile-transition:         $_o_;  // Tile strip
+
+// ── TITLE — panel title — sunken neumorphic style ─
+$title-transition:        $_d_;  // panel title — sunken neumorphic style
+$title-transition-2:      $_p_;  // Section headers
+$title-transition-3:      $_s_;  // Panel header
+
+// ── TOGGLE — bottomright corner: date · id ────────
+$toggle-transition:       $_i_;  // bottomright corner: date · id
+$toggle-transition-2:     $_r_;  // Store layout toggle
+
+// ── TRACK — close button (× in topright) ──────────
+$track-transition:        $_a_;  // close button (× in topright)

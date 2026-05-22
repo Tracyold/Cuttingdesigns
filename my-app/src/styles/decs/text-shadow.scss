@@ -1,0 +1,15 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/text-shadow.scss
+// Every text-shadow in the system.
+// Uses var(--x) from colors.scss — never hardcoded values.
+// Generated 2026-05-22 by generate_decs.py
+// ═══════════════════════════════════════════════════════════════════
+
+// ── ACTIVE — paneltitle.menuactive — accent when bubble menu open ─
+$active-text-shadow:      var(--m);  // paneltitle.menuactive — accent when bubble menu open
+
+// ── ARCHIVED — title states ───────────────────────
+$archived-text-shadow:    var(--e);  // title states
+
+// ── NEW — title states ────────────────────────────
+$new-text-shadow:         var(--e);  // title states

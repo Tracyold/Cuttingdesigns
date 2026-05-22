@@ -1,0 +1,81 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/cursor.scss
+// Every cursor value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  cursor: $component-cursor;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique cursor value
+// ────────────────────────────────────────────
+
+$_a_:    pointer;
+$_b_:    grab;
+$_c_:    default;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BACK — nav row: back btn + hint ───────────────
+$back-cursor:       $_a_;  // nav row: back btn + hint
+
+// ── BTN — dashboard placeholder ───────────────────
+$btn-cursor:        $_a_;  // dashboard placeholder
+
+// ── CANCEL — recover action bar ───────────────────
+$cancel-cursor:     $_a_;  // recover action bar
+
+// ── CIRCLE — Portfolio circles ────────────────────
+$circle-cursor:     $_a_;  // Portfolio circles
+
+// ── CLOSE — close button (× in topright) ──────────
+$close-cursor:      $_a_;  // close button (× in topright)
+
+// ── CONFIRM — recover action bar ──────────────────
+$confirm-cursor:    $_a_;  // recover action bar
+
+// ── EDIT — Dashboard header ───────────────────────
+$edit-cursor:       $_a_;  // Dashboard header
+
+// ── HEADER — drag handle header ───────────────────
+$header-cursor:     $_b_;  // drag handle header
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-cursor:      $_a_;  // Shop card
+
+// ── ITEM — section label row (e.g. "top three" ────
+$item-cursor:       $_a_;  // section label row (e.g. "top three"
+$item-cursor-2:     $_c_;  // 10. ARCHIVED STATE
+
+// ── LEAVE — Review section ────────────────────────
+$leave-cursor:      $_a_;  // Review section
+
+// ── LINK — recover link — hidden in active, accent in archived ─
+$link-cursor:       $_a_;  // recover link — hidden in active, accent in archived
+
+// ── OPTION — Profile overlay ──────────────────────
+$option-cursor:     $_a_;  // Profile overlay
+
+// ── PLUS — Header plus button ─────────────────────
+$plus-cursor:       $_a_;  // Header plus button
+
+// ── SAVE — Profile overlay ────────────────────────
+$save-cursor:       $_a_;  // Profile overlay
+
+// ── SELECT — 14. NEW SR FORM DRAWER ───────────────
+$select-cursor:     $_a_;  // 14. NEW SR FORM DRAWER
+
+// ── SUBMIT — Review section ───────────────────────
+$submit-cursor:     $_a_;  // Review section
+
+// ── TBTN — theme toggle buttons — preview only ────
+$tbtn-cursor:       $_a_;  // theme toggle buttons — preview only
+
+// ── TILE — Tile strip ─────────────────────────────
+$tile-cursor:       $_a_;  // Tile strip
+
+// ── TOGGLE — bottomright corner: date · id ────────
+$toggle-cursor:     $_a_;  // bottomright corner: date · id

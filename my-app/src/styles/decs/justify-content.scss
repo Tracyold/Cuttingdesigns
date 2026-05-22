@@ -1,0 +1,88 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/justify-content.scss
+// Every justify-content value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  justify-content: $component-justify-content;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique justify-content value
+// ────────────────────────────────────────────
+
+$_a_:    center;
+$_b_:    space-between;
+$_c_:    space-around;
+$_d_:    flex-end;
+$_e_:    flex-start;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── ADMIN — Chat bubbles ──────────────────────────
+$admin-justify-content:      $_e_;  // Chat bubbles
+
+// ── BACK — nav row: back btn + hint ───────────────
+$back-justify-content:       $_a_;  // nav row: back btn + hint
+
+// ── BAR — phone shell ─────────────────────────────
+$bar-justify-content:        $_b_;  // phone shell
+
+// ── BODY — Light theme token overrides ────────────
+$body-justify-content:       $_a_;  // Light theme token overrides
+
+// ── BTN — dashboard placeholder ───────────────────
+$btn-justify-content:        $_a_;  // dashboard placeholder
+
+// ── CIRCLE — gem photo placeholder circle ─────────
+$circle-justify-content:     $_a_;  // gem photo placeholder circle
+
+// ── CLOSE — close button (× in topright) ──────────
+$close-justify-content:      $_a_;  // close button (× in topright)
+
+// ── GRID — Store grid ─────────────────────────────
+$grid-justify-content:       $_a_;  // Store grid
+
+// ── HANDLE — drag handle ──────────────────────────
+$handle-justify-content:     $_a_;  // drag handle
+
+// ── HEADER — Dashboard header ─────────────────────
+$header-justify-content:     $_b_;  // Dashboard header
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-justify-content:      $_a_;  // Shop card
+
+// ── IMG — Shop card ───────────────────────────────
+$img-justify-content:        $_a_;  // Shop card
+
+// ── ITEM — show more conversation toggle row ──────
+$item-justify-content:       $_b_;  // show more conversation toggle row
+
+// ── LABEL — section label row (e.g. "top three" ───
+$label-justify-content:      $_b_;  // section label row (e.g. "top three"
+
+// ── NAV — dashboard placeholder ───────────────────
+$nav-justify-content:        $_c_;  // dashboard placeholder
+
+// ── OVERLAY — Profile overlay ─────────────────────
+$overlay-justify-content:    $_a_;  // Profile overlay
+
+// ── PILL — drag handle header ─────────────────────
+$pill-justify-content:       $_a_;  // drag handle header
+
+// ── PLUS — Header plus button ─────────────────────
+$plus-justify-content:       $_a_;  // Header plus button
+
+// ── ROW — bottomright corner: date · id ───────────
+$row-justify-content:        $_b_;  // bottomright corner: date · id
+
+// ── TRACK — close button (× in topright) ──────────
+$track-justify-content:      $_a_;  // close button (× in topright)
+
+// ── USER — Chat bubbles ───────────────────────────
+$user-justify-content:       $_d_;  // Chat bubbles
+
+// ── WRAP — gem photo placeholder circle ───────────
+$wrap-justify-content:       $_a_;  // gem photo placeholder circle

@@ -1,0 +1,74 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/margin-bottom.scss
+// Every margin-bottom value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  margin-bottom: $component-margin-bottom;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique margin-bottom value
+// ────────────────────────────────────────────
+
+$_a_:    4px;
+$_b_:    12px;
+$_c_:    6px;
+$_d_:    5px;
+$_e_:    16px;
+$_f_:    8px;
+$_g_:    24px;
+$_h_:    3px;
+$_i_:    20px;
+$_j_:    1px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BREADCRUMB — Panel header ─────────────────────
+$breadcrumb-margin-bottom:      $_d_;  // Panel header
+$breadcrumb-margin-bottom-2:    $_a_;  // Transparent, fullwidth drag zone for swipetoclose
+
+// ── DATE — dashboard placeholder ──────────────────
+$date-margin-bottom:            $_b_;  // dashboard placeholder
+$date-margin-bottom-2:          $_c_;  // Dashboard header
+
+// ── FIELD — 14. NEW SR FORM DRAWER ────────────────
+$field-margin-bottom:           $_i_;  // 14. NEW SR FORM DRAWER
+
+// ── HEADER — Profile overlay ──────────────────────
+$header-margin-bottom:          $_i_;  // Profile overlay
+
+// ── HINT — swipe hint text ────────────────────────
+$hint-margin-bottom:            $_c_;  // swipe hint text
+
+// ── ID — product identity ─────────────────────────
+$id-margin-bottom:              $_a_;  // product identity
+$id-margin-bottom-2:            $_h_;  // Inquiries list
+
+// ── INPUT — Profile overlay ───────────────────────
+$input-margin-bottom:           $_e_;  // Profile overlay
+
+// ── LABEL — Tile strip ────────────────────────────
+$label-margin-bottom:           $_f_;  // Tile strip
+$label-margin-bottom-2:         $_c_;  // Profile overlay
+
+// ── MESSAGE — section divider ─────────────────────
+$message-margin-bottom:         $_e_;  // section divider
+
+// ── ROW — status pill ─────────────────────────────
+$row-margin-bottom:             $_e_;  // status pill
+$row-margin-bottom-2:           $_j_;  // Chat bubbles
+
+// ── SAVED — Review section ────────────────────────
+$saved-margin-bottom:           $_b_;  // Review section
+
+// ── TITLE — dashboard placeholder ─────────────────
+$title-margin-bottom:           $_a_;  // dashboard placeholder
+$title-margin-bottom-2:         $_d_;  // section label row (e.g. "top three"
+$title-margin-bottom-3:         $_b_;  // product identity
+$title-margin-bottom-4:         $_g_;  // 14. NEW SR FORM DRAWER
+
+// ── WRAP — Store grid ─────────────────────────────
+$wrap-margin-bottom:            $_g_;  // Store grid

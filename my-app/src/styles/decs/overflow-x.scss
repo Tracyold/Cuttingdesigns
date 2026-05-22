@@ -1,0 +1,47 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/overflow-x.scss
+// Every overflow-x value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  overflow-x: $component-overflow-x;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique overflow-x value
+// ────────────────────────────────────────────
+
+$_a_:    hidden;
+$_b_:    auto;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BODY — scrollable body ────────────────────────
+$body-overflow-x:        $_a_;  // scrollable body
+
+// ── CONTENT — Scroll area ─────────────────────────
+$content-overflow-x:     $_a_;  // Scroll area
+
+// ── HOME — dashboard placeholder ──────────────────
+$home-overflow-x:        $_a_;  // dashboard placeholder
+
+// ── ITEMS — z31 — absolute top of stack ───────────
+$items-overflow-x:       $_a_;  // z31 — absolute top of stack
+
+// ── LIST — sliding highlight pill ─────────────────
+$list-overflow-x:        $_a_;  // sliding highlight pill
+
+// ── MESSAGES — Chat messages area ─────────────────
+$messages-overflow-x:    $_a_;  // Chat messages area
+
+// ── SCROLL — Horizontal card scroll ───────────────
+$scroll-overflow-x:      $_b_;  // Horizontal card scroll
+
+// ── STRIP — Tile strip ────────────────────────────
+$strip-overflow-x:       $_b_;  // Tile strip
+
+// ── WRAP — Store grid ─────────────────────────────
+$wrap-overflow-x:        $_a_;  // Store grid
+$wrap-overflow-x-2:      $_b_;  // Portfolio circles

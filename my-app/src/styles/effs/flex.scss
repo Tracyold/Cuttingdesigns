@@ -1,0 +1,55 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/flex.scss
+// Every flex value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  flex: $component-flex;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique flex value
+// ────────────────────────────────────────────
+
+$_a_:    1;
+$_b_:    3;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── AREA — Scroll area ────────────────────────────
+$area-flex:        $_a_;  // Scroll area
+
+// ── BODY — section label row (e.g. "top three" ────
+$body-flex:        $_a_;  // section label row (e.g. "top three"
+
+// ── BTN — sliding highlight pill ──────────────────
+$btn-flex:         $_a_;  // sliding highlight pill
+
+// ── CANCEL — Review section ───────────────────────
+$cancel-flex:      $_a_;  // Review section
+
+// ── CONFIRM — recover action bar ──────────────────
+$confirm-flex:     $_a_;  // recover action bar
+
+// ── CONTENT — Scroll area ─────────────────────────
+$content-flex:     $_a_;  // Scroll area
+
+// ── HOME — dashboard placeholder ──────────────────
+$home-flex:        $_a_;  // dashboard placeholder
+
+// ── INPUT — Chat input bar ────────────────────────
+$input-flex:       $_a_;  // Chat input bar
+
+// ── ITEMS — z31 — absolute top of stack ───────────
+$items-flex:       $_a_;  // z31 — absolute top of stack
+
+// ── LIST — sliding highlight pill ─────────────────
+$list-flex:        $_a_;  // sliding highlight pill
+
+// ── MESSAGES — Chat messages area ─────────────────
+$messages-flex:    $_a_;  // Chat messages area
+
+// ── SUBMIT — Review section ───────────────────────
+$submit-flex:      $_b_;  // Review section

@@ -1,0 +1,25 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/max-height.scss
+// Every max-height value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  max-height: $component-max-height;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique max-height value
+// ────────────────────────────────────────────
+
+$_a_:    460px;
+$_b_:    80px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── INPUT — Chat input bar ────────────────────────
+$input-max-height:    $_b_;  // Chat input bar
+
+// ── WRAP — Store grid ─────────────────────────────
+$wrap-max-height:     $_a_;  // Store grid

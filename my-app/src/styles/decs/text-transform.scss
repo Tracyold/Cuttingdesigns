@@ -1,0 +1,48 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/text-transform.scss
+// Every text-transform value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  text-transform: $component-text-transform;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique text-transform value
+// ────────────────────────────────────────────
+
+$_a_:    uppercase;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BREADCRUMB — Panel header ─────────────────────
+$breadcrumb-text-transform:    $_a_;  // Panel header
+
+// ── CANCEL — Review section ───────────────────────
+$cancel-text-transform:        $_a_;  // Review section
+
+// ── DATE — dashboard placeholder ──────────────────
+$date-text-transform:          $_a_;  // dashboard placeholder
+
+// ── HINT — swipe hint text ────────────────────────
+$hint-text-transform:          $_a_;  // swipe hint text
+
+// ── ID — bottomright corner: date · id ────────────
+$id-text-transform:            $_a_;  // bottomright corner: date · id
+
+// ── KEY — show more conversation toggle row ───────
+$key-text-transform:           $_a_;  // show more conversation toggle row
+
+// ── LABEL — section label row (e.g. "top three" ───
+$label-text-transform:         $_a_;  // section label row (e.g. "top three"
+
+// ── LETTER — gem photo placeholder circle ─────────
+$letter-text-transform:        $_a_;  // gem photo placeholder circle
+
+// ── LINK — recover link — hidden in active, accent in archived ─
+$link-text-transform:          $_a_;  // recover link — hidden in active, accent in archived
+
+// ── STAMP — Chat messages area ────────────────────
+$stamp-text-transform:         $_a_;  // Chat messages area

@@ -1,0 +1,227 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/padding.scss
+// Every padding value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  padding: $component-padding;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique padding value
+// ────────────────────────────────────────────
+
+$_a_:     0;
+$_b_:     32px 16px;
+$_c_:     7px 16px;
+$_d_:     14px 28px 0;
+$_e_:     24px 24px 40px;
+$_f_:     12px 20px 24px;
+$_g_:     10px 20px 12px;
+$_h_:     4px 32px 12px;
+$_i_:     3px;
+$_j_:     12px 24px 6px;
+$_k_:     16px 24px 26px;
+$_l_:     10px 24px;
+$_m_:     6px 0;
+$_n_:     24px 24px 32px;
+$_o_:     18px 20px;
+$_p_:     18px 18px;
+$_q_:     18px 24px;
+$_r_:     16px 24px;
+$_s_:     12px 0 0;
+$_t_:     16px 24px 0;
+$_u_:     0 24px 0;
+$_v_:     20px 0 18px;
+$_w_:     7px 14px;
+$_x_:     4px 0 10px;
+$_y_:     10px 0;
+$_z_:     40px 20px;
+$_aa_:    8px 18px;
+$_ab_:    0 24px 40px;
+$_ac_:    20px 0 8px;
+$_ad_:    16px 24px 20px;
+$_ae_:    20px 20px 18px;
+$_af_:    8px 24px 20px;
+$_ag_:    10px 12px;
+$_ah_:    0 16px;
+$_ai_:    0 3px;
+$_aj_:    4px 0 12px;
+$_ak_:    10px 0 40px;
+$_al_:    12px 14px;
+$_am_:    12px;
+$_an_:    12px 20px;
+$_ao_:    15px 24px;
+$_ap_:    10px 20px 16px;
+$_aq_:    4px;
+$_ar_:    19px 24px;
+$_as_:    16px 28px 0;
+$_at_:    10px 28px 8px;
+$_au_:    22px 28px;
+$_av_:    0 28px;
+$_aw_:    24px 20px;
+$_ax_:    10px 14px;
+$_ay_:    14px 20px;
+$_az_:    16px 20px 8px;
+$_ba_:    12px 0 8px;
+$_bb_:    11px 15px;
+$_bc_:    1px 4px 6px;
+$_bd_:    10px 16px 14px;
+$_be_:    12px 18px;
+$_bf_:    14px 18px;
+$_bg_:    10px 20px 14px;
+$_bh_:    13px 16px;
+$_bi_:    8px 0 40px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── * — Light theme token overrides ───────────────
+$*-padding:                    $_a_;  // Light theme token overrides
+
+// ── BAR — phone shell ─────────────────────────────
+$bar-padding:                  $_d_;  // phone shell
+$bar-padding-2:                $_n_;  // recover action bar
+$bar-padding-3:                $_bd_;  // Chat input bar
+
+// ── BODY — Light theme token overrides ────────────
+$body-padding:                 $_b_;  // Light theme token overrides
+$body-padding-2:               $_u_;  // scrollable body
+$body-padding-3:               $_z_;  // Body
+
+// ── BTN — recover action bar ──────────────────────
+$btn-padding:                  $_q_;  // recover action bar
+$btn-padding-2:                $_r_;  // recover action bar
+$btn-padding-3:                $_aa_;  // Body
+
+// ── BUBBLE — Chat bubbles ─────────────────────────
+$bubble-padding:               $_bb_;  // Chat bubbles
+
+// ── CANCEL — recover action bar ───────────────────
+$cancel-padding:               $_p_;  // recover action bar
+$cancel-padding-2:             $_am_;  // Review section
+
+// ── CARD — Profile overlay ────────────────────────
+$card-padding:                 $_aw_;  // Profile overlay
+
+// ── CONFIRM — recover action bar ──────────────────
+$confirm-padding:              $_o_;  // recover action bar
+
+// ── CONTENT — Scroll area ─────────────────────────
+$content-padding:              $_ab_;  // Scroll area
+
+// ── FOOTER — Shop card ────────────────────────────
+$footer-padding:               $_ag_;  // Shop card
+$footer-padding-2:             $_ah_;  // Wide shop card
+
+// ── GRID — Store grid ─────────────────────────────
+$grid-padding:                 $_aj_;  // Store grid
+
+// ── HANDLE — drag handle ──────────────────────────
+$handle-padding:               $_s_;  // drag handle
+
+// ── HEADER — drag handle header ───────────────────
+$header-padding:               $_g_;  // drag handle header
+$header-padding-2:             $_ac_;  // Dashboard header
+$header-padding-3:             $_y_;  // Section headers
+$header-padding-4:             $_ap_;  // Panel header
+$header-padding-5:             $_bg_;  // Transparent, fullwidth drag zone for swipetoclose
+
+// ── HOME — dashboard placeholder ──────────────────
+$home-padding:                 $_e_;  // dashboard placeholder
+
+// ── INPUT — Profile overlay ───────────────────────
+$input-padding:                $_ax_;  // Profile overlay
+$input-padding-2:              $_be_;  // Chat input bar
+$input-padding-3:              $_bh_;  // 14. NEW SR FORM DRAWER
+
+// ── ITEM — section label row (e.g. "top three" ────
+$item-padding:                 $_k_;  // section label row (e.g. "top three"
+$item-padding-2:               $_y_;  // show more conversation toggle row
+$item-padding-3:               $_ar_;  // Inquiries list
+$item-padding-4:               $_au_;  // z31 — absolute top of stack
+
+// ── LABEL — section label row (e.g. "top three" ───
+$label-padding:                $_j_;  // section label row (e.g. "top three"
+
+// ── LEAVE — Review section ────────────────────────
+$leave-padding:                $_ao_;  // Review section
+
+// ── LINK — recover link — hidden in active, accent in archived ─
+$link-padding:                 $_a_;  // recover link — hidden in active, accent in archived
+
+// ── MESSAGES — Chat messages area ─────────────────
+$messages-padding:             $_az_;  // Chat messages area
+
+// ── META — Chat bubbles ───────────────────────────
+$meta-padding:                 $_bc_;  // Chat bubbles
+
+// ── NAV — dashboard placeholder ───────────────────
+$nav-padding:                  $_f_;  // dashboard placeholder
+$nav-padding-2:                $_t_;  // nav row: back btn + hint
+$nav-padding-3:                $_as_;  // z31 — absolute top of stack
+
+// ── OPTION — Profile overlay ──────────────────────
+$option-padding:               $_ax_;  // Profile overlay
+
+// ── OVERLAY — Profile overlay ─────────────────────
+$overlay-padding:              $_av_;  // Profile overlay
+
+// ── PILL — status pill ────────────────────────────
+$pill-padding:                 $_w_;  // status pill
+
+// ── ROW — bottomright corner: date · id ───────────
+$row-padding:                  $_l_;  // bottomright corner: date · id
+$row-padding-2:                $_x_;  // show more conversation toggle row
+
+// ── SAVE — Profile overlay ────────────────────────
+$save-padding:                 $_ay_;  // Profile overlay
+
+// ── SCROLL — Horizontal card scroll ───────────────
+$scroll-padding:               $_af_;  // Horizontal card scroll
+
+// ── SECTION — Review section ──────────────────────
+$section-padding:              $_ak_;  // Review section
+
+// ── STAMP — Chat messages area ────────────────────
+$stamp-padding:                $_ba_;  // Chat messages area
+
+// ── STRIP — Tile strip ────────────────────────────
+$strip-padding:                $_ad_;  // Tile strip
+
+// ── SUBMIT — Review section ───────────────────────
+$submit-padding:               $_an_;  // Review section
+
+// ── TABS — close button (× in topright) ───────────
+$tabs-padding:                 $_i_;  // close button (× in topright)
+$tabs-padding-2:               $_aq_;  // Inquiries tabs
+
+// ── TBTN — theme toggle buttons — preview only ────
+$tbtn-padding:                 $_c_;  // theme toggle buttons — preview only
+
+// ── TEXTAREA — Review section ─────────────────────
+$textarea-padding:             $_al_;  // Review section
+
+// ── TILE — Tile strip ─────────────────────────────
+$tile-padding:                 $_ae_;  // Tile strip
+
+// ── TITLE — z31 — absolute top of stack ───────────
+$title-padding:                $_at_;  // z31 — absolute top of stack
+
+// ── TOGGLE — bottomright corner: date · id ────────
+$toggle-padding:               $_m_;  // bottomright corner: date · id
+$toggle-padding-2:             $_ai_;  // Store layout toggle
+
+// ── TYPING(CONTAINER) — Chat helpers ──────────────
+$typing(container)-padding:    $_bf_;  // Chat helpers
+
+// ── UNKNOWN — Reset ───────────────────────────────
+$unknown-padding:              $_a_;  // Reset
+
+// ── WRAP — close button (× in topright) ───────────
+$wrap-padding:                 $_h_;  // close button (× in topright)
+$wrap-padding-2:               $_n_;  // recover action bar
+$wrap-padding-3:               $_v_;  // gem photo placeholder circle
+$wrap-padding-4:               $_af_;  // Portfolio circles
+$wrap-padding-5:               $_bi_;  // 14. NEW SR FORM DRAWER

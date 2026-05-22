@@ -1,0 +1,60 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/right.scss
+// Every right value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  right: $component-right;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique right value
+// ────────────────────────────────────────────
+
+$_a_:    16px;
+$_b_:    0;
+$_c_:    24px;
+$_d_:    20px;
+$_e_:    14px;
+$_f_:    10px;
+$_g_:    89px;
+$_h_:    58px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── CORNER — bottomright corner: date · id ────────
+$corner-right:      $_c_;  // bottomright corner: date · id
+
+// ── DOT — Tile strip ──────────────────────────────
+$dot-right:         $_e_;  // Tile strip
+
+// ── DRAWER — drawer sheet ─────────────────────────
+$drawer-right:      $_b_;  // drawer sheet
+
+// ── FADE — Scroll area ────────────────────────────
+$fade-right:        $_b_;  // Scroll area
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-right:       $_f_;  // Shop card
+$heart-right-2:     $_a_;  // Wide shop card
+
+// ── MENU — Sits outside .panel so overflow:hidden never clips it ─
+$menu-right:        $_h_;  // Sits outside .panel so overflow:hidden never clips it
+
+// ── PANEL — panel sheet ───────────────────────────
+$panel-right:       $_b_;  // panel sheet
+
+// ── ROW — theme toggle buttons — preview only ─────
+$row-right:         $_a_;  // theme toggle buttons — preview only
+
+// ── SCRIM — background scrim behind panel ─────────
+$scrim-right:       $_b_;  // background scrim behind panel
+
+// ── SWITCHER — Body ───────────────────────────────
+$switcher-right:    $_d_;  // Body
+
+// ── TRACK — close button (× in topright) ──────────
+$track-right:       $_a_;  // close button (× in topright)
+$track-right-2:     $_g_;  // Header plus button

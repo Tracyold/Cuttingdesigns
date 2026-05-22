@@ -1,0 +1,24 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/will-change.scss
+// Every will-change value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  will-change: $component-will-change;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique will-change value
+// ────────────────────────────────────────────
+
+$_a_:    transform;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── DRAWER — drawer sheet ─────────────────────────
+$drawer-will-change:    $_a_;  // drawer sheet
+
+// ── PANEL — panel sheet ───────────────────────────
+$panel-will-change:     $_a_;  // panel sheet

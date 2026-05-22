@@ -1,0 +1,25 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/margin-left.scss
+// Every margin-left value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  margin-left: $component-margin-left;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique margin-left value
+// ────────────────────────────────────────────
+
+$_a_:    6px;
+$_b_:    16px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── ARROW — Inquiries list ────────────────────────
+$arrow-margin-left:    $_b_;  // Inquiries list
+
+// ── SPAN — bottomright corner: date · id ──────────
+$span-margin-left:     $_a_;  // bottomright corner: date · id

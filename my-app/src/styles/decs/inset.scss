@@ -1,0 +1,24 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/inset.scss
+// Every inset value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  inset: $component-inset;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique inset value
+// ────────────────────────────────────────────
+
+$_a_:    0;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── OVERLAY — Profile overlay ─────────────────────
+$overlay-inset:    $_a_;  // Profile overlay
+
+// ── SCRIM — backdrop scrim with blur ──────────────
+$scrim-inset:      $_a_;  // backdrop scrim with blur

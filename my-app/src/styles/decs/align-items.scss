@@ -1,0 +1,103 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/align-items.scss
+// Every align-items value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  align-items: $component-align-items;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique align-items value
+// ────────────────────────────────────────────
+
+$_a_:    center;
+$_b_:    flex-start;
+$_c_:    flex-end;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BACK — nav row: back btn + hint ───────────────
+$back-align-items:                 $_a_;  // nav row: back btn + hint
+
+// ── BAR — phone shell ─────────────────────────────
+$bar-align-items:                  $_a_;  // phone shell
+
+// ── BODY — Light theme token overrides ────────────
+$body-align-items:                 $_a_;  // Light theme token overrides
+
+// ── BREADCRUMB — Online dot ───────────────────────
+$breadcrumb-align-items:           $_a_;  // Online dot
+
+// ── BTN — dashboard placeholder ───────────────────
+$btn-align-items:                  $_a_;  // dashboard placeholder
+
+// ── CIRCLE — gem photo placeholder circle ─────────
+$circle-align-items:               $_a_;  // gem photo placeholder circle
+
+// ── CLOSE — close button (× in topright) ──────────
+$close-align-items:                $_a_;  // close button (× in topright)
+
+// ── CONTROLS — Store layout toggle ────────────────
+$controls-align-items:             $_a_;  // Store layout toggle
+
+// ── CORNER — bottomright corner: date · id ────────
+$corner-align-items:               $_a_;  // bottomright corner: date · id
+
+// ── FOOTER — Wide shop card ───────────────────────
+$footer-align-items:               $_a_;  // Wide shop card
+
+// ── HEADER — Dashboard header ─────────────────────
+$header-align-items:               $_b_;  // Dashboard header
+$header-align-items-2:             $_a_;  // Section headers
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-align-items:                $_a_;  // Shop card
+
+// ── IMG — Shop card ───────────────────────────────
+$img-align-items:                  $_a_;  // Shop card
+
+// ── ITEM — section label row (e.g. "top three" ────
+$item-align-items:                 $_a_;  // section label row (e.g. "top three"
+
+// ── LABEL — section label row (e.g. "top three" ───
+$label-align-items:                $_a_;  // section label row (e.g. "top three"
+
+// ── MENU — Sits outside .panel so overflow:hidden never clips it ─
+$menu-align-items:                 $_a_;  // Sits outside .panel so overflow:hidden never clips it
+
+// ── META — section label row (e.g. "top three" ────
+$meta-align-items:                 $_a_;  // section label row (e.g. "top three"
+
+// ── NAV — dashboard placeholder ───────────────────
+$nav-align-items:                  $_a_;  // dashboard placeholder
+
+// ── OVERLAY — Profile overlay ─────────────────────
+$overlay-align-items:              $_a_;  // Profile overlay
+
+// ── PILL — status pill ────────────────────────────
+$pill-align-items:                 $_a_;  // status pill
+
+// ── PLUS — Header plus button ─────────────────────
+$plus-align-items:                 $_a_;  // Header plus button
+
+// ── PROFILE — Dashboard header ────────────────────
+$profile-align-items:              $_c_;  // Dashboard header
+
+// ── ROW — bottomright corner: date · id ───────────
+$row-align-items:                  $_a_;  // bottomright corner: date · id
+$row-align-items-2:                $_c_;  // Chat bubbles
+
+// ── TOGGLE — Store layout toggle ──────────────────
+$toggle-align-items:               $_a_;  // Store layout toggle
+
+// ── TRACK — close button (× in topright) ──────────
+$track-align-items:                $_a_;  // close button (× in topright)
+
+// ── TYPING(CONTAINER) — Chat helpers ──────────────
+$typing(container)-align-items:    $_a_;  // Chat helpers
+
+// ── WIDE — Store grid ─────────────────────────────
+$wide-align-items:                 $_a_;  // Store grid

@@ -1,0 +1,21 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/text-decoration.scss
+// Every text-decoration value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  text-decoration: $component-text-decoration;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique text-decoration value
+// ────────────────────────────────────────────
+
+$_a_:    underline;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── EDIT — Dashboard header ───────────────────────
+$edit-text-decoration:    $_a_;  // Dashboard header

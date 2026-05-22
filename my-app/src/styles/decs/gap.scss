@@ -1,0 +1,80 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/gap.scss
+// Every gap value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  gap: $component-gap;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique gap value
+// ────────────────────────────────────────────
+
+$_a_:    8px;
+$_b_:    5px;
+$_c_:    10px;
+$_d_:    12px;
+$_e_:    6px;
+$_f_:    4px;
+$_g_:    16px;
+$_h_:    2px;
+$_i_:    3px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BAR — recover action bar ──────────────────────
+$bar-gap:                  $_c_;  // recover action bar
+
+// ── BREADCRUMB — Online dot ───────────────────────
+$breadcrumb-gap:           $_b_;  // Online dot
+
+// ── CONTROLS — Store layout toggle ────────────────
+$controls-gap:             $_a_;  // Store layout toggle
+
+// ── CORNER — bottomright corner: date · id ────────
+$corner-gap:               $_b_;  // bottomright corner: date · id
+
+// ── FORM — Review section ─────────────────────────
+$form-gap:                 $_d_;  // Review section
+
+// ── GRID — Store grid ─────────────────────────────
+$grid-gap:                 $_d_;  // Store grid
+
+// ── MENU — Sits outside .panel so overflow:hidden never clips it ─
+$menu-gap:                 $_c_;  // Sits outside .panel so overflow:hidden never clips it
+
+// ── MESSAGES — Chat messages area ─────────────────
+$messages-gap:             $_i_;  // Chat messages area
+
+// ── META — section label row (e.g. "top three" ────
+$meta-gap:                 $_a_;  // section label row (e.g. "top three"
+
+// ── NAV — nav row: back btn + hint ────────────────
+$nav-gap:                  $_d_;  // nav row: back btn + hint
+
+// ── PILL — status pill ────────────────────────────
+$pill-gap:                 $_e_;  // status pill
+
+// ── PROFILE — Dashboard header ────────────────────
+$profile-gap:              $_f_;  // Dashboard header
+
+// ── ROW — theme toggle buttons — preview only ─────
+$row-gap:                  $_a_;  // theme toggle buttons — preview only
+$row-gap-2:                $_d_;  // Tile strip
+$row-gap-3:                $_g_;  // Portfolio circles
+$row-gap-4:                $_c_;  // Review section
+
+// ── SWITCHER — Body ───────────────────────────────
+$switcher-gap:             $_a_;  // Body
+
+// ── TABS — Inquiries tabs ─────────────────────────
+$tabs-gap:                 $_h_;  // Inquiries tabs
+
+// ── TYPING(CONTAINER) — Chat helpers ──────────────
+$typing(container)-gap:    $_b_;  // Chat helpers
+
+// ── WIDE — Store grid ─────────────────────────────
+$wide-gap:                 $_d_;  // Store grid

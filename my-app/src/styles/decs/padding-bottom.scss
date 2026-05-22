@@ -1,0 +1,38 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/padding-bottom.scss
+// Every padding-bottom value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  padding-bottom: $component-padding-bottom;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique padding-bottom value
+// ────────────────────────────────────────────
+
+$_a_:    10px;
+$_b_:    8px;
+$_c_:    12px;
+$_d_:    20px;
+$_e_:    32px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BODY — show more conversation toggle row ──────
+$body-padding-bottom:      $_b_;  // show more conversation toggle row
+
+// ── ITEMS — z31 — absolute top of stack ───────────
+$items-padding-bottom:     $_e_;  // z31 — absolute top of stack
+
+// ── LIST — Inquiries list ─────────────────────────
+$list-padding-bottom:      $_d_;  // Inquiries list
+
+// ── PILL — drag handle header ─────────────────────
+$pill-padding-bottom:      $_a_;  // drag handle header
+$pill-padding-bottom-2:    $_c_;  // Panel header
+
+// ── TITLE — panel title — sunken neumorphic style ─
+$title-padding-bottom:     $_b_;  // panel title — sunken neumorphic style

@@ -1,0 +1,42 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/overflow.scss
+// Every overflow value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  overflow: $component-overflow;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique overflow value
+// ────────────────────────────────────────────
+
+$_a_:    hidden;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── CARD — Shop card ──────────────────────────────
+$card-overflow:      $_a_;  // Shop card
+
+// ── DRAWER — drawer sheet ─────────────────────────
+$drawer-overflow:    $_a_;  // drawer sheet
+
+// ── FOOTER — Shop card ────────────────────────────
+$footer-overflow:    $_a_;  // Shop card
+
+// ── PANEL — panel sheet ───────────────────────────
+$panel-overflow:     $_a_;  // panel sheet
+
+// ── PHONE — phone shell ───────────────────────────
+$phone-overflow:     $_a_;  // phone shell
+
+// ── TABS — close button (× in topright) ───────────
+$tabs-overflow:      $_a_;  // close button (× in topright)
+
+// ── TITLE — section label row (e.g. "top three" ───
+$title-overflow:     $_a_;  // section label row (e.g. "top three"
+
+// ── WIDE — Wide shop card ─────────────────────────
+$wide-overflow:      $_a_;  // Wide shop card

@@ -1,0 +1,44 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/bottom.scss
+// Every bottom value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  bottom: $component-bottom;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique bottom value
+// ────────────────────────────────────────────
+
+$_a_:    100px;
+$_b_:    3px;
+$_c_:    8px;
+$_d_:    12px;
+$_e_:    0;
+$_f_:    -18px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BOT — Scroll area ─────────────────────────────
+$bot-bottom:          $_e_;  // Scroll area
+
+// ── CORNER — bottomright corner: date · id ────────
+$corner-bottom:       $_c_;  // bottomright corner: date · id
+
+// ── DRAWER — drawer sheet ─────────────────────────
+$drawer-bottom:       $_d_;  // drawer sheet
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-bottom:        $_f_;  // Shop card
+
+// ── HIGHLIGHT — sliding highlight pill ────────────
+$highlight-bottom:    $_b_;  // sliding highlight pill
+
+// ── PANEL — panel sheet ───────────────────────────
+$panel-bottom:        $_a_;  // panel sheet
+
+// ── SCRIM — background scrim behind panel ─────────
+$scrim-bottom:        $_a_;  // background scrim behind panel

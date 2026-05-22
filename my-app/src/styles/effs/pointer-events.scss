@@ -1,0 +1,41 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/pointer-events.scss
+// Every pointer-events value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  pointer-events: $component-pointer-events;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique pointer-events value
+// ────────────────────────────────────────────
+
+$_a_:    none;
+$_b_:    auto;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── FADE — Scroll area ────────────────────────────
+$fade-pointer-events:         $_a_;  // Scroll area
+
+// ── HIGHLIGHT — sliding highlight pill ────────────
+$highlight-pointer-events:    $_a_;  // sliding highlight pill
+
+// ── ITEM — recover action bar ─────────────────────
+$item-pointer-events:         $_b_;  // recover action bar
+$item-pointer-events-2:       $_a_;  // 10. ARCHIVED STATE
+
+// ── LINK — recover link — hidden in active, accent in archived ─
+$link-pointer-events:         $_b_;  // recover link — hidden in active, accent in archived
+
+// ── MENU — Sits outside .panel so overflow:hidden never clips it ─
+$menu-pointer-events:         $_a_;  // Sits outside .panel so overflow:hidden never clips it
+
+// ── OPEN — background scrim behind panel ──────────
+$open-pointer-events:         $_b_;  // background scrim behind panel
+
+// ── SCRIM — background scrim behind panel ─────────
+$scrim-pointer-events:        $_a_;  // background scrim behind panel

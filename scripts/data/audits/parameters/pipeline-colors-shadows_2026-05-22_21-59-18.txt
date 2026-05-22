@@ -1,0 +1,438 @@
+╔══════════════════════════════════════════════════════════════════╗
+║  PIPELINE — COLORS + SHADOWS — for generate_colors.py              ║
+║  Deduplicated · prop + value + source                            ║
+╚══════════════════════════════════════════════════════════════════╝
+  Generated: 2026-05-22 21-59-24
+  Entries:   149
+
+  ────────────────────────────────────────────────────────────────────
+  THEME: root
+  ────────────────────────────────────────────────────────────────────
+  ── root
+  --base: #1c2230;
+  --base-whisper: #232a3a;
+  --base-mute: #131825;
+  --ink: #e4e8ef;
+  --ink-whisper: #b5bdcc;
+  --ink-mute: #7d8597;
+  --accent: #d4ec5a;
+  --accent-mute: #2f3a20;
+  --sedona: #c46850;
+  --divider: rgba(255,255,255,0.06);
+  --neu-dark: rgba(6,9,15,0.78);
+  --neu-light: rgba(72,86,110,0.42);
+  --scrim: rgba(0,0,0,0.45);
+  --bg-outer: #0a0d14;
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  --neu-xs: 2px 2px 5px var(--neu-dark), -2px -2px 5px var(--neu-light);
+  --neu-sm: 3px 3px 7px var(--neu-dark), -3px -3px 7px var(--neu-light);
+  --neu-in: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+  --online: #3ecf82;
+
+  ────────────────────────────────────────────────────────────────────
+  DATA
+  ────────────────────────────────────────────────────────────────────
+
+  PROPERTY             VALUE                                                                           SOURCE
+  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────────
+  1. TOKENS / .light
+  ────────────────────────────────────────────────────────────────────
+  --accent             #1a82c8                                                                         1. TOKENS / .light
+  --accent-mute        #cee5f5                                                                         1. TOKENS / .light
+  --base               #e8ecf2                                                                         1. TOKENS / .light
+  --base-mute          #f1f4f9                                                                         1. TOKENS / .light
+  --base-whisper       #dfe4ec                                                                         1. TOKENS / .light
+  --bg-outer           #c8cdd8                                                                         1. TOKENS / .light
+  --divider            rgba(0,0,0,0.07)                                                                1. TOKENS / .light
+  --ink                #2b3445                                                                         1. TOKENS / .light
+  --ink-mute           #8893a6                                                                         1. TOKENS / .light
+  --ink-whisper        #4a5363                                                                         1. TOKENS / .light
+  --neu-dark           rgba(146,158,178,0.55)                                                          1. TOKENS / .light
+  --neu-light          rgba(255,255,255,0.95)                                                          1. TOKENS / .light
+  --scrim              rgba(43,52,69,0.35)                                                             1. TOKENS / .light
+  --sedona             #976a63                                                                         1. TOKENS / .light
+
+  ────────────────────────────────────────────────────────────────────
+  1. TOKENS / :root, .phone
+  ────────────────────────────────────────────────────────────────────
+  --accent             #d4ec5a                                                                         1. TOKENS / :root, .phone
+  --accent-mute        #2f3a20                                                                         1. TOKENS / :root, .phone
+  --base               #1c2230                                                                         1. TOKENS / :root, .phone
+  --base-mute          #131825                                                                         1. TOKENS / :root, .phone
+  --base-whisper       #232a3a                                                                         1. TOKENS / :root, .phone
+  --bg-outer           #0a0d14                                                                         1. TOKENS / :root, .phone
+  --complete-bg        rgba(62,207,130,0.15)                                                           1. TOKENS / :root, .phone
+  --complete-text      #3ecf82                                                                         1. TOKENS / :root, .phone
+  --divider            rgba(255,255,255,0.06)                                                          1. TOKENS / :root, .phone
+  --ink                #e4e8ef                                                                         1. TOKENS / :root, .phone
+  --ink-mute           #7d8597                                                                         1. TOKENS / :root, .phone
+  --ink-whisper        #b5bdcc                                                                         1. TOKENS / :root, .phone
+  --neu-dark           rgba(6,9,15,0.78)                                                               1. TOKENS / :root, .phone
+  --neu-light          rgba(72,86,110,0.42)                                                            1. TOKENS / :root, .phone
+  --panel-title-color  #3d5070                                                                         1. TOKENS / :root, .phone
+  --progress-bg        rgba(212,236,90,0.15)                                                           1. TOKENS / :root, .phone
+  --pulse-a            #c3563b                                                                         1. TOKENS / :root, .phone
+  --pulse-b            #d4ec5a                                                                         1. TOKENS / :root, .phone
+  --scrim              rgba(0,0,0,0.45)                                                                1. TOKENS / :root, .phone
+  --sedona             #c3563b                                                                         1. TOKENS / :root, .phone
+
+  ────────────────────────────────────────────────────────────────────
+  11. CTA BUTTONS / .cta-btn
+  ────────────────────────────────────────────────────────────────────
+  color                #fff7f3                                                                         11. CTA BUTTONS / .cta-btn
+
+  ────────────────────────────────────────────────────────────────────
+  11. CTA BUTTONS / .sr-cta-btn
+  ────────────────────────────────────────────────────────────────────
+  color                #fff7f3                                                                         11. CTA BUTTONS / .sr-cta-btn
+
+  ────────────────────────────────────────────────────────────────────
+  13. SR DETAIL DRAWER / .status-dot
+  ────────────────────────────────────────────────────────────────────
+  background           currentColor                                                                    13. SR DETAIL DRAWER / .status-dot
+
+  ────────────────────────────────────────────────────────────────────
+  2. PREVIEW CHROME / .phone
+  ────────────────────────────────────────────────────────────────────
+  box-shadow           0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06)                   2. PREVIEW CHROME / .phone
+
+  ────────────────────────────────────────────────────────────────────
+  Body / outer / .theme-btn.dark-btn
+  ────────────────────────────────────────────────────────────────────
+  background           #1c2230                                                                         Body / outer / .theme-btn.dark-btn
+  color                #d4ec5a                                                                         Body / outer / .theme-btn.dark-btn
+
+  ────────────────────────────────────────────────────────────────────
+  Body / outer / .theme-btn.light-btn
+  ────────────────────────────────────────────────────────────────────
+  background           #e8ecf2                                                                         Body / outer / .theme-btn.light-btn
+  color                #1a82c8                                                                         Body / outer / .theme-btn.light-btn
+
+  ────────────────────────────────────────────────────────────────────
+  Chat input bar / .chat-input
+  ────────────────────────────────────────────────────────────────────
+  background           rgba(255,255,255,0.09)                                                          Chat input bar / .chat-input
+
+  ────────────────────────────────────────────────────────────────────
+  Chat input bar / .light .chat-input
+  ────────────────────────────────────────────────────────────────────
+  background           rgba(255,255,255,0.9)                                                           Chat input bar / .light .chat-input
+
+  ────────────────────────────────────────────────────────────────────
+  Chat input bar / .send-btn
+  ────────────────────────────────────────────────────────────────────
+  color                #fff7f3                                                                         Chat input bar / .send-btn
+
+  ────────────────────────────────────────────────────────────────────
+  Chat input bar / .send-btn:active
+  ────────────────────────────────────────────────────────────────────
+  box-shadow           inset 2px 2px 5px rgba(0,0,0,0.25)                                              Chat input bar / .send-btn:active
+
+  ────────────────────────────────────────────────────────────────────
+  Dot colors / .tile.is-new .tile-dot
+  ────────────────────────────────────────────────────────────────────
+  background           #fff                                                                            Dot colors / .tile.is-new .tile-dot
+  box-shadow           0 0 0 2px rgba(255,255,255,0.3)                                                 Dot colors / .tile.is-new .tile-dot
+
+  ────────────────────────────────────────────────────────────────────
+  Header plus button / .header-plus
+  ────────────────────────────────────────────────────────────────────
+  color                #fff7f3                                                                         Header plus button / .header-plus
+
+  ────────────────────────────────────────────────────────────────────
+  Header plus button / .header-plus:active
+  ────────────────────────────────────────────────────────────────────
+  box-shadow           inset 3px 3px 7px rgba(0,0,0,0.45), inset -1px -1px 3px rgba(255,255,255,0.07)  Header plus button / .header-plus:active
+
+  ────────────────────────────────────────────────────────────────────
+  Light theme token overrides / .light
+  ────────────────────────────────────────────────────────────────────
+  --accent             #1a82c8                                                                         Light theme token overrides / .light
+  --accent-mute        #cee5f5                                                                         Light theme token overrides / .light
+  --base               #e8ecf2                                                                         Light theme token overrides / .light
+  --base-mute          #f1f4f9                                                                         Light theme token overrides / .light
+  --base-whisper       #dfe4ec                                                                         Light theme token overrides / .light
+  --bg-outer           #c8cdd8                                                                         Light theme token overrides / .light
+  --divider            rgba(0,0,0,0.07)                                                                Light theme token overrides / .light
+  --ink                #2b3445                                                                         Light theme token overrides / .light
+  --ink-mute           #8893a6                                                                         Light theme token overrides / .light
+  --ink-whisper        #4a5363                                                                         Light theme token overrides / .light
+  --neu-dark           rgba(146,158,178,0.55)                                                          Light theme token overrides / .light
+  --neu-light          rgba(255,255,255,0.95)                                                          Light theme token overrides / .light
+  --scrim              rgba(43,52,69,0.35)                                                             Light theme token overrides / .light
+  --sedona             #976a63                                                                         Light theme token overrides / .light
+
+  ────────────────────────────────────────────────────────────────────
+  Panel header / .light .panel-title
+  ────────────────────────────────────────────────────────────────────
+  color                #c8cdd8                                                                         Panel header / .light .panel-title
+  text-shadow          -1px -1px 1px rgba(146,158,178,0.6), 1px 1px 2px rgba(255,255,255,0.95)         Panel header / .light .panel-title
+
+  ────────────────────────────────────────────────────────────────────
+  Panel header / .panel-title
+  ────────────────────────────────────────────────────────────────────
+  color                #2a3347                                                                         Panel header / .panel-title
+  text-shadow          -1px -1px 1px rgba(6,9,15,0.9), 1px 1px 2px rgba(72,86,110,0.5)                 Panel header / .panel-title
+
+  ────────────────────────────────────────────────────────────────────
+  Phone frame / .phone
+  ────────────────────────────────────────────────────────────────────
+  box-shadow           0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06)                   Phone frame / .phone
+
+  ────────────────────────────────────────────────────────────────────
+  Plus button — flat, dimmed sedona at rest, sinks on active / .header-plus
+  ────────────────────────────────────────────────────────────────────
+  color                #fff7f3                                                                         Plus button — flat, dimmed sedona at rest, sinks on active / .header-plus
+
+  ────────────────────────────────────────────────────────────────────
+  Plus button — flat, dimmed sedona at rest, sinks on active / .header-plus:active
+  ────────────────────────────────────────────────────────────────────
+  box-shadow           inset 3px 3px 7px rgba(0,0,0,0.45), inset -1px -1px 3px rgba(255,255,255,0.07)  Plus button — flat, dimmed sedona at rest, sinks on active / .header-plus:active
+  color                #fff7f3                                                                         Plus button — flat, dimmed sedona at rest, sinks on active / .header-plus:active
+
+  ────────────────────────────────────────────────────────────────────
+  Profile overlay / .profile-card
+  ────────────────────────────────────────────────────────────────────
+  box-shadow           0 8px 32px rgba(0,0,0,0.5)                                                      Profile overlay / .profile-card
+
+  ────────────────────────────────────────────────────────────────────
+  Pulse animations / 0%,100%
+  ────────────────────────────────────────────────────────────────────
+  color                #8e7470                                                                         Pulse animations / 0%,100%
+
+  ────────────────────────────────────────────────────────────────────
+  Pulse animations / 50%
+  ────────────────────────────────────────────────────────────────────
+  color                #1a82c8                                                                         Pulse animations / 50%
+
+  ────────────────────────────────────────────────────────────────────
+  Review section / .review-btn-leave
+  ────────────────────────────────────────────────────────────────────
+  color                #fff7f3                                                                         Review section / .review-btn-leave
+
+  ────────────────────────────────────────────────────────────────────
+  Review section / .review-btn-submit
+  ────────────────────────────────────────────────────────────────────
+  color                #fff7f3                                                                         Review section / .review-btn-submit
+
+  ────────────────────────────────────────────────────────────────────
+  Review section / .star-btn.active
+  ────────────────────────────────────────────────────────────────────
+  color                #ffb84d                                                                         Review section / .star-btn.active
+
+  ────────────────────────────────────────────────────────────────────
+  Scroll area / .scroll-fade.bot
+  ────────────────────────────────────────────────────────────────────
+  background           linear-gradient(to top, var(–base), transparent)                                Scroll area / .scroll-fade.bot
+
+  ────────────────────────────────────────────────────────────────────
+  Scroll area / .scroll-fade.top
+  ────────────────────────────────────────────────────────────────────
+  background           linear-gradient(to bottom, var(–base), transparent)                             Scroll area / .scroll-fade.top
+
+  ────────────────────────────────────────────────────────────────────
+  Send button — sedona always / .send-btn
+  ────────────────────────────────────────────────────────────────────
+  color                #fff7f3                                                                         Send button — sedona always / .send-btn
+
+  ────────────────────────────────────────────────────────────────────
+  Send button — sedona always / .send-btn:active
+  ────────────────────────────────────────────────────────────────────
+  box-shadow           inset 2px 2px 5px rgba(0,0,0,0.25)                                              Send button — sedona always / .send-btn:active
+
+  ────────────────────────────────────────────────────────────────────
+  Shop card / .light .shop-card-footer
+  ────────────────────────────────────────────────────────────────────
+  background           #bcbcc4                                                                         Shop card / .light .shop-card-footer
+
+  ────────────────────────────────────────────────────────────────────
+  Shop card / .shop-card-footer
+  ────────────────────────────────────────────────────────────────────
+  background           #2a3142                                                                         Shop card / .shop-card-footer
+
+  ────────────────────────────────────────────────────────────────────
+  Shop card / .shop-card-heart.fav
+  ────────────────────────────────────────────────────────────────────
+  color                #c46850                                                                         Shop card / .shop-card-heart.fav
+
+  ────────────────────────────────────────────────────────────────────
+  Sunken text — slightly lighter/darker than base, pressed into surface / .light .panel-title
+  ────────────────────────────────────────────────────────────────────
+  color                #c8cdd8                                                                         Sunken text — slightly lighter/darker than base, pressed into surface / .light .panel-title
+  text-shadow          -1px -1px 1px rgba(146,158,178,0.6), 1px 1px 2px rgba(255,255,255,0.95)         Sunken text — slightly lighter/darker than base, pressed into surface / .light .panel-title
+
+  ────────────────────────────────────────────────────────────────────
+  Sunken text — slightly lighter/darker than base, pressed into surface / .panel-title
+  ────────────────────────────────────────────────────────────────────
+  color                #2a3347                                                                         Sunken text — slightly lighter/darker than base, pressed into surface / .panel-title
+  text-shadow          -1px -1px 1px rgba(6,9,15,0.9), 1px 1px 2px rgba(72,86,110,0.5)                 Sunken text — slightly lighter/darker than base, pressed into surface / .panel-title
+
+  ────────────────────────────────────────────────────────────────────
+  Sunken white input — 25px radius / .chat-input
+  ────────────────────────────────────────────────────────────────────
+  background           rgba(255,255,255,0.09)                                                          Sunken white input — 25px radius / .chat-input
+
+  ────────────────────────────────────────────────────────────────────
+  Sunken white input — 25px radius / .light .chat-input
+  ────────────────────────────────────────────────────────────────────
+  background           rgba(255,255,255,0.9)                                                           Sunken white input — 25px radius / .light .chat-input
+
+  ────────────────────────────────────────────────────────────────────
+  Tile strip / .light .tile.is-new .tile-label
+  ────────────────────────────────────────────────────────────────────
+  color                rgba(255,255,255,0.85)                                                          Tile strip / .light .tile.is-new .tile-label
+
+  ────────────────────────────────────────────────────────────────────
+  Tile strip / .light .tile.is-new .tile-msg
+  ────────────────────────────────────────────────────────────────────
+  color                rgba(255,255,255,0.85)                                                          Tile strip / .light .tile.is-new .tile-msg
+
+  ────────────────────────────────────────────────────────────────────
+  Tile strip / .light .tile.is-new .tile-num
+  ────────────────────────────────────────────────────────────────────
+  color                #fff                                                                            Tile strip / .light .tile.is-new .tile-num
+
+  ────────────────────────────────────────────────────────────────────
+  Wide shop card / .light .shop-card-wide-footer
+  ────────────────────────────────────────────────────────────────────
+  background           #bcbcc4                                                                         Wide shop card / .light .shop-card-wide-footer
+
+  ────────────────────────────────────────────────────────────────────
+  Wide shop card / .shop-card-wide-footer
+  ────────────────────────────────────────────────────────────────────
+  background           #2a3142                                                                         Wide shop card / .shop-card-wide-footer
+
+  ────────────────────────────────────────────────────────────────────
+  ccgphoneframe.css / .phone
+  ────────────────────────────────────────────────────────────────────
+  box-shadow           0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06)                   ccgphoneframe.css / .phone
+
+  ────────────────────────────────────────────────────────────────────
+  ccgtokens.css / .light
+  ────────────────────────────────────────────────────────────────────
+  --accent             #1a82c8                                                                         ccgtokens.css / .light
+  --accent-mute        #cee5f5                                                                         ccgtokens.css / .light
+  --base               #e8ecf2                                                                         ccgtokens.css / .light
+  --base-mute          #f1f4f9                                                                         ccgtokens.css / .light
+  --base-whisper       #dfe4ec                                                                         ccgtokens.css / .light
+  --bg-outer           #c8cdd8                                                                         ccgtokens.css / .light
+  --divider            rgba(0,0,0,0.07)                                                                ccgtokens.css / .light
+  --ink                #2b3445                                                                         ccgtokens.css / .light
+  --ink-mute           #8893a6                                                                         ccgtokens.css / .light
+  --ink-whisper        #4a5363                                                                         ccgtokens.css / .light
+  --neu-dark           rgba(146,158,178,0.55)                                                          ccgtokens.css / .light
+  --neu-light          rgba(255,255,255,0.95)                                                          ccgtokens.css / .light
+  --scrim              rgba(43,52,69,0.35)                                                             ccgtokens.css / .light
+  --sedona             #8e7470                                                                         ccgtokens.css / .light
+
+  ────────────────────────────────────────────────────────────────────
+  ccgtokens.css / :root
+  ────────────────────────────────────────────────────────────────────
+  --accent             #d4ec5a                                                                         ccgtokens.css / :root
+  --accent-mute        #2f3a20                                                                         ccgtokens.css / :root
+  --base               #1c2230                                                                         ccgtokens.css / :root
+  --base-mute          #131825                                                                         ccgtokens.css / :root
+  --base-whisper       #232a3a                                                                         ccgtokens.css / :root
+  --bg-outer           #0a0d14                                                                         ccgtokens.css / :root
+  --divider            rgba(255,255,255,0.06)                                                          ccgtokens.css / :root
+  --ink                #e4e8ef                                                                         ccgtokens.css / :root
+  --ink-mute           #7d8597                                                                         ccgtokens.css / :root
+  --ink-whisper        #b5bdcc                                                                         ccgtokens.css / :root
+  --neu-dark           rgba(6,9,15,0.78)                                                               ccgtokens.css / :root
+  --neu-light          rgba(72,86,110,0.42)                                                            ccgtokens.css / :root
+  --online             #3ecf82                                                                         ccgtokens.css / :root
+  --scrim              rgba(0,0,0,0.45)                                                                ccgtokens.css / :root
+  --sedona             #c46850                                                                         ccgtokens.css / :root
+
+  ────────────────────────────────────────────────────────────────────
+  dashboard placeholder / .light .nav-btn.fab
+  ────────────────────────────────────────────────────────────────────
+  box-shadow           2px 2px 6px rgba(146,158,178,0.3), -2px -2px 6px rgba(255,255,255,0.8)          dashboard placeholder / .light .nav-btn.fab
+
+  ────────────────────────────────────────────────────────────────────
+  devonly — remove in production / .theme-btn.dark-btn
+  ────────────────────────────────────────────────────────────────────
+  background           #1c2230                                                                         devonly — remove in production / .theme-btn.dark-btn
+  color                #d4ec5a                                                                         devonly — remove in production / .theme-btn.dark-btn
+
+  ────────────────────────────────────────────────────────────────────
+  devonly — remove in production / .theme-btn.light-btn
+  ────────────────────────────────────────────────────────────────────
+  background           #e8ecf2                                                                         devonly — remove in production / .theme-btn.light-btn
+  color                #1a82c8                                                                         devonly — remove in production / .theme-btn.light-btn
+
+  ────────────────────────────────────────────────────────────────────
+  panel title — sunken neumorphic style / .light .panel-title
+  ────────────────────────────────────────────────────────────────────
+  color                #c8cdd8                                                                         panel title — sunken neumorphic style / .light .panel-title
+  text-shadow          -1px -1px 1px rgba(146,158,178,0.6), 1px 1px 2px rgba(255,255,255,0.95)         panel title — sunken neumorphic style / .light .panel-title
+
+  ────────────────────────────────────────────────────────────────────
+  panel title — sunken neumorphic style / .panel-title
+  ────────────────────────────────────────────────────────────────────
+  color                #3d5070                                                                         panel title — sunken neumorphic style / .panel-title
+  text-shadow          -1px -1px 1px rgba(6,9,15,0.9), 1px 1px 2px rgba(72,86,110,0.5)                 panel title — sunken neumorphic style / .panel-title
+
+  ────────────────────────────────────────────────────────────────────
+  phone shell / .phone
+  ────────────────────────────────────────────────────────────────────
+  box-shadow           0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06)                   phone shell / .phone
+
+  ────────────────────────────────────────────────────────────────────
+  recover action bar / #pane-archived .inq-title
+  ────────────────────────────────────────────────────────────────────
+  text-shadow          -1px -1px 1px rgba(6,9,15,0.7), 1px 1px 1px rgba(72,86,110,0.3)                 recover action bar / #pane-archived .inq-title
+
+  ────────────────────────────────────────────────────────────────────
+  recover action bar / .cta-btn
+  ────────────────────────────────────────────────────────────────────
+  color                #fff7f3                                                                         recover action bar / .cta-btn
+
+  ────────────────────────────────────────────────────────────────────
+  recover action bar / .inq-cta-btn
+  ────────────────────────────────────────────────────────────────────
+  color                #fff7f3                                                                         recover action bar / .inq-cta-btn
+
+  ────────────────────────────────────────────────────────────────────
+  recover action bar / .light #pane-archived .inq-title
+  ────────────────────────────────────────────────────────────────────
+  text-shadow          -1px -1px 1px rgba(255,255,255,0.8), 1px 1px 1px rgba(146,158,178,0.4)          recover action bar / .light #pane-archived .inq-title
+
+  ────────────────────────────────────────────────────────────────────
+  recover action bar / .light .inq-cta-btn
+  ────────────────────────────────────────────────────────────────────
+  box-shadow           2px 2px 6px rgba(146,158,178,0.25), -1px -1px 4px rgba(255,255,255,0.7)         recover action bar / .light .inq-cta-btn
+
+  ────────────────────────────────────────────────────────────────────
+  recover action bar / .light .recover-cancel
+  ────────────────────────────────────────────────────────────────────
+  box-shadow           2px 2px 6px rgba(146,158,178,0.25), -2px -2px 5px rgba(255,255,255,0.85)        recover action bar / .light .recover-cancel
+
+  ────────────────────────────────────────────────────────────────────
+  recover action bar / .light .recover-confirm
+  ────────────────────────────────────────────────────────────────────
+  box-shadow           2px 2px 6px rgba(146,158,178,0.25), -1px -1px 4px rgba(255,255,255,0.7)         recover action bar / .light .recover-confirm
+
+  ────────────────────────────────────────────────────────────────────
+  sliding highlight pill / .light .tab-btn.active
+  ────────────────────────────────────────────────────────────────────
+  color                #fff                                                                            sliding highlight pill / .light .tab-btn.active
+
+  ────────────────────────────────────────────────────────────────────
+  status pill / .status-dot
+  ────────────────────────────────────────────────────────────────────
+  background           currentColor                                                                    status pill / .status-dot
+
+  ────────────────────────────────────────────────────────────────────
+  theme toggle buttons — preview only / .tbtn.dark
+  ────────────────────────────────────────────────────────────────────
+  background           #1c2230                                                                         theme toggle buttons — preview only / .tbtn.dark
+  color                #d4ec5a                                                                         theme toggle buttons — preview only / .tbtn.dark
+
+  ────────────────────────────────────────────────────────────────────
+  theme toggle buttons — preview only / .tbtn.lite
+  ────────────────────────────────────────────────────────────────────
+  background           #e8ecf2                                                                         theme toggle buttons — preview only / .tbtn.lite
+  color                #1a82c8                                                                         theme toggle buttons — preview only / .tbtn.lite

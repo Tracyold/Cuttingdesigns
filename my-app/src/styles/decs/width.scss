@@ -1,0 +1,115 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/width.scss
+// Every width value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  width: $component-width;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique width value
+// ────────────────────────────────────────────
+
+$_a_:    390px;
+$_b_:    120px;
+$_c_:    40px;
+$_d_:    54px;
+$_e_:    36px;
+$_f_:    26px;
+$_g_:    calc(50% - 3px);
+$_h_:    100%;
+$_i_:    88%;
+$_j_:    32px;
+$_k_:    110px;
+$_l_:    7px;
+$_m_:    10px;
+$_n_:    160px;
+$_o_:    318px;
+$_p_:    44px;
+$_q_:    16px;
+$_r_:    85%;
+$_s_:    28px;
+$_t_:    42px;
+$_u_:    6px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BACK — nav row: back btn + hint ───────────────
+$back-width:         $_j_;  // nav row: back btn + hint
+
+// ── BAR — drag handle header ──────────────────────
+$bar-width:          $_e_;  // drag handle header
+
+// ── BTN — dashboard placeholder ───────────────────
+$btn-width:          $_c_;  // dashboard placeholder
+$btn-width-2:        $_h_;  // recover action bar
+$btn-width-3:        $_p_;  // Sits outside .panel so overflow:hidden never clips it
+$btn-width-4:        $_t_;  // Chat input bar
+
+// ── CARD — Shop card ──────────────────────────────
+$card-width:         $_n_;  // Shop card
+$card-width-2:       $_h_;  // Profile overlay
+
+// ── CIRCLE — gem photo placeholder circle ─────────
+$circle-width:       $_k_;  // gem photo placeholder circle
+
+// ── CLOSE — close button (× in topright) ──────────
+$close-width:        $_f_;  // close button (× in topright)
+$close-width-2:      $_s_;  // Profile overlay
+
+// ── DOT — status pill ─────────────────────────────
+$dot-width:          $_l_;  // status pill
+$dot-width-2:        $_m_;  // Tile strip
+$dot-width-3:        $_u_;  // Typing indicator
+
+// ── DRAWER — drawer sheet ─────────────────────────
+$drawer-width:       $_i_;  // drawer sheet
+$drawer-width-2:     $_r_;  // z31 — absolute top of stack
+
+// ── FAB — dashboard placeholder ───────────────────
+$fab-width:          $_d_;  // dashboard placeholder
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-width:        $_e_;  // Shop card
+
+// ── HIGHLIGHT — sliding highlight pill ────────────
+$highlight-width:    $_g_;  // sliding highlight pill
+
+// ── INPUT — Profile overlay ───────────────────────
+$input-width:        $_h_;  // Profile overlay
+
+// ── KNOB — Store layout toggle ────────────────────
+$knob-width:         $_q_;  // Store layout toggle
+
+// ── LEAVE — Review section ────────────────────────
+$leave-width:        $_h_;  // Review section
+
+// ── NOTCH — phone shell ───────────────────────────
+$notch-width:        $_b_;  // phone shell
+
+// ── PANE — sliding highlight pill ─────────────────
+$pane-width:         $_h_;  // sliding highlight pill
+
+// ── PHONE — phone shell ───────────────────────────
+$phone-width:        $_a_;  // phone shell
+
+// ── PLUS — Header plus button ─────────────────────
+$plus-width:         $_f_;  // Header plus button
+
+// ── SAVE — Profile overlay ────────────────────────
+$save-width:         $_h_;  // Profile overlay
+
+// ── TEXTAREA — Review section ─────────────────────
+$textarea-width:     $_h_;  // Review section
+
+// ── TOGGLE — Store layout toggle ──────────────────
+$toggle-width:       $_p_;  // Store layout toggle
+
+// ── TRACK — close button (× in topright) ──────────
+$track-width:        $_e_;  // close button (× in topright)
+
+// ── WIDE — Wide shop card ─────────────────────────
+$wide-width:         $_o_;  // Wide shop card

@@ -1,0 +1,24 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/resize.scss
+// Every resize value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  resize: $component-resize;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique resize value
+// ────────────────────────────────────────────
+
+$_a_:    none;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── INPUT — Chat input bar ────────────────────────
+$input-resize:       $_a_;  // Chat input bar
+
+// ── TEXTAREA — Review section ─────────────────────
+$textarea-resize:    $_a_;  // Review section

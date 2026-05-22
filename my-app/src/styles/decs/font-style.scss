@@ -1,0 +1,26 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/font-style.scss
+// Every font-style value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  font-style: $component-font-style;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique font-style value
+// ────────────────────────────────────────────
+
+$_a_:    italic;
+$_b_:    normal;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── MESSAGE — section divider ─────────────────────
+$message-font-style:      $_a_;  // section divider
+$message-font-style-2:    $_b_;  // section divider
+
+// ── SAVED — Review section ────────────────────────
+$saved-font-style:        $_a_;  // Review section

@@ -1,0 +1,21 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/scroll-behavior.scss
+// Every scroll-behavior value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  scroll-behavior: $component-scroll-behavior;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique scroll-behavior value
+// ────────────────────────────────────────────
+
+$_a_:    smooth;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── MESSAGES — Chat messages area ─────────────────
+$messages-scroll-behavior:    $_a_;  // Chat messages area

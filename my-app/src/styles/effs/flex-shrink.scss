@@ -1,0 +1,75 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/flex-shrink.scss
+// Every flex-shrink value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  flex-shrink: $component-flex-shrink;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique flex-shrink value
+// ────────────────────────────────────────────
+
+$_a_:    0;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── ARROW — notification arrow — pulsed via JS when activity=hot ─
+$arrow-flex-shrink:       $_a_;  // notification arrow — pulsed via JS when activity=hot
+
+// ── BACK — nav row: back btn + hint ───────────────
+$back-flex-shrink:        $_a_;  // nav row: back btn + hint
+
+// ── BAR — phone shell ─────────────────────────────
+$bar-flex-shrink:         $_a_;  // phone shell
+
+// ── BTN — Chat input bar ──────────────────────────
+$btn-flex-shrink:         $_a_;  // Chat input bar
+
+// ── CARD — Shop card ──────────────────────────────
+$card-flex-shrink:        $_a_;  // Shop card
+
+// ── CIRCLE — gem photo placeholder circle ─────────
+$circle-flex-shrink:      $_a_;  // gem photo placeholder circle
+
+// ── HANDLE — drag handle ──────────────────────────
+$handle-flex-shrink:      $_a_;  // drag handle
+
+// ── HEADER — drag handle header ───────────────────
+$header-flex-shrink:      $_a_;  // drag handle header
+
+// ── LOCKED — sliding highlight pill ───────────────
+$locked-flex-shrink:      $_a_;  // sliding highlight pill
+
+// ── NAV — dashboard placeholder ───────────────────
+$nav-flex-shrink:         $_a_;  // dashboard placeholder
+
+// ── OVERFLOW — sliding highlight pill ─────────────
+$overflow-flex-shrink:    $_a_;  // sliding highlight pill
+
+// ── PANE — sliding highlight pill ─────────────────
+$pane-flex-shrink:        $_a_;  // sliding highlight pill
+
+// ── PLUS — Header plus button ─────────────────────
+$plus-flex-shrink:        $_a_;  // Header plus button
+
+// ── ROW — bottomright corner: date · id ───────────
+$row-flex-shrink:         $_a_;  // bottomright corner: date · id
+
+// ── TABS — Inquiries tabs ─────────────────────────
+$tabs-flex-shrink:        $_a_;  // Inquiries tabs
+
+// ── TILE — Tile strip ─────────────────────────────
+$tile-flex-shrink:        $_a_;  // Tile strip
+
+// ── TITLE — z31 — absolute top of stack ───────────
+$title-flex-shrink:       $_a_;  // z31 — absolute top of stack
+
+// ── WIDE — Wide shop card ─────────────────────────
+$wide-flex-shrink:        $_a_;  // Wide shop card
+
+// ── WRAP — close button (× in topright) ───────────
+$wrap-flex-shrink:        $_a_;  // close button (× in topright)

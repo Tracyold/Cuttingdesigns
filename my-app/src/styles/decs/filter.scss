@@ -1,0 +1,21 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/filter.scss
+// Every filter value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  filter: $component-filter;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique filter value
+// ────────────────────────────────────────────
+
+$_a_:    user_id=eq.' + USER_ID;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── CHANGES', — ccgchatpanel.js ───────────────────
+$changes',-filter:    $_a_;  // ccgchatpanel.js

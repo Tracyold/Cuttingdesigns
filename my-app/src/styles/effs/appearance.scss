@@ -1,0 +1,21 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/appearance.scss
+// Every appearance value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  appearance: $component-appearance;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique appearance value
+// ────────────────────────────────────────────
+
+$_a_:    none;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── SELECT — 14. NEW SR FORM DRAWER ───────────────
+$select-appearance:    $_a_;  // 14. NEW SR FORM DRAWER

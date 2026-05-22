@@ -1,0 +1,25 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/padding-left.scss
+// Every padding-left value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  padding-left: $component-padding-left;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique padding-left value
+// ────────────────────────────────────────────
+
+$_a_:    8px;
+$_b_:    12px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── MESSAGE — section divider ─────────────────────
+$message-padding-left:    $_b_;  // section divider
+
+// ── TITLE — panel title — sunken neumorphic style ─
+$title-padding-left:      $_a_;  // panel title — sunken neumorphic style

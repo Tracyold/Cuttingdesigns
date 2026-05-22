@@ -1,0 +1,154 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/border-radius.scss
+// Every border-radius value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  border-radius: $component-border-radius;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique border-radius value
+// ────────────────────────────────────────────
+
+$_a_:    999px;
+$_b_:    50px;
+$_c_:    0 0 18px 18px;
+$_d_:    50%;
+$_e_:    28px 28px 0 0;
+$_f_:    2px;
+$_g_:    20px;
+$_h_:    16px;
+$_i_:    8px;
+$_j_:    25px 0 0 25px;
+$_k_:    12px;
+$_l_:    12px 12px 0 0;
+$_m_:    0 0 12px 12px;
+$_n_:    16px 16px 0 0;
+$_o_:    28px;
+$_p_:    24px;
+$_q_:    25px;
+$_r_:    4px 18px 18px 18px;
+$_s_:    18px 4px 18px 18px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── ADMIN — Chat bubbles ──────────────────────────
+$admin-border-radius:        $_r_;  // Chat bubbles
+
+// ── BACK — nav row: back btn + hint ───────────────
+$back-border-radius:         $_d_;  // nav row: back btn + hint
+
+// ── BAR — drag handle header ──────────────────────
+$bar-border-radius:          $_f_;  // drag handle header
+
+// ── BTN — dashboard placeholder ───────────────────
+$btn-border-radius:          $_d_;  // dashboard placeholder
+$btn-border-radius-2:        $_h_;  // sliding highlight pill
+$btn-border-radius-3:        $_a_;  // recover action bar
+$btn-border-radius-4:        $_p_;  // Inquiries tabs
+
+// ── CANCEL — recover action bar ───────────────────
+$cancel-border-radius:       $_a_;  // recover action bar
+
+// ── CARD — Shop card ──────────────────────────────
+$card-border-radius:         $_k_;  // Shop card
+$card-border-radius-2:       $_q_;  // Profile overlay
+
+// ── CIRCLE — gem photo placeholder circle ─────────
+$circle-border-radius:       $_d_;  // gem photo placeholder circle
+
+// ── CLOSE — close button (× in topright) ──────────
+$close-border-radius:        $_d_;  // close button (× in topright)
+
+// ── CONFIRM — recover action bar ──────────────────
+$confirm-border-radius:      $_a_;  // recover action bar
+
+// ── DOT — status pill ─────────────────────────────
+$dot-border-radius:          $_d_;  // status pill
+
+// ── DRAWER — drawer sheet ─────────────────────────
+$drawer-border-radius:       $_j_;  // drawer sheet
+
+// ── FOOTER — Shop card ────────────────────────────
+$footer-border-radius:       $_m_;  // Shop card
+
+// ── HEADER — drag handle header ───────────────────
+$header-border-radius:       $_e_;  // drag handle header
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-border-radius:        $_d_;  // Shop card
+
+// ── HIGHLIGHT — sliding highlight pill ────────────
+$highlight-border-radius:    $_h_;  // sliding highlight pill
+
+// ── IMG — Shop card ───────────────────────────────
+$img-border-radius:          $_l_;  // Shop card
+$img-border-radius-2:        $_n_;  // Wide shop card
+
+// ── INPUT — Profile overlay ───────────────────────
+$input-border-radius:        $_k_;  // Profile overlay
+$input-border-radius-2:      $_q_;  // Chat input bar
+
+// ── ITEM — recover selection mode ─────────────────
+$item-border-radius:         $_i_;  // recover selection mode
+
+// ── KNOB — Store layout toggle ────────────────────
+$knob-border-radius:         $_d_;  // Store layout toggle
+
+// ── LEAVE — Review section ────────────────────────
+$leave-border-radius:        $_a_;  // Review section
+
+// ── NOTCH — phone shell ───────────────────────────
+$notch-border-radius:        $_c_;  // phone shell
+
+// ── OPTION — Profile overlay ──────────────────────
+$option-border-radius:       $_k_;  // Profile overlay
+
+// ── PANEL — panel sheet ───────────────────────────
+$panel-border-radius:        $_e_;  // panel sheet
+
+// ── PHONE — phone shell ───────────────────────────
+$phone-border-radius:        $_b_;  // phone shell
+
+// ── PILL — status pill ────────────────────────────
+$pill-border-radius:         $_a_;  // status pill
+
+// ── PLUS — Header plus button ─────────────────────
+$plus-border-radius:         $_d_;  // Header plus button
+
+// ── RECOVER — recover selection mode ──────────────
+$recover-border-radius:      $_i_;  // recover selection mode
+
+// ── SAVE — Profile overlay ────────────────────────
+$save-border-radius:         $_a_;  // Profile overlay
+
+// ── SUBMIT — Review section ───────────────────────
+$submit-border-radius:       $_a_;  // Review section
+
+// ── TABS — close button (× in topright) ───────────
+$tabs-border-radius:         $_g_;  // close button (× in topright)
+$tabs-border-radius-2:       $_o_;  // Inquiries tabs
+
+// ── TBTN — theme toggle buttons — preview only ────
+$tbtn-border-radius:         $_a_;  // theme toggle buttons — preview only
+
+// ── TEXTAREA — Review section ─────────────────────
+$textarea-border-radius:     $_h_;  // Review section
+
+// ── TILE — Tile strip ─────────────────────────────
+$tile-border-radius:         $_g_;  // Tile strip
+
+// ── TOGGLE — bottomright corner: date · id ────────
+$toggle-border-radius:       $_a_;  // bottomright corner: date · id
+
+// ── TRACK — close button (× in topright) ──────────
+$track-border-radius:        $_d_;  // close button (× in topright)
+
+// ── USER — Chat bubbles ───────────────────────────
+$user-border-radius:         $_s_;  // Chat bubbles
+
+// ── WIDE — Wide shop card ─────────────────────────
+$wide-border-radius:         $_h_;  // Wide shop card

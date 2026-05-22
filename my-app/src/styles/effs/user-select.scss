@@ -1,0 +1,24 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/user-select.scss
+// Every user-select value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  user-select: $component-user-select;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique user-select value
+// ────────────────────────────────────────────
+
+$_a_:    none;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── HEADER — drag handle header ───────────────────
+$header-user-select:    $_a_;  // drag handle header
+
+// ── TILE — Tile strip ─────────────────────────────
+$tile-user-select:      $_a_;  // Tile strip

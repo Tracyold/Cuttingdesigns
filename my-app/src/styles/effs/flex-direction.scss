@@ -1,0 +1,52 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/flex-direction.scss
+// Every flex-direction value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  flex-direction: $component-flex-direction;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique flex-direction value
+// ────────────────────────────────────────────
+
+$_a_:    column;
+$_b_:    row;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── AREA — Scroll area ────────────────────────────
+$area-flex-direction:        $_a_;  // Scroll area
+
+// ── DRAWER — drawer sheet ─────────────────────────
+$drawer-flex-direction:      $_a_;  // drawer sheet
+
+// ── FORM — Review section ─────────────────────────
+$form-flex-direction:        $_a_;  // Review section
+
+// ── MENU — Sits outside .panel so overflow:hidden never clips it ─
+$menu-flex-direction:        $_b_;  // Sits outside .panel so overflow:hidden never clips it
+
+// ── MESSAGES — Chat messages area ─────────────────
+$messages-flex-direction:    $_a_;  // Chat messages area
+
+// ── PANE — sliding highlight pill ─────────────────
+$pane-flex-direction:        $_a_;  // sliding highlight pill
+
+// ── PANEL — panel sheet ───────────────────────────
+$panel-flex-direction:       $_a_;  // panel sheet
+
+// ── PHONE — phone shell ───────────────────────────
+$phone-flex-direction:       $_a_;  // phone shell
+
+// ── PROFILE — Dashboard header ────────────────────
+$profile-flex-direction:     $_a_;  // Dashboard header
+
+// ── WIDE — Store grid ─────────────────────────────
+$wide-flex-direction:        $_a_;  // Store grid
+
+// ── WRAP — z31 — absolute top of stack ────────────
+$wrap-flex-direction:        $_a_;  // z31 — absolute top of stack

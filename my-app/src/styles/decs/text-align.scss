@@ -1,0 +1,42 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/text-align.scss
+// Every text-align value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  text-align: $component-text-align;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique text-align value
+// ────────────────────────────────────────────
+
+$_a_:    center;
+$_b_:    right;
+$_c_:    left;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── ADMIN — Chat bubbles ──────────────────────────
+$admin-text-align:     $_c_;  // Chat bubbles
+
+// ── FOOTER — Shop card ────────────────────────────
+$footer-text-align:    $_a_;  // Shop card
+
+// ── HINT — swipe hint text ────────────────────────
+$hint-text-align:      $_a_;  // swipe hint text
+$hint-text-align-2:    $_b_;  // Dashboard header
+
+// ── META — Chat bubbles ───────────────────────────
+$meta-text-align:      $_b_;  // Chat bubbles
+
+// ── ROLE — Dashboard header ───────────────────────
+$role-text-align:      $_b_;  // Dashboard header
+
+// ── STAMP — Chat messages area ────────────────────
+$stamp-text-align:     $_a_;  // Chat messages area
+
+// ── TOGGLE — bottomright corner: date · id ────────
+$toggle-text-align:    $_a_;  // bottomright corner: date · id

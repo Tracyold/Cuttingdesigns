@@ -1,0 +1,21 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/touch-action.scss
+// Every touch-action value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  touch-action: $component-touch-action;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique touch-action value
+// ────────────────────────────────────────────
+
+$_a_:    none;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── HEADER — drag handle header ───────────────────
+$header-touch-action:    $_a_;  // drag handle header

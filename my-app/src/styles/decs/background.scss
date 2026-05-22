@@ -1,0 +1,77 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/background.scss
+// Every background value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  background: $component-background;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique background value
+// ────────────────────────────────────────────
+
+$_a_:    #1c2230;
+$_b_:    #e8ecf2;
+$_c_:    transparent;
+$_d_:    none;
+$_e_:    currentColor;
+$_f_:    #fff;
+$_g_:    #2a3142;
+$_h_:    #bcbcc4;
+$_i_:    rgba(255,255,255,0.09);
+$_j_:    rgba(255,255,255,0.9);
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BTN — dashboard placeholder ───────────────────
+$btn-background:         $_c_;  // dashboard placeholder
+$btn-background-2:       $_a_;  // Body
+$btn-background-3:       $_b_;  // Body
+
+// ── CARD — Shop card ──────────────────────────────
+$card-background:        $_c_;  // Shop card
+
+// ── DARK — theme toggle buttons — preview only ────
+$dark-background:        $_a_;  // theme toggle buttons — preview only
+
+// ── DOT — status pill ─────────────────────────────
+$dot-background:         $_e_;  // status pill
+$dot-background-2:       $_f_;  // Dot colors
+
+// ── EDIT — Dashboard header ───────────────────────
+$edit-background:        $_d_;  // Dashboard header
+
+// ── FOOTER — Shop card ────────────────────────────
+$footer-background:      $_g_;  // Shop card
+$footer-background-2:    $_h_;  // Shop card
+
+// ── HEADER — drag handle header ───────────────────
+$header-background:      $_c_;  // drag handle header
+
+// ── INPUT — Chat input bar ────────────────────────
+$input-background:       $_i_;  // Chat input bar
+$input-background-2:     $_j_;  // Chat input bar
+
+// ── LINK — recover link — hidden in active, accent in archived ─
+$link-background:        $_d_;  // recover link — hidden in active, accent in archived
+
+// ── LITE — theme toggle buttons — preview only ────
+$lite-background:        $_b_;  // theme toggle buttons — preview only
+
+// ── OFF — Store layout toggle ─────────────────────
+$off-background:         $_c_;  // Store layout toggle
+
+// ── SAVE — Profile overlay ────────────────────────
+$save-background:        $_c_;  // Profile overlay
+
+// ── TOGGLE — Store layout toggle ──────────────────
+$toggle-background:      $_c_;  // Store layout toggle
+
+// ── TRACK — Header plus button ────────────────────
+$track-background:       $_c_;  // Header plus button
+
+// ── WIDE — Wide shop card ─────────────────────────
+$wide-background:        $_c_;  // Wide shop card

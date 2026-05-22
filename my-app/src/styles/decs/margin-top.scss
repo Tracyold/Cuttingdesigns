@@ -1,0 +1,46 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/margin-top.scss
+// Every margin-top value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  margin-top: $component-margin-top;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique margin-top value
+// ────────────────────────────────────────────
+
+$_a_:    -14px;
+$_b_:    24px;
+$_c_:    16px;
+$_d_:    8px;
+$_e_:    20px;
+$_f_:    6px;
+$_g_:    2px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BTN — recover action bar ──────────────────────
+$btn-margin-top:        $_d_;  // recover action bar
+
+// ── HINT — dashboard placeholder ──────────────────
+$hint-margin-top:       $_b_;  // dashboard placeholder
+$hint-margin-top-2:     $_d_;  // Dashboard header
+
+// ── MSG — Tile strip ──────────────────────────────
+$msg-margin-top:        $_f_;  // Tile strip
+
+// ── NOTCH — phone shell ───────────────────────────
+$notch-margin-top:      $_a_;  // phone shell
+
+// ── PROFILE — Dashboard header ────────────────────
+$profile-margin-top:    $_e_;  // Dashboard header
+
+// ── SUB — z31 — absolute top of stack ─────────────
+$sub-margin-top:        $_g_;  // z31 — absolute top of stack
+
+// ── TITLE — panel title — sunken neumorphic style ─
+$title-margin-top:      $_c_;  // panel title — sunken neumorphic style

@@ -1,0 +1,21 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/transition-delay.scss
+// Every transition-delay value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  transition-delay: $component-transition-delay;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique transition-delay value
+// ────────────────────────────────────────────
+
+$_a_:    0.06s;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BTN — Sits outside .panel so overflow:hidden never clips it ─
+$btn-transition-delay:    $_a_;  // Sits outside .panel so overflow:hidden never clips it

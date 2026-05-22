@@ -1,0 +1,28 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/--scrim.scss
+// Every --scrim value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  --scrim: $component---scrim;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique --scrim value
+// ────────────────────────────────────────────
+
+$_a_:    rgba(43,52,69,0.35);
+$_b_:    rgba(0,0,0,0.45);
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── LIGHT — Light theme token overrides ───────────
+$light---scrim:      $_a_;  // Light theme token overrides
+
+// ── PHONE — 1. TOKENS ─────────────────────────────
+$phone---scrim:      $_b_;  // 1. TOKENS
+
+// ── UNKNOWN — ccgtokens.css ───────────────────────
+$unknown---scrim:    $_b_;  // ccgtokens.css

@@ -1,0 +1,31 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/animation.scss
+// Every animation value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  animation: $component-animation;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique animation value
+// ────────────────────────────────────────────
+
+$_a_:    none;
+$_b_:    ccg-pulse-dark  2.2s ease-in-out infinite;
+$_c_:    ccg-pulse-light 2.2s ease-in-out infinite;
+$_d_:    typing-dot 1.2s ease-in-out infinite;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── ARROW — z31 — absolute top of stack ───────────
+$arrow-animation:      $_b_;  // z31 — absolute top of stack
+$arrow-animation-2:    $_c_;  // z31 — absolute top of stack
+
+// ── DIM — notification arrow — pulsed via JS when activity=hot ─
+$dim-animation:        $_a_;  // notification arrow — pulsed via JS when activity=hot
+
+// ── DOT — Typing indicator ────────────────────────
+$dot-animation:        $_d_;  // Typing indicator

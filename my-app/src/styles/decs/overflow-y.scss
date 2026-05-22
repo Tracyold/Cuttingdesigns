@@ -1,0 +1,43 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/overflow-y.scss
+// Every overflow-y value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  overflow-y: $component-overflow-y;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique overflow-y value
+// ────────────────────────────────────────────
+
+$_a_:    auto;
+$_b_:    scroll;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BODY — scrollable body ────────────────────────
+$body-overflow-y:        $_a_;  // scrollable body
+
+// ── CONTENT — Scroll area ─────────────────────────
+$content-overflow-y:     $_a_;  // Scroll area
+
+// ── HOME — dashboard placeholder ──────────────────
+$home-overflow-y:        $_a_;  // dashboard placeholder
+
+// ── INPUT — Chat input bar ────────────────────────
+$input-overflow-y:       $_a_;  // Chat input bar
+
+// ── ITEMS — z31 — absolute top of stack ───────────
+$items-overflow-y:       $_a_;  // z31 — absolute top of stack
+
+// ── LIST — sliding highlight pill ─────────────────
+$list-overflow-y:        $_a_;  // sliding highlight pill
+
+// ── MESSAGES — Chat messages area ─────────────────
+$messages-overflow-y:    $_a_;  // Chat messages area
+
+// ── WRAP — Store grid ─────────────────────────────
+$wrap-overflow-y:        $_b_;  // Store grid

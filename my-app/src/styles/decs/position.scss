@@ -1,0 +1,98 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/position.scss
+// Every position value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  position: $component-position;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique position value
+// ────────────────────────────────────────────
+
+$_a_:    fixed;
+$_b_:    relative;
+$_c_:    absolute;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── AREA — Scroll area ────────────────────────────
+$area-position:         $_b_;  // Scroll area
+
+// ── BAR — phone shell ─────────────────────────────
+$bar-position:          $_b_;  // phone shell
+
+// ── BTN — sliding highlight pill ──────────────────
+$btn-position:          $_b_;  // sliding highlight pill
+
+// ── CARD — Shop card ──────────────────────────────
+$card-position:         $_b_;  // Shop card
+
+// ── CORNER — bottomright corner: date · id ────────
+$corner-position:       $_c_;  // bottomright corner: date · id
+
+// ── DOT — Tile strip ──────────────────────────────
+$dot-position:          $_c_;  // Tile strip
+
+// ── DRAWER — drawer sheet ─────────────────────────
+$drawer-position:       $_c_;  // drawer sheet
+
+// ── FADE — Scroll area ────────────────────────────
+$fade-position:         $_c_;  // Scroll area
+
+// ── HEADER — drag handle header ───────────────────
+$header-position:       $_b_;  // drag handle header
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-position:        $_c_;  // Shop card
+
+// ── HIGHLIGHT — sliding highlight pill ────────────
+$highlight-position:    $_c_;  // sliding highlight pill
+
+// ── IMG — Shop card ───────────────────────────────
+$img-position:          $_b_;  // Shop card
+
+// ── ITEM — section label row (e.g. "top three" ────
+$item-position:         $_b_;  // section label row (e.g. "top three"
+
+// ── MENU — Sits outside .panel so overflow:hidden never clips it ─
+$menu-position:         $_c_;  // Sits outside .panel so overflow:hidden never clips it
+
+// ── NAV — dashboard placeholder ───────────────────
+$nav-position:          $_b_;  // dashboard placeholder
+
+// ── OVERLAY — Profile overlay ─────────────────────
+$overlay-position:      $_c_;  // Profile overlay
+
+// ── PANEL — panel sheet ───────────────────────────
+$panel-position:        $_c_;  // panel sheet
+
+// ── PHONE — phone shell ───────────────────────────
+$phone-position:        $_b_;  // phone shell
+
+// ── ROW — theme toggle buttons — preview only ─────
+$row-position:          $_a_;  // theme toggle buttons — preview only
+
+// ── SCRIM — background scrim behind panel ─────────
+$scrim-position:        $_c_;  // background scrim behind panel
+
+// ── SWITCHER — Body ───────────────────────────────
+$switcher-position:     $_a_;  // Body
+
+// ── TABS — close button (× in topright) ───────────
+$tabs-position:         $_b_;  // close button (× in topright)
+
+// ── TILE — Tile strip ─────────────────────────────
+$tile-position:         $_b_;  // Tile strip
+
+// ── TRACK — close button (× in topright) ──────────
+$track-position:        $_c_;  // close button (× in topright)
+
+// ── WIDE — Wide shop card ─────────────────────────
+$wide-position:         $_b_;  // Wide shop card
+
+// ── WRAP — Store grid ─────────────────────────────
+$wrap-position:         $_b_;  // Store grid

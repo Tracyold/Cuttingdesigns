@@ -1,0 +1,25 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/padding-right.scss
+// Every padding-right value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  padding-right: $component-padding-right;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique padding-right value
+// ────────────────────────────────────────────
+
+$_a_:    50px;
+$_b_:    8px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BODY — section label row (e.g. "top three" ────
+$body-padding-right:     $_b_;  // section label row (e.g. "top three"
+
+// ── TITLE — panel title — sunken neumorphic style ─
+$title-padding-right:    $_a_;  // panel title — sunken neumorphic style

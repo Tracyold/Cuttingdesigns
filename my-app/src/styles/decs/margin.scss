@@ -1,0 +1,42 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/margin.scss
+// Every margin value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  margin: $component-margin;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique margin value
+// ────────────────────────────────────────────
+
+$_a_:    0;
+$_b_:    0 0 16px;
+$_c_:    0 -24px;
+$_d_:    6px 20px 10px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── * — Light theme token overrides ───────────────
+$*-margin:          $_a_;  // Light theme token overrides
+
+// ── DIVIDER — section divider ─────────────────────
+$divider-margin:    $_b_;  // section divider
+
+// ── SCROLL — Horizontal card scroll ───────────────
+$scroll-margin:     $_c_;  // Horizontal card scroll
+
+// ── STRIP — Tile strip ────────────────────────────
+$strip-margin:      $_c_;  // Tile strip
+
+// ── TABS — Inquiries tabs ─────────────────────────
+$tabs-margin:       $_d_;  // Inquiries tabs
+
+// ── UNKNOWN — Reset ───────────────────────────────
+$unknown-margin:    $_a_;  // Reset
+
+// ── WRAP — Portfolio circles ──────────────────────
+$wrap-margin:       $_c_;  // Portfolio circles

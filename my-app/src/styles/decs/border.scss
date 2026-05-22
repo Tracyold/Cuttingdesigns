@@ -1,0 +1,73 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/border.scss
+// Every border value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  border: $component-border;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique border value
+// ────────────────────────────────────────────
+
+$_a_:    none;
+$_b_:    1.5px solid transparent;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BACK — nav row: back btn + hint ───────────────
+$back-border:        $_a_;  // nav row: back btn + hint
+
+// ── BTN — dashboard placeholder ───────────────────
+$btn-border:         $_a_;  // dashboard placeholder
+
+// ── CANCEL — recover action bar ───────────────────
+$cancel-border:      $_a_;  // recover action bar
+
+// ── CIRCLE — Portfolio circles ────────────────────
+$circle-border:      $_a_;  // Portfolio circles
+
+// ── CLOSE — close button (× in topright) ──────────
+$close-border:       $_a_;  // close button (× in topright)
+
+// ── CONFIRM — recover action bar ──────────────────
+$confirm-border:     $_a_;  // recover action bar
+
+// ── EDIT — Dashboard header ───────────────────────
+$edit-border:        $_a_;  // Dashboard header
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-border:       $_a_;  // Shop card
+
+// ── INPUT — Profile overlay ───────────────────────
+$input-border:       $_a_;  // Profile overlay
+
+// ── LEAVE — Review section ────────────────────────
+$leave-border:       $_a_;  // Review section
+
+// ── LINK — recover link — hidden in active, accent in archived ─
+$link-border:        $_a_;  // recover link — hidden in active, accent in archived
+
+// ── PLUS — Header plus button ─────────────────────
+$plus-border:        $_a_;  // Header plus button
+
+// ── SAVE — Profile overlay ────────────────────────
+$save-border:        $_a_;  // Profile overlay
+
+// ── SUBMIT — Review section ───────────────────────
+$submit-border:      $_a_;  // Review section
+
+// ── TBTN — theme toggle buttons — preview only ────
+$tbtn-border:        $_a_;  // theme toggle buttons — preview only
+
+// ── TEXTAREA — Review section ─────────────────────
+$textarea-border:    $_a_;  // Review section
+
+// ── TOGGLE — bottomright corner: date · id ────────
+$toggle-border:      $_a_;  // bottomright corner: date · id
+
+// ── TRACK — Plus button track — flat, transparent, just a size container ─
+$track-border:       $_b_;  // Plus button track — flat, transparent, just a size container

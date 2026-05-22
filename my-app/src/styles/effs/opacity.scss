@@ -1,0 +1,130 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/opacity.scss
+// Every opacity value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  opacity: $component-opacity;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique opacity value
+// ────────────────────────────────────────────
+
+$_a_:    0.5;
+$_b_:    0;
+$_c_:    1;
+$_d_:    0.4;
+$_e_:    0.45;
+$_f_:    0.9;
+$_g_:    0.35;
+$_h_:    0.7;
+$_i_:    0.3;
+$_j_:    0.6;
+$_k_:    0.2;
+$_l_:    0.65;
+$_m_:    0.85;
+$_n_:    0.55;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── 0%,60%,100% — Typing indicator ────────────────
+$opacity060100:            $_d_;  // Typing indicator
+
+// ── 30% — Typing indicator ────────────────────────
+$opacity30:               $_c_;  // Typing indicator
+
+// ── BAR — drag handle header ──────────────────────
+$bar-opacity:            $_d_;  // drag handle header
+$bar-opacity-2:          $_i_;  // drag handle
+
+// ── BTN — Sits outside .panel so overflow:hidden never clips it ─
+$btn-opacity:            $_b_;  // Sits outside .panel so overflow:hidden never clips it
+
+// ── CLOSE — close button (× in topright) ──────────
+$close-opacity:          $_f_;  // close button (× in topright)
+$close-opacity-2:        $_c_;  // close button (× in topright)
+
+// ── CLOSING — backdrop scrim with blur ────────────
+$closing-opacity:        $_b_;  // backdrop scrim with blur
+
+// ── CORNER — bottomright corner: date · id ────────
+$corner-opacity:         $_h_;  // bottomright corner: date · id
+$corner-opacity-2:       $_d_;  // recover action bar
+
+// ── DIM — notification arrow — pulsed via JS when activity=hot ─
+$dim-opacity:            $_g_;  // notification arrow — pulsed via JS when activity=hot
+
+// ── DOT — Typing indicator ────────────────────────
+$dot-opacity:            $_a_;  // Typing indicator
+
+// ── EDIT — Dashboard header ───────────────────────
+$edit-opacity:           $_a_;  // Dashboard header
+
+// ── HINT — dashboard placeholder ──────────────────
+$hint-opacity:           $_a_;  // dashboard placeholder
+$hint-opacity-2:         $_e_;  // swipe hint text
+$hint-opacity-3:         $_h_;  // Dashboard header
+
+// ── ID — bottomright corner: date · id ────────────
+$id-opacity:             $_g_;  // bottomright corner: date · id
+$id-opacity-2:           $_k_;  // recover action bar
+$id-opacity-3:           $_a_;  // product identity
+$id-opacity-4:           $_l_;  // Inquiries list
+
+// ── INPUT — Chat input bar ────────────────────────
+$input-opacity:          $_h_;  // Chat input bar
+$input-opacity-2:        $_a_;  // 14. NEW SR FORM DRAWER
+
+// ── ITEM — recover action bar ─────────────────────
+$item-opacity:           $_h_;  // recover action bar
+
+// ── KEY — show more conversation toggle row ───────
+$key-opacity:            $_j_;  // show more conversation toggle row
+
+// ── LABEL — section label row (e.g. "top three" ───
+$label-opacity:          $_a_;  // section label row (e.g. "top three"
+$label-opacity-2:        $_j_;  // show more conversation toggle row
+$label-opacity-3:        $_l_;  // Tile strip
+
+// ── LETTER — gem photo placeholder circle ─────────
+$letter-opacity:         $_k_;  // gem photo placeholder circle
+$letter-opacity-2:       $_i_;  // Shop card
+
+// ── LINK — recover link — hidden in active, accent in archived ─
+$link-opacity:           $_c_;  // recover link — hidden in active, accent in archived
+
+// ── META — Chat bubbles ───────────────────────────
+$meta-opacity:           $_j_;  // Chat bubbles
+
+// ── MSG — Tile strip ──────────────────────────────
+$msg-opacity:            $_m_;  // Tile strip
+
+// ── NEUTRAL — Inquiries list ──────────────────────
+$neutral-opacity:        $_d_;  // Inquiries list
+
+// ── OPEN — background scrim behind panel ──────────
+$open-opacity:           $_c_;  // background scrim behind panel
+
+// ── PLUS — Header plus button ─────────────────────
+$plus-opacity:           $_l_;  // Header plus button
+$plus-opacity-2:         $_c_;  // Header plus button
+
+// ── SCRIM — background scrim behind panel ─────────
+$scrim-opacity:          $_b_;  // background scrim behind panel
+
+// ── SENDER — recover action bar ───────────────────
+$sender-opacity:         $_a_;  // recover action bar
+
+// ── SEP — section label row (e.g. "top three" ─────
+$sep-opacity:            $_g_;  // section label row (e.g. "top three"
+$sep-opacity-2:          $_i_;  // bottomright corner: date · id
+$sep-opacity-3:          $_k_;  // recover action bar
+
+// ── SPAN — bottomright corner: date · id ──────────
+$span-opacity:           $_j_;  // bottomright corner: date · id
+
+// ── STAMP — Chat messages area ────────────────────
+$stamp-opacity:          $_n_;  // Chat messages area

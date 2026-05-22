@@ -1,0 +1,108 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/letter-spacing.scss
+// Every letter-spacing value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  letter-spacing: $component-letter-spacing;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique letter-spacing value
+// ────────────────────────────────────────────
+
+$_a_:    0.5px;
+$_b_:    -2px;
+$_c_:    2px;
+$_d_:    1.6px;
+$_e_:    1.8px;
+$_f_:    0.6px;
+$_g_:    0.3px;
+$_h_:    1.4px;
+$_i_:    -0.2px;
+$_j_:    1.5px;
+$_k_:    -1px;
+$_l_:    1px;
+$_m_:    -0.5px;
+$_n_:    1.2px;
+$_o_:    -1.5px;
+$_p_:    -0.1px;
+$_q_:    0.1px;
+$_r_:    0.8px;
+$_s_:    -0.3px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── BREADCRUMB — Panel header ─────────────────────
+$breadcrumb-letter-spacing:    $_e_;  // Panel header
+
+// ── BTN — recover action bar ──────────────────────
+$btn-letter-spacing:           $_i_;  // recover action bar
+$btn-letter-spacing-2:         $_a_;  // Body
+
+// ── CANCEL — Review section ───────────────────────
+$cancel-letter-spacing:        $_l_;  // Review section
+
+// ── DATE — dashboard placeholder ──────────────────
+$date-letter-spacing:          $_c_;  // dashboard placeholder
+
+// ── EDIT — Dashboard header ───────────────────────
+$edit-letter-spacing:          $_a_;  // Dashboard header
+
+// ── FOOTER — Shop card ────────────────────────────
+$footer-letter-spacing:        $_p_;  // Shop card
+
+// ── HINT — swipe hint text ────────────────────────
+$hint-letter-spacing:          $_d_;  // swipe hint text
+$hint-letter-spacing-2:        $_j_;  // nav row: back btn + hint
+
+// ── ID — bottomright corner: date · id ────────────
+$id-letter-spacing:            $_f_;  // bottomright corner: date · id
+$id-letter-spacing-2:          $_l_;  // product identity
+$id-letter-spacing-3:          $_r_;  // Inquiries list
+
+// ── KEY — show more conversation toggle row ───────
+$key-letter-spacing:           $_a_;  // show more conversation toggle row
+
+// ── LABEL — section label row (e.g. "top three" ───
+$label-letter-spacing:         $_e_;  // section label row (e.g. "top three"
+$label-letter-spacing-2:       $_a_;  // show more conversation toggle row
+$label-letter-spacing-3:       $_h_;  // show more conversation toggle row
+$label-letter-spacing-4:       $_n_;  // Tile strip
+$label-letter-spacing-5:       $_m_;  // z31 — absolute top of stack
+
+// ── LETTER — gem photo placeholder circle ─────────
+$letter-letter-spacing:        $_k_;  // gem photo placeholder circle
+
+// ── LINK — recover link — hidden in active, accent in archived ─
+$link-letter-spacing:          $_h_;  // recover link — hidden in active, accent in archived
+
+// ── META — Chat bubbles ───────────────────────────
+$meta-letter-spacing:          $_g_;  // Chat bubbles
+
+// ── NUM — Tile strip ──────────────────────────────
+$num-letter-spacing:           $_o_;  // Tile strip
+
+// ── PILL — status pill ────────────────────────────
+$pill-letter-spacing:          $_a_;  // status pill
+
+// ── SAVED — Review section ────────────────────────
+$saved-letter-spacing:         $_q_;  // Review section
+
+// ── SPAN — bottomright corner: date · id ──────────
+$span-letter-spacing:          $_g_;  // bottomright corner: date · id
+
+// ── STAMP — Chat messages area ────────────────────
+$stamp-letter-spacing:         $_l_;  // Chat messages area
+
+// ── TBTN — theme toggle buttons — preview only ────
+$tbtn-letter-spacing:          $_a_;  // theme toggle buttons — preview only
+
+// ── TITLE — dashboard placeholder ─────────────────
+$title-letter-spacing:         $_b_;  // dashboard placeholder
+$title-letter-spacing-2:       $_a_;  // panel title — sunken neumorphic style
+$title-letter-spacing-3:       $_m_;  // product identity
+$title-letter-spacing-4:       $_k_;  // Panel header
+$title-letter-spacing-5:       $_s_;  // Profile overlay

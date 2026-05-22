@@ -1,0 +1,25 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/animation-delay.scss
+// Every animation-delay value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  animation-delay: $component-animation-delay;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique animation-delay value
+// ────────────────────────────────────────────
+
+$_a_:    0.18s;
+$_b_:    0.36s;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── DOT(2) — Typing indicator ─────────────────────
+$dot(2)-animation-delay:    $_a_;  // Typing indicator
+
+// ── DOT(3) — Typing indicator ─────────────────────
+$dot(3)-animation-delay:    $_b_;  // Typing indicator

@@ -1,0 +1,29 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/box-shadow.scss
+// Every box-shadow in the system.
+// Position/blur/spread → generic $_x_ primitives
+// Colors              → var(--x) from colors.scss
+// Combined aliases    → $component-box-shadow: $_x_ var(--x), ...
+// Generated 2026-05-22 by generate_decs.py
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw position / blur / spread values
+// ────────────────────────────────────────────
+
+$_a_:    none;
+
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── PLUS ──────────────────────────────────────────
+$plus-box-shadow:    $_a_;  // Plus button — flat, dimmed sedona at rest, sinks on active
+
+
+// ────────────────────────────────────────────
+// Combined — $shadow-N references alias names only
+// ────────────────────────────────────────────
+
+$shadow-1:  $plus-box-shadow;

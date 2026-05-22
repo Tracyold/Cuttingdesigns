@@ -1,0 +1,206 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/font-size.scss
+// Every font-size value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  font-size: $component-font-size;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique font-size value
+// ────────────────────────────────────────────
+
+$_a_:    11px;
+$_b_:    12px;
+$_c_:    58px;
+$_d_:    13px;
+$_e_:    17px;
+$_f_:    20px;
+$_g_:    10px;
+$_h_:    30px;
+$_i_:    18px;
+$_j_:    15px;
+$_k_:    9px;
+$_l_:    16px;
+$_m_:    38px;
+$_n_:    26px;
+$_o_:    14px;
+$_p_:    48px;
+$_q_:    22px;
+$_r_:    28px;
+$_s_:    32px;
+$_t_:    21px;
+$_u_:    52px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── ARROW — notification arrow — pulsed via JS when activity=hot ─
+$arrow-font-size:         $_j_;  // notification arrow — pulsed via JS when activity=hot
+$arrow-font-size-2:       $_l_;  // Inquiries list
+$arrow-font-size-3:       $_f_;  // z31 — absolute top of stack
+
+// ── BACK — nav row: back btn + hint ───────────────
+$back-font-size:          $_l_;  // nav row: back btn + hint
+
+// ── BAR — phone shell ─────────────────────────────
+$bar-font-size:           $_b_;  // phone shell
+
+// ── BREADCRUMB — Panel header ─────────────────────
+$breadcrumb-font-size:    $_g_;  // Panel header
+
+// ── BTN — dashboard placeholder ───────────────────
+$btn-font-size:           $_e_;  // dashboard placeholder
+$btn-font-size-2:         $_b_;  // sliding highlight pill
+$btn-font-size-3:         $_l_;  // recover action bar
+$btn-font-size-4:         $_j_;  // recover action bar
+$btn-font-size-5:         $_o_;  // Inquiries tabs
+$btn-font-size-6:         $_i_;  // Chat input bar
+
+// ── BUBBLE — Chat bubbles ─────────────────────────
+$bubble-font-size:        $_j_;  // Chat bubbles
+
+// ── CANCEL — recover action bar ───────────────────
+$cancel-font-size:        $_b_;  // recover action bar
+$cancel-font-size-2:      $_a_;  // Review section
+
+// ── CIRCLE — Portfolio circles ────────────────────
+$circle-font-size:        $_r_;  // Portfolio circles
+
+// ── CLOSE — close button (× in topright) ──────────
+$close-font-size:         $_d_;  // close button (× in topright)
+$close-font-size-2:       $_o_;  // Profile overlay
+
+// ── CONFIRM — recover action bar ──────────────────
+$confirm-font-size:       $_j_;  // recover action bar
+
+// ── CORNER — bottomright corner: date · id ────────
+$corner-font-size:        $_a_;  // bottomright corner: date · id
+
+// ── DATE — dashboard placeholder ──────────────────
+$date-font-size:          $_a_;  // dashboard placeholder
+$date-font-size-2:        $_b_;  // section label row (e.g. "top three"
+
+// ── EDIT — Dashboard header ───────────────────────
+$edit-font-size:          $_g_;  // Dashboard header
+
+// ── FAB — dashboard placeholder ───────────────────
+$fab-font-size:           $_f_;  // dashboard placeholder
+
+// ── FOOTER — Shop card ────────────────────────────
+$footer-font-size:        $_d_;  // Shop card
+$footer-font-size-2:      $_j_;  // Wide shop card
+
+// ── HEART — Shop card ─────────────────────────────
+$heart-font-size:         $_l_;  // Shop card
+
+// ── HINT — dashboard placeholder ──────────────────
+$hint-font-size:          $_d_;  // dashboard placeholder
+$hint-font-size-2:        $_g_;  // swipe hint text
+
+// ── ID — bottomright corner: date · id ────────────
+$id-font-size:            $_k_;  // bottomright corner: date · id
+$id-font-size-2:          $_g_;  // product identity
+
+// ── IMG — Shop card ───────────────────────────────
+$img-font-size:           $_q_;  // Shop card
+$img-font-size-2:         $_p_;  // Wide shop card
+
+// ── INPUT — Profile overlay ───────────────────────
+$input-font-size:         $_o_;  // Profile overlay
+
+// ── KEY — show more conversation toggle row ───────
+$key-font-size:           $_b_;  // show more conversation toggle row
+
+// ── LABEL — section label row (e.g. "top three" ───
+$label-font-size:         $_g_;  // section label row (e.g. "top three"
+$label-font-size-2:       $_d_;  // bottomright corner: date · id
+$label-font-size-3:       $_a_;  // show more conversation toggle row
+$label-font-size-4:       $_n_;  // z31 — absolute top of stack
+
+// ── LEAVE — Review section ────────────────────────
+$leave-font-size:         $_j_;  // Review section
+
+// ── LETTER — gem photo placeholder circle ─────────
+$letter-font-size:        $_m_;  // gem photo placeholder circle
+
+// ── LINK — recover link — hidden in active, accent in archived ─
+$link-font-size:          $_g_;  // recover link — hidden in active, accent in archived
+
+// ── MESSAGE — section divider ─────────────────────
+$message-font-size:       $_o_;  // section divider
+
+// ── META — Chat bubbles ───────────────────────────
+$meta-font-size:          $_g_;  // Chat bubbles
+
+// ── MSG — Tile strip ──────────────────────────────
+$msg-font-size:           $_d_;  // Tile strip
+
+// ── NUM — Tile strip ──────────────────────────────
+$num-font-size:           $_p_;  // Tile strip
+
+// ── OPTION — Profile overlay ──────────────────────
+$option-font-size:        $_o_;  // Profile overlay
+
+// ── PILL — status pill ────────────────────────────
+$pill-font-size:          $_b_;  // status pill
+
+// ── PLUS — Header plus button ─────────────────────
+$plus-font-size:          $_e_;  // Header plus button
+
+// ── ROLE — Dashboard header ───────────────────────
+$role-font-size:          $_a_;  // Dashboard header
+
+// ── SAVE — Profile overlay ────────────────────────
+$save-font-size:          $_j_;  // Profile overlay
+
+// ── SAVED — Review section ────────────────────────
+$saved-font-size:         $_o_;  // Review section
+
+// ── SENDER — section label row (e.g. "top three" ──
+$sender-font-size:        $_b_;  // section label row (e.g. "top three"
+
+// ── SEP — section label row (e.g. "top three" ─────
+$sep-font-size:           $_g_;  // section label row (e.g. "top three"
+$sep-font-size-2:         $_k_;  // bottomright corner: date · id
+
+// ── SPAN — bottomright corner: date · id ──────────
+$span-font-size:          $_a_;  // bottomright corner: date · id
+
+// ── STAMP — Chat messages area ────────────────────
+$stamp-font-size:         $_g_;  // Chat messages area
+
+// ── STATUS — Inquiries list ───────────────────────
+$status-font-size:        $_d_;  // Inquiries list
+
+// ── SUB — z31 — absolute top of stack ─────────────
+$sub-font-size:           $_b_;  // z31 — absolute top of stack
+
+// ── SUBMIT — Review section ───────────────────────
+$submit-font-size:        $_j_;  // Review section
+
+// ── TBTN — theme toggle buttons — preview only ────
+$tbtn-font-size:          $_a_;  // theme toggle buttons — preview only
+
+// ── TEXTAREA — Review section ─────────────────────
+$textarea-font-size:      $_o_;  // Review section
+
+// ── TITLE — dashboard placeholder ─────────────────
+$title-font-size:         $_c_;  // dashboard placeholder
+$title-font-size-10:      $_q_;  // 14. NEW SR FORM DRAWER
+$title-font-size-2:       $_h_;  // panel title — sunken neumorphic style
+$title-font-size-3:       $_i_;  // section label row (e.g. "top three"
+$title-font-size-4:       $_n_;  // product identity
+$title-font-size-5:       $_f_;  // Section headers
+$title-font-size-6:       $_l_;  // Review section
+$title-font-size-7:       $_s_;  // Panel header
+$title-font-size-8:       $_t_;  // Inquiries list
+$title-font-size-9:       $_u_;  // z31 — absolute top of stack
+
+// ── TOGGLE — bottomright corner: date · id ────────
+$toggle-font-size:        $_b_;  // bottomright corner: date · id
+
+// ── VAL — show more conversation toggle row ───────
+$val-font-size:           $_o_;  // show more conversation toggle row

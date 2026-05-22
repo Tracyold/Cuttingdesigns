@@ -1,0 +1,24 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/box-sizing.scss
+// Every box-sizing value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  box-sizing: $component-box-sizing;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique box-sizing value
+// ────────────────────────────────────────────
+
+$_a_:    border-box;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── * — Light theme token overrides ───────────────
+$box-sizing:          $_a_;  // Light theme token overrides
+
+// ── UNKNOWN — Reset ───────────────────────────────
+$unknown-box-sizing:    $_a_;  // Reset

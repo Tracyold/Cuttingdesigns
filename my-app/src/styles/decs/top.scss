@@ -1,0 +1,52 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/top.scss
+// Every top value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  top: $component-top;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique top value
+// ────────────────────────────────────────────
+
+$_a_:    16px;
+$_b_:    0;
+$_c_:    11px;
+$_d_:    3px;
+$_e_:    12px;
+$_f_:    20px;
+$_g_:    14px;
+$_h_:    108px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── DOT — Tile strip ──────────────────────────────
+$dot-top:          $_g_;  // Tile strip
+
+// ── DRAWER — drawer sheet ─────────────────────────
+$drawer-top:       $_e_;  // drawer sheet
+
+// ── HIGHLIGHT — sliding highlight pill ────────────
+$highlight-top:    $_d_;  // sliding highlight pill
+
+// ── MENU — Sits outside .panel so overflow:hidden never clips it ─
+$menu-top:         $_h_;  // Sits outside .panel so overflow:hidden never clips it
+
+// ── ROW — theme toggle buttons — preview only ─────
+$row-top:          $_a_;  // theme toggle buttons — preview only
+
+// ── SCRIM — background scrim behind panel ─────────
+$scrim-top:        $_b_;  // background scrim behind panel
+
+// ── SWITCHER — Body ───────────────────────────────
+$switcher-top:     $_f_;  // Body
+
+// ── TOP — Scroll area ─────────────────────────────
+$top-top:          $_b_;  // Scroll area
+
+// ── TRACK — close button (× in topright) ──────────
+$track-top:        $_c_;  // close button (× in topright)

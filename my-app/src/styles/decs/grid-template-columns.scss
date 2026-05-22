@@ -1,0 +1,21 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/grid-template-columns.scss
+// Every grid-template-columns value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  grid-template-columns: $component-grid-template-columns;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique grid-template-columns value
+// ────────────────────────────────────────────
+
+$_a_:    160px 160px;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── GRID — Store grid ─────────────────────────────
+$grid-grid-template-columns:    $_a_;  // Store grid

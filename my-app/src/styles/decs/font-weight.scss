@@ -1,0 +1,144 @@
+// ═══════════════════════════════════════════════════════════════════
+// decs/font-weight.scss
+// Every font-weight value in the system.
+// Generated 2026-05-22 by generate_decs.py
+//
+// Usage: @use "tokens" as *;
+// Then:  font-weight: $component-font-weight;
+// ═══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────
+// Raw scale — every unique font-weight value
+// ────────────────────────────────────────────
+
+$_a_:    700;
+$_b_:    600;
+$_c_:    800;
+$_d_:    400;
+$_e_:    500;
+
+// ────────────────────────────────────────────
+// Component aliases
+// ────────────────────────────────────────────
+
+// ── ARROW — z31 — absolute top of stack ───────────
+$arrow-font-weight:         $_a_;  // z31 — absolute top of stack
+
+// ── BAR — phone shell ─────────────────────────────
+$bar-font-weight:           $_b_;  // phone shell
+
+// ── BREADCRUMB — Panel header ─────────────────────
+$breadcrumb-font-weight:    $_a_;  // Panel header
+
+// ── BTN — sliding highlight pill ──────────────────
+$btn-font-weight:           $_b_;  // sliding highlight pill
+$btn-font-weight-2:         $_a_;  // recover action bar
+
+// ── BUBBLE — Chat bubbles ─────────────────────────
+$bubble-font-weight:        $_d_;  // Chat bubbles
+
+// ── CANCEL — recover action bar ───────────────────
+$cancel-font-weight:        $_a_;  // recover action bar
+
+// ── CONFIRM — recover action bar ──────────────────
+$confirm-font-weight:       $_a_;  // recover action bar
+
+// ── CORNER — bottomright corner: date · id ────────
+$corner-font-weight:        $_d_;  // bottomright corner: date · id
+
+// ── DATE — dashboard placeholder ──────────────────
+$date-font-weight:          $_b_;  // dashboard placeholder
+$date-font-weight-2:        $_d_;  // section label row (e.g. "top three"
+
+// ── EDIT — Dashboard header ───────────────────────
+$edit-font-weight:          $_b_;  // Dashboard header
+
+// ── FOOTER — Shop card ────────────────────────────
+$footer-font-weight:        $_b_;  // Shop card
+
+// ── HINT — swipe hint text ────────────────────────
+$hint-font-weight:          $_b_;  // swipe hint text
+$hint-font-weight-2:        $_e_;  // Dashboard header
+
+// ── ID — bottomright corner: date · id ────────────
+$id-font-weight:            $_b_;  // bottomright corner: date · id
+
+// ── IMG — Shop card ───────────────────────────────
+$img-font-weight:           $_a_;  // Shop card
+
+// ── KEY — show more conversation toggle row ───────
+$key-font-weight:           $_b_;  // show more conversation toggle row
+
+// ── LABEL — section label row (e.g. "top three" ───
+$label-font-weight:         $_a_;  // section label row (e.g. "top three"
+$label-font-weight-2:       $_b_;  // bottomright corner: date · id
+$label-font-weight-3:       $_d_;  // z31 — absolute top of stack
+
+// ── LEAVE — Review section ────────────────────────
+$leave-font-weight:         $_a_;  // Review section
+
+// ── LETTER — gem photo placeholder circle ─────────
+$letter-font-weight:        $_c_;  // gem photo placeholder circle
+
+// ── LINK — recover link — hidden in active, accent in archived ─
+$link-font-weight:          $_a_;  // recover link — hidden in active, accent in archived
+
+// ── META — Chat bubbles ───────────────────────────
+$meta-font-weight:          $_e_;  // Chat bubbles
+
+// ── MSG — Tile strip ──────────────────────────────
+$msg-font-weight:           $_e_;  // Tile strip
+
+// ── NUM — Tile strip ──────────────────────────────
+$num-font-weight:           $_c_;  // Tile strip
+
+// ── OPTION — Profile overlay ──────────────────────
+$option-font-weight:        $_d_;  // Profile overlay
+
+// ── PILL — status pill ────────────────────────────
+$pill-font-weight:          $_a_;  // status pill
+
+// ── PLUS — Header plus button ─────────────────────
+$plus-font-weight:          $_d_;  // Header plus button
+
+// ── ROLE — Dashboard header ───────────────────────
+$role-font-weight:          $_e_;  // Dashboard header
+
+// ── SAVE — Profile overlay ────────────────────────
+$save-font-weight:          $_a_;  // Profile overlay
+
+// ── SELECTED — Profile overlay ────────────────────
+$selected-font-weight:      $_b_;  // Profile overlay
+
+// ── SENDER — section label row (e.g. "top three" ──
+$sender-font-weight:        $_e_;  // section label row (e.g. "top three"
+
+// ── STAMP — Chat messages area ────────────────────
+$stamp-font-weight:         $_b_;  // Chat messages area
+
+// ── STATUS — Inquiries list ───────────────────────
+$status-font-weight:        $_d_;  // Inquiries list
+
+// ── SUB — z31 — absolute top of stack ─────────────
+$sub-font-weight:           $_e_;  // z31 — absolute top of stack
+
+// ── SUBMIT — Review section ───────────────────────
+$submit-font-weight:        $_a_;  // Review section
+
+// ── TBTN — theme toggle buttons — preview only ────
+$tbtn-font-weight:          $_a_;  // theme toggle buttons — preview only
+
+// ── TITLE — dashboard placeholder ─────────────────
+$title-font-weight:         $_c_;  // dashboard placeholder
+$title-font-weight-2:       $_d_;  // section label row (e.g. "top three"
+$title-font-weight-3:       $_a_;  // product identity
+$title-font-weight-4:       $_e_;  // Inquiries list
+
+// ── TOGGLE — bottomright corner: date · id ────────
+$toggle-font-weight:        $_b_;  // bottomright corner: date · id
+
+// ── USER — Chat bubbles ───────────────────────────
+$user-font-weight:          $_e_;  // Chat bubbles
+
+// ── VAL — show more conversation toggle row ───────
+$val-font-weight:           $_e_;  // show more conversation toggle row
