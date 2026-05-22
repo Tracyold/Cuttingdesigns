@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CCG · Inquiries Panel</title>
+<!--
+  ============================================================
+  CCG INQUIRIES — COMPONENT REFERENCE FILE
+  ============================================================
+  COMPONENT TREE
+  ─────────────────────────────────────────
+  <PhoneShell>                       (preview wrapper only — remove in app)
+    <StatusBar />
+    <HomeScreen />                   (dashboard placeholder)
+    <PanelScrim />                   (overlay behind panel)
+    <InquiriesPanel>
+      <PanelHeader />                (drag handle, hint, title, close btn)
+      <TabSwitcher />                (active / archived)
+      <InquiriesList>
+        <ActivePane>
+          <SectionLabel />           ("top three")
+          <InquiryItem /> ×3        (locked — always visible)
+          <ShowMoreRow />            (label + toggle)
+          <InquiryItem /> ×5        (overflow — hidden until expanded)
+          <SendInquiryCTA />
+        </ActivePane>
+        <ArchivedPane>
+          <RecoverLink />            (top-right, accent, visible in archived only)
+          <InquiryItem /> ×3        (locked)
+          <ShowMoreRow />
+          <InquiryItem /> ×4        (overflow)
+          <RecoverBar />             (cancel + confirm, visible in recover mode)
+        </ArchivedPane>
+      </InquiriesList>
+    </InquiriesPanel>
+    <DrawerScrim />                  (overlay behind drawer)
+    <InquiryDetailDrawer>
+      <DrawerHandle />
+      <DrawerNav />                  (back btn + hint)
+      <DrawerBody>
+        <GemPhotoCircle />
+        <ProductId />
+        <ProductTitle />
+        <StatusPill />
+        <Divider />
+        <UserMessage />              (italic)
+        <AdminReply />               (accent border, shown if replied)
+        <ShowMoreConversation />     (hidden by default)
+        <Divider />
+        <ProductDetailsToggle />     (show/hide)
+        <ProductDetailRows />
+        <BuyNowCTA />
+      </DrawerBody>
+    </InquiryDetailDrawer>
+    <BottomNav />
+  </PhoneShell>
+
+  CSS ORGANISATION (matches class naming convention)
+  ─────────────────────────────────────────
+  1.  Design tokens        — :root / .light
+  2.  Preview chrome       — body, .phone, .status-bar, .notch, .home
+  3.  Bottom nav           — .bottom-nav, .nav-btn, .nav-btn.fab
+  4.  Panel system         — .panel-scrim, .panel, .panel-header,
+                             .drag-pill, .panel-hint, .panel-title,
+                             .panel-close-track, .panel-close
+  5.  Tab switcher         — .tabs-wrap, .tabs, .tab-highlight, .tab-btn
+  6.  Inquiry list         — .inq-list, .tab-pane, .pane-locked,
+                             .pane-overflow, .inq-section-label
+  7.  Inquiry item         — .inq-item, .inq-body, .inq-title, .inq-meta,
+                             .inq-sender, .inq-arrow, .inq-corner,
+                             .inq-date-corner, .inq-corner-sep, .inq-id
+  8.  Show/hide toggle     — .show-more-row, .show-more-label,
+                             .section-toggle, .section-toggle.collapsed,
+                             .section-toggle.expanded
+  9.  Recover flow         — .recover-link, .recover-mode, .recover-bar,
+                             .recover-confirm, .recover-cancel
+  10. Archived state       — #pane-archived overrides
+  11. CTA buttons          — .inq-cta-wrap, .inq-cta-btn, .cta-btn
+  12. Drawer system        — .drawer-scrim, .drawer, .drw-handle,
+                             .drw-nav, .drw-back, .drw-hint, .drw-body
+  13. Drawer product page  — .drw-photo-wrap, .drw-photo-circle,
+                             .drw-photo-letter, .drw-product-id,
+                             .drw-product-title, .drw-status-row,
+                             .status-pill, .status-dot, .drw-divider
+  14. Drawer messages      — .drw-message, .user-message, .admin-message,
+                             .drw-show-more-row, .drw-show-more-label,
+                             .drw-more-overflow
+  15. Drawer details       — .drw-details-row, .drw-details-label,
+                             .drw-details-body, .drw-detail-item,
+                             .drw-detail-key, .drw-detail-val
+
+  SUPABASE TABLE REFERENCES
+  ─────────────────────────────────────────
+  inquiries          — id, user_id, gem, weight, origin, note, status,
+                       created_at, updated_at, archived, last_sender
+  inquiry_messages   — id, inquiry_id, sender_role (user|admin), body,
+                       created_at
+  products           — id, name, weight, origin, price, image_url
+  ============================================================
+-->
+<style>
+
+/* ============================================================
+   1. DESIGN TOKENS
+   Shared CSS variables — maps 1:1 to your Colors.scss tokens.
+   In Next.js, move these into globals.css :root block.
+   ============================================================ */
+:root {
+  --base:          #1c2230;
+  --base-whisper:  #232a3a;
+  --base-mute:     #131825;
+  --ink:           #e4e8ef;
+  --ink-whisper:   #b5bdcc;
+  --ink-mute:      #7d8597;
+  --accent:        #d4ec5a;
+  --accent-mute:   #2f3a20;
+  --sedona:        #c3563b;
+  --divider:       rgba(255,255,255,0.06);
+  --neu-dark:      rgba(6,9,15,0.78);
+  --neu-light:     rgba(72,86,110,0.42);
+  --scrim:         rgba(0,0,0,0.45);
+  --bg-outer:      #0a0d14;
+  --font:          -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  /* neumorphic shadow shortcuts */
+  --neu-xs: 2px 2px 5px var(--neu-dark), -2px -2px 5px var(--neu-light);
+  --neu-sm: 3px 3px 7px var(--neu-dark), -3px -3px 7px var(--neu-light);
+  --neu-in: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+}
+/* Light theme token overrides */
+.light {
+  --base:         #e8ecf2;
+  --base-whisper: #dfe4ec;
+  --base-mute:    #f1f4f9;
+  --ink:          #2b3445;
+  --ink-whisper:  #4a5363;
+  --ink-mute:     #8893a6;
+  --accent:       #1a82c8;
+  --accent-mute:  #cee5f5;
+  --sedona:       #976a63;
+  --divider:      rgba(0,0,0,0.07);
+  --neu-dark:     rgba(146,158,178,0.55);
+  --neu-light:    rgba(255,255,255,0.95);
+  --scrim:        rgba(43,52,69,0.35);
+  --bg-outer:     #c8cdd8;
+}
+
+/* ============================================================
+   2. PREVIEW CHROME
+   Phone shell, status bar, home bg — REMOVE in production app.
+   These exist only for browser preview.
+   ============================================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg-outer);
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; font-family: var(--font); padding: 32px 16px;
+  transition: background 0.3s ease;
+}
+/* theme toggle buttons — preview only */
+.theme-row { position: fixed; top: 16px; right: 16px; z-index: 9999; display: flex; gap: 8px; }
+.tbtn { padding: 7px 16px; border-radius: 999px; border: none; cursor: pointer; font-size: 11px; font-weight: 700; font-family: var(--font); letter-spacing: 0.5px; }
+.tbtn.dark { background: #1c2230; color: #d4ec5a; }
+.tbtn.lite { background: #e8ecf2; color: #1a82c8; }
+
+/* phone shell */
+.phone {
+  width: 390px; height: 844px; border-radius: 50px; overflow: hidden;
+  background: var(--base); position: relative; display: flex; flex-direction: column;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+  transition: background 0.3s ease;
+}
+.status-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 28px 0; font-size: 12px; font-weight: 600; color: var(--ink-mute);
+  flex-shrink: 0; position: relative; z-index: 5;
+}
+.notch {
+  width: 120px; height: 28px; background: var(--base-mute);
+  border-radius: 0 0 18px 18px; margin-top: -14px; transition: background 0.3s ease;
+}
+/* dashboard placeholder */
+.home { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 24px 24px 40px; scrollbar-width: none; }
+.home::-webkit-scrollbar { display: none; }
+.home-title { font-size: 58px; font-weight: 800; line-height: 1; color: var(--ink); letter-spacing: -2px; margin-bottom: 4px; }
+.home-date { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 12px; }
+.home-hint { font-size: 13px; color: var(--ink-mute); margin-top: 24px; opacity: 0.5; }
+
+/* ============================================================
+   3. BOTTOM NAV
+   Component: <BottomNav />
+   In Next.js: src/components/layout/BottomNav.tsx
+   ============================================================ */
+.bottom-nav {
+  height: 100px; background: var(--base);
+  box-shadow: 0 -8px 24px var(--neu-dark);
+  display: flex; align-items: center; justify-content: space-around;
+  padding: 12px 20px 24px; flex-shrink: 0; z-index: 20; position: relative;
+  transition: background 0.3s ease;
+}
+.nav-btn {
+  width: 40px; height: 40px; border-radius: 50%; border: none; cursor: pointer;
+  background: transparent; display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--ink-mute);
+  transition: all 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-btn:active { transform: scale(0.88); }
+.nav-btn.fab {
+  width: 54px; height: 54px; background: var(--base); font-size: 20px;
+  box-shadow: var(--neu-sm);
+  transition: background 0.3s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+.light .nav-btn.fab { box-shadow: 2px 2px 6px rgba(146,158,178,0.3), -2px -2px 6px rgba(255,255,255,0.8); }
+.nav-btn.fab.active { background: var(--accent); }
+.nav-btn.active:not(.fab) { color: var(--accent); }
+
+/* ============================================================
+   4. PANEL SYSTEM
+   Component: <InquiriesPanel />
+   In Next.js: src/components/panels/InquiriesPanel.tsx
+   ============================================================ */
+/* background scrim behind panel */
+.panel-scrim {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 100px;
+  z-index: 15; background: var(--scrim);
+  opacity: 0; pointer-events: none; transition: opacity 0.38s ease;
+}
+.panel-scrim.open { opacity: 1; pointer-events: auto; }
+
+/* panel sheet */
+.panel {
+  position: absolute; left: 0; right: 0; bottom: 100px;
+  height: calc(100% - 48px - 100px);
+  background: var(--base); border-radius: 28px 28px 0 0;
+  z-index: 18; display: flex; flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.44s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+  will-change: transform; overflow: hidden;
+}
+.panel.open { transform: translateY(0); }
+.panel.closing { transform: translateY(100%); transition: transform 0.30s cubic-bezier(0.4, 0, 1, 1); }
+
+/* drag handle header */
+.panel-header {
+  background: transparent; border-radius: 28px 28px 0 0;
+  padding: 10px 20px 12px; flex-shrink: 0;
+  position: relative; cursor: grab; touch-action: none; user-select: none;
+}
+.drag-pill { display: flex; justify-content: center; padding-bottom: 10px; }
+.drag-bar { width: 36px; height: 4px; border-radius: 2px; background: var(--accent); opacity: 0.4; }
+
+/* swipe hint text */
+.panel-hint {
+  font-size: 10px; font-weight: 600; letter-spacing: 1.6px;
+  text-transform: uppercase; color: var(--ink-mute); opacity: 0.45;
+  margin-bottom: 6px; text-align: center;
+}
+
+/* panel title — sunken neumorphic style */
+.panel-title {
+  font-size: 30px; font-weight: 800;
+  letter-spacing: 0.5px; line-height: 1.1;
+  padding-right: 50px; padding-left: 8px; padding-bottom: 8px; margin-top: 16px;
+  color: #3d5070;
+  text-shadow: -1px -1px 1px rgba(6,9,15,0.9), 1px 1px 2px rgba(72,86,110,0.5);
+  transition: none;
+}
+.light .panel-title {
+  color: #c8cdd8;
+  text-shadow: -1px -1px 1px rgba(146,158,178,0.6), 1px 1px 2px rgba(255,255,255,0.95);
+}
+/* title states */
+.panel-title.has-new { color: var(--accent); text-shadow: none; }
+.panel-title.is-archived { color: var(--sedona); text-shadow: none; }
+
+/* close button (× in top-right) */
+.panel-close-track {
+  position: absolute; top: 11px; right: 16px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--base);
+  box-shadow: inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2; transition: background 0.3s ease;
+}
+.panel-close {
+  width: 26px; height: 26px; border-radius: 50%; border: none; cursor: pointer;
+  background: var(--base-whisper); color: var(--ink-whisper); opacity: 0.9; font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 3px 3px 7px var(--neu-dark), -2px -2px 5px var(--neu-light);
+  transition: all 0.14s ease;
+}
+.panel-close:hover { opacity: 1; color: var(--accent); }
+.panel-close:active { opacity: 1; color: var(--accent); box-shadow: var(--neu-in); transform: scale(0.95); }
+
+/* ============================================================
+   5. TAB SWITCHER
+   Component: <TabSwitcher />
+   In Next.js: src/components/ui/TabSwitcher.tsx
+   ============================================================ */
+.tabs-wrap { flex-shrink: 0; padding: 4px 32px 12px; }
+.tabs {
+  padding: 3px; border-radius: 20px; background: var(--base-mute);
+  box-shadow: inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light);
+  display: flex; position: relative; overflow: hidden;
+}
+/* sliding highlight pill */
+.tab-highlight {
+  position: absolute; top: 3px; bottom: 3px;
+  width: calc(50% - 3px); border-radius: 16px;
+  background: var(--accent);
+  box-shadow: 2px 2px 5px var(--neu-dark), -1px -1px 3px var(--neu-light);
+  left: 3px; pointer-events: none; transition: none;
+}
+.tab-highlight.right { transform: translateX(100%); }
+.tab-btn {
+  flex: 1; height: 30px; border: none; border-radius: 16px;
+  cursor: pointer; font-family: var(--font); font-size: 12px; font-weight: 600;
+  color: var(--ink-mute); background: transparent; position: relative; z-index: 1;
+  transition: color 0.18s ease; -webkit-tap-highlight-color: transparent;
+}
+.tab-btn.active { color: var(--base-mute); }
+.light .tab-btn.active { color: #fff; }
+
+/* ============================================================
+   6. INQUIRY LIST + PANES
+   Component: <InquiriesList /> + <ActivePane /> + <ArchivedPane />
+   In Next.js: src/components/panels/InquiriesList.tsx
+   ============================================================ */
+.inq-list {
+  flex: 1; overflow-y: auto; overflow-x: hidden;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch; min-height: 0;
+}
+.inq-list::-webkit-scrollbar { display: none; }
+.tab-pane { width: 100%; display: none; flex-direction: column; flex-shrink: 0; }
+.tab-pane.active { display: flex; }
+.pane-locked { flex-shrink: 0; }
+.pane-overflow { flex-shrink: 0; display: none; }
+.pane-overflow.open { display: block; }
+
+/* section label row (e.g. "top three" / recover link) */
+.inq-section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; color: var(--ink-mute); opacity: 0.5;
+  padding: 12px 24px 6px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+/* ============================================================
+   7. INQUIRY ITEM
+   Component: <InquiryItem />
+   In Next.js: src/components/panels/InquiryItem.tsx
+   Props: id, title, date, sender, activity (hot|dim)
+   ============================================================ */
+.inq-item {
+  padding: 16px 24px 26px; border-bottom: 0.5px solid var(--divider);
+  display: flex; align-items: center; cursor: pointer; position: relative;
+  transition: background 0.14s ease; -webkit-tap-highlight-color: transparent;
+}
+.inq-item:last-child { border-bottom: none; }
+.inq-item:active { background: var(--base-whisper); }
+.inq-body { flex: 1; min-width: 0; padding-right: 8px; }
+.inq-title { font-size: 18px; font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.inq-meta { display: flex; align-items: center; gap: 8px; }
+.inq-date { font-size: 12px; color: var(--ink-mute); font-weight: 400; }
+.inq-sep { font-size: 10px; color: var(--ink-mute); opacity: 0.35; }
+.inq-sender { font-size: 12px; color: var(--ink-mute); font-weight: 500; }
+/* notification arrow — pulsed via JS when activity=hot */
+.inq-arrow { font-size: 15px; flex-shrink: 0; transition: none !important; }
+.inq-arrow.dim { color: var(--ink-mute); opacity: 0.35; animation: none; }
+/* bottom-right corner: date · id */
+.inq-corner { position: absolute; bottom: 8px; right: 24px; display: flex; align-items: center; gap: 5px; }
+.inq-date-corner { font-size: 11px; font-weight: 400; color: var(--ink-mute); opacity: 0.7; }
+.inq-corner-sep { font-size: 9px; color: var(--ink-mute); opacity: 0.3; }
+.inq-id { font-size: 9px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; color: var(--ink-mute); opacity: 0.35; }
+
+/* ============================================================
+   8. SHOW / HIDE TOGGLE
+   Component: <ShowHideToggle />
+   Reused in: panel list, drawer details, drawer conversation
+   In Next.js: src/components/ui/ShowHideToggle.tsx
+   ============================================================ */
+.show-more-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 24px; flex-shrink: 0;
+  border-top: 0.5px solid var(--divider);
+}
+.show-more-label { font-size: 13px; font-weight: 600; color: var(--ink-mute); }
+.show-more-label span { color: var(--ink-mute); opacity: 0.6; font-size: 11px; margin-left: 6px; letter-spacing: 0.3px; }
+.section-toggle {
+  padding: 6px 0; border-radius: 999px; min-width: 64px; text-align: center;
+  background: var(--base-whisper); border: none; cursor: pointer;
+  font-size: 12px; font-weight: 600; color: var(--ink-mute);
+  font-family: var(--font); transition: box-shadow 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.section-toggle.collapsed { box-shadow: inset 1px 1px 3px var(--neu-dark), inset -1px -1px 3px var(--neu-light); }
+.section-toggle.expanded { box-shadow: 2px 2px 5px var(--neu-dark), -2px -2px 5px var(--neu-light); }
+
+/* ============================================================
+   9. RECOVER FLOW
+   Component: <RecoverLink /> + <RecoverBar />
+   In Next.js: src/components/panels/RecoverFlow.tsx
+   ============================================================ */
+/* recover link — hidden in active, accent in archived */
+.recover-link {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.4px;
+  text-transform: uppercase; color: var(--accent); opacity: 1;
+  background: none; border: none; cursor: pointer;
+  font-family: var(--font); padding: 0;
+  pointer-events: auto; display: none;
+}
+.recover-link.active-link { display: inline; }
+
+/* recover selection mode */
+.recover-mode .inq-item { cursor: pointer; }
+.recover-mode .inq-item:hover { outline: 1.5px solid var(--accent); outline-offset: -2px; border-radius: 8px; }
+.recover-mode .inq-item.selected-recover { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 8px; background: var(--accent-mute); }
+
+/* recover action bar */
+.recover-bar { display: none; flex-shrink: 0; padding: 24px 24px 32px; gap: 10px; }
+.recover-bar.visible { display: flex; }
+.recover-confirm {
+  flex: 1; padding: 18px 20px; border-radius: 999px;
+  background: var(--accent); border: none; cursor: pointer;
+  font-size: 15px; font-weight: 700; color: var(--base-mute);
+  font-family: var(--font);
+  box-shadow: var(--neu-sm); transition: transform 0.12s ease;
+}
+.light .recover-confirm { box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -1px -1px 4px rgba(255,255,255,0.7); }
+.recover-confirm:active { transform: scale(0.97); }
+.recover-cancel {
+  padding: 18px 18px; border-radius: 999px;
+  background: var(--base-whisper); border: none; cursor: pointer;
+  font-size: 12px; font-weight: 700; color: var(--ink-mute);
+  font-family: var(--font);
+  box-shadow: 3px 3px 7px var(--neu-dark), -3px -3px 7px var(--neu-light);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.light .recover-cancel { box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -2px -2px 5px rgba(255,255,255,0.85); }
+.recover-cancel:active { transform: scale(0.97); box-shadow: var(--neu-in); }
+
+/* ============================================================
+   10. ARCHIVED PANE STATE
+   Applied via #pane-archived scoping.
+   In Next.js: pass isArchived prop to InquiryItem → conditional classNames.
+   ============================================================ */
+#pane-archived .inq-item { opacity: 0.7; pointer-events: auto; cursor: pointer; }
+#pane-archived .inq-title {
+  color: var(--ink-mute);
+  text-shadow: -1px -1px 1px rgba(6,9,15,0.7), 1px 1px 1px rgba(72,86,110,0.3);
+}
+.light #pane-archived .inq-title {
+  color: var(--ink-mute);
+  text-shadow: -1px -1px 1px rgba(255,255,255,0.8), 1px 1px 1px rgba(146,158,178,0.4);
+}
+#pane-archived .inq-sender { opacity: 0.5; }
+#pane-archived .inq-date-corner { opacity: 0.4; }
+#pane-archived .inq-id { opacity: 0.2; }
+#pane-archived .inq-corner-sep { opacity: 0.2; }
+#pane-archived .show-more-label { opacity: 0.5; }
+
+/* ============================================================
+   11. CTA BUTTONS
+   .inq-cta-btn  — "send an inquiry" (panel bottom, sedona)
+   .cta-btn      — "buy now →" (drawer bottom, sedona)
+   In Next.js: src/components/ui/CTAButton.tsx  variant="sedona"
+   ============================================================ */
+.inq-cta-wrap { padding: 24px 24px 32px; flex-shrink: 0; }
+.inq-cta-btn {
+  width: 100%; padding: 18px 24px; border-radius: 999px;
+  background: var(--sedona); border: none; cursor: pointer;
+  font-size: 16px; font-weight: 700; color: #fff7f3;
+  font-family: var(--font); letter-spacing: -0.2px;
+  box-shadow: var(--neu-sm); transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+.light .inq-cta-btn { box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -1px -1px 4px rgba(255,255,255,0.7); }
+.inq-cta-btn:active { transform: scale(0.97); box-shadow: var(--neu-in); }
+.cta-btn {
+  width: 100%; padding: 16px 24px; border-radius: 999px;
+  background: var(--sedona); border: none; cursor: pointer;
+  font-size: 15px; font-weight: 700; color: #fff7f3;
+  font-family: var(--font);
+  box-shadow: var(--neu-sm); transition: transform 0.12s ease, box-shadow 0.12s ease; margin-top: 8px;
+}
+.cta-btn:active { transform: scale(0.97); box-shadow: var(--neu-in); }
+
+/* ============================================================
+   12. DRAWER SYSTEM
+   Component: <InquiryDetailDrawer />
+   In Next.js: src/components/drawers/InquiryDetailDrawer.tsx
+   ============================================================ */
+/* backdrop scrim with blur */
+.drawer-scrim {
+  position: absolute; inset: 0; z-index: 30;
+  background: var(--scrim);
+  opacity: 0; pointer-events: none;
+  backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px);
+  transition: opacity 0.46s ease, backdrop-filter 0.46s ease, -webkit-backdrop-filter 0.46s ease;
+}
+.drawer-scrim.open { opacity: 1; pointer-events: auto; }
+.drawer-scrim.closing { opacity: 0; transition: opacity 0.28s ease, backdrop-filter 0.28s ease, -webkit-backdrop-filter 0.28s ease; }
+
+/* drawer sheet */
+.drawer {
+  position: absolute; top: 12px; right: 0; bottom: 12px; width: 88%;
+  z-index: 31; background: var(--base); border-radius: 25px 0 0 25px;
+  display: flex; flex-direction: column; overflow: hidden; will-change: transform;
+  transform: translateX(100%);
+  transition: transform 0.46s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+}
+.drawer.open { transform: translateX(0); }
+.drawer.closing { transform: translateX(100%); transition: transform 0.28s cubic-bezier(0.4, 0, 1, 1); }
+
+/* drag handle */
+.drw-handle { display: flex; justify-content: center; padding: 12px 0 0; flex-shrink: 0; }
+.drw-handle-bar { width: 36px; height: 4px; border-radius: 2px; background: var(--ink-mute); opacity: 0.3; }
+
+/* nav row: back btn + hint */
+.drw-nav { display: flex; align-items: center; gap: 12px; padding: 16px 24px 0; flex-shrink: 0; }
+.drw-back {
+  width: 32px; height: 32px; border-radius: 50%; border: none; cursor: pointer;
+  background: var(--base-whisper); display: flex; align-items: center; justify-content: center;
+  color: var(--ink-mute); font-size: 16px; flex-shrink: 0;
+  box-shadow: 2px 2px 5px var(--neu-dark), -2px -2px 5px var(--neu-light);
+  -webkit-tap-highlight-color: transparent;
+}
+.drw-hint { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-mute); }
+
+/* scrollable body */
+.drw-body { flex: 1; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; padding: 0 24px 0; }
+.drw-body::-webkit-scrollbar { display: none; }
+
+/* ============================================================
+   13. DRAWER PRODUCT PAGE
+   Component: <DrawerProductHeader />
+   In Next.js: src/components/drawers/DrawerProductHeader.tsx
+   Props: gem, weight, origin, id, title, status, imageUrl?
+   ============================================================ */
+/* gem photo placeholder circle */
+.drw-photo-wrap { display: flex; justify-content: center; padding: 20px 0 18px; }
+.drw-photo-circle {
+  width: 110px; height: 110px; border-radius: 50%;
+  background: var(--base-whisper);
+  box-shadow: inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.drw-photo-letter { font-size: 38px; font-weight: 800; color: var(--ink-mute); opacity: 0.2; text-transform: uppercase; letter-spacing: -1px; }
+
+/* product identity */
+.drw-product-id { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-mute); opacity: 0.5; margin-bottom: 4px; }
+.drw-product-title { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.1; color: var(--ink); margin-bottom: 12px; }
+
+/* status pill */
+.drw-status-row { margin-bottom: 16px; }
+.status-pill { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
+.status-pill.read { background: var(--accent-mute); color: var(--accent); }
+.status-pill.waiting { background: var(--base-whisper); color: var(--ink-mute); }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+/* section divider */
+.drw-divider { height: 0.5px; background: var(--divider); margin: 0 0 16px; }
+
+/* ============================================================
+   14. DRAWER MESSAGES
+   Component: <DrawerConversation />
+   In Next.js: src/components/drawers/DrawerConversation.tsx
+   Props: userNote, adminReply, additionalMessages[]
+   ============================================================ */
+.drw-message { font-size: 14px; line-height: 1.65; margin-bottom: 16px; }
+.user-message { font-style: italic; color: var(--ink-whisper); }
+.admin-message { font-style: normal; color: var(--ink); padding-left: 12px; border-left: 2px solid var(--accent); }
+
+/* show more conversation toggle row */
+.drw-show-more-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0 10px; }
+.drw-show-more-label { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; color: var(--ink-mute); opacity: 0.6; }
+.drw-more-overflow { display: none; }
+.drw-more-overflow.open { display: block; }
+
+/* ============================================================
+   15. DRAWER PRODUCT DETAILS
+   Component: <DrawerProductDetails />
+   In Next.js: src/components/drawers/DrawerProductDetails.tsx
+   Props: gem, weight, origin (expandable)
+   ============================================================ */
+.drw-details-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0 10px; }
+.drw-details-label { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-mute); opacity: 0.5; }
+.drw-details-body { display: none; padding-bottom: 8px; }
+.drw-details-body.open { display: block; }
+.drw-detail-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 0.5px solid var(--divider); }
+.drw-detail-item:last-child { border-bottom: none; }
+.drw-detail-key { font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--ink-mute); opacity: 0.6; }
+.drw-detail-val { font-size: 14px; font-weight: 500; color: var(--ink); }
+
+</style>
+</head>
+<body>
+
+<!-- theme toggle — preview only, remove in app -->
+<div class="theme-row">
+  <button class="tbtn dark" onclick="setTheme(true)">● dark</button>
+  <button class="tbtn lite" onclick="setTheme(false)">○ light</button>
+</div>
+
+<!-- ============================================================
+     PHONE SHELL — preview only, remove in app
+     In Next.js this is just the page layout wrapper
+     ============================================================ -->
+<div class="phone" id="phone">
+
+  <!-- StatusBar — preview only -->
+  <div class="status-bar">
+    <span>9:41</span>
+    <div class="notch"></div>
+    <span id="status-label">home</span>
+  </div>
+
+  <!-- HomeScreen placeholder — replace with real dashboard -->
+  <div class="home">
+    <div class="home-date">THURSDAY · MAY 21</div>
+    <div class="home-title">User<br>gems.</div>
+    <div class="home-hint">tap ₪ to open inquiries →</div>
+  </div>
+
+  <!-- PanelScrim -->
+  <div class="panel-scrim" id="panel-scrim"></div>
+
+  <!-- ============================================================
+       COMPONENT: <InquiriesPanel />
+       src/components/panels/InquiriesPanel.tsx
+       ============================================================ -->
+  <div class="panel" id="inq-panel" role="dialog" aria-label="Inquiries">
+
+    <!-- PanelHeader — drag handle, hint, title, close -->
+    <div class="panel-header" id="inq-header">
+      <div class="drag-pill"><div class="drag-bar"></div></div>
+      <div class="panel-hint">↓ swipe down to close</div>
+      <div class="panel-title" id="panel-title">inquiries</div>
+      <div class="panel-close-track">
+        <button class="panel-close" id="inq-close" aria-label="Close">✕</button>
+      </div>
+    </div>
+
+    <!-- TabSwitcher -->
+    <div class="tabs-wrap">
+      <div class="tabs" id="inq-tabs">
+        <div class="tab-highlight" id="tab-highlight"></div>
+        <button class="tab-btn active" data-tab="0">active</button>
+        <button class="tab-btn" data-tab="1">archived</button>
+      </div>
+    </div>
+
+    <!-- InquiriesList -->
+    <div class="inq-list">
+
+      <!-- ── ActivePane ── -->
+      <div class="tab-pane active" id="pane-active">
+
+        <div class="pane-locked" id="active-locked">
+          <div class="inq-section-label"><span>top three</span></div>
+
+          <!-- InquiryItem — activity="hot" means unread/pulsing arrow -->
+          <div class="inq-item" data-id="INQ-0042" data-title="emerald rough lot" data-status="admin · may 10" data-activity="hot" data-gem="emerald" data-weight="14.6ct" data-origin="Zambia" data-note="Looking for a rough lot of Zambian emeralds, minimum 10ct total weight, eye clean preferred." data-reply="Thanks for reaching out — we have a parcel that matches your spec. I'll send photos by end of week.">
+            <div class="inq-body">
+              <div class="inq-title">emerald rough lot</div>
+              <div class="inq-meta"><span class="inq-sender">admin</span></div>
+            </div>
+            <span class="inq-arrow hot">→</span>
+            <div class="inq-corner">
+              <span class="inq-date-corner">may 10</span>
+              <span class="inq-corner-sep">·</span>
+              <span class="inq-id">INQ-0042</span>
+            </div>
+          </div>
+
+          <div class="inq-item" data-id="INQ-0041" data-title="blue topaz availability" data-status="you · may 9" data-activity="dim" data-gem="blue topaz" data-weight="8.2ct" data-origin="Brazil" data-note="Do you carry Swiss blue topaz in the 5–10ct range? Looking for matched pairs if possible." data-reply="">
+            <div class="inq-body">
+              <div class="inq-title">blue topaz availability</div>
+              <div class="inq-meta"><span class="inq-sender">you</span></div>
+            </div>
+            <span class="inq-arrow dim">→</span>
+            <div class="inq-corner">
+              <span class="inq-date-corner">may 9</span>
+              <span class="inq-corner-sep">·</span>
+              <span class="inq-id">INQ-0041</span>
+            </div>
+          </div>
+
+          <div class="inq-item" data-id="INQ-0039" data-title="garnet recut estimate" data-status="admin · may 7" data-activity="hot" data-gem="rhodolite garnet" data-weight="3.4ct" data-origin="Mozambique" data-note="I have a rhodolite garnet that needs a recut — currently cushion, want to move to round. Wondering about pricing and timeline." data-reply="We can do that recut. Estimate is $85–$110 depending on final yield. Lead time is about 2 weeks.">
+            <div class="inq-body">
+              <div class="inq-title">garnet recut estimate</div>
+              <div class="inq-meta"><span class="inq-sender">admin</span></div>
+            </div>
+            <span class="inq-arrow hot">→</span>
+            <div class="inq-corner">
+              <span class="inq-date-corner">may 7</span>
+              <span class="inq-corner-sep">·</span>
+              <span class="inq-id">INQ-0039</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ShowMoreRow -->
+        <div class="show-more-row">
+          <div class="show-more-label">more inquiries <span id="active-count">(+5)</span></div>
+          <button class="section-toggle collapsed" id="active-toggle">show</button>
+        </div>
+
+        <!-- overflow items — hidden until expanded -->
+        <div class="pane-overflow" id="active-overflow">
+          <div class="inq-item" data-id="INQ-0037" data-title="citrine rough parcel" data-status="you · may 6" data-activity="dim" data-gem="citrine" data-weight="42ct lot" data-origin="Brazil" data-note="Need a citrine rough parcel for a class project — looking for something affordable, 30–50ct total." data-reply="">
+            <div class="inq-body">
+              <div class="inq-title">citrine rough parcel</div>
+              <div class="inq-meta"><span class="inq-sender">you</span></div>
+            </div>
+            <span class="inq-arrow dim">→</span>
+            <div class="inq-corner"><span class="inq-date-corner">may 6</span><span class="inq-corner-sep">·</span><span class="inq-id">INQ-0037</span></div>
+          </div>
+          <div class="inq-item" data-id="INQ-0036" data-title="tourmaline pair match" data-status="admin · may 4" data-activity="hot" data-gem="tourmaline" data-weight="2×1.8ct" data-origin="Nigeria" data-note="Looking for a matched pair of pink tourmalines, ideally under 2ct each, for earrings." data-reply="We have two candidates — very close in color and size. I'll send photos today.">
+            <div class="inq-body">
+              <div class="inq-title">tourmaline pair match</div>
+              <div class="inq-meta"><span class="inq-sender">admin</span></div>
+            </div>
+            <span class="inq-arrow hot">→</span>
+            <div class="inq-corner"><span class="inq-date-corner">may 4</span><span class="inq-corner-sep">·</span><span class="inq-id">INQ-0036</span></div>
+          </div>
+          <div class="inq-item" data-id="INQ-0034" data-title="opal cutting feasibility" data-status="you · may 2" data-activity="dim" data-gem="boulder opal" data-weight="18ct" data-origin="Australia" data-note="I have an Australian boulder opal I'd like cut into a freeform cab. Wondering about feasibility and pricing." data-reply="">
+            <div class="inq-body">
+              <div class="inq-title">opal cutting feasibility</div>
+              <div class="inq-meta"><span class="inq-sender">you</span></div>
+            </div>
+            <span class="inq-arrow dim">→</span>
+            <div class="inq-corner"><span class="inq-date-corner">may 2</span><span class="inq-corner-sep">·</span><span class="inq-id">INQ-0034</span></div>
+          </div>
+          <div class="inq-item" data-id="INQ-0033" data-title="spessartite availability" data-status="admin · apr 29" data-activity="hot" data-gem="spessartite garnet" data-weight="4ct" data-origin="Namibia" data-note="Looking for a vivid orange spessartite, ideally over 3ct, eye clean. Namibian preferred." data-reply="">
+            <div class="inq-body">
+              <div class="inq-title">spessartite availability</div>
+              <div class="inq-meta"><span class="inq-sender">admin</span></div>
+            </div>
+            <span class="inq-arrow hot">→</span>
+            <div class="inq-corner"><span class="inq-date-corner">apr 29</span><span class="inq-corner-sep">·</span><span class="inq-id">INQ-0033</span></div>
+          </div>
+          <div class="inq-item" data-id="INQ-0031" data-title="ruby polish only" data-status="admin · apr 27" data-activity="hot" data-gem="ruby" data-weight="1.2ct" data-origin="Mozambique" data-note="I have a Mozambique ruby that just needs a final polish — no recut required. Can you help?" data-reply="Yes, we do polish-only work. $45 flat, 1 week lead time. Just send it in with the form.">
+            <div class="inq-body">
+              <div class="inq-title">ruby polish only</div>
+              <div class="inq-meta"><span class="inq-sender">admin</span></div>
+            </div>
+            <span class="inq-arrow hot">→</span>
+            <div class="inq-corner"><span class="inq-date-corner">apr 27</span><span class="inq-corner-sep">·</span><span class="inq-id">INQ-0031</span></div>
+          </div>
+        </div>
+
+        <!-- SendInquiryCTA -->
+        <div class="inq-cta-wrap" id="inq-cta-wrap">
+          <button class="inq-cta-btn" id="send-inq-btn">+ send an inquiry</button>
+        </div>
+
+      </div><!-- /pane-active -->
+
+      <!-- ── ArchivedPane ── -->
+      <div class="tab-pane" id="pane-archived">
+
+        <div class="pane-locked" id="archived-locked">
+          <div class="inq-section-label">
+            <span></span>
+            <button class="recover-link active-link" id="recover-btn">recover</button>
+          </div>
+
+          <div class="inq-item" data-id="INQ-0038" data-title="alexandrite evaluation" data-status="admin · apr 15" data-activity="dim" data-gem="alexandrite" data-weight="1.8ct" data-origin="Brazil" data-note="Have a Brazilian alexandrite, strong color change. Want an evaluation before I decide to sell or cut." data-reply="Evaluated — strong 70% color change, eye clean. Market value range $1,200–$1,800. Happy to discuss cutting options.">
+            <div class="inq-body">
+              <div class="inq-title">alexandrite evaluation</div>
+              <div class="inq-meta"><span class="inq-sender">admin</span></div>
+            </div>
+            <span class="inq-arrow dim">→</span>
+            <div class="inq-corner"><span class="inq-date-corner">apr 15</span><span class="inq-corner-sep">·</span><span class="inq-id">INQ-0038</span></div>
+          </div>
+          <div class="inq-item" data-id="INQ-0035" data-title="sapphire lot pricing" data-status="admin · mar 28" data-activity="dim" data-gem="sapphire" data-weight="22ct lot" data-origin="Ceylon" data-note="Interested in bulk pricing for a Ceylon sapphire lot I found at an estate sale." data-reply="We reviewed the lot description — prices vary widely by quality. Let's do a video call to assess each stone.">
+            <div class="inq-body">
+              <div class="inq-title">sapphire lot pricing</div>
+              <div class="inq-meta"><span class="inq-sender">admin</span></div>
+            </div>
+            <span class="inq-arrow dim">→</span>
+            <div class="inq-corner"><span class="inq-date-corner">mar 28</span><span class="inq-corner-sep">·</span><span class="inq-id">INQ-0035</span></div>
+          </div>
+          <div class="inq-item" data-id="INQ-0030" data-title="aquamarine cab order" data-status="admin · mar 12" data-activity="dim" data-gem="aquamarine" data-weight="9ct" data-origin="Brazil" data-note="Ordered an aquamarine cab — oval, 12×10mm. Completed and received." data-reply="Order completed. Tracking sent to your email.">
+            <div class="inq-body">
+              <div class="inq-title">aquamarine cab order</div>
+              <div class="inq-meta"><span class="inq-sender">admin</span></div>
+            </div>
+            <span class="inq-arrow dim">→</span>
+            <div class="inq-corner"><span class="inq-date-corner">mar 12</span><span class="inq-corner-sep">·</span><span class="inq-id">INQ-0030</span></div>
+          </div>
+        </div>
+
+        <!-- ShowMoreRow (archived) -->
+        <div class="show-more-row">
+          <div class="show-more-label">older inquiries <span id="archived-count">(+4)</span></div>
+          <button class="section-toggle collapsed" id="archived-toggle">show</button>
+        </div>
+
+        <div class="pane-overflow" id="archived-overflow">
+          <div class="inq-item" data-id="INQ-0028" data-title="peridot faceting" data-status="admin · feb 22" data-activity="dim" data-gem="peridot" data-weight="6.5ct" data-origin="Pakistan" data-note="Sent in a Pakistani peridot for faceting — standard round brilliant." data-reply="Completed. 5.8ct finished weight, excellent window ratio. Shipped back.">
+            <div class="inq-body">
+              <div class="inq-title">peridot faceting</div>
+              <div class="inq-meta"><span class="inq-sender">admin</span></div>
+            </div>
+            <span class="inq-arrow dim">→</span>
+            <div class="inq-corner"><span class="inq-date-corner">feb 22</span><span class="inq-corner-sep">·</span><span class="inq-id">INQ-0028</span></div>
+          </div>
+          <div class="inq-item" data-id="INQ-0025" data-title="zircon recut oval" data-status="admin · feb 8" data-activity="dim" data-gem="blue zircon" data-weight="3.1ct" data-origin="Cambodia" data-note="Cambodian blue zircon needing recut from round to oval. Great color, just a poor make." data-reply="Recut complete. 2.8ct finished, excellent brilliance. Will email photos shortly.">
+            <div class="inq-body">
+              <div class="inq-title">zircon recut oval</div>
+              <div class="inq-meta"><span class="inq-sender">admin</span></div>
+            </div>
+            <span class="inq-arrow dim">→</span>
+            <div class="inq-corner"><span class="inq-date-corner">feb 8</span><span class="inq-corner-sep">·</span><span class="inq-id">INQ-0025</span></div>
+          </div>
+          <div class="inq-item" data-id="INQ-0022" data-title="tsavorite appraisal" data-status="admin · jan 19" data-activity="dim" data-gem="tsavorite garnet" data-weight="2.3ct" data-origin="Kenya" data-note="Need a formal appraisal for insurance on a Kenyan tsavorite." data-reply="Appraisal complete. Certificate emailed. Replacement value: $2,100.">
+            <div class="inq-body">
+              <div class="inq-title">tsavorite appraisal</div>
+              <div class="inq-meta"><span class="inq-sender">admin</span></div>
+            </div>
+            <span class="inq-arrow dim">→</span>
+            <div class="inq-corner"><span class="inq-date-corner">jan 19</span><span class="inq-corner-sep">·</span><span class="inq-id">INQ-0022</span></div>
+          </div>
+          <div class="inq-item" data-id="INQ-0018" data-title="tanzanite evaluation" data-status="admin · jan 5" data-activity="dim" data-gem="tanzanite" data-weight="5.7ct" data-origin="Tanzania" data-note="Inherited tanzanite, no paperwork. Need to know what I have before I consider selling." data-reply="Evaluated — natural tanzanite, strong trichroism, AAA color grade. Approx $1,600–$2,200 market range.">
+            <div class="inq-body">
+              <div class="inq-title">tanzanite evaluation</div>
+              <div class="inq-meta"><span class="inq-sender">admin</span></div>
+            </div>
+            <span class="inq-arrow dim">→</span>
+            <div class="inq-corner"><span class="inq-date-corner">jan 5</span><span class="inq-corner-sep">·</span><span class="inq-id">INQ-0018</span></div>
+          </div>
+        </div>
+
+        <!-- RecoverBar — visible in recover mode -->
+        <div class="recover-bar" id="recover-bar">
+          <button class="recover-cancel" id="recover-cancel">cancel</button>
+          <button class="recover-confirm" id="recover-confirm">recover this inquiry →</button>
+        </div>
+
+      </div><!-- /pane-archived -->
+
+    </div><!-- /inq-list -->
+
+  </div><!-- /InquiriesPanel -->
+
+  <!-- DrawerScrim -->
+  <div class="drawer-scrim" id="drw-scrim"></div>
+
+  <!-- ============================================================
+       COMPONENT: <InquiryDetailDrawer />
+       src/components/drawers/InquiryDetailDrawer.tsx
+       ============================================================ -->
+  <div class="drawer" id="inq-drawer" role="dialog" aria-label="Inquiry Detail">
+
+    <!-- DrawerHandle -->
+    <div class="drw-handle"><div class="drw-handle-bar"></div></div>
+
+    <!-- DrawerNav -->
+    <div class="drw-nav">
+      <button class="drw-back" id="drw-back">←</button>
+      <div class="drw-hint">swipe right to close →</div>
+    </div>
+
+    <!-- DrawerBody -->
+    <div class="drw-body" id="drw-body">
+
+      <!-- GemPhotoCircle — replace letter with <img> when imageUrl available -->
+      <div class="drw-photo-wrap">
+        <div class="drw-photo-circle" id="drw-photo-circle">
+          <span class="drw-photo-letter" id="drw-photo-letter">G</span>
+        </div>
+      </div>
+
+      <!-- ProductId + ProductTitle -->
+      <div class="drw-product-id" id="drw-id">INQ-0000</div>
+      <div class="drw-product-title" id="drw-title">inquiry</div>
+
+      <!-- StatusPill -->
+      <div class="drw-status-row" id="drw-status-pill"></div>
+
+      <div class="drw-divider"></div>
+
+      <!-- UserMessage — italic, no card -->
+      <div class="drw-message user-message" id="drw-note-text">—</div>
+
+      <!-- AdminReply — shown only when admin has replied -->
+      <div id="drw-reply-wrap" style="display:none;">
+        <div class="drw-divider"></div>
+        <div class="drw-message admin-message" id="drw-reply-text">—</div>
+      </div>
+
+      <!-- ShowMoreConversation — hidden by default -->
+      <div id="drw-more-wrap" style="display:none;">
+        <div class="drw-show-more-row">
+          <span class="drw-show-more-label" id="drw-more-label">more messages</span>
+          <button class="section-toggle collapsed" id="drw-more-toggle">show</button>
+        </div>
+        <div class="drw-more-overflow" id="drw-more-overflow"></div>
+      </div>
+
+      <div class="drw-divider" style="margin-top:16px;"></div>
+
+      <!-- ProductDetailsToggle -->
+      <div class="drw-details-row">
+        <span class="drw-details-label">product details</span>
+        <button class="section-toggle collapsed" id="drw-details-toggle">show</button>
+      </div>
+      <div class="drw-details-body" id="drw-details-body">
+        <div class="drw-detail-item">
+          <span class="drw-detail-key">gem</span>
+          <span class="drw-detail-val" id="drw-gem">—</span>
+        </div>
+        <div class="drw-detail-item">
+          <span class="drw-detail-key">weight</span>
+          <span class="drw-detail-val" id="drw-weight">—</span>
+        </div>
+        <div class="drw-detail-item">
+          <span class="drw-detail-key">origin</span>
+          <span class="drw-detail-val" id="drw-origin">—</span>
+        </div>
+      </div>
+
+      <!-- BuyNowCTA -->
+      <div style="padding:24px 0 40px;">
+        <button class="cta-btn">buy now →</button>
+      </div>
+
+    </div><!-- /drw-body -->
+  </div><!-- /InquiryDetailDrawer -->
+
+  <!-- BottomNav -->
+  <div class="bottom-nav">
+    <button class="nav-btn fab" id="nav-menu" aria-label="Menu">≡</button>
+    <button class="nav-btn" id="nav-chat" aria-label="Chat">◐</button>
+    <button class="nav-btn active" id="nav-inq" aria-label="Inquiries" onclick="openPanel()">₪</button>
+    <button class="nav-btn" id="nav-theme" aria-label="Theme" onclick="toggleTheme()">◑</button>
+  </div>
+
+</div><!-- /PhoneShell -->
+
+<script>
+/*
+  ============================================================
+  CCG INQUIRIES — JAVASCRIPT LOGIC
+  ============================================================
+  SECTION INDEX
+  ─────────────────────────────────────────
+  A. Theme
+  B. Supabase client setup (commented — wire in Next.js)
+  C. Data layer — fetch / mutations (commented — wire in Next.js)
+  D. Unread / pulse system
+  E. Panel open / close + swipe
+  F. Tab switcher
+  G. Show / hide toggles
+  H. Recover flow
+  I. Drawer open / close + swipe
+  J. Drawer internal toggles
+  K. Item click handler
+  L. CTA handlers
+  M. Boot
+  ============================================================
+*/
+
+/* ────────────────────────────────────────────────────────────
+   A. THEME
+   In Next.js: use next-themes or a ThemeContext instead.
+   ──────────────────────────────────────────────────────────── */
+function setTheme(dark) {
+  var p = document.getElementById('phone');
+  if (dark) { p.classList.remove('light'); document.body.classList.remove('light'); }
+  else { p.classList.add('light'); document.body.classList.add('light'); }
+}
+function toggleTheme() { setTheme(document.getElementById('phone').classList.contains('light')); }
+
+/* ────────────────────────────────────────────────────────────
+   B. SUPABASE CLIENT SETUP
+   In Next.js: src/lib/supabase.ts
+   ──────────────────────────────────────────────────────────── */
+/*
+import { createClient } from '@supabase/supabase-js';
+export const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+);
+*/
+
+/* ────────────────────────────────────────────────────────────
+   C. DATA LAYER
+   In Next.js: src/hooks/useInquiries.ts + src/hooks/useInquiryMessages.ts
+   ──────────────────────────────────────────────────────────── */
+/*
+// Fetch all inquiries for the current user
+async function fetchInquiries(userId) {
+  const { data, error } = await supabase
+    .from('inquiries')
+    .select('id, gem, weight, origin, note, status, created_at, updated_at, archived, last_sender')
+    .eq('user_id', userId)
+    .order('updated_at', { ascending: false });
+  if (error) throw error;
+  return data;
+}
+
+// Fetch messages for a single inquiry (for drawer conversation)
+async function fetchMessages(inquiryId) {
+  const { data, error } = await supabase
+    .from('inquiry_messages')
+    .select('id, sender_role, body, created_at')
+    .eq('inquiry_id', inquiryId)
+    .order('created_at', { ascending: true });
+  if (error) throw error;
+  return data;
+}
+
+// Mark inquiry as read (clears unread state)
+async function markRead(inquiryId) {
+  const { error } = await supabase
+    .from('inquiries')
+    .update({ status: 'read', updated_at: new Date().toISOString() })
+    .eq('id', inquiryId);
+  if (error) throw error;
+}
+
+// Archive an inquiry
+async function archiveInquiry(inquiryId) {
+  const { error } = await supabase
+    .from('inquiries')
+    .update({ archived: true, updated_at: new Date().toISOString() })
+    .eq('id', inquiryId);
+  if (error) throw error;
+}
+
+// Recover (un-archive) an inquiry
+async function recoverInquiry(inquiryId) {
+  const { error } = await supabase
+    .from('inquiries')
+    .update({ archived: false, updated_at: new Date().toISOString() })
+    .eq('id', inquiryId);
+  if (error) throw error;
+}
+
+// Send a new inquiry
+async function sendInquiry(userId, { gem, weight, origin, note }) {
+  const { data, error } = await supabase
+    .from('inquiries')
+    .insert([{ user_id: userId, gem, weight, origin, note, status: 'pending', archived: false }])
+    .select();
+  if (error) throw error;
+  return data[0];
+}
+
+// Real-time subscription — new admin message on any of user's inquiries
+function subscribeToInquiries(userId, onUpdate) {
+  return supabase
+    .channel('inquiries-user-' + userId)
+    .on('postgres_changes', {
+      event: 'UPDATE', schema: 'public', table: 'inquiries',
+      filter: 'user_id=eq.' + userId
+    }, function(payload) { onUpdate(payload.new); })
+    .subscribe();
+}
+*/
+
+/* ────────────────────────────────────────────────────────────
+   D. UNREAD / PULSE SYSTEM
+   Arrows pulse sedona↔accent when inquiry has unread admin reply.
+   In Next.js: derive unreadIds from inquiries where status='unread'
+   fetched from Supabase (see fetchInquiries above).
+   ──────────────────────────────────────────────────────────── */
+var pulseTimers = {};
+function isDark() { return !document.getElementById('phone').classList.contains('light'); }
+
+function startPulse(arrow) {
+  var id = arrow.dataset.pulseId || (arrow.dataset.pulseId = 'p' + Math.random());
+  if (pulseTimers[id]) return;
+  var colors = isDark() ? ['#c3563b', '#d4ec5a'] : ['#976a63', '#1a82c8'];
+  var i = 0;
+  arrow.style.color = colors[0]; arrow.style.opacity = '1';
+  pulseTimers[id] = setInterval(function () { i = (i + 1) % 2; arrow.style.color = colors[i]; }, 600);
+}
+
+function stopPulse(arrow) {
+  var id = arrow.dataset.pulseId;
+  if (id && pulseTimers[id]) { clearInterval(pulseTimers[id]); delete pulseTimers[id]; }
+  arrow.style.transition = 'none';
+  arrow.style.color = 'var(--ink-mute)';
+  arrow.style.opacity = '0.35';
+}
+
+/* seed unread set from data-activity="hot" on load */
+var unreadIds = new Set();
+document.querySelectorAll('.inq-item').forEach(function (item) {
+  if (item.dataset.activity === 'hot') unreadIds.add(item.dataset.id);
+});
+
+function checkUnread() { /* no-op: title color is tab-driven only */ }
+
+/* start pulse on all hot arrows */
+document.querySelectorAll('.inq-arrow.hot').forEach(function (a) { startPulse(a); });
+
+/* ────────────────────────────────────────────────────────────
+   E. PANEL OPEN / CLOSE + SWIPE
+   In Next.js: usePanel() hook + PanelContext managing open state.
+   ──────────────────────────────────────────────────────────── */
+function openPanel() {
+  document.getElementById('inq-panel').classList.remove('closing');
+  document.getElementById('inq-panel').classList.add('open');
+  document.getElementById('panel-scrim').classList.add('open');
+  document.getElementById('nav-inq').classList.add('active');
+  document.getElementById('status-label').textContent = 'inquiries';
+}
+
+function closePanel() {
+  document.getElementById('nav-inq').classList.remove('active');
+  var p = document.getElementById('inq-panel'), s = document.getElementById('panel-scrim');
+  p.classList.add('closing'); p.classList.remove('open'); s.classList.remove('open');
+  setTimeout(function () {
+    p.classList.remove('closing'); p.style.transform = ''; p.style.transition = '';
+    document.getElementById('status-label').textContent = 'home';
+  }, 320);
+}
+
+/* swipe-down-to-close on header */
+(function () {
+  var panel = document.getElementById('inq-panel');
+  var header = document.getElementById('inq-header');
+  var scrim = document.getElementById('panel-scrim');
+  var startY = null, startX = null, curY = 0, dragging = false;
+
+  function applyDrag(dy) {
+    panel.style.transform = 'translateY(' + dy + 'px)';
+    scrim.style.opacity = String(1 - Math.min(Math.max(dy / (panel.offsetHeight || 600), 0), 1));
+  }
+  function onStart(e) { var t = e.touches ? e.touches[0] : e; startY = t.clientY; startX = t.clientX; dragging = false; curY = 0; panel.style.transition = 'none'; scrim.style.transition = 'none'; }
+  function onMove(e) {
+    if (startY === null) return;
+    var t = e.touches ? e.touches[0] : e;
+    var dy = t.clientY - startY, dx = Math.abs(t.clientX - startX);
+    if (!dragging) { if (Math.abs(dy) < 5 && dx < 5) return; if (dx > Math.abs(dy)) { startY = null; return; } dragging = true; }
+    if (dy <= 0) return; curY = dy; applyDrag(curY); if (e.cancelable) e.preventDefault();
+  }
+  function onEnd() {
+    if (!dragging) { startY = null; return; } startY = null; dragging = false;
+    var h = panel.offsetHeight || 600;
+    if (curY > h * 0.35) {
+      var ms = Math.max((h - curY) / h * 280, 80);
+      panel.style.transition = 'transform ' + ms + 'ms cubic-bezier(0.4,0,1,1)';
+      scrim.style.transition = 'opacity ' + ms + 'ms linear';
+      applyDrag(h);
+      setTimeout(function () {
+        panel.style.transform = ''; panel.style.transition = ''; scrim.style.opacity = ''; scrim.style.transition = '';
+        panel.classList.remove('open', 'closing'); scrim.classList.remove('open'); scrim.style.pointerEvents = 'none';
+        document.getElementById('nav-inq').classList.remove('active');
+        document.getElementById('status-label').textContent = 'home';
+      }, ms);
+    } else {
+      var ms = Math.max(curY / h * 280, 80);
+      panel.style.transition = 'transform ' + ms + 'ms cubic-bezier(0.16,1,0.3,1)';
+      scrim.style.transition = 'opacity ' + ms + 'ms ease';
+      applyDrag(0);
+      setTimeout(function () { panel.style.transition = ''; scrim.style.transition = ''; }, ms);
+    }
+  }
+  header.addEventListener('touchstart', onStart, { passive: true });
+  header.addEventListener('touchmove', onMove, { passive: false });
+  header.addEventListener('touchend', onEnd);
+  header.addEventListener('mousedown', onStart);
+  window.addEventListener('mousemove', onMove);
+  window.addEventListener('mouseup', onEnd);
+})();
+
+document.getElementById('inq-close').addEventListener('click', function (e) { e.stopPropagation(); closePanel(); });
+document.getElementById('panel-scrim').addEventListener('click', closePanel);
+
+/* ────────────────────────────────────────────────────────────
+   F. TAB SWITCHER
+   In Next.js: useState('active'|'archived') in InquiriesPanel.
+   Tab switch also calls markRead on visible items if needed.
+   ──────────────────────────────────────────────────────────── */
+var currentTab = 0;
+
+function switchTab(idx) {
+  if (idx === currentTab) return;
+  currentTab = idx;
+  var title = document.getElementById('panel-title');
+  var recoverBtn = document.getElementById('recover-btn');
+  document.getElementById('tab-highlight').classList.toggle('right', idx === 1);
+  document.getElementById('pane-active').classList.toggle('active', idx === 0);
+  document.getElementById('pane-archived').classList.toggle('active', idx === 1);
+  document.querySelectorAll('#inq-tabs .tab-btn').forEach(function (b, i) { b.classList.toggle('active', i === idx); });
+  /* title: sunken in active, sedona in archived */
+  if (title) title.classList.toggle('is-archived', idx === 1);
+  /* recover link: hidden in active, accent in archived */
+  if (recoverBtn) {
+    if (idx === 1) { recoverBtn.classList.add('active-link'); }
+    else { recoverBtn.classList.remove('active-link'); exitRecoverMode(); }
+  }
+}
+
+document.querySelectorAll('#inq-tabs .tab-btn').forEach(function (btn, i) {
+  btn.addEventListener('click', function () { switchTab(i); });
+});
+
+/* ────────────────────────────────────────────────────────────
+   G. SHOW / HIDE TOGGLES
+   In Next.js: useState(expanded) in each list section.
+   ──────────────────────────────────────────────────────────── */
+function wireToggle(toggleId, overflowId) {
+  var btn = document.getElementById(toggleId);
+  var overflow = document.getElementById(overflowId);
+  var label = btn.parentElement.querySelector('.show-more-label');
+  var open = false;
+  btn.addEventListener('click', function () {
+    open = !open;
+    overflow.classList.toggle('open', open);
+    btn.textContent = open ? 'hide' : 'show';
+    btn.className = 'section-toggle ' + (open ? 'expanded' : 'collapsed');
+    if (label) label.style.color = open ? 'var(--sedona)' : '';
+  });
+}
+wireToggle('active-toggle', 'active-overflow');
+wireToggle('archived-toggle', 'archived-overflow');
+
+/* ────────────────────────────────────────────────────────────
+   H. RECOVER FLOW
+   In Next.js: recoverInquiry(id) calls Supabase (see section C).
+   After recover, refetch inquiries and re-render both panes.
+   ──────────────────────────────────────────────────────────── */
+var recoverMode = false;
+var selectedRecoverItem = null;
+
+function enterRecoverMode() {
+  recoverMode = true; selectedRecoverItem = null;
+  document.getElementById('pane-archived').classList.add('recover-mode');
+  document.getElementById('recover-bar').classList.add('visible');
+}
+
+function exitRecoverMode() {
+  recoverMode = false; selectedRecoverItem = null;
+  var pane = document.getElementById('pane-archived');
+  pane.classList.remove('recover-mode');
+  pane.querySelectorAll('.selected-recover').forEach(function (el) { el.classList.remove('selected-recover'); });
+  document.getElementById('recover-bar').classList.remove('visible');
+}
+
+document.getElementById('recover-btn').addEventListener('click', function () {
+  if (currentTab === 1) enterRecoverMode();
+});
+document.getElementById('recover-cancel').addEventListener('click', exitRecoverMode);
+
+document.getElementById('recover-confirm').addEventListener('click', function () {
+  if (!selectedRecoverItem) return;
+  selectedRecoverItem.classList.remove('selected-recover');
+  selectedRecoverItem.style.opacity = '';
+
+  /* Supabase: await recoverInquiry(selectedRecoverItem.dataset.id); */
+
+  /* DOM: maintain exactly 3 locked items — push current #3 to overflow */
+  var activeLocked = document.getElementById('active-locked');
+  var activeOverflow = document.getElementById('active-overflow');
+  var lockedItems = activeLocked.querySelectorAll('.inq-item');
+  if (lockedItems.length >= 3) {
+    activeOverflow.insertBefore(lockedItems[lockedItems.length - 1], activeOverflow.firstChild);
+  }
+  var label = activeLocked.querySelector('.inq-section-label');
+  if (label) label.after(selectedRecoverItem);
+  else activeLocked.insertBefore(selectedRecoverItem, activeLocked.firstChild);
+
+  exitRecoverMode();
+  switchTab(0);
+});
+
+/* ────────────────────────────────────────────────────────────
+   I. DRAWER OPEN / CLOSE + SWIPE
+   In Next.js: useDrawer() hook, drawer state in DrawerContext.
+   Close on: back btn, scrim tap, swipe right.
+   Guard: drawerOpen flag prevents item re-trigger while open.
+   ──────────────────────────────────────────────────────────── */
+var drawerOpen = false;
+
+function openDrawer(data) {
+  /* letter placeholder — replace with <img src={data.imageUrl}> when available */
+  document.getElementById('drw-photo-letter').textContent = data.gem ? data.gem[0].toUpperCase() : '?';
+  document.getElementById('drw-id').textContent = data.id;
+  document.getElementById('drw-title').textContent = data.title;
+
+  var isHot = data.activity === 'hot';
+  document.getElementById('drw-status-pill').innerHTML =
+    '<span class="status-pill ' + (isHot ? 'read' : 'waiting') + '">' +
+    '<span class="status-dot"></span>' + data.status + '</span>';
+
+  document.getElementById('drw-note-text').textContent = data.note || '—';
+
+  var replyWrap = document.getElementById('drw-reply-wrap');
+  if (data.reply) {
+    replyWrap.style.display = 'block';
+    document.getElementById('drw-reply-text').textContent = data.reply;
+  } else {
+    replyWrap.style.display = 'none';
+  }
+
+  /*
+    Supabase: fetch full message thread
+    const messages = await fetchMessages(data.id);
+    if (messages.length > 2) {
+      document.getElementById('drw-more-wrap').style.display = 'block';
+      const overflow = document.getElementById('drw-more-overflow');
+      overflow.innerHTML = messages.slice(2).map(m =>
+        '<div class="drw-message ' + (m.sender_role === 'admin' ? 'admin' : 'user') + '-message">' + m.body + '</div>'
+      ).join('');
+    }
+  */
+
+  document.getElementById('drw-more-wrap').style.display = 'none';
+  document.getElementById('drw-more-overflow').innerHTML = '';
+  document.getElementById('drw-more-overflow').classList.remove('open');
+  var moreToggle = document.getElementById('drw-more-toggle');
+  moreToggle.textContent = 'show'; moreToggle.className = 'section-toggle collapsed';
+
+  document.getElementById('drw-gem').textContent = data.gem || '—';
+  document.getElementById('drw-weight').textContent = data.weight || '—';
+  document.getElementById('drw-origin').textContent = data.origin || '—';
+  var detailsBody = document.getElementById('drw-details-body');
+  detailsBody.classList.remove('open');
+  var detailsToggle = document.getElementById('drw-details-toggle');
+  detailsToggle.textContent = 'show'; detailsToggle.className = 'section-toggle collapsed';
+
+  document.getElementById('drw-body').scrollTop = 0;
+  var drw = document.getElementById('inq-drawer'), scrim = document.getElementById('drw-scrim');
+  drw.classList.remove('closing'); drw.classList.add('open');
+  scrim.classList.remove('closing'); scrim.classList.add('open');
+  scrim.style.backdropFilter = 'blur(4px)';
+  scrim.style.webkitBackdropFilter = 'blur(4px)';
+  drawerOpen = true;
+}
+
+function closeDrawer() {
+  var drw = document.getElementById('inq-drawer'), scrim = document.getElementById('drw-scrim');
+  drw.classList.add('closing'); drw.classList.remove('open');
+  scrim.classList.add('closing'); scrim.classList.remove('open');
+  setTimeout(function () {
+    drw.classList.remove('closing'); drw.style.transform = ''; drw.style.transition = '';
+    scrim.classList.remove('closing'); scrim.style.opacity = '';
+    scrim.style.backdropFilter = 'blur(0px)'; scrim.style.webkitBackdropFilter = 'blur(0px)';
+    scrim.style.pointerEvents = 'none';
+    drawerOpen = false;
+  }, 300);
+}
+
+document.getElementById('drw-back').addEventListener('click', closeDrawer);
+document.getElementById('drw-scrim').addEventListener('click', closeDrawer);
+
+/* swipe right to close drawer */
+(function () {
+  var drw = document.getElementById('inq-drawer'), scrim = document.getElementById('drw-scrim');
+  var W = 0, startX = null, startY = null, dragging = false, curX = 0;
+  function applyDrag(dx) {
+    var p = Math.min(Math.max(dx / (W || 332), 0), 1);
+    drw.style.transform = 'translateX(' + dx + 'px)';
+    scrim.style.opacity = String(1 - p);
+    scrim.style.backdropFilter = 'blur(' + ((1 - p) * 4) + 'px)';
+    scrim.style.webkitBackdropFilter = 'blur(' + ((1 - p) * 4) + 'px)';
+  }
+  function onStart(e) { var t = e.touches ? e.touches[0] : e; startX = t.clientX; startY = t.clientY; dragging = false; curX = 0; W = drw.offsetWidth || 332; drw.style.transition = 'none'; scrim.style.transition = 'none'; }
+  function onMove(e) {
+    if (startX === null) return;
+    var t = e.touches ? e.touches[0] : e;
+    var dx = t.clientX - startX, dy = Math.abs(t.clientY - startY);
+    if (!dragging) { if (Math.abs(dx) < 5 && dy < 5) return; if (dy > Math.abs(dx)) { startX = null; return; } dragging = true; }
+    if (dx <= 0) return; curX = dx; applyDrag(curX); if (e.cancelable) e.preventDefault();
+  }
+  function onEnd() {
+    if (!dragging) { startX = null; return; } startX = null; dragging = false;
+    if (curX > W * 0.35) {
+      var ms = Math.max((W - curX) / W * 260, 80);
+      drw.style.transition = 'transform ' + ms + 'ms cubic-bezier(0.4,0,1,1)';
+      scrim.style.transition = 'opacity ' + ms + 'ms linear';
+      applyDrag(W); setTimeout(closeDrawer, ms);
+    } else {
+      var ms = Math.max(curX / W * 260, 80);
+      drw.style.transition = 'transform ' + ms + 'ms cubic-bezier(0.16,1,0.3,1)';
+      scrim.style.transition = 'opacity ' + ms + 'ms ease';
+      applyDrag(0); setTimeout(function () { drw.style.transition = ''; scrim.style.transition = ''; }, ms);
+    }
+  }
+  drw.addEventListener('touchstart', onStart, { passive: true });
+  drw.addEventListener('touchmove', onMove, { passive: false });
+  drw.addEventListener('touchend', onEnd);
+  scrim.addEventListener('touchstart', onStart, { passive: true });
+  scrim.addEventListener('touchmove', onMove, { passive: false });
+  scrim.addEventListener('touchend', onEnd);
+  drw.addEventListener('mousedown', onStart);
+  window.addEventListener('mousemove', onMove);
+  window.addEventListener('mouseup', onEnd);
+})();
+
+/* ── J. DRAWER INTERNAL TOGGLES ── */
+document.getElementById('drw-details-toggle').addEventListener('click', function () {
+  var body = document.getElementById('drw-details-body');
+  var open = body.classList.toggle('open');
+  this.textContent = open ? 'hide' : 'show';
+  this.className = 'section-toggle ' + (open ? 'expanded' : 'collapsed');
+});
+document.getElementById('drw-more-toggle').addEventListener('click', function () {
+  var overflow = document.getElementById('drw-more-overflow');
+  var open = overflow.classList.toggle('open');
+  this.textContent = open ? 'hide' : 'show';
+  this.className = 'section-toggle ' + (open ? 'expanded' : 'collapsed');
+  var label = document.getElementById('drw-more-label');
+  if (label) label.style.color = open ? 'var(--sedona)' : '';
+});
+
+/* ── K. ITEM CLICK HANDLER ── */
+document.querySelectorAll('.inq-item').forEach(function (item) {
+  item.addEventListener('click', function () {
+    if (drawerOpen) return;
+    if (recoverMode && document.getElementById('pane-archived').contains(item)) {
+      document.getElementById('pane-archived').querySelectorAll('.selected-recover')
+        .forEach(function (el) { el.classList.remove('selected-recover'); });
+      item.classList.add('selected-recover');
+      selectedRecoverItem = item;
+      return;
+    }
+    if (unreadIds.has(item.dataset.id)) {
+      unreadIds.delete(item.dataset.id);
+      item.dataset.activity = 'dim';
+      var arrow = item.querySelector('.inq-arrow');
+      if (arrow) { stopPulse(arrow); arrow.classList.remove('hot'); arrow.classList.add('dim'); }
+      /* Supabase: await markRead(item.dataset.id); */
+      checkUnread();
+    }
+    openDrawer({
+      id: item.dataset.id, title: item.dataset.title,
+      status: item.dataset.status, activity: item.dataset.activity,
+      gem: item.dataset.gem, weight: item.dataset.weight,
+      origin: item.dataset.origin, note: item.dataset.note, reply: item.dataset.reply
+    });
+  });
+});
+
+/* ── L. CTA HANDLERS ── */
+document.getElementById('send-inq-btn').addEventListener('click', function () {
+  closePanel();
+  setTimeout(function () {
+    /* In Next.js: router.push('/#store') or scrollIntoView on #store-section */
+    var storeHint = document.querySelector('.home-hint');
+    if (storeHint) storeHint.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 360);
+});
+
+/* ── M. BOOT ── */
+window.addEventListener('load', function () { openPanel(); });
+</script>
+</body>
+</html>

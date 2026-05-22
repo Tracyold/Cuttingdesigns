@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CCG · Service Requests Panel</title>
+<!--
+  ============================================================
+  CCG SERVICE REQUESTS — COMPONENT REFERENCE FILE
+  ============================================================
+  COMPONENT TREE
+  ─────────────────────────────────────────
+  <PhoneShell>
+    <StatusBar />
+    <HomeScreen />
+    <PanelScrim />
+    <ServiceRequestsPanel>
+      <PanelHeader />
+      <TabSwitcher />               active / archived
+      <SRList>
+        <ActivePane>
+          <SectionLabel />          "top three"
+          <SRItem /> ×3             locked
+          <ShowMoreRow />
+          <SRItem /> ×5             overflow
+          <NewRequestCTA />         "+ new service request" — sedona pill
+        </ActivePane>
+        <ArchivedPane>
+          <RecoverLink />
+          <SRItem /> ×3             locked
+          <ShowMoreRow />
+          <SRItem /> ×4             overflow
+          <RecoverBar />
+        </ArchivedPane>
+      </SRList>
+    </ServiceRequestsPanel>
+    <DrawerScrim />
+    <SRDetailDrawer>               opens when tapping an SR item
+      <DrawerHandle />
+      <DrawerNav />
+      <DrawerBody>
+        <SRPhotoCircle />
+        <SRId />
+        <SRTitle />
+        <StatusPill />
+        <Divider />
+        <SRDescription />          italic — user's original request
+        <AdminReply />             accent border — if admin replied
+        <ShowMoreConversation />
+        <Divider />
+        <SRDetailsToggle />
+        <SRDetailRows />           gem, service, weight, notes
+        <ContactAdminCTA />
+      </DrawerBody>
+    </SRDetailDrawer>
+    <NewSRDrawer>                  opens when tapping "+ new service request"
+      <DrawerHandle />
+      <DrawerNav />
+      <DrawerBody>
+        <NewSRForm>
+          <FormTitle />
+          <FormField />             gem type
+          <FormField />             service type
+          <FormField />             weight / size
+          <FormField />             special notes
+          <SubmitCTA />
+        </NewSRForm>
+      </DrawerBody>
+    </NewSRDrawer>
+    <BottomNav />
+  </PhoneShell>
+  ============================================================
+-->
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── 1. TOKENS ── */
+:root, .phone {
+  --base: #1c2230; --base-whisper: #232a3a; --base-mute: #131825;
+  --ink: #e4e8ef; --ink-whisper: #b5bdcc; --ink-mute: #7d8597;
+  --accent: #d4ec5a; --accent-mute: #2f3a20; --sedona: #c3563b;
+  --divider: rgba(255,255,255,0.06); --scrim: rgba(0,0,0,0.45);
+  --bg-outer: #0a0d14; --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  --complete-text: #3ecf82; --complete-bg: rgba(62,207,130,0.15); --progress-bg: rgba(212,236,90,0.15);
+  --neu-dark: rgba(6,9,15,0.78); --neu-light: rgba(72,86,110,0.42);
+  --panel-title-color: #3d5070;
+  --pulse-a: #c3563b;
+  --pulse-b: #d4ec5a;
+  --neu-xs: 2px 2px 5px var(--neu-dark),-2px -2px 5px var(--neu-light);
+  --neu-sm: 3px 3px 7px var(--neu-dark),-3px -3px 7px var(--neu-light);
+  --neu-in: inset 3px 3px 6px var(--neu-dark),inset -3px -3px 6px var(--neu-light);
+}
+.light {
+  --base: #e8ecf2; --base-whisper: #dfe4ec; --base-mute: #f1f4f9;
+  --ink: #2b3445; --ink-whisper: #4a5363; --ink-mute: #8893a6;
+  --accent: #1a82c8; --accent-mute: #cee5f5; --sedona: #976a63;
+  --divider: rgba(0,0,0,0.07); --scrim: rgba(43,52,69,0.35); --bg-outer: #c8cdd8;
+  --neu-dark: rgba(146,158,178,0.55); --neu-light: rgba(255,255,255,0.95);
+}
+
+/* ── 2. PREVIEW CHROME ── */
+body {
+  background: var(--bg-outer); display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; font-family: var(--font); padding: 32px 16px; transition: background 0.3s ease;
+}
+.theme-row { position: fixed; top: 16px; right: 16px; z-index: 9999; display: flex; gap: 8px; }
+.tbtn { padding: 7px 16px; border-radius: 999px; border: none; cursor: pointer; font-size: 11px; font-weight: 700; font-family: var(--font); letter-spacing: 0.5px; }
+.tbtn.dark { background: var(--base); color: var(--accent); }
+.tbtn.lite { background: var(--base-mute); color: var(--accent); }
+.phone {
+  width: 390px; height: 844px; border-radius: 50px; overflow: hidden;
+  background: var(--base); position: relative; display: flex; flex-direction: column;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+  transition: background 0.3s ease;
+}
+.status-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 28px 0; font-size: 12px; font-weight: 600; color: var(--ink-mute);
+  flex-shrink: 0; position: relative; z-index: 5;
+}
+.notch { width: 120px; height: 28px; background: var(--base-mute); border-radius: 0 0 18px 18px; margin-top: -14px; transition: background 0.3s ease; }
+.home { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 24px 24px 40px; scrollbar-width: none; }
+.home::-webkit-scrollbar { display: none; }
+.home-date { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 12px; }
+.home-title { font-size: 58px; font-weight: 800; line-height: 1; color: var(--ink); letter-spacing: -2px; margin-bottom: 4px; }
+.home-hint { font-size: 13px; color: var(--ink-mute); margin-top: 24px; opacity: 0.5; }
+
+/* ── 3. BOTTOM NAV ── */
+.bottom-nav {
+  height: 100px; background: var(--base); box-shadow: 0 -8px 24px var(--neu-dark);
+  display: flex; align-items: center; justify-content: space-around;
+  padding: 12px 20px 24px; flex-shrink: 0; z-index: 20; position: relative; transition: background 0.3s ease;
+}
+.nav-btn {
+  width: 40px; height: 40px; border-radius: 50%; border: none; cursor: pointer;
+  background: transparent; display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--ink-mute);
+  transition: all 0.18s cubic-bezier(0.175,0.885,0.32,1.275); -webkit-tap-highlight-color: transparent;
+}
+.nav-btn:active { transform: scale(0.88); }
+.nav-btn.fab {
+  width: 54px; height: 54px; background: var(--base); font-size: 20px;
+  box-shadow: var(--neu-sm); transition: background 0.3s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.nav-btn.fab.active { background: var(--accent); }
+.nav-btn.active:not(.fab) { color: var(--accent); }
+
+/* ── 4. PANEL SYSTEM ── */
+.panel-scrim { position: absolute; top: 0; left: 0; right: 0; bottom: 100px; z-index: 15; background: var(--scrim); opacity: 0; pointer-events: none; transition: opacity 0.38s ease; }
+.panel-scrim.open { opacity: 1; pointer-events: auto; }
+.panel {
+  position: absolute; left: 0; right: 0; bottom: 100px;
+  height: calc(100% - 48px - 100px);
+  background: var(--base); border-radius: 28px 28px 0 0;
+  z-index: 18; display: flex; flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.44s cubic-bezier(0.16,1,0.3,1), background 0.3s ease;
+  will-change: transform; overflow: hidden;
+}
+.panel.open { transform: translateY(0); }
+.panel.closing { transform: translateY(100%); transition: transform 0.30s cubic-bezier(0.4,0,1,1); }
+.panel-header {
+  background: transparent; border-radius: 28px 28px 0 0;
+  padding: 10px 20px 12px; flex-shrink: 0;
+  position: relative; cursor: grab; touch-action: none; user-select: none;
+}
+.drag-pill { display: flex; justify-content: center; padding-bottom: 10px; }
+.drag-bar { width: 36px; height: 4px; border-radius: 2px; background: var(--accent); opacity: 0.4; }
+.panel-hint { font-size: 10px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ink-mute); opacity: 0.45; margin-bottom: 6px; text-align: center; }
+.panel-title {
+  font-size: 30px; font-weight: 800; letter-spacing: 0.5px; line-height: 1.1;
+  padding-right: 50px; padding-left: 8px; padding-bottom: 8px; margin-top: 16px;
+  color: var(--panel-title-color);
+  text-shadow: -1px -1px 1px var(--neu-dark), 1px 1px 2px var(--neu-light);
+  transition: none;
+}
+.light .panel-title { color: var(--panel-title-color); text-shadow: -1px -1px 1px var(--neu-dark), 1px 1px 2px var(--neu-light); }
+.panel-title.is-archived { color: var(--sedona); text-shadow: none; }
+.panel-close-track {
+  position: absolute; top: 11px; right: 16px; width: 36px; height: 36px; border-radius: 50%;
+  background: var(--base); box-shadow: inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light);
+  display: flex; align-items: center; justify-content: center; z-index: 2; transition: background 0.3s ease;
+}
+.panel-close {
+  width: 26px; height: 26px; border-radius: 50%; border: none; cursor: pointer;
+  background: var(--base-whisper); color: var(--ink-whisper); opacity: 0.9; font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 3px 3px 7px var(--neu-dark), -2px -2px 5px var(--neu-light); transition: all 0.14s ease;
+}
+.panel-close:hover { opacity: 1; color: var(--accent); }
+.panel-close:active { opacity: 1; color: var(--accent); box-shadow: var(--neu-in); transform: scale(0.95); }
+
+/* ── 5. TAB SWITCHER ── */
+.tabs-wrap { flex-shrink: 0; padding: 4px 32px 12px; }
+.tabs { padding: 3px; border-radius: 20px; background: var(--base-mute); box-shadow: inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); display: flex; position: relative; overflow: hidden; }
+.tab-highlight { position: absolute; top: 3px; bottom: 3px; width: calc(50% - 3px); border-radius: 16px; background: var(--accent); box-shadow: 2px 2px 5px var(--neu-dark), -1px -1px 3px var(--neu-light); left: 3px; pointer-events: none; transition: none; }
+.tab-highlight.right { transform: translateX(100%); }
+.tab-btn { flex: 1; height: 30px; border: none; border-radius: 16px; cursor: pointer; font-family: var(--font); font-size: 12px; font-weight: 600; color: var(--ink-mute); background: transparent; position: relative; z-index: 1; transition: color 0.18s ease; -webkit-tap-highlight-color: transparent; }
+.tab-btn.active { color: var(--base-mute); }
+.light .tab-btn.active { color: var(--base-mute); }
+
+/* ── 6. SR LIST ── */
+.sr-list { flex: 1; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; -webkit-overflow-scrolling: touch; min-height: 0; }
+.sr-list::-webkit-scrollbar { display: none; }
+.tab-pane { width: 100%; display: none; flex-direction: column; flex-shrink: 0; }
+.tab-pane.active { display: flex; }
+.pane-locked { flex-shrink: 0; }
+.pane-overflow { flex-shrink: 0; display: none; }
+.pane-overflow.open { display: block; }
+.sr-section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; color: var(--ink-mute); opacity: 0.5;
+  padding: 12px 24px 6px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+/* ── 7. SR ITEM ── */
+.sr-item {
+  padding: 16px 24px 26px; border-bottom: 0.5px solid var(--divider);
+  display: flex; align-items: center; cursor: pointer; position: relative;
+  transition: background 0.14s ease; -webkit-tap-highlight-color: transparent;
+}
+.sr-item:last-child { border-bottom: none; }
+.sr-item:active { background: var(--base-whisper); }
+.sr-body { flex: 1; min-width: 0; padding-right: 8px; }
+.sr-title { font-size: 18px; font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sr-meta { display: flex; align-items: center; gap: 8px; }
+.sr-sender { font-size: 12px; color: var(--ink-mute); font-weight: 500; }
+.sr-arrow { font-size: 15px; flex-shrink: 0; transition: none !important; }
+.sr-arrow.dim { color: var(--ink-mute); opacity: 0.35; animation: none; }
+.sr-corner { position: absolute; bottom: 8px; right: 24px; display: flex; align-items: center; gap: 5px; }
+.sr-date-corner { font-size: 11px; font-weight: 400; color: var(--ink-mute); opacity: 0.7; }
+.sr-corner-sep { font-size: 9px; color: var(--ink-mute); opacity: 0.3; }
+.sr-id { font-size: 9px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; color: var(--ink-mute); opacity: 0.35; }
+
+/* ── 8. SHOW/HIDE TOGGLE ── */
+.show-more-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 24px; flex-shrink: 0; border-top: 0.5px solid var(--divider); }
+.show-more-label { font-size: 13px; font-weight: 600; color: var(--ink-mute); }
+.show-more-label span { color: var(--ink-mute); opacity: 0.6; font-size: 11px; margin-left: 6px; }
+.section-toggle { padding: 6px 0; border-radius: 999px; min-width: 64px; text-align: center; background: var(--base-whisper); border: none; cursor: pointer; font-size: 12px; font-weight: 600; color: var(--ink-mute); font-family: var(--font); transition: box-shadow 0.2s ease; -webkit-tap-highlight-color: transparent; }
+.section-toggle.collapsed { box-shadow: inset 1px 1px 3px var(--neu-dark), inset -1px -1px 3px var(--neu-light); }
+.section-toggle.expanded { box-shadow: 2px 2px 5px var(--neu-dark), -2px -2px 5px var(--neu-light); }
+
+/* ── 10. ARCHIVED STATE ── */
+#sr-pane-archived .sr-item { opacity: 0.7; pointer-events: none; cursor: default; }
+#sr-pane-archived .sr-title { color: var(--ink-mute); text-shadow: -1px -1px 1px var(--neu-dark), 1px 1px 1px var(--neu-light); }
+.light #sr-pane-archived .sr-title { text-shadow: -1px -1px 1px var(--neu-light), 1px 1px 1px var(--neu-dark); }
+#sr-pane-archived .sr-sender { opacity: 0.5; }
+#sr-pane-archived .sr-date-corner { opacity: 0.4; }
+#sr-pane-archived .sr-id { opacity: 0.2; }
+#sr-pane-archived .sr-corner-sep { opacity: 0.2; }
+#sr-pane-archived .show-more-label { opacity: 0.5; }
+
+/* ── 11. CTA BUTTONS ── */
+.sr-cta-wrap { padding: 24px 24px 32px; flex-shrink: 0; }
+.sr-cta-btn { width: 100%; padding: 18px 24px; border-radius: 999px; background: var(--sedona); border: none; cursor: pointer; font-size: 16px; font-weight: 700; color: #fff7f3; font-family: var(--font); box-shadow: var(--neu-sm); transition: transform 0.14s ease, box-shadow 0.14s ease; }
+
+.sr-cta-btn:active { transform: scale(0.97); box-shadow: var(--neu-in); }
+.cta-btn { width: 100%; padding: 16px 24px; border-radius: 999px; background: var(--sedona); border: none; cursor: pointer; font-size: 15px; font-weight: 700; color: #fff7f3; font-family: var(--font); box-shadow: var(--neu-sm); transition: transform 0.12s ease, box-shadow 0.12s ease; margin-top: 8px; }
+.cta-btn:active { transform: scale(0.97); box-shadow: var(--neu-in); }
+/* Drawer bottom buttons — accent */
+.cta-btn.accent { background: var(--accent); color: var(--base-mute); }
+.light .cta-btn.accent { color: var(--base-mute); }
+
+/* ── 12. DRAWER SYSTEM ── */
+.drawer-scrim { position: absolute; inset: 0; z-index: 30; background: var(--scrim); opacity: 0; pointer-events: none; backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); transition: opacity 0.46s ease, backdrop-filter 0.46s ease; }
+.drawer-scrim.open { opacity: 1; pointer-events: auto; }
+.drawer-scrim.closing { opacity: 0; transition: opacity 0.28s ease, backdrop-filter 0.28s ease; }
+.drawer { position: absolute; top: 12px; right: 0; bottom: 12px; width: 88%; z-index: 31; background: var(--base); border-radius: 25px 0 0 25px; display: flex; flex-direction: column; overflow: hidden; will-change: transform; transform: translateX(100%); transition: transform 0.46s cubic-bezier(0.16,1,0.3,1), background 0.3s ease; }
+.drawer.open { transform: translateX(0); }
+.drawer.closing { transform: translateX(100%); transition: transform 0.28s cubic-bezier(0.4,0,1,1); }
+.drw-handle { display: flex; justify-content: center; padding: 12px 0 0; flex-shrink: 0; }
+.drw-handle-bar { width: 36px; height: 4px; border-radius: 2px; background: var(--ink-mute); opacity: 0.3; }
+.drw-nav { display: flex; align-items: center; gap: 12px; padding: 16px 24px 0; flex-shrink: 0; }
+.drw-back { width: 32px; height: 32px; border-radius: 50%; border: none; cursor: pointer; background: var(--base-whisper); display: flex; align-items: center; justify-content: center; color: var(--ink-mute); font-size: 16px; flex-shrink: 0; box-shadow: 2px 2px 5px var(--neu-dark), -2px -2px 5px var(--neu-light); -webkit-tap-highlight-color: transparent; }
+.drw-hint { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-mute); }
+.drw-body { flex: 1; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; padding: 0 24px 0; }
+.drw-body::-webkit-scrollbar { display: none; }
+
+/* ── 13. SR DETAIL DRAWER ── */
+.drw-photo-wrap { display: flex; justify-content: center; padding: 20px 0 18px; }
+.drw-photo-circle { width: 110px; height: 110px; border-radius: 50%; background: var(--base-whisper); box-shadow: inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.drw-photo-letter { font-size: 38px; font-weight: 800; color: var(--ink-mute); opacity: 0.2; text-transform: uppercase; letter-spacing: -1px; }
+.drw-product-id { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-mute); opacity: 0.5; margin-bottom: 4px; }
+.drw-product-title { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.1; color: var(--ink); margin-bottom: 12px; }
+.drw-status-row { margin-bottom: 16px; }
+.status-pill { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
+.status-pill.active-sr { background: var(--accent-mute); color: var(--accent); }
+.status-pill.pending { background: var(--base-whisper); color: var(--ink-mute); }
+.status-pill.in-progress { background: var(--progress-bg); color: var(--accent); }
+.status-pill.complete { background: var(--complete-bg); color: var(--complete-text); }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.drw-divider { height: 0.5px; background: var(--divider); margin: 0 0 16px; }
+.drw-message { font-size: 14px; line-height: 1.65; margin-bottom: 16px; }
+.user-message { font-style: italic; color: var(--ink-whisper); }
+.admin-message { font-style: normal; color: var(--ink); padding-left: 12px; border-left: 2px solid var(--accent); }
+.drw-show-more-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0 10px; }
+.drw-show-more-label { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; color: var(--ink-mute); opacity: 0.6; }
+.drw-more-overflow { display: none; }
+.drw-more-overflow.open { display: block; }
+.drw-details-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0 10px; }
+.drw-details-label { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-mute); opacity: 0.5; }
+.drw-details-body { display: none; padding-bottom: 8px; }
+.drw-details-body.open { display: block; }
+.drw-detail-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 0.5px solid var(--divider); }
+.drw-detail-item:last-child { border-bottom: none; }
+.drw-detail-key { font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--ink-mute); opacity: 0.6; }
+.drw-detail-val { font-size: 14px; font-weight: 500; color: var(--ink); }
+
+/* ── 14. NEW SR FORM DRAWER ── */
+.form-title { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 24px; margin-top: 16px; }
+.form-field { margin-bottom: 20px; }
+.form-label { font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-mute); opacity: 0.6; margin-bottom: 8px; display: block; }
+.form-input {
+  width: 100%; padding: 13px 16px; border-radius: 12px; border: none; outline: none;
+  background: var(--base-whisper); color: var(--ink); font-family: var(--font); font-size: 14px;
+  box-shadow: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+  transition: box-shadow 0.14s ease; resize: none;
+}
+.form-input::placeholder { color: var(--ink-mute); opacity: 0.5; }
+.form-input:focus { box-shadow: inset 4px 4px 9px var(--neu-dark), inset -3px -3px 7px var(--neu-light); }
+.form-textarea { min-height: 88px; }
+.form-select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+.form-cta-wrap { padding: 8px 0 40px; }
+</style>
+</head>
+<body>
+
+<div class="theme-row">
+  <button class="tbtn dark" onclick="setTheme(true)">● dark</button>
+  <button class="tbtn lite" onclick="setTheme(false)">○ light</button>
+</div>
+
+<div class="phone" id="phone">
+
+  <div class="status-bar">
+    <span>9:41</span>
+    <div class="notch"></div>
+    <span id="status-label">home</span>
+  </div>
+
+  <div class="home">
+    <div class="home-date">THURSDAY · MAY 21</div>
+    <div class="home-title">User<br>gems.</div>
+    <div class="home-hint">tap ≡ → service requests</div>
+  </div>
+
+  <div class="panel-scrim" id="panel-scrim"></div>
+
+  <!-- ══════════════════════════════════════════
+       SERVICE REQUESTS PANEL
+       ══════════════════════════════════════════ -->
+  <div class="panel" id="sr-panel" role="dialog" aria-label="Service Requests">
+
+    <div class="panel-header" id="sr-header">
+      <div class="drag-pill"><div class="drag-bar"></div></div>
+      <div class="panel-hint">↓ swipe down to close</div>
+      <div class="panel-title" id="sr-panel-title">service requests</div>
+      <div class="panel-close-track">
+        <button class="panel-close" id="sr-close" aria-label="Close">✕</button>
+      </div>
+    </div>
+
+    <div class="tabs-wrap">
+      <div class="tabs" id="sr-tabs">
+        <div class="tab-highlight" id="sr-tab-highlight"></div>
+        <button class="tab-btn active" data-tab="0">active</button>
+        <button class="tab-btn" data-tab="1">archived</button>
+      </div>
+    </div>
+
+    <div class="sr-list">
+
+      <!-- Active pane -->
+      <div class="tab-pane active" id="sr-pane-active">
+        <div class="pane-locked" id="sr-active-locked">
+          <div class="sr-section-label"><span>top three</span></div>
+
+          <div class="sr-item" data-id="SR-0014" data-title="recut emerald · oval" data-status="admin · may 10" data-activity="hot" data-gem="emerald" data-service="recut" data-weight="4.2ct" data-notes="Currently in cushion cut, want to move to oval. Minimize loss." data-reply="We can do this. Estimate 15% yield loss, $120 service fee. Lead time 10 days.">
+            <div class="sr-body"><div class="sr-title">recut emerald · oval</div><div class="sr-meta"><span class="sr-sender">admin</span></div></div>
+            <span class="sr-arrow hot">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">may 10</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0014</span></div>
+          </div>
+
+          <div class="sr-item" data-id="SR-0013" data-title="polish tourmaline" data-status="you · may 9" data-activity="dim" data-gem="tourmaline" data-service="polish" data-weight="2.1ct" data-notes="Final polish only, no recut needed. Pink tourmaline, good clarity." data-reply="">
+            <div class="sr-body"><div class="sr-title">polish tourmaline</div><div class="sr-meta"><span class="sr-sender">you</span></div></div>
+            <span class="sr-arrow dim">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">may 9</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0013</span></div>
+          </div>
+
+          <div class="sr-item" data-id="SR-0012" data-title="resize garnet lot" data-status="admin · may 8" data-activity="hot" data-gem="garnet" data-service="resize" data-weight="3×1.8ct" data-notes="Three garnets need resizing from 7mm to 6mm round." data-reply="Can do all three together. $45 per stone, 7 days.">
+            <div class="sr-body"><div class="sr-title">resize garnet lot</div><div class="sr-meta"><span class="sr-sender">admin</span></div></div>
+            <span class="sr-arrow hot">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">may 8</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0012</span></div>
+          </div>
+        </div>
+
+        <div class="show-more-row">
+          <div class="show-more-label">more requests <span id="sr-active-count">(+5)</span></div>
+          <button class="section-toggle collapsed" id="sr-active-toggle">show</button>
+        </div>
+
+        <div class="pane-overflow" id="sr-active-overflow">
+          <div class="sr-item" data-id="SR-0011" data-title="facet aquamarine" data-status="you · may 5" data-activity="dim" data-gem="aquamarine" data-service="facet" data-weight="9.4ct" data-notes="Rough aquamarine, want an oval brilliant. Eye clean, deep blue." data-reply="">
+            <div class="sr-body"><div class="sr-title">facet aquamarine</div><div class="sr-meta"><span class="sr-sender">you</span></div></div>
+            <span class="sr-arrow dim">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">may 5</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0011</span></div>
+          </div>
+          <div class="sr-item" data-id="SR-0010" data-title="ruby repair · chip" data-status="admin · may 3" data-activity="hot" data-gem="ruby" data-service="repair" data-weight="1.4ct" data-notes="Small chip on the girdle. Want to see if it can be polished out without major loss." data-reply="Chip is minor. Can polish out with less than 3% weight loss. $65, 5 days.">
+            <div class="sr-body"><div class="sr-title">ruby repair · chip</div><div class="sr-meta"><span class="sr-sender">admin</span></div></div>
+            <span class="sr-arrow hot">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">may 3</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0010</span></div>
+          </div>
+          <div class="sr-item" data-id="SR-0009" data-title="sapphire recut · cushion" data-status="you · apr 30" data-activity="dim" data-gem="sapphire" data-service="recut" data-weight="6.8ct" data-notes="Ceylon sapphire, want to move from round to cushion to improve color face-up." data-reply="">
+            <div class="sr-body"><div class="sr-title">sapphire recut · cushion</div><div class="sr-meta"><span class="sr-sender">you</span></div></div>
+            <span class="sr-arrow dim">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">apr 30</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0009</span></div>
+          </div>
+          <div class="sr-item" data-id="SR-0008" data-title="tsavorite appraisal" data-status="admin · apr 27" data-activity="hot" data-gem="tsavorite" data-service="appraisal" data-weight="2.3ct" data-notes="Need formal appraisal for insurance purposes. Kenyan tsavorite." data-reply="Appraisal complete. Certificate ready. Value: $2,100. Will email PDF.">
+            <div class="sr-body"><div class="sr-title">tsavorite appraisal</div><div class="sr-meta"><span class="sr-sender">admin</span></div></div>
+            <span class="sr-arrow hot">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">apr 27</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0008</span></div>
+          </div>
+          <div class="sr-item" data-id="SR-0007" data-title="opal cab · freeform" data-status="you · apr 24" data-activity="dim" data-gem="boulder opal" data-service="facet" data-weight="18ct" data-notes="Australian boulder opal, want a freeform cab that follows the color play." data-reply="">
+            <div class="sr-body"><div class="sr-title">opal cab · freeform</div><div class="sr-meta"><span class="sr-sender">you</span></div></div>
+            <span class="sr-arrow dim">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">apr 24</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0007</span></div>
+          </div>
+        </div>
+
+        <div class="sr-cta-wrap" id="sr-cta-wrap">
+          <button class="sr-cta-btn" id="sr-new-btn">+ new service request</button>
+        </div>
+      </div>
+
+      <!-- Archived pane -->
+      <div class="tab-pane" id="sr-pane-archived">
+        <div class="pane-locked" id="sr-archived-locked">
+          <div class="sr-section-label">
+            <span></span>
+          </div>
+
+          <div class="sr-item" data-id="SR-0006" data-title="alexandrite eval" data-status="admin · apr 15" data-activity="dim" data-gem="alexandrite" data-service="appraisal" data-weight="1.8ct" data-notes="Brazilian alexandrite, strong color change. Need evaluation." data-reply="Strong 70% color change. Eye clean. Market value $1,200–$1,800.">
+            <div class="sr-body"><div class="sr-title">alexandrite eval</div><div class="sr-meta"><span class="sr-sender">admin</span></div></div>
+            <span class="sr-arrow dim">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">apr 15</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0006</span></div>
+          </div>
+          <div class="sr-item" data-id="SR-0005" data-title="peridot facet · round" data-status="admin · mar 28" data-activity="dim" data-gem="peridot" data-service="facet" data-weight="6.5ct" data-notes="Pakistani peridot rough. Standard round brilliant." data-reply="Complete. 5.8ct finished. Excellent window ratio. Shipped.">
+            <div class="sr-body"><div class="sr-title">peridot facet · round</div><div class="sr-meta"><span class="sr-sender">admin</span></div></div>
+            <span class="sr-arrow dim">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">mar 28</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0005</span></div>
+          </div>
+          <div class="sr-item" data-id="SR-0004" data-title="zircon recut · oval" data-status="admin · mar 12" data-activity="dim" data-gem="blue zircon" data-service="recut" data-weight="3.1ct" data-notes="Cambodian blue zircon. Currently round, want oval. Great color, poor make." data-reply="Recut done. 2.8ct finished. Excellent brilliance. Photos sent.">
+            <div class="sr-body"><div class="sr-title">zircon recut · oval</div><div class="sr-meta"><span class="sr-sender">admin</span></div></div>
+            <span class="sr-arrow dim">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">mar 12</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0004</span></div>
+          </div>
+        </div>
+
+        <div class="show-more-row">
+          <div class="show-more-label">older requests <span id="sr-archived-count">(+3)</span></div>
+          <button class="section-toggle collapsed" id="sr-archived-toggle">show</button>
+        </div>
+
+        <div class="pane-overflow" id="sr-archived-overflow">
+          <div class="sr-item" data-id="SR-0003" data-title="tanzanite eval" data-status="admin · feb 22" data-activity="dim" data-gem="tanzanite" data-service="appraisal" data-weight="5.7ct" data-notes="Inherited tanzanite. No paperwork. Need to know value." data-reply="Natural tanzanite. AAA color. $1,600–$2,200 range.">
+            <div class="sr-body"><div class="sr-title">tanzanite eval</div><div class="sr-meta"><span class="sr-sender">admin</span></div></div>
+            <span class="sr-arrow dim">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">feb 22</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0003</span></div>
+          </div>
+          <div class="sr-item" data-id="SR-0002" data-title="citrine facet · oval" data-status="admin · feb 8" data-activity="dim" data-gem="citrine" data-service="facet" data-weight="12ct" data-notes="Large citrine rough. Oval brilliant preferred." data-reply="10.4ct finished. Clean facets. Shipped with certificate.">
+            <div class="sr-body"><div class="sr-title">citrine facet · oval</div><div class="sr-meta"><span class="sr-sender">admin</span></div></div>
+            <span class="sr-arrow dim">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">feb 8</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0002</span></div>
+          </div>
+          <div class="sr-item" data-id="SR-0001" data-title="tourmaline polish" data-status="admin · jan 19" data-activity="dim" data-gem="tourmaline" data-service="polish" data-weight="3.4ct" data-notes="Pink tourmaline, final polish only." data-reply="Done. Excellent luster. Return shipped jan 21.">
+            <div class="sr-body"><div class="sr-title">tourmaline polish</div><div class="sr-meta"><span class="sr-sender">admin</span></div></div>
+            <span class="sr-arrow dim">→</span>
+            <div class="sr-corner"><span class="sr-date-corner">jan 19</span><span class="sr-corner-sep">·</span><span class="sr-id">SR-0001</span></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /sr-list -->
+  </div><!-- /sr-panel -->
+
+  <!-- DrawerScrim (shared by both drawers) -->
+  <div class="drawer-scrim" id="drw-scrim"></div>
+
+  <!-- ══════════════════════════════════════════
+       SR DETAIL DRAWER
+       ══════════════════════════════════════════ -->
+  <div class="drawer" id="sr-detail-drawer" role="dialog" aria-label="Service Request Detail">
+    <div class="drw-handle"><div class="drw-handle-bar"></div></div>
+    <div class="drw-nav">
+      <button class="drw-back" id="detail-back">←</button>
+      <div class="drw-hint">swipe right to close →</div>
+    </div>
+    <div class="drw-body" id="detail-body">
+      <div class="drw-photo-wrap">
+        <div class="drw-photo-circle">
+          <span class="drw-photo-letter" id="detail-photo-letter">G</span>
+        </div>
+      </div>
+      <div class="drw-product-id" id="detail-id">SR-0000</div>
+      <div class="drw-product-title" id="detail-title">service request</div>
+      <div class="drw-status-row" id="detail-status-pill"></div>
+      <div class="drw-divider"></div>
+      <div class="drw-message user-message" id="detail-note">—</div>
+      <div id="detail-reply-wrap" style="display:none;">
+        <div class="drw-divider"></div>
+        <div class="drw-message admin-message" id="detail-reply-text">—</div>
+      </div>
+      <div id="detail-more-wrap" style="display:none;">
+        <div class="drw-show-more-row">
+          <span class="drw-show-more-label" id="detail-more-label">more messages</span>
+          <button class="section-toggle collapsed" id="detail-more-toggle">show</button>
+        </div>
+        <div class="drw-more-overflow" id="detail-more-overflow"></div>
+      </div>
+      <div class="drw-divider" style="margin-top:16px;"></div>
+      <div class="drw-details-row">
+        <span class="drw-details-label">request details</span>
+        <button class="section-toggle collapsed" id="detail-details-toggle">show</button>
+      </div>
+      <div class="drw-details-body" id="detail-details-body">
+        <div class="drw-detail-item"><span class="drw-detail-key">gem</span><span class="drw-detail-val" id="detail-gem">—</span></div>
+        <div class="drw-detail-item"><span class="drw-detail-key">service</span><span class="drw-detail-val" id="detail-service">—</span></div>
+        <div class="drw-detail-item"><span class="drw-detail-key">weight</span><span class="drw-detail-val" id="detail-weight">—</span></div>
+      </div>
+      <div style="padding:24px 0 40px;">
+        <button class="cta-btn accent">message admin →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       NEW SERVICE REQUEST FORM DRAWER
+       ══════════════════════════════════════════ -->
+  <div class="drawer" id="sr-form-drawer" role="dialog" aria-label="New Service Request">
+    <div class="drw-handle"><div class="drw-handle-bar"></div></div>
+    <div class="drw-nav">
+      <button class="drw-back" id="form-back">←</button>
+      <div class="drw-hint">swipe right to close →</div>
+    </div>
+    <div class="drw-body">
+      <div class="form-title">new service request</div>
+
+      <div class="form-field">
+        <label class="form-label">gem type</label>
+        <input class="form-input" type="text" placeholder="e.g. emerald, ruby, sapphire…" id="form-gem">
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">service type</label>
+        <select class="form-input form-select" id="form-service">
+          <option value="" disabled selected>select a service…</option>
+          <option value="recut">recut</option>
+          <option value="polish">polish only</option>
+          <option value="facet">facet from rough</option>
+          <option value="resize">resize</option>
+          <option value="repair">repair</option>
+          <option value="appraisal">appraisal</option>
+          <option value="other">other</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">weight / size</label>
+        <input class="form-input" type="text" placeholder="e.g. 4.2ct, 8mm round…" id="form-weight">
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">special notes</label>
+        <textarea class="form-input form-textarea" placeholder="describe what you need, any concerns, desired outcome…" id="form-notes"></textarea>
+      </div>
+
+      <div class="form-cta-wrap">
+        <button class="cta-btn accent" id="form-submit">submit request →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BottomNav -->
+  <div class="bottom-nav">
+    <button class="nav-btn fab" id="nav-menu" aria-label="Menu" onclick="openPanel()">≡</button>
+    <button class="nav-btn" id="nav-chat" aria-label="Chat">◐</button>
+    <button class="nav-btn" id="nav-inq" aria-label="Inquiries">₪</button>
+    <button class="nav-btn" id="nav-theme" aria-label="Theme" onclick="toggleTheme()">◑</button>
+  </div>
+
+</div><!-- /phone -->
+
+<script>
+/* ══ THEME ══ */
+function setTheme(dark) {
+  var p = document.getElementById('phone');
+  dark ? p.classList.remove('light') : p.classList.add('light');
+  document.body.classList.toggle('light', !dark);
+}
+function toggleTheme() { setTheme(document.getElementById('phone').classList.contains('light')); }
+
+/* ══ PANEL ══ */
+function openPanel() {
+  document.getElementById('sr-panel').classList.remove('closing');
+  document.getElementById('sr-panel').classList.add('open');
+  document.getElementById('panel-scrim').classList.add('open');
+  document.getElementById('nav-menu').classList.add('active');
+  document.getElementById('status-label').textContent = 'service requests';
+}
+function closePanel() {
+  document.getElementById('nav-menu').classList.remove('active');
+  var p = document.getElementById('sr-panel'), s = document.getElementById('panel-scrim');
+  p.classList.add('closing'); p.classList.remove('open'); s.classList.remove('open');
+  setTimeout(function () {
+    p.classList.remove('closing'); p.style.transform = ''; p.style.transition = '';
+    document.getElementById('status-label').textContent = 'home';
+  }, 320);
+}
+
+/* panel swipe to close */
+(function () {
+  var panel = document.getElementById('sr-panel'), header = document.getElementById('sr-header');
+  var scrim = document.getElementById('panel-scrim');
+  var startY = null, startX = null, curY = 0, dragging = false;
+  function applyDrag(dy) { panel.style.transform = 'translateY(' + dy + 'px)'; scrim.style.opacity = String(1 - Math.min(Math.max(dy / (panel.offsetHeight || 600), 0), 1)); }
+  function onStart(e) { var t = e.touches ? e.touches[0] : e; startY = t.clientY; startX = t.clientX; dragging = false; curY = 0; panel.style.transition = 'none'; scrim.style.transition = 'none'; }
+  function onMove(e) {
+    if (startY === null) return;
+    var t = e.touches ? e.touches[0] : e, dy = t.clientY - startY, dx = Math.abs(t.clientX - startX);
+    if (!dragging) { if (Math.abs(dy) < 5 && dx < 5) return; if (dx > Math.abs(dy)) { startY = null; return; } dragging = true; }
+    if (dy <= 0) return; curY = dy; applyDrag(curY); if (e.cancelable) e.preventDefault();
+  }
+  function onEnd() {
+    if (!dragging) { startY = null; return; } startY = null; dragging = false;
+    var h = panel.offsetHeight || 600;
+    if (curY > h * 0.35) {
+      var ms = Math.max((h - curY) / h * 280, 80);
+      panel.style.transition = 'transform ' + ms + 'ms cubic-bezier(0.4,0,1,1)';
+      scrim.style.transition = 'opacity ' + ms + 'ms linear';
+      applyDrag(h);
+      setTimeout(function () { panel.style.transform = ''; panel.style.transition = ''; scrim.style.opacity = ''; scrim.style.transition = ''; panel.classList.remove('open', 'closing'); scrim.classList.remove('open'); document.getElementById('nav-menu').classList.remove('active'); document.getElementById('status-label').textContent = 'home'; }, ms);
+    } else {
+      var ms = Math.max(curY / h * 280, 80);
+      panel.style.transition = 'transform ' + ms + 'ms cubic-bezier(0.16,1,0.3,1)'; scrim.style.transition = 'opacity ' + ms + 'ms ease'; applyDrag(0);
+      setTimeout(function () { panel.style.transition = ''; scrim.style.transition = ''; }, ms);
+    }
+  }
+  header.addEventListener('touchstart', onStart, { passive: true }); header.addEventListener('touchmove', onMove, { passive: false }); header.addEventListener('touchend', onEnd);
+  header.addEventListener('mousedown', onStart); window.addEventListener('mousemove', onMove); window.addEventListener('mouseup', onEnd);
+})();
+
+document.getElementById('sr-close').addEventListener('click', function (e) { e.stopPropagation(); closePanel(); });
+document.getElementById('panel-scrim').addEventListener('click', closePanel);
+
+/* ══ TABS ══ */
+var currentTab = 0;
+function switchTab(idx) {
+  if (idx === currentTab) return;
+  currentTab = idx;
+  var title = document.getElementById('sr-panel-title');
+  document.getElementById('sr-tab-highlight').classList.toggle('right', idx === 1);
+  document.getElementById('sr-pane-active').classList.toggle('active', idx === 0);
+  document.getElementById('sr-pane-archived').classList.toggle('active', idx === 1);
+  document.querySelectorAll('#sr-tabs .tab-btn').forEach(function (b, i) { b.classList.toggle('active', i === idx); });
+  if (title) title.classList.toggle('is-archived', idx === 1);
+}
+document.querySelectorAll('#sr-tabs .tab-btn').forEach(function (btn, i) { btn.addEventListener('click', function () { switchTab(i); }); });
+
+/* ══ SHOW/HIDE TOGGLES ══ */
+function wireToggle(toggleId, overflowId) {
+  var btn = document.getElementById(toggleId), overflow = document.getElementById(overflowId);
+  var label = btn.parentElement.querySelector('.show-more-label');
+  var open = false;
+  btn.addEventListener('click', function () {
+    open = !open;
+    overflow.classList.toggle('open', open);
+    btn.textContent = open ? 'hide' : 'show';
+    btn.className = 'section-toggle ' + (open ? 'expanded' : 'collapsed');
+    if (label) label.style.color = open ? 'var(--sedona)' : '';
+  });
+}
+wireToggle('sr-active-toggle', 'sr-active-overflow');
+wireToggle('sr-archived-toggle', 'sr-archived-overflow');
+
+/* ══ PULSE ══ */
+var pulseTimers = {};
+function isDark() { return !document.getElementById('phone').classList.contains('light'); }
+function startPulse(arrow) {
+  var id = arrow.dataset.pulseId || (arrow.dataset.pulseId = 'p' + Math.random());
+  if (pulseTimers[id]) return;
+  var style = getComputedStyle(document.getElementById('phone'));
+  var colors = [style.getPropertyValue('--pulse-a').trim(), style.getPropertyValue('--pulse-b').trim()];
+  var i = 0; arrow.style.color = colors[0]; arrow.style.opacity = '1';
+  pulseTimers[id] = setInterval(function () { i = (i + 1) % 2; arrow.style.color = colors[i]; }, 600);
+}
+function stopPulse(arrow) {
+  var id = arrow.dataset.pulseId;
+  if (id && pulseTimers[id]) { clearInterval(pulseTimers[id]); delete pulseTimers[id]; }
+  arrow.style.transition = 'none'; arrow.style.color = 'var(--ink-mute)'; arrow.style.opacity = '0.35';
+}
+var unreadIds = new Set();
+document.querySelectorAll('.sr-item').forEach(function (item) { if (item.dataset.activity === 'hot') unreadIds.add(item.dataset.id); });
+document.querySelectorAll('.sr-arrow.hot').forEach(function (a) { startPulse(a); });
+
+var drawerOpen = false, activeDrawer = null;
+
+function openDrawer(drawerId) {
+  var drw = document.getElementById(drawerId), scrim = document.getElementById('drw-scrim');
+  drw.classList.remove('closing'); drw.classList.add('open');
+  scrim.classList.remove('closing'); scrim.classList.add('open');
+  scrim.style.backdropFilter = 'blur(4px)'; scrim.style.webkitBackdropFilter = 'blur(4px)';
+  drawerOpen = true; activeDrawer = drw;
+}
+function closeDrawer() {
+  if (!activeDrawer) return;
+  var drw = activeDrawer, scrim = document.getElementById('drw-scrim');
+  drw.classList.add('closing'); drw.classList.remove('open');
+  scrim.classList.add('closing'); scrim.classList.remove('open');
+  setTimeout(function () {
+    drw.classList.remove('closing'); drw.style.transform = ''; drw.style.transition = '';
+    scrim.classList.remove('closing'); scrim.style.opacity = '';
+    scrim.style.backdropFilter = 'blur(0px)'; scrim.style.webkitBackdropFilter = 'blur(0px)';
+    scrim.style.pointerEvents = 'none';
+    drawerOpen = false; activeDrawer = null;
+  }, 300);
+}
+
+document.getElementById('detail-back').addEventListener('click', closeDrawer);
+document.getElementById('form-back').addEventListener('click', closeDrawer);
+document.getElementById('drw-scrim').addEventListener('click', closeDrawer);
+
+/* drawer swipe right to close */
+(function () {
+  var scrim = document.getElementById('drw-scrim');
+  var W = 0, startX = null, startY = null, dragging = false, curX = 0;
+  function getDrw() { return activeDrawer; }
+  function applyDrag(dx) {
+    var drw = getDrw(); if (!drw) return;
+    var p = Math.min(Math.max(dx / (W || 332), 0), 1);
+    drw.style.transform = 'translateX(' + dx + 'px)';
+    scrim.style.opacity = String(1 - p);
+    scrim.style.backdropFilter = 'blur(' + ((1 - p) * 4) + 'px)'; scrim.style.webkitBackdropFilter = 'blur(' + ((1 - p) * 4) + 'px)';
+  }
+  function onStart(e) { if (!activeDrawer) return; var t = e.touches ? e.touches[0] : e; startX = t.clientX; startY = t.clientY; dragging = false; curX = 0; W = activeDrawer.offsetWidth || 332; activeDrawer.style.transition = 'none'; scrim.style.transition = 'none'; }
+  function onMove(e) {
+    if (startX === null) return; var t = e.touches ? e.touches[0] : e;
+    var dx = t.clientX - startX, dy = Math.abs(t.clientY - startY);
+    if (!dragging) { if (Math.abs(dx) < 5 && dy < 5) return; if (dy > Math.abs(dx)) { startX = null; return; } dragging = true; }
+    if (dx <= 0) return; curX = dx; applyDrag(curX); if (e.cancelable) e.preventDefault();
+  }
+  function onEnd() {
+    if (!dragging) { startX = null; return; } startX = null; dragging = false;
+    if (curX > W * 0.35) {
+      var ms = Math.max((W - curX) / W * 260, 80);
+      if (activeDrawer) activeDrawer.style.transition = 'transform ' + ms + 'ms cubic-bezier(0.4,0,1,1)';
+      scrim.style.transition = 'opacity ' + ms + 'ms linear'; applyDrag(W); setTimeout(closeDrawer, ms);
+    } else {
+      var ms = Math.max(curX / W * 260, 80);
+      if (activeDrawer) activeDrawer.style.transition = 'transform ' + ms + 'ms cubic-bezier(0.16,1,0.3,1)';
+      scrim.style.transition = 'opacity ' + ms + 'ms ease'; applyDrag(0);
+      setTimeout(function () { if (activeDrawer) activeDrawer.style.transition = ''; scrim.style.transition = ''; }, ms);
+    }
+  }
+  [document.getElementById('sr-detail-drawer'), document.getElementById('sr-form-drawer'), scrim].forEach(function (el) {
+    el.addEventListener('touchstart', onStart, { passive: true });
+    el.addEventListener('touchmove', onMove, { passive: false });
+    el.addEventListener('touchend', onEnd);
+  });
+  document.getElementById('sr-detail-drawer').addEventListener('mousedown', onStart);
+  window.addEventListener('mousemove', onMove); window.addEventListener('mouseup', onEnd);
+})();
+
+/* ══ DETAIL DRAWER POPULATE ══ */
+function openDetailDrawer(data) {
+  document.getElementById('detail-photo-letter').textContent = data.gem ? data.gem[0].toUpperCase() : '?';
+  document.getElementById('detail-id').textContent = data.id;
+  document.getElementById('detail-title').textContent = data.title;
+  var isHot = data.activity === 'hot';
+  document.getElementById('detail-status-pill').innerHTML = '<span class="status-pill ' + (isHot ? 'active-sr' : 'pending') + '"><span class="status-dot"></span>' + data.status + '</span>';
+  document.getElementById('detail-note').textContent = data.notes || '—';
+  var rw = document.getElementById('detail-reply-wrap');
+  if (data.reply) { rw.style.display = 'block'; document.getElementById('detail-reply-text').textContent = data.reply; }
+  else { rw.style.display = 'none'; }
+  document.getElementById('detail-more-wrap').style.display = 'none';
+  document.getElementById('detail-more-overflow').innerHTML = '';
+  document.getElementById('detail-more-overflow').classList.remove('open');
+  document.getElementById('detail-more-toggle').textContent = 'show'; document.getElementById('detail-more-toggle').className = 'section-toggle collapsed';
+  document.getElementById('detail-gem').textContent = data.gem || '—';
+  document.getElementById('detail-service').textContent = data.service || '—';
+  document.getElementById('detail-weight').textContent = data.weight || '—';
+  document.getElementById('detail-details-body').classList.remove('open');
+  document.getElementById('detail-details-toggle').textContent = 'show'; document.getElementById('detail-details-toggle').className = 'section-toggle collapsed';
+  document.getElementById('detail-body').scrollTop = 0;
+  openDrawer('sr-detail-drawer');
+}
+
+/* ══ DRAWER INTERNAL TOGGLES ══ */
+document.getElementById('detail-details-toggle').addEventListener('click', function () {
+  var body = document.getElementById('detail-details-body'), open = body.classList.toggle('open');
+  this.textContent = open ? 'hide' : 'show'; this.className = 'section-toggle ' + (open ? 'expanded' : 'collapsed');
+});
+document.getElementById('detail-more-toggle').addEventListener('click', function () {
+  var overflow = document.getElementById('detail-more-overflow'), open = overflow.classList.toggle('open');
+  this.textContent = open ? 'hide' : 'show'; this.className = 'section-toggle ' + (open ? 'expanded' : 'collapsed');
+  var label = document.getElementById('detail-more-label');
+  if (label) label.style.color = open ? 'var(--sedona)' : '';
+});
+
+/* ══ ITEM CLICK HANDLER ══ */
+document.querySelectorAll('.sr-item').forEach(function (item) {
+  item.addEventListener('click', function () {
+    if (drawerOpen) return;
+    /* archived items are read-only — no drawer */
+    if (document.getElementById('sr-pane-archived').contains(item)) return;
+    if (unreadIds.has(item.dataset.id)) {
+      unreadIds.delete(item.dataset.id); item.dataset.activity = 'dim';
+      var arrow = item.querySelector('.sr-arrow');
+      if (arrow) { stopPulse(arrow); arrow.classList.remove('hot'); arrow.classList.add('dim'); }
+      /* Supabase: await markRead(item.dataset.id); */
+    }
+    openDetailDrawer({ id: item.dataset.id, title: item.dataset.title, status: item.dataset.status, activity: item.dataset.activity, gem: item.dataset.gem, service: item.dataset.service, weight: item.dataset.weight, notes: item.dataset.notes, reply: item.dataset.reply });
+  });
+});
+
+/* ══ NEW SR BUTTON ══ */
+document.getElementById('sr-new-btn').addEventListener('click', function () {
+  /* clear form */
+  document.getElementById('form-gem').value = '';
+  document.getElementById('form-service').value = '';
+  document.getElementById('form-weight').value = '';
+  document.getElementById('form-notes').value = '';
+  openDrawer('sr-form-drawer');
+});
+
+/* ══ FORM SUBMIT ══ */
+document.getElementById('form-submit').addEventListener('click', function () {
+  var gem = document.getElementById('form-gem').value.trim();
+  var service = document.getElementById('form-service').value;
+  var weight = document.getElementById('form-weight').value.trim();
+  var notes = document.getElementById('form-notes').value.trim();
+  if (!gem || !service) return; /* basic validation */
+
+  /* Supabase:
+  await supabase.from('service_requests').insert([{
+    user_id: currentUser.id,
+    gem, service, weight, notes,
+    status: 'pending',
+    archived: false
+  }]);
+  then refetch and re-render the active list
+  */
+
+  /* Preview: add to top of locked list */
+  var newId = 'SR-' + String(Math.floor(Math.random() * 9000) + 1000);
+  var newItem = document.createElement('div');
+  newItem.className = 'sr-item';
+  newItem.dataset.id = newId; newItem.dataset.title = gem + ' · ' + service;
+  newItem.dataset.status = 'you · just now'; newItem.dataset.activity = 'dim';
+  newItem.dataset.gem = gem; newItem.dataset.service = service;
+  newItem.dataset.weight = weight; newItem.dataset.notes = notes; newItem.dataset.reply = '';
+  newItem.innerHTML =
+    '<div class="sr-body"><div class="sr-title">' + gem + ' · ' + service + '</div>' +
+    '<div class="sr-meta"><span class="sr-sender">you</span></div></div>' +
+    '<span class="sr-arrow dim">→</span>' +
+    '<div class="sr-corner"><span class="sr-date-corner">just now</span><span class="sr-corner-sep">·</span><span class="sr-id">' + newId + '</span></div>';
+  newItem.addEventListener('click', function () {
+    if (drawerOpen) return;
+    openDetailDrawer({ id: newItem.dataset.id, title: newItem.dataset.title, status: newItem.dataset.status, activity: newItem.dataset.activity, gem: newItem.dataset.gem, service: newItem.dataset.service, weight: newItem.dataset.weight, notes: newItem.dataset.notes, reply: '' });
+  });
+
+  var activeLocked = document.getElementById('sr-active-locked');
+  var lockedItems = activeLocked.querySelectorAll('.sr-item');
+  if (lockedItems.length >= 3) document.getElementById('sr-active-overflow').insertBefore(lockedItems[lockedItems.length - 1], document.getElementById('sr-active-overflow').firstChild);
+  var sectionLabel = activeLocked.querySelector('.sr-section-label');
+  if (sectionLabel) sectionLabel.after(newItem); else activeLocked.insertBefore(newItem, activeLocked.firstChild);
+
+  closeDrawer();
+  switchTab(0);
+});
+
+/* ══ BOOT ══ */
+window.addEventListener('load', function () { openPanel(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+@use '../styles/tokens' as *;
+
+
+.test{
+    background-color:$color-panel-background;
+}

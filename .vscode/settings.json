@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.matr": "typescriptreact",
+    "*.life": "typescriptreact",
+    "*.loc": "scss",
+    "*.dec": "scss",
+    "*.eff": "scss",
+    "*.root": "scss"
+  }
+}

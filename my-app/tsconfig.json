@@ -28,7 +28,15 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "**/*.ts", 
+    "**/*.tsx",
+    "**/*.matr",
+    "**/*.loc",
+    "**/*.eff",
+    "**/*.dec",
+    "**/*.live"
+
   ],
   "exclude": ["node_modules"]
 }

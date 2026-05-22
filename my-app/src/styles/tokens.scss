@@ -1,0 +1,11 @@
+@forward 'decs/border-radius.dec.scss'    as rad-*;
+@forward 'decs/border.dec.scss'           as bord-*;
+@forward 'decs/colors.root.scss'          as color-*;
+@forward 'decs/dimensions.dec.scss'       as dim-*;         
+@forward 'decs/display.dec.scss'          as dis-*;  
+
+@forward 'decs/font-size.dec.scss'        as fs-*;
+@forward 'decs/font-weight.dec.scss'      as fw-*;
+@forward 'decs/gap.dec.scss'              as gap-*;
+
+
