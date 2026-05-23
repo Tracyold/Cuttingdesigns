@@ -1,0 +1,1 @@
+reads the locs folder, the decs folder and the effs folder, and replaces raw values with their $names from the decs and effs files.
