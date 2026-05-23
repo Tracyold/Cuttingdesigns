@@ -235,7 +235,7 @@ $bubble-meta-text:               var(--ink-mute);
 $input-bg:               var(--inbg);
 $input-text:                     var(--ink);
 $input-placeholder:              var(--ink-mute);
-$input-border:                   var(--divider);
+$input-border-clr:               var(--divider);
 $send-button-bg:         var(--sedona);
 $send-button-icon:               #f3f8ff;
 
@@ -248,8 +248,6 @@ $star-active:                    #ffb84d;
 $star-inactive:                  var(--ink-mute);
 $review-button:                  var(--sedona);
 $review-button-text:             var(--button-text);
-$review-textarea-bg:     var(--base);
-$review-saved-text:              var(--ink-whisper);
 
 // Phone chrome
 $phone-frame-bg:         var(--base);
