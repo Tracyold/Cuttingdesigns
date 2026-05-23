@@ -1,10 +1,13 @@
-// src/app/layout.tsx
-import '../styles/global.scss';
+import '../styles/globals.scss';
+import { BottomNav } from '../comps/life/BottomNav/BottomNav';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html>
+      <body>
+        {children}
+        <BottomNav />
+      </body>
     </html>
   );
 }

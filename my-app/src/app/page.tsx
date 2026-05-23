@@ -1,6 +1,12 @@
-// src/app/page.tsx
-import { Test } from './components/matr/test.matr';
+// pages/index.tsx
+import { BottomNav } from '../comps/matr/bot-nav';
 
-export default function Page() {
-  return <Test>hello</Test>;
+
+export default function Home() {
+  return (
+    <>
+      <main>...</main>
+      <BottomNav />
+    </>
+  );
 }

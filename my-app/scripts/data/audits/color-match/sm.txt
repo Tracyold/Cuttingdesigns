@@ -1,0 +1,744 @@
+
+╔══════════════════════════════════════════════╗
+║       colors.scss mismatch checker           ║
+╚══════════════════════════════════════════════╝
+
+  Colors file      : my-app/src/styles/decs/colors.scss
+  Tokens file      : my-app/src/styles/tokens.scss
+  Color prefix     : $clr-
+  Target dir       : my-app/src/locs
+  Files to scan    : 124
+  Declared vars    : 169
+
+════════════════════════════════════════════════════════════════
+  1 — USED AS $clr-name BUT NOT DECLARED IN colors.scss
+════════════════════════════════════════════════════════════════
+
+  ✓  No undefined $clr-* references found.
+
+════════════════════════════════════════════════════════════════
+  2 — DECLARED IN colors.scss BUT NEVER REFERENCED IN TARGET DIR
+════════════════════════════════════════════════════════════════
+
+  $bubble-admin-bg   (would be referenced as  $clr-bubble-admin-bg)
+  $bubble-admin-text   (would be referenced as  $clr-bubble-admin-text)
+  $bubble-menu-btn-bg   (would be referenced as  $clr-bubble-menu-btn-bg)
+  $bubble-menu-btn-bg-active   (would be referenced as  $clr-bubble-menu-btn-bg-active)
+  $bubble-menu-btn-icon   (would be referenced as  $clr-bubble-menu-btn-icon)
+  $bubble-menu-btn-icon-active   (would be referenced as  $clr-bubble-menu-btn-icon-active)
+  $bubble-meta-text   (would be referenced as  $clr-bubble-meta-text)
+  $bubble-user-bg   (would be referenced as  $clr-bubble-user-bg)
+  $bubble-user-text   (would be referenced as  $clr-bubble-user-text)
+  $chat-breadcrumb   (would be referenced as  $clr-chat-breadcrumb)
+  $chat-online-dot   (would be referenced as  $clr-chat-online-dot)
+  $chat-panel-bg   (would be referenced as  $clr-chat-panel-bg)
+  $chat-read-receipt   (would be referenced as  $clr-chat-read-receipt)
+  $chat-scroll-fade-base   (would be referenced as  $clr-chat-scroll-fade-base)
+  $chat-send-btn-bg   (would be referenced as  $clr-chat-send-btn-bg)
+  $chat-send-btn-icon   (would be referenced as  $clr-chat-send-btn-icon)
+  $chat-title   (would be referenced as  $clr-chat-title)
+  $chat-typing-dot   (would be referenced as  $clr-chat-typing-dot)
+  $cta-bg   (would be referenced as  $clr-cta-bg)
+  $cta-text   (would be referenced as  $clr-cta-text)
+  $dash-date   (would be referenced as  $clr-dash-date)
+  $dash-profile-text   (would be referenced as  $clr-dash-profile-text)
+  $dash-scroll-hint   (would be referenced as  $clr-dash-scroll-hint)
+  $dash-section-title-active   (would be referenced as  $clr-dash-section-title-active)
+  $dash-section-title-idle   (would be referenced as  $clr-dash-section-title-idle)
+  $dash-title   (would be referenced as  $clr-dash-title)
+  $drawer-back-button   (would be referenced as  $clr-drawer-back-button)
+  $drawer-back-icon   (would be referenced as  $clr-drawer-back-icon)
+  $drawer-bg   (would be referenced as  $clr-drawer-bg)
+  $drawer-handle-bar   (would be referenced as  $clr-drawer-handle-bar)
+  $drawer-hint-text   (would be referenced as  $clr-drawer-hint-text)
+  $drawer-item-arrow   (would be referenced as  $clr-drawer-item-arrow)
+  $drawer-item-arrow-new   (would be referenced as  $clr-drawer-item-arrow-new)
+  $drawer-item-divider   (would be referenced as  $clr-drawer-item-divider)
+  $drawer-item-label   (would be referenced as  $clr-drawer-item-label)
+  $drawer-item-label-new   (would be referenced as  $clr-drawer-item-label-new)
+  $drawer-scrim   (would be referenced as  $clr-drawer-scrim)
+  $drawer-title   (would be referenced as  $clr-drawer-title)
+  $drw-admin-border   (would be referenced as  $clr-drw-admin-border)
+  $drw-admin-message   (would be referenced as  $clr-drw-admin-message)
+  $drw-detail-key   (would be referenced as  $clr-drw-detail-key)
+  $drw-detail-val   (would be referenced as  $clr-drw-detail-val)
+  $drw-divider   (would be referenced as  $clr-drw-divider)
+  $drw-photo-circle   (would be referenced as  $clr-drw-photo-circle)
+  $drw-photo-letter   (would be referenced as  $clr-drw-photo-letter)
+  $drw-product-id   (would be referenced as  $clr-drw-product-id)
+  $drw-product-title   (would be referenced as  $clr-drw-product-title)
+  $drw-user-message   (would be referenced as  $clr-drw-user-message)
+  $gradient-chat-bot   (would be referenced as  $clr-gradient-chat-bot)
+  $gradient-chat-top   (would be referenced as  $clr-gradient-chat-top)
+  $gradient-fade-down   (would be referenced as  $clr-gradient-fade-down)
+  $gradient-fade-up   (would be referenced as  $clr-gradient-fade-up)
+  $gradient-portfolio-bot   (would be referenced as  $clr-gradient-portfolio-bot)
+  $gradient-portfolio-top   (would be referenced as  $clr-gradient-portfolio-top)
+  $gradient-scroll-bot   (would be referenced as  $clr-gradient-scroll-bot)
+  $gradient-scroll-top   (would be referenced as  $clr-gradient-scroll-top)
+  $gradient-store-bot   (would be referenced as  $clr-gradient-store-bot)
+  $gradient-store-top   (would be referenced as  $clr-gradient-store-top)
+  $heart-active   (would be referenced as  $clr-heart-active)
+  $heart-inactive   (would be referenced as  $clr-heart-inactive)
+  $input-bg   (would be referenced as  $clr-input-bg)
+  $input-border   (would be referenced as  $clr-input-border)
+  $input-placeholder   (would be referenced as  $clr-input-placeholder)
+  $input-text   (would be referenced as  $clr-input-text)
+  $inq-arrow-dim   (would be referenced as  $clr-inq-arrow-dim)
+  $inq-date-corner   (would be referenced as  $clr-inq-date-corner)
+  $inq-divider   (would be referenced as  $clr-inq-divider)
+  $inq-id   (would be referenced as  $clr-inq-id)
+  $inq-item-pressed   (would be referenced as  $clr-inq-item-pressed)
+  $inq-section-label   (would be referenced as  $clr-inq-section-label)
+  $inq-sender   (would be referenced as  $clr-inq-sender)
+  $inq-title   (would be referenced as  $clr-inq-title)
+  $nav-bg   (would be referenced as  $clr-nav-bg)
+  $nav-fab-active-bg   (would be referenced as  $clr-nav-fab-active-bg)
+  $nav-fab-bg   (would be referenced as  $clr-nav-fab-bg)
+  $nav-icon-active   (would be referenced as  $clr-nav-icon-active)
+  $nav-icon-inactive   (would be referenced as  $clr-nav-icon-inactive)
+  $online-dot   (would be referenced as  $clr-online-dot)
+  $panel-bg   (would be referenced as  $clr-panel-bg)
+  $panel-close-button   (would be referenced as  $clr-panel-close-button)
+  $panel-close-icon   (would be referenced as  $clr-panel-close-icon)
+  $panel-close-track   (would be referenced as  $clr-panel-close-track)
+  $panel-drag-bar   (would be referenced as  $clr-panel-drag-bar)
+  $panel-hint-text   (would be referenced as  $clr-panel-hint-text)
+  $panel-scrim   (would be referenced as  $clr-panel-scrim)
+  $panel-title-archived   (would be referenced as  $clr-panel-title-archived)
+  $panel-title-unread   (would be referenced as  $clr-panel-title-unread)
+  $phone-frame-bg   (would be referenced as  $clr-phone-frame-bg)
+  $phone-outer-bg   (would be referenced as  $clr-phone-outer-bg)
+  $portfolio-circle-bg   (would be referenced as  $clr-portfolio-circle-bg)
+  $portfolio-circle-icon   (would be referenced as  $clr-portfolio-circle-icon)
+  $portfolio-close-btn-bg   (would be referenced as  $clr-portfolio-close-btn-bg)
+  $portfolio-close-btn-icon   (would be referenced as  $clr-portfolio-close-btn-icon)
+  $portfolio-gem-icon   (would be referenced as  $clr-portfolio-gem-icon)
+  $portfolio-modal-bg   (would be referenced as  $clr-portfolio-modal-bg)
+  $portfolio-zoom-hint   (would be referenced as  $clr-portfolio-zoom-hint)
+  $profile-card-bg   (would be referenced as  $clr-profile-card-bg)
+  $profile-card-title   (would be referenced as  $clr-profile-card-title)
+  $profile-close-btn-bg   (would be referenced as  $clr-profile-close-btn-bg)
+  $profile-close-btn-icon   (would be referenced as  $clr-profile-close-btn-icon)
+  $profile-input-bg   (would be referenced as  $clr-profile-input-bg)
+  $profile-input-text   (would be referenced as  $clr-profile-input-text)
+  $profile-label   (would be referenced as  $clr-profile-label)
+  $profile-overlay-bg   (would be referenced as  $clr-profile-overlay-bg)
+  $profile-role-active-bg   (would be referenced as  $clr-profile-role-active-bg)
+  $profile-role-active-text   (would be referenced as  $clr-profile-role-active-text)
+  $profile-role-text   (would be referenced as  $clr-profile-role-text)
+  $profile-save-text   (would be referenced as  $clr-profile-save-text)
+  $recover-cancel-bg   (would be referenced as  $clr-recover-cancel-bg)
+  $recover-cancel-text   (would be referenced as  $clr-recover-cancel-text)
+  $recover-confirm-bg   (would be referenced as  $clr-recover-confirm-bg)
+  $recover-confirm-text   (would be referenced as  $clr-recover-confirm-text)
+  $recover-link   (would be referenced as  $clr-recover-link)
+  $recover-selected-bg   (would be referenced as  $clr-recover-selected-bg)
+  $recover-selected-outline   (would be referenced as  $clr-recover-selected-outline)
+  $review-button   (would be referenced as  $clr-review-button)
+  $review-button-text   (would be referenced as  $clr-review-button-text)
+  $review-cancel-bg   (would be referenced as  $clr-review-cancel-bg)
+  $review-cancel-text   (would be referenced as  $clr-review-cancel-text)
+  $review-leave-bg   (would be referenced as  $clr-review-leave-bg)
+  $review-leave-text   (would be referenced as  $clr-review-leave-text)
+  $review-saved-text   (would be referenced as  $clr-review-saved-text)
+  $review-star-active   (would be referenced as  $clr-review-star-active)
+  $review-star-inactive   (would be referenced as  $clr-review-star-inactive)
+  $review-submit-bg   (would be referenced as  $clr-review-submit-bg)
+  $review-submit-text   (would be referenced as  $clr-review-submit-text)
+  $review-textarea-bg   (would be referenced as  $clr-review-textarea-bg)
+  $review-textarea-text   (would be referenced as  $clr-review-textarea-text)
+  $review-title   (would be referenced as  $clr-review-title)
+  $section-toggle-bg   (would be referenced as  $clr-section-toggle-bg)
+  $section-toggle-text   (would be referenced as  $clr-section-toggle-text)
+  $send-button-bg   (would be referenced as  $clr-send-button-bg)
+  $send-button-icon   (would be referenced as  $clr-send-button-icon)
+  $shadow-elevation-portfolio   (would be referenced as  $clr-shadow-elevation-portfolio)
+  $shadow-elevation-profile   (would be referenced as  $clr-shadow-elevation-profile)
+  $shadow-phone-glow   (would be referenced as  $clr-shadow-phone-glow)
+  $shadow-phone-ring   (would be referenced as  $clr-shadow-phone-ring)
+  $shadow-tile-dot-active-ring   (would be referenced as  $clr-shadow-tile-dot-active-ring)
+  $shop-card-footer   (would be referenced as  $clr-shop-card-footer)
+  $shop-card-footer-text   (would be referenced as  $clr-shop-card-footer-text)
+  $shop-card-image-bg   (would be referenced as  $clr-shop-card-image-bg)
+  $shop-card-text   (would be referenced as  $clr-shop-card-text)
+  $show-more-label-closed   (would be referenced as  $clr-show-more-label-closed)
+  $show-more-label-open   (would be referenced as  $clr-show-more-label-open)
+  $star-active   (would be referenced as  $clr-star-active)
+  $star-inactive   (would be referenced as  $clr-star-inactive)
+  $status-bar-text   (would be referenced as  $clr-status-bar-text)
+  $status-notch   (would be referenced as  $clr-status-notch)
+  $status-pill-read-bg   (would be referenced as  $clr-status-pill-read-bg)
+  $status-pill-read-text   (would be referenced as  $clr-status-pill-read-text)
+  $status-pill-waiting-bg   (would be referenced as  $clr-status-pill-waiting-bg)
+  $status-pill-waiting-text   (would be referenced as  $clr-status-pill-waiting-text)
+  $store-toggle-knob-off   (would be referenced as  $clr-store-toggle-knob-off)
+  $store-toggle-knob-on   (would be referenced as  $clr-store-toggle-knob-on)
+  $tab-active-bg   (would be referenced as  $clr-tab-active-bg)
+  $tab-active-text   (would be referenced as  $clr-tab-active-text)
+  $tab-inactive-text   (would be referenced as  $clr-tab-inactive-text)
+  $tab-track-bg   (would be referenced as  $clr-tab-track-bg)
+  $theme-btn-bg   (would be referenced as  $clr-theme-btn-bg)
+  $theme-btn-text   (would be referenced as  $clr-theme-btn-text)
+  $tile-active-bg   (would be referenced as  $clr-tile-active-bg)
+  $tile-bg   (would be referenced as  $clr-tile-bg)
+  $tile-dot-active   (would be referenced as  $clr-tile-dot-active)
+  $tile-dot-inactive   (would be referenced as  $clr-tile-dot-inactive)
+  $tile-label   (would be referenced as  $clr-tile-label)
+  $tile-label-active   (would be referenced as  $clr-tile-label-active)
+  $tile-message   (would be referenced as  $clr-tile-message)
+  $tile-number   (would be referenced as  $clr-tile-number)
+  $tile-number-active   (would be referenced as  $clr-tile-number-active)
+
+════════════════════════════════════════════════════════════════
+  3 — HARDCODED HEX VALUES ON COLOR PROPERTIES
+════════════════════════════════════════════════════════════════
+
+  11-cta-buttons.scss
+    line   19  #fff7f3         color: #fff7f3;
+    line   39  #fff7f3         color: #fff7f3;
+
+  background-scrim-behind-panel.scss
+    line   13  #3d5070         color: #3d5070;
+
+  body-outer.scss
+    line   38  #d4ec5a         color: #d4ec5a;
+    line   43  #1a82c8         color: #1a82c8;
+
+  bottom-right-corner-date-id.scss
+    line   85  #fff7f3         color: #fff7f3;
+
+  chat-input-bar.scss
+    line   63  #fff7f3         color: #fff7f3;
+
+  close-button-in-top-right.scss
+    line   29  #fff            color: #fff;
+
+  devonly.scss
+    line   27  #d4ec5a         color: #d4ec5a;
+    line   32  #1a82c8         color: #1a82c8;
+
+  header-plus-button.scss
+    line   30  #fff7f3         color: #fff7f3;
+
+  light-theme-token-overrides.scss
+    line   26  #d4ec5a         color: #d4ec5a;
+    line   31  #1a82c8         color: #1a82c8;
+
+  panel-header.scss
+    line   45  #2a3347         color: #2a3347;
+    line   51  #c8cdd8         color: #c8cdd8;
+
+  panel-sheet.scss
+    line    5  #c8cdd8         color: #c8cdd8;
+
+  panel-title.scss
+    line   14  #3d5070         color: #3d5070;
+    line   20  #c8cdd8         color: #c8cdd8;
+
+  plus-button.scss
+    line   17  #fff7f3         color: #fff7f3;
+    line   32  #fff7f3         color: #fff7f3;
+
+  recover-action-bar.scss
+    line  112  #fff7f3         color: #fff7f3;
+    line  137  #fff7f3         color: #fff7f3;
+
+  recover-link.scss
+    line   16  #fff7f3         color: #fff7f3;
+
+  review-section.scss
+    line   39  #ffb84d         color: #ffb84d;
+    line  116  #fff7f3         color: #fff7f3;
+    line  130  #fff7f3         color: #fff7f3;
+
+  send-button.scss
+    line   16  #fff7f3         color: #fff7f3;
+
+  shop-card.scss
+    line   56  #c46850         color: #c46850;
+
+  sliding-highlight-pill.scss
+    line   43  #fff            color: #fff;
+
+  sunken-text.scss
+    line   11  #2a3347         color: #2a3347;
+    line   16  #c8cdd8         color: #c8cdd8;
+
+  theme-toggle-buttons.scss
+    line   27  #d4ec5a         color: #d4ec5a;
+    line   32  #1a82c8         color: #1a82c8;
+
+  tile-strip.scss
+    line   91  #fff            color: #fff;
+
+════════════════════════════════════════════════════════════════
+  4 — HARDCODED rgba()/rgb() VALUES ON COLOR PROPERTIES
+════════════════════════════════════════════════════════════════
+
+  2-preview-chrome.scss
+    line   55  rgba(0,0,0,0.6)                 box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,
+    line   55  rgba(255,255,255,0.06)          box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,
+
+  background-scrim-behind-panel.scss
+    line   14  rgba(6,9,15,0.9)                text-shadow: -1px -1px 1px rgba(6,9,15,0.9), 1px 1px 2px rgb
+    line   14  rgba(72,86,110,0.5)             text-shadow: -1px -1px 1px rgba(6,9,15,0.9), 1px 1px 2px rgb
+
+  bottom-right-corner-date-id.scss
+    line    5  rgba(146,158,178,0.25)          box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -1px -1px 4p
+    line    5  rgba(255,255,255,0.7)           box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -1px -1px 4p
+    line   27  rgba(146,158,178,0.25)          box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -2px -2px 5p
+    line   27  rgba(255,255,255,0.85)          box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -2px -2px 5p
+    line   43  rgba(6,9,15,0.7)                text-shadow: -1px -1px 1px rgba(6,9,15,0.7), 1px 1px 1px rgb
+    line   43  rgba(72,86,110,0.3)             text-shadow: -1px -1px 1px rgba(6,9,15,0.7), 1px 1px 1px rgb
+    line   48  rgba(255,255,255,0.8)           text-shadow: -1px -1px 1px rgba(255,255,255,0.8), 1px 1px 1p
+    line   48  rgba(146,158,178,0.4)           text-shadow: -1px -1px 1px rgba(255,255,255,0.8), 1px 1px 1p
+    line   93  rgba(146,158,178,0.25)          box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -1px -1px 4p
+    line   93  rgba(255,255,255,0.7)           box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -1px -1px 4p
+
+  ccgphoneframecss.scss
+    line   15  rgba(0,0,0,0.6)                 box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,
+    line   15  rgba(255,255,255,0.06)          box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,
+
+  chat-input-bar.scss
+    line   71  rgba(0,0,0,0.25)                box-shadow: inset 2px 2px 5px rgba(0,0,0,0.25);
+
+  dashboard-placeholder.scss
+    line   33  rgba(146,158,178,0.3)           box-shadow: 2px 2px 6px rgba(146,158,178,0.3), -2px -2px 6px
+    line   33  rgba(255,255,255,0.8)           box-shadow: 2px 2px 6px rgba(146,158,178,0.3), -2px -2px 6px
+
+  dot-colors.scss
+    line   12  rgba(255,255,255,0.3)           box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
+
+  header-plus-button.scss
+    line   44  rgba(0,0,0,0.45)                box-shadow: inset 3px 3px 7px rgba(0,0,0,0.45), inset -1px -
+    line   44  rgba(255,255,255,0.07)          box-shadow: inset 3px 3px 7px rgba(0,0,0,0.45), inset -1px -
+
+  light-theme-token-overrides.scss
+    line   43  rgba(0,0,0,0.6)                 box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,
+    line   43  rgba(255,255,255,0.06)          box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,
+
+  panel-header.scss
+    line   46  rgba(6,9,15,0.9)                text-shadow: -1px -1px 1px rgba(6,9,15,0.9), 1px 1px 2px rgb
+    line   46  rgba(72,86,110,0.5)             text-shadow: -1px -1px 1px rgba(6,9,15,0.9), 1px 1px 2px rgb
+    line   52  rgba(146,158,178,0.6)           text-shadow: -1px -1px 1px rgba(146,158,178,0.6), 1px 1px 2p
+    line   52  rgba(255,255,255,0.95)          text-shadow: -1px -1px 1px rgba(146,158,178,0.6), 1px 1px 2p
+
+  panel-sheet.scss
+    line    6  rgba(146,158,178,0.6)           text-shadow: -1px -1px 1px rgba(146,158,178,0.6), 1px 1px 2p
+    line    6  rgba(255,255,255,0.95)          text-shadow: -1px -1px 1px rgba(146,158,178,0.6), 1px 1px 2p
+
+  panel-title.scss
+    line   15  rgba(6,9,15,0.9)                text-shadow: -1px -1px 1px rgba(6,9,15,0.9), 1px 1px 2px rgb
+    line   15  rgba(72,86,110,0.5)             text-shadow: -1px -1px 1px rgba(6,9,15,0.9), 1px 1px 2px rgb
+    line   21  rgba(146,158,178,0.6)           text-shadow: -1px -1px 1px rgba(146,158,178,0.6), 1px 1px 2p
+    line   21  rgba(255,255,255,0.95)          text-shadow: -1px -1px 1px rgba(146,158,178,0.6), 1px 1px 2p
+
+  phone-frame.scss
+    line   14  rgba(0,0,0,0.6)                 box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,
+    line   14  rgba(255,255,255,0.06)          box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,
+
+  phone-shell.scss
+    line   14  rgba(0,0,0,0.6)                 box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,
+    line   14  rgba(255,255,255,0.06)          box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,
+
+  plus-button.scss
+    line   33  rgba(0,0,0,0.45)                box-shadow: inset 3px 3px 7px rgba(0,0,0,0.45), inset -1px -
+    line   33  rgba(255,255,255,0.07)          box-shadow: inset 3px 3px 7px rgba(0,0,0,0.45), inset -1px -
+
+  profile-overlay.scss
+    line   26  rgba(0,0,0,0.5)                 box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+
+  recover-action-bar.scss
+    line   32  rgba(146,158,178,0.25)          box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -1px -1px 4p
+    line   32  rgba(255,255,255,0.7)           box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -1px -1px 4p
+    line   54  rgba(146,158,178,0.25)          box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -2px -2px 5p
+    line   54  rgba(255,255,255,0.85)          box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -2px -2px 5p
+    line   70  rgba(6,9,15,0.7)                text-shadow: -1px -1px 1px rgba(6,9,15,0.7), 1px 1px 1px rgb
+    line   70  rgba(72,86,110,0.3)             text-shadow: -1px -1px 1px rgba(6,9,15,0.7), 1px 1px 1px rgb
+    line   75  rgba(255,255,255,0.8)           text-shadow: -1px -1px 1px rgba(255,255,255,0.8), 1px 1px 1p
+    line   75  rgba(146,158,178,0.4)           text-shadow: -1px -1px 1px rgba(255,255,255,0.8), 1px 1px 1p
+    line  120  rgba(146,158,178,0.25)          box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -1px -1px 4p
+    line  120  rgba(255,255,255,0.7)           box-shadow: 2px 2px 6px rgba(146,158,178,0.25), -1px -1px 4p
+
+  send-button.scss
+    line   24  rgba(0,0,0,0.25)                box-shadow: inset 2px 2px 5px rgba(0,0,0,0.25);
+
+  sunken-text.scss
+    line   12  rgba(6,9,15,0.9)                text-shadow: -1px -1px 1px rgba(6,9,15,0.9), 1px 1px 2px rgb
+    line   12  rgba(72,86,110,0.5)             text-shadow: -1px -1px 1px rgba(6,9,15,0.9), 1px 1px 2px rgb
+    line   17  rgba(146,158,178,0.6)           text-shadow: -1px -1px 1px rgba(146,158,178,0.6), 1px 1px 2p
+    line   17  rgba(255,255,255,0.95)          text-shadow: -1px -1px 1px rgba(146,158,178,0.6), 1px 1px 2p
+
+  tile-strip.scss
+    line   72  rgba(255,255,255,0.85)          color: rgba(255,255,255,0.85);
+    line  110  rgba(255,255,255,0.85)          color: rgba(255,255,255,0.85);
+
+════════════════════════════════════════════════════════════════
+  5 — BARE $VARIABLE REFS ON COLOR PROPERTIES (not using $clr-)
+════════════════════════════════════════════════════════════════
+
+  11-cta-buttons.scss
+    line   15  $btn-border                     border: $btn-border;
+    line   35  $btn-border                     border: $btn-border;
+
+  12-drawer-system.scss
+    line   79  $back-border                    border: $back-border;
+
+  13-sr-detail-drawer.scss
+    line   90  $dot-background                 background: $dot-background;
+    line  174  $item-border-bottom             border-bottom: $item-border-bottom;
+
+  14-new-sr-form-drawer.scss
+    line   33  $input-border                   border: $input-border;
+    line   34  $input-outline                  outline: $input-outline;
+
+  2-preview-chrome.scss
+    line   28  $btn-border                     border: $btn-border;
+
+  3-bottom-nav.scss
+    line   23  $btn-border                     border: $btn-border;
+    line   25  $btn-background                 background: $btn-background;
+
+  4-panel-system.scss
+    line   50  $header-background              background: $header-background;
+    line  129  $close-border                   border: $close-border;
+
+  5-tab-switcher.scss
+    line   40  $btn-border                     border: $btn-border;
+    line   47  $btn-background                 background: $btn-background;
+
+  7-sr-item.scss
+    line   16  $item-border-bottom             border-bottom: $item-border-bottom;
+
+  8-showhide-toggle.scss
+    line   33  $toggle-border                  border: $toggle-border;
+
+  body-outer.scss
+    line   28  $btn-border                     border: $btn-border;
+    line   37  $btn-background-2               background: $btn-background-2;
+    line   42  $btn-background-3               background: $btn-background-3;
+
+  bottom-nav.scss
+    line   23  $btn-border                     border: $btn-border;
+    line   25  $btn-background                 background: $btn-background;
+
+  bottom-right-corner-date-id.scss
+    line   16  $cancel-border                  border: $cancel-border;
+    line   81  $btn-border                     border: $btn-border;
+
+  bottomright-corner-date-id.scss
+    line   65  $toggle-border                  border: $toggle-border;
+
+  chat-input-bar.scss
+    line   20  $input-background               background: $input-background;
+    line   21  $input-border                   border: $input-border;
+    line   22  $input-outline                  outline: $input-outline;
+    line   36  $input-background-2             background: $input-background-2;
+    line   57  $btn-border                     border: $btn-border;
+
+  close-button-in-top-right.scss
+    line   11  $btn-border                     border: $btn-border;
+    line   18  $btn-background                 background: $btn-background;
+
+  close-button-in-topright.scss
+    line   25  $close-border                   border: $close-border;
+
+  close-button.scss
+    line    9  $close-border                   border: $close-border;
+
+  dashboard-header.scss
+    line   52  $edit-background                background: $edit-background;
+    line   53  $edit-border                    border: $edit-border;
+
+  dashboard-placeholder.scss
+    line    8  $btn-border                     border: $btn-border;
+    line   10  $btn-background                 background: $btn-background;
+    line   89  $header-background              background: $header-background;
+
+  devonly.scss
+    line   17  $btn-border                     border: $btn-border;
+    line   26  $btn-background-2               background: $btn-background-2;
+    line   31  $btn-background-3               background: $btn-background-3;
+
+  dot-colors.scss
+    line   11  $dot-background-2               background: $dot-background-2;
+
+  drag-handle-header.scss
+    line    8  $close-border                   border: $close-border;
+
+  drawer-sheet.scss
+    line    5  $item-border-bottom             border-bottom: $item-border-bottom;
+
+  floating-bubble-icon-menu.scss
+    line   21  $btn-border                     border: $btn-border;
+
+  header-plus-button.scss
+    line   12  $track-background               background: $track-background;
+    line   25  $plus-border                    border: $plus-border;
+
+  inquiries-list.scss
+    line   35  $item-border-bottom             border-bottom: $item-border-bottom;
+
+  inquiries-tabs.scss
+    line   20  $btn-border                     border: $btn-border;
+    line   27  $btn-background                 background: $btn-background;
+
+  light-theme-token-overrides.scss
+    line   16  $btn-border                     border: $btn-border;
+    line   25  $dark-background                background: $dark-background;
+    line   30  $lite-background                background: $lite-background;
+
+  nav-row-back-btn-hint.scss
+    line   17  $back-border                    border: $back-border;
+
+  panel-header.scss
+    line    6  $header-background              background: $header-background;
+    line   75  $close-border                   border: $close-border;
+
+  plus-button-track.scss
+    line   12  $track-background               background: $track-background;
+    line   13  $track-border                   border: $track-border;
+
+  plus-button.scss
+    line   11  $plus-box-shadow                box-shadow: $plus-box-shadow;
+    line   12  $plus-border                    border: $plus-border;
+
+  portfolio-circles.scss
+    line   26  $circle-border                  border: $circle-border;
+
+  profile-overlay.scss
+    line   48  $close-border                   border: $close-border;
+    line   73  $input-border                   border: $input-border;
+    line   74  $input-outline                  outline: $input-outline;
+    line  102  $save-background                background: $save-background;
+    line  103  $save-border                    border: $save-border;
+
+  recover-action-bar.scss
+    line   21  $confirm-border                 border: $confirm-border;
+    line   43  $cancel-border                  border: $cancel-border;
+    line  108  $btn-border                     border: $btn-border;
+    line  133  $btn-border                     border: $btn-border;
+
+  recover-link.scss
+    line   12  $link-background                background: $link-background;
+    line   13  $link-border                    border: $link-border;
+
+  review-section.scss
+    line   27  $btn-border                     border: $btn-border;
+    line   76  $textarea-border                border: $textarea-border;
+    line   77  $textarea-outline               outline: $textarea-outline;
+    line   96  $cancel-border                  border: $cancel-border;
+    line  112  $submit-border                  border: $submit-border;
+    line  126  $leave-border                   border: $leave-border;
+
+  section-headers.scss
+    line   32  $toggle-border                  border: $toggle-border;
+
+  section-label-row-eg-top-three-recover-link.scss
+    line   29  $item-border-bottom             border-bottom: $item-border-bottom;
+
+  send-button.scss
+    line   10  $btn-border                     border: $btn-border;
+
+  shop-card.scss
+    line    8  $card-background                background: $card-background;
+    line   41  $heart-border                   border: $heart-border;
+    line   76  $footer-background              background: $footer-background;
+    line   81  $footer-background-2            background: $footer-background-2;
+
+  show-more-conversation-toggle-row.scss
+    line   62  $item-border-bottom             border-bottom: $item-border-bottom;
+
+  sits-outside-panel-so-overflowhidden-never-clips-it.scss
+    line   21  $btn-border                     border: $btn-border;
+
+  sliding-highlight-pill.scss
+    line   25  $btn-border                     border: $btn-border;
+    line   32  $btn-background                 background: $btn-background;
+
+  status-pill.scss
+    line   34  $dot-background                 background: $dot-background;
+
+  store-layout-toggle.scss
+    line   17  $toggle-background              background: $toggle-background;
+    line   18  $toggle-border                  border: $toggle-border;
+    line   36  $off-background                 background: $off-background;
+
+  sunken-white-input.scss
+    line    9  $input-background               background: $input-background;
+    line   10  $input-border                   border: $input-border;
+    line   11  $input-outline                  outline: $input-outline;
+    line   25  $input-background-2             background: $input-background-2;
+
+  theme-toggle-buttons.scss
+    line   17  $btn-border                     border: $btn-border;
+    line   26  $dark-background                background: $dark-background;
+    line   31  $lite-background                background: $lite-background;
+
+  transparent-fullwidth-drag-zone-for-swipetoclose.scss
+    line    6  $header-background              background: $header-background;
+
+  wide-shop-card.scss
+    line    8  $wide-background                background: $wide-background;
+    line   28  $footer-background              background: $footer-background;
+    line   39  $footer-background-2            background: $footer-background-2;
+
+  z31.scss
+    line   59  $back-border                    border: $back-border;
+
+  zindex-20.scss
+    line   23  $btn-border                     border: $btn-border;
+    line   25  $btn-background                 background: $btn-background;
+
+════════════════════════════════════════════════════════════════
+  6 — COLOR USAGE PER FILE
+════════════════════════════════════════════════════════════════
+
+  FILE                                           PREFIX    BARE    RAW
+  ──────────────────────────────────────────── ────────  ──────  ─────
+  10-archived-state.scss                               –       –      –
+  11-cta-buttons.scss                                  –       ✓      ✓
+  12-drawer-system.scss                                –       ✓      –
+  13-sr-detail-drawer.scss                             –       ✓      –
+  14-new-sr-form-drawer.scss                           –       ✓      –
+  2-preview-chrome.scss                                –       ✓      ✓
+  3-bottom-nav.scss                                    –       ✓      –
+  4-panel-system.scss                                  –       ✓      –
+  5-tab-switcher.scss                                  –       ✓      –
+  6-sr-list.scss                                       –       –      –
+  7-sr-item.scss                                       –       ✓      –
+  8-showhide-toggle.scss                               –       ✓      –
+  active-state-when-bubble-menu-is-open.scss           –       –      –
+  backdrop-scrim-with-blur.scss                        –       –      –
+  background-scrim-behind-panel.scss                   –       –      ✓
+  body-outer.scss                                      –       ✓      ✓
+  bottom-nav.scss                                      –       ✓      –
+  bottom-right-corner-date-id.scss                     –       ✓      ✓
+  bottomright-corner-date-id.scss                      –       ✓      –
+  ccgchatbubble.scss                                   –       –      –
+  ccgchatinputcss.scss                                 –       –      –
+  ccgchatmessagescss.scss                              –       –      –
+  ccgchatpaneljs.scss                                  –       –      –
+  ccgpaneljs.scss                                      –       –      –
+  ccgphoneframecss.scss                                –       –      ✓
+  ccgstatusbarcss.scss                                 –       –      –
+  ccgthemecss.scss                                     –       –      –
+  ccgtokenscss.scss                                    –       –      –
+  ccgtypingindicatorcss.scss                           –       –      –
+  ccgtypingindicatorjs.scss                            –       –      –
+  chat-bubbles.scss                                    –       –      –
+  chat-helpers.scss                                    –       –      –
+  chat-input-bar.scss                                  –       ✓      ✓
+  chat-messages-area.scss                              –       –      –
+  close-button-in-top-right.scss                       –       ✓      ✓
+  close-button-in-topright.scss                        –       ✓      –
+  close-button-track.scss                              –       –      –
+  close-button.scss                                    –       ✓      –
+  dashboard-header.scss                                –       ✓      –
+  dashboard-placeholder.scss                           –       ✓      ✓
+  data.scss                                            –       –      –
+  devonly.scss                                         –       ✓      ✓
+  dot-colors.scss                                      –       ✓      ✓
+  drag-handle-header.scss                              –       ✓      –
+  drag-handle.scss                                     –       –      –
+  drawer-bottom-buttons.scss                           –       –      –
+  drawer-sheet.scss                                    –       ✓      –
+  drawer-swipe-right-to-close.scss                     –       –      –
+  floating-bubble-icon-menu.scss                       –       ✓      –
+  gem-photo-placeholder-circle.scss                    –       –      –
+  header-plus-button.scss                              –       ✓      ✓
+  horizontal-card-scroll.scss                          –       –      –
+  inquiries-list.scss                                  –       ✓      –
+  inquiries-tabs.scss                                  –       ✓      –
+  light-theme-token-overrides.scss                     –       ✓      ✓
+  nav-row-back-btn-hint.scss                           –       ✓      –
+  neu-shadow-helpers.scss                              –       –      –
+  notification-arrow.scss                              –       –      –
+  online-dot-chat-breadcrumb.scss                      –       –      –
+  panel-header.scss                                    –       ✓      ✓
+  panel-scrim.scss                                     –       –      –
+  panel-sheet.scss                                     –       –      –
+  panel-swipe-to-close.scss                            –       –      –
+  panel-title.scss                                     –       –      ✓
+  panel-zindex-18-bottom100px-slides-up-behind-nav.scss         –       –      –
+  panel.scss                                           –       –      –
+  paneltitlemenuactive.scss                            –       –      –
+  phone-frame.scss                                     –       –      ✓
+  phone-shell.scss                                     –       –      ✓
+  plus-button-track.scss                               –       ✓      –
+  plus-button.scss                                     –       ✓      ✓
+  portfolio-circles.scss                               –       ✓      –
+  product-identity.scss                                –       –      –
+  profile-overlay.scss                                 –       ✓      ✓
+  recover-action-bar.scss                              –       ✓      ✓
+  recover-link.scss                                    –       ✓      –
+  recover-selection-mode.scss                          –       –      –
+  reset.scss                                           –       –      –
+  review-section.scss                                  –       ✓      ✓
+  scrim-zindex-15-stops-at-nav-bottom100px-so-nav-stays-visible.scss         –       –      –
+  scroll-area.scss                                     –       –      –
+  scrollable-body.scss                                 –       –      –
+  section-divider.scss                                 –       –      –
+  section-headers.scss                                 –       ✓      –
+  section-label-row-eg-top-three-recover-link.scss         –       ✓      –
+  send-button.scss                                     –       ✓      ✓
+  shop-card.scss                                       –       ✓      ✓
+  show-more-conversation-toggle-row.scss               –       ✓      –
+  sits-outside-panel-so-overflowhidden-never-clips-it.scss         –       ✓      –
+  sliding-highlight-pill.scss                          –       ✓      ✓
+  status-bar.scss                                      –       –      –
+  status-pill.scss                                     –       ✓      –
+  store-grid.scss                                      –       –      –
+  store-layout-toggle.scss                             –       ✓      –
+  sunken-text.scss                                     –       –      ✓
+  sunken-white-input.scss                              –       ✓      –
+  supabase-await-mark-readitemdatasetid.scss           –       –      –
+  swipe-hint-text.scss                                 –       –      –
+  swipedowntoclose-on-header.scss                      –       –      –
+  theme-toggle-buttons.scss                            –       ✓      ✓
+  tile-strip.scss                                      –       –      ✓
+  title-states.scss                                    –       –      –
+  transparent-fullwidth-drag-zone-for-swipetoclose.scss         –       ✓      –
+  typing-indicator.scss                                –       –      –
+  wide-shop-card.scss                                  –       ✓      –
+  z30.scss                                             –       –      –
+  z31.scss                                             –       ✓      –
+  zindex-20.scss                                       –       ✓      –
+
+════════════════════════════════════════════════════════════════
+  7 — FILES WITH NO COLOR PROPERTIES AT ALL
+════════════════════════════════════════════════════════════════
+
+  ccgchatpaneljs.scss
+  ccgpaneljs.scss
+  ccgtokenscss.scss
+  ccgtypingindicatorjs.scss
+  chat-helpers.scss
+  data.scss
+  drawer-swipe-right-to-close.scss
+  horizontal-card-scroll.scss
+  neu-shadow-helpers.scss
+  online-dot-chat-breadcrumb.scss
+  panel-swipe-to-close.scss
+  reset.scss
+  scrollable-body.scss
+  show-more-conversation-toggle-row.scss
+  store-grid.scss
+  supabase-await-mark-readitemdatasetid.scss
+  swipedowntoclose-on-header.scss
+
+════════════════════════════════════════════════════════════════
+  SUMMARY
+════════════════════════════════════════════════════════════════
+  Prefix used          :  $clr-
+  Files scanned        :  124
+  Using $clr-* vars  :  0
+  Using bare $vars     :  53
+  Using raw values     :  27
+  No color props       :  17
+  Undefined $clr-*  :  0  (unique variable names)
+  Never-used $names    :  169
+  Files with raw hex   :  22
+  Files with raw rgba  :  20
+

@@ -13,7 +13,7 @@
 
 // ── 1. Dark theme ─────────────────────────────────────────
 
-:root {
+:root[data-theme="dark"] {
 
   // Surfaces
   --base:                 #1c2230;
@@ -69,7 +69,7 @@
 
 // ── 2. Light theme ────────────────────────────────────────
 
-:light.theme  {
+:root[data-theme="light"]  {
 
   // Surfaces
   --base:                 #e8ecf2;

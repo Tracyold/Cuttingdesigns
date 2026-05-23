@@ -1,0 +1,308 @@
+
+╔══════════════════════════════════════════════════╗
+║       fix color variable references              ║
+╚══════════════════════════════════════════════════╝
+
+  Mode         :  dry-run
+  Audit file   :  sm.txt
+  Prefix       :  $clr-
+  Locs dir     :  my-app/src/locs
+  Files to fix :  53
+
+====================================================================
+  DRY RUN — no files will be changed
+====================================================================
+
+  11-cta-buttons.scss  (2 changes)
+    line   15  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+    line   35  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+
+  12-drawer-system.scss  (1 change)
+    line   79  $back-border                    ->  $clr-back-border
+           border: $back-border;
+
+  13-sr-detail-drawer.scss  (2 changes)
+    line   90  $dot-background                 ->  $clr-dot-background
+           background: $dot-background;
+    line  174  $item-border-bottom             ->  $clr-item-border-bottom
+           border-bottom: $item-border-bottom;
+
+  14-new-sr-form-drawer.scss  (2 changes)
+    line   33  $input-border                   ->  $clr-input-border
+           border: $input-border;
+    line   34  $input-outline                  ->  $clr-input-outline
+           outline: $input-outline;
+
+  2-preview-chrome.scss  (1 change)
+    line   28  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+
+  3-bottom-nav.scss  (2 changes)
+    line   23  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+    line   25  $btn-background                 ->  $clr-btn-background
+           background: $btn-background;
+
+  4-panel-system.scss  (2 changes)
+    line   50  $header-background              ->  $clr-header-background
+           background: $header-background;
+    line  129  $close-border                   ->  $clr-close-border
+           border: $close-border;
+
+  5-tab-switcher.scss  (2 changes)
+    line   40  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+    line   47  $btn-background                 ->  $clr-btn-background
+           background: $btn-background;
+
+  7-sr-item.scss  (1 change)
+    line   16  $item-border-bottom             ->  $clr-item-border-bottom
+           border-bottom: $item-border-bottom;
+
+  8-showhide-toggle.scss  (1 change)
+    line   33  $toggle-border                  ->  $clr-toggle-border
+           border: $toggle-border;
+
+  body-outer.scss  (3 changes)
+    line   28  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+    line   37  $btn-background-2               ->  $clr-btn-background-2
+           background: $btn-background-2;
+    line   42  $btn-background-3               ->  $clr-btn-background-3
+           background: $btn-background-3;
+
+  bottom-nav.scss  (2 changes)
+    line   23  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+    line   25  $btn-background                 ->  $clr-btn-background
+           background: $btn-background;
+
+  x  bottom-right-corner-date-id.scss  — file not found in my-app/src/locs
+  bottomright-corner-date-id.scss  (1 change)
+    line   65  $toggle-border                  ->  $clr-toggle-border
+           border: $toggle-border;
+
+  chat-input-bar.scss  (5 changes)
+    line   20  $input-background               ->  $clr-input-background
+           background: $input-background;
+    line   21  $input-border                   ->  $clr-input-border
+           border: $input-border;
+    line   22  $input-outline                  ->  $clr-input-outline
+           outline: $input-outline;
+    line   36  $input-background-2             ->  $clr-input-background-2
+           background: $input-background-2;
+    line   57  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+
+  x  close-button-in-top-right.scss  — file not found in my-app/src/locs
+  close-button-in-topright.scss  (1 change)
+    line   25  $close-border                   ->  $clr-close-border
+           border: $close-border;
+
+  close-button.scss  (1 change)
+    line    9  $close-border                   ->  $clr-close-border
+           border: $close-border;
+
+  dashboard-header.scss  (2 changes)
+    line   52  $edit-background                ->  $clr-edit-background
+           background: $edit-background;
+    line   53  $edit-border                    ->  $clr-edit-border
+           border: $edit-border;
+
+  dashboard-placeholder.scss  — nothing to fix (already correct)
+  devonly.scss  (3 changes)
+    line   17  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+    line   26  $btn-background-2               ->  $clr-btn-background-2
+           background: $btn-background-2;
+    line   31  $btn-background-3               ->  $clr-btn-background-3
+           background: $btn-background-3;
+
+  dot-colors.scss  (1 change)
+    line   11  $dot-background-2               ->  $clr-dot-background-2
+           background: $dot-background-2;
+
+  drag-handle-header.scss  — nothing to fix (already correct)
+  drawer-sheet.scss  — nothing to fix (already correct)
+  floating-bubble-icon-menu.scss  (1 change)
+    line   21  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+
+  header-plus-button.scss  (2 changes)
+    line   12  $track-background               ->  $clr-track-background
+           background: $track-background;
+    line   25  $plus-border                    ->  $clr-plus-border
+           border: $plus-border;
+
+  inquiries-list.scss  (1 change)
+    line   35  $item-border-bottom             ->  $clr-item-border-bottom
+           border-bottom: $item-border-bottom;
+
+  inquiries-tabs.scss  (2 changes)
+    line   20  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+    line   27  $btn-background                 ->  $clr-btn-background
+           background: $btn-background;
+
+  light-theme-token-overrides.scss  — nothing to fix (already correct)
+  nav-row-back-btn-hint.scss  (1 change)
+    line   17  $back-border                    ->  $clr-back-border
+           border: $back-border;
+
+  panel-header.scss  (2 changes)
+    line    6  $header-background              ->  $clr-header-background
+           background: $header-background;
+    line   75  $close-border                   ->  $clr-close-border
+           border: $close-border;
+
+  plus-button-track.scss  (2 changes)
+    line   12  $track-background               ->  $clr-track-background
+           background: $track-background;
+    line   13  $track-border                   ->  $clr-track-border
+           border: $track-border;
+
+  plus-button.scss  (2 changes)
+    line   11  $plus-box-shadow                ->  $clr-plus-box-shadow
+           box-shadow: $plus-box-shadow;
+    line   12  $plus-border                    ->  $clr-plus-border
+           border: $plus-border;
+
+  portfolio-circles.scss  (1 change)
+    line   26  $circle-border                  ->  $clr-circle-border
+           border: $circle-border;
+
+  profile-overlay.scss  (5 changes)
+    line   48  $close-border                   ->  $clr-close-border
+           border: $close-border;
+    line   73  $input-border                   ->  $clr-input-border
+           border: $input-border;
+    line   74  $input-outline                  ->  $clr-input-outline
+           outline: $input-outline;
+    line  102  $save-background                ->  $clr-save-background
+           background: $save-background;
+    line  103  $save-border                    ->  $clr-save-border
+           border: $save-border;
+
+  recover-action-bar.scss  (4 changes)
+    line   21  $confirm-border                 ->  $clr-confirm-border
+           border: $confirm-border;
+    line   43  $cancel-border                  ->  $clr-cancel-border
+           border: $cancel-border;
+    line  108  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+    line  133  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+
+  recover-link.scss  (2 changes)
+    line   12  $link-background                ->  $clr-link-background
+           background: $link-background;
+    line   13  $link-border                    ->  $clr-link-border
+           border: $link-border;
+
+  review-section.scss  (6 changes)
+    line   27  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+    line   76  $textarea-border                ->  $clr-textarea-border
+           border: $textarea-border;
+    line   77  $textarea-outline               ->  $clr-textarea-outline
+           outline: $textarea-outline;
+    line   96  $cancel-border                  ->  $clr-cancel-border
+           border: $cancel-border;
+    line  112  $submit-border                  ->  $clr-submit-border
+           border: $submit-border;
+    line  126  $leave-border                   ->  $clr-leave-border
+           border: $leave-border;
+
+  section-headers.scss  (1 change)
+    line   32  $toggle-border                  ->  $clr-toggle-border
+           border: $toggle-border;
+
+  section-label-row-eg-top-three-recover-link.scss  (1 change)
+    line   29  $item-border-bottom             ->  $clr-item-border-bottom
+           border-bottom: $item-border-bottom;
+
+  send-button.scss  (1 change)
+    line   10  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+
+  shop-card.scss  (4 changes)
+    line    8  $card-background                ->  $clr-card-background
+           background: $card-background;
+    line   41  $heart-border                   ->  $clr-heart-border
+           border: $heart-border;
+    line   76  $footer-background              ->  $clr-footer-background
+           background: $footer-background;
+    line   81  $footer-background-2            ->  $clr-footer-background-2
+           background: $footer-background-2;
+
+  show-more-conversation-toggle-row.scss  (1 change)
+    line   62  $item-border-bottom             ->  $clr-item-border-bottom
+           border-bottom: $item-border-bottom;
+
+  sits-outside-panel-so-overflowhidden-never-clips-it.scss  (1 change)
+    line   21  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+
+  sliding-highlight-pill.scss  (2 changes)
+    line   25  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+    line   32  $btn-background                 ->  $clr-btn-background
+           background: $btn-background;
+
+  status-pill.scss  (1 change)
+    line   34  $dot-background                 ->  $clr-dot-background
+           background: $dot-background;
+
+  store-layout-toggle.scss  (3 changes)
+    line   17  $toggle-background              ->  $clr-toggle-background
+           background: $toggle-background;
+    line   18  $toggle-border                  ->  $clr-toggle-border
+           border: $toggle-border;
+    line   36  $off-background                 ->  $clr-off-background
+           background: $off-background;
+
+  sunken-white-input.scss  (4 changes)
+    line    9  $input-background               ->  $clr-input-background
+           background: $input-background;
+    line   10  $input-border                   ->  $clr-input-border
+           border: $input-border;
+    line   11  $input-outline                  ->  $clr-input-outline
+           outline: $input-outline;
+    line   25  $input-background-2             ->  $clr-input-background-2
+           background: $input-background-2;
+
+  theme-toggle-buttons.scss  (3 changes)
+    line   17  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+    line   26  $dark-background                ->  $clr-dark-background
+           background: $dark-background;
+    line   31  $lite-background                ->  $clr-lite-background
+           background: $lite-background;
+
+  transparent-fullwidth-drag-zone-for-swipetoclose.scss  (1 change)
+    line    6  $header-background              ->  $clr-header-background
+           background: $header-background;
+
+  wide-shop-card.scss  (3 changes)
+    line    8  $wide-background                ->  $clr-wide-background
+           background: $wide-background;
+    line   28  $footer-background              ->  $clr-footer-background
+           background: $footer-background;
+    line   39  $footer-background-2            ->  $clr-footer-background-2
+           background: $footer-background-2;
+
+  z31.scss  (1 change)
+    line   59  $back-border                    ->  $clr-back-border
+           border: $back-border;
+
+  zindex-20.scss  (2 changes)
+    line   23  $btn-border                     ->  $clr-btn-border
+           border: $btn-border;
+    line   25  $btn-background                 ->  $clr-btn-background
+           background: $btn-background;
+
+  Would change  95 references  across  47 files.
+
+  Run again and choose 'fix' to apply these changes.
