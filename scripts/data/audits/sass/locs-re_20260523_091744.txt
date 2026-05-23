@@ -1,0 +1,34 @@
+══════════════════════════════════════════════════════════════════════
+  SASS AUDIT REPORT
+  2026-05-23 09:17:53
+  directory: my-app/src/locs/locs-re
+══════════════════════════════════════════════════════════════════════
+
+  total:    18
+  ok:       18
+  errors:   0
+
+──────────────────────────────────────────────────────────────────────
+  ALL FILES
+──────────────────────────────────────────────────────────────────────
+
+  ✓  backdrop-scrim-with-blur.scss
+  ✓  background-scrim-behind-panel.scss
+  ✓  bottom-right-corner-date-id.scss
+  ✓  close-button-in-top-right.scss
+  ✓  dashboard-placeholder.scss
+  ✓  drag-handle-header.scss
+  ✓  drawer-sheet.scss
+  ✓  light-theme-token-overrides.scss
+  ✓  panel-sheet.scss
+  ✓  panel-title.scss
+  ✓  phone-shell.scss
+  ✓  recover-action-bar.scss
+  ✓  recover-link.scss
+  ✓  recover-selection-mode.scss
+  ✓  section-label-row-eg-top-three-recover-link.scss
+  ✓  show-more-conversation-toggle-row.scss
+  ✓  sliding-highlight-pill.scss
+  ✓  theme-toggle-buttons.scss
+
+══════════════════════════════════════════════════════════════════════

@@ -1,0 +1,2132 @@
+══════════════════════════════════════════════════════════════════════
+  SASS AUDIT REPORT
+  2026-05-23 09:13:16
+  directory: my-app/src/locs
+══════════════════════════════════════════════════════════════════════
+
+  total:    106
+  ok:       0
+  errors:   106
+
+──────────────────────────────────────────────────────────────────────
+  ERRORS
+──────────────────────────────────────────────────────────────────────
+
+  ✗  10-archived-state.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2     @forward
+      my-app/src/styles/tokens.scss 34:1          @use
+      my-app/src/locs/10-archived-state.scss 4:1  root stylesheet
+
+  ✗  11-cta-buttons.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/11-cta-buttons.scss 4:1  root stylesheet
+
+  ✗  12-drawer-system.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2    @forward
+      my-app/src/styles/tokens.scss 34:1         @use
+      my-app/src/locs/12-drawer-system.scss 4:1  root stylesheet
+
+  ✗  13-sr-detail-drawer.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2       @forward
+      my-app/src/styles/tokens.scss 34:1            @use
+      my-app/src/locs/13-sr-detail-drawer.scss 4:1  root stylesheet
+
+  ✗  14-new-sr-form-drawer.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2         @forward
+      my-app/src/styles/tokens.scss 34:1              @use
+      my-app/src/locs/14-new-sr-form-drawer.scss 4:1  root stylesheet
+
+  ✗  2-preview-chrome.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2    @forward
+      my-app/src/styles/tokens.scss 34:1         @use
+      my-app/src/locs/2-preview-chrome.scss 4:1  root stylesheet
+
+  ✗  3-bottom-nav.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/3-bottom-nav.scss 4:1    root stylesheet
+
+  ✗  4-panel-system.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/4-panel-system.scss 4:1  root stylesheet
+
+  ✗  5-tab-switcher.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/5-tab-switcher.scss 4:1  root stylesheet
+
+  ✗  6-sr-list.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/6-sr-list.scss 4:1       root stylesheet
+
+  ✗  7-sr-item.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/7-sr-item.scss 4:1       root stylesheet
+
+  ✗  8-showhide-toggle.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2     @forward
+      my-app/src/styles/tokens.scss 34:1          @use
+      my-app/src/locs/8-showhide-toggle.scss 4:1  root stylesheet
+
+  ✗  active-state-when-bubble-menu-is-open.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                         @forward
+      my-app/src/styles/tokens.scss 34:1                              @use
+      my-app/src/locs/active-state-when-bubble-menu-is-open.scss 4:1  root stylesheet
+
+  ✗  backdrop-scrim-with-blur.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2            @forward
+      my-app/src/styles/tokens.scss 34:1                 @use
+      my-app/src/locs/backdrop-scrim-with-blur.scss 4:1  root stylesheet
+
+  ✗  background-scrim-behind-panel.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                 @forward
+      my-app/src/styles/tokens.scss 34:1                      @use
+      my-app/src/locs/background-scrim-behind-panel.scss 4:1  root stylesheet
+
+  ✗  body-outer.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/body-outer.scss 4:1      root stylesheet
+
+  ✗  bottom-nav.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/bottom-nav.scss 4:1      root stylesheet
+
+  ✗  bottomright-corner-date-id.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2              @forward
+      my-app/src/styles/tokens.scss 34:1                   @use
+      my-app/src/locs/bottomright-corner-date-id.scss 4:1  root stylesheet
+
+  ✗  ccgchatbubble.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/ccgchatbubble.scss 4:1   root stylesheet
+
+  ✗  ccgchatinputcss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/ccgchatinputcss.scss 4:1  root stylesheet
+
+  ✗  ccgchatmessagescss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/ccgchatmessagescss.scss 4:1  root stylesheet
+
+  ✗  ccgchatpaneljs.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/ccgchatpaneljs.scss 5:1  root stylesheet
+
+  ✗  ccgpaneljs.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/ccgpaneljs.scss 4:1      root stylesheet
+
+  ✗  ccgphoneframecss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2    @forward
+      my-app/src/styles/tokens.scss 34:1         @use
+      my-app/src/locs/ccgphoneframecss.scss 5:1  root stylesheet
+
+  ✗  ccgstatusbarcss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/ccgstatusbarcss.scss 4:1  root stylesheet
+
+  ✗  ccgthemecss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/ccgthemecss.scss 4:1     root stylesheet
+
+  ✗  ccgtokenscss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/ccgtokenscss.scss 3:1    root stylesheet
+
+  ✗  ccgtypingindicatorcss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2         @forward
+      my-app/src/styles/tokens.scss 34:1              @use
+      my-app/src/locs/ccgtypingindicatorcss.scss 4:1  root stylesheet
+
+  ✗  ccgtypingindicatorjs.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2        @forward
+      my-app/src/styles/tokens.scss 34:1             @use
+      my-app/src/locs/ccgtypingindicatorjs.scss 4:1  root stylesheet
+
+  ✗  chat-bubbles.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/chat-bubbles.scss 4:1    root stylesheet
+
+  ✗  chat-helpers.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/chat-helpers.scss 4:1    root stylesheet
+
+  ✗  chat-input-bar.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/chat-input-bar.scss 4:1  root stylesheet
+
+  ✗  chat-messages-area.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/chat-messages-area.scss 4:1  root stylesheet
+
+  ✗  close-button-in-topright.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2            @forward
+      my-app/src/styles/tokens.scss 34:1                 @use
+      my-app/src/locs/close-button-in-topright.scss 4:1  root stylesheet
+
+  ✗  close-button-track.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/close-button-track.scss 4:1  root stylesheet
+
+  ✗  close-button.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/close-button.scss 4:1    root stylesheet
+
+  ✗  dashboard-header.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2    @forward
+      my-app/src/styles/tokens.scss 34:1         @use
+      my-app/src/locs/dashboard-header.scss 4:1  root stylesheet
+
+  ✗  dashboard-placeholder.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2         @forward
+      my-app/src/styles/tokens.scss 34:1              @use
+      my-app/src/locs/dashboard-placeholder.scss 4:1  root stylesheet
+
+  ✗  data.scss
+    Error: Expected ".
+      ╷
+    6 │   label: cut wizard",        sub:"start a new report",  hasNew:false;
+      │                                                                      ^
+      ╵
+      my-app/src/locs/data.scss 6:70  root stylesheet
+
+  ✗  devonly.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/devonly.scss 4:1         root stylesheet
+
+  ✗  dot-colors.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/dot-colors.scss 4:1      root stylesheet
+
+  ✗  drag-handle-header.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/drag-handle-header.scss 4:1  root stylesheet
+
+  ✗  drag-handle.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/drag-handle.scss 4:1     root stylesheet
+
+  ✗  drawer-bottom-buttons.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2         @forward
+      my-app/src/styles/tokens.scss 34:1              @use
+      my-app/src/locs/drawer-bottom-buttons.scss 4:1  root stylesheet
+
+  ✗  drawer-sheet.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/drawer-sheet.scss 4:1    root stylesheet
+
+  ✗  drawer-swipe-right-to-close.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2               @forward
+      my-app/src/styles/tokens.scss 34:1                    @use
+      my-app/src/locs/drawer-swipe-right-to-close.scss 4:1  root stylesheet
+
+  ✗  floating-bubble-icon-menu.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2             @forward
+      my-app/src/styles/tokens.scss 34:1                  @use
+      my-app/src/locs/floating-bubble-icon-menu.scss 4:1  root stylesheet
+
+  ✗  gem-photo-placeholder-circle.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                @forward
+      my-app/src/styles/tokens.scss 34:1                     @use
+      my-app/src/locs/gem-photo-placeholder-circle.scss 4:1  root stylesheet
+
+  ✗  header-plus-button.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/header-plus-button.scss 4:1  root stylesheet
+
+  ✗  horizontal-card-scroll.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2          @forward
+      my-app/src/styles/tokens.scss 34:1               @use
+      my-app/src/locs/horizontal-card-scroll.scss 4:1  root stylesheet
+
+  ✗  inquiries-list.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/inquiries-list.scss 4:1  root stylesheet
+
+  ✗  inquiries-tabs.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/inquiries-tabs.scss 4:1  root stylesheet
+
+  ✗  light-theme-token-overrides.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2               @forward
+      my-app/src/styles/tokens.scss 34:1                    @use
+      my-app/src/locs/light-theme-token-overrides.scss 4:1  root stylesheet
+
+  ✗  nav-row-back-btn-hint.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2         @forward
+      my-app/src/styles/tokens.scss 34:1              @use
+      my-app/src/locs/nav-row-back-btn-hint.scss 4:1  root stylesheet
+
+  ✗  neu-shadow-helpers.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/neu-shadow-helpers.scss 4:1  root stylesheet
+
+  ✗  notification-arrow.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/notification-arrow.scss 4:1  root stylesheet
+
+  ✗  online-dot-chat-breadcrumb.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2              @forward
+      my-app/src/styles/tokens.scss 34:1                   @use
+      my-app/src/locs/online-dot-chat-breadcrumb.scss 4:1  root stylesheet
+
+  ✗  panel-header.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/panel-header.scss 4:1    root stylesheet
+
+  ✗  panel-scrim.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/panel-scrim.scss 4:1     root stylesheet
+
+  ✗  panel-sheet.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/panel-sheet.scss 4:1     root stylesheet
+
+  ✗  panel-swipe-to-close.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2        @forward
+      my-app/src/styles/tokens.scss 34:1             @use
+      my-app/src/locs/panel-swipe-to-close.scss 4:1  root stylesheet
+
+  ✗  panel-title.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/panel-title.scss 4:1     root stylesheet
+
+  ✗  panel-zindex-18-bottom100px-slides-up-behind-nav.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                                    @forward
+      my-app/src/styles/tokens.scss 34:1                                         @use
+      my-app/src/locs/panel-zindex-18-bottom100px-slides-up-behind-nav.scss 4:1  root stylesheet
+
+  ✗  panel.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/panel.scss 4:1           root stylesheet
+
+  ✗  paneltitlemenuactive.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2        @forward
+      my-app/src/styles/tokens.scss 34:1             @use
+      my-app/src/locs/paneltitlemenuactive.scss 4:1  root stylesheet
+
+  ✗  phone-frame.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/phone-frame.scss 4:1     root stylesheet
+
+  ✗  phone-shell.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/phone-shell.scss 4:1     root stylesheet
+
+  ✗  plus-button-track.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2     @forward
+      my-app/src/styles/tokens.scss 34:1          @use
+      my-app/src/locs/plus-button-track.scss 4:1  root stylesheet
+
+  ✗  plus-button.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/plus-button.scss 4:1     root stylesheet
+
+  ✗  portfolio-circles.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2     @forward
+      my-app/src/styles/tokens.scss 34:1          @use
+      my-app/src/locs/portfolio-circles.scss 4:1  root stylesheet
+
+  ✗  product-identity.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2    @forward
+      my-app/src/styles/tokens.scss 34:1         @use
+      my-app/src/locs/product-identity.scss 4:1  root stylesheet
+
+  ✗  profile-overlay.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/profile-overlay.scss 4:1  root stylesheet
+
+  ✗  recover-action-bar.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/recover-action-bar.scss 4:1  root stylesheet
+
+  ✗  recover-link.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/recover-link.scss 4:1    root stylesheet
+
+  ✗  recover-selection-mode.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2          @forward
+      my-app/src/styles/tokens.scss 34:1               @use
+      my-app/src/locs/recover-selection-mode.scss 4:1  root stylesheet
+
+  ✗  reset.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/reset.scss 3:1           root stylesheet
+
+  ✗  review-section.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/review-section.scss 4:1  root stylesheet
+
+  ✗  scrim-zindex-15-stops-at-nav-bottom100px-so-nav-stays-visible.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                                                 @forward
+      my-app/src/styles/tokens.scss 34:1                                                      @use
+      my-app/src/locs/scrim-zindex-15-stops-at-nav-bottom100px-so-nav-stays-visible.scss 4:1  root stylesheet
+
+  ✗  scroll-area.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/scroll-area.scss 4:1     root stylesheet
+
+  ✗  scrollable-body.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/scrollable-body.scss 4:1  root stylesheet
+
+  ✗  section-divider.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/section-divider.scss 4:1  root stylesheet
+
+  ✗  section-headers.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/section-headers.scss 4:1  root stylesheet
+
+  ✗  section-label-row-eg-top-three-recover-link.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                               @forward
+      my-app/src/styles/tokens.scss 34:1                                    @use
+      my-app/src/locs/section-label-row-eg-top-three-recover-link.scss 4:1  root stylesheet
+
+  ✗  send-button.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/send-button.scss 4:1     root stylesheet
+
+  ✗  shop-card.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/shop-card.scss 4:1       root stylesheet
+
+  ✗  show-more-conversation-toggle-row.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                     @forward
+      my-app/src/styles/tokens.scss 34:1                          @use
+      my-app/src/locs/show-more-conversation-toggle-row.scss 4:1  root stylesheet
+
+  ✗  sits-outside-panel-so-overflowhidden-never-clips-it.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                                       @forward
+      my-app/src/styles/tokens.scss 34:1                                            @use
+      my-app/src/locs/sits-outside-panel-so-overflowhidden-never-clips-it.scss 4:1  root stylesheet
+
+  ✗  sliding-highlight-pill.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2          @forward
+      my-app/src/styles/tokens.scss 34:1               @use
+      my-app/src/locs/sliding-highlight-pill.scss 4:1  root stylesheet
+
+  ✗  status-bar.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/status-bar.scss 4:1      root stylesheet
+
+  ✗  status-pill.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/status-pill.scss 4:1     root stylesheet
+
+  ✗  store-grid.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/store-grid.scss 4:1      root stylesheet
+
+  ✗  store-layout-toggle.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2       @forward
+      my-app/src/styles/tokens.scss 34:1            @use
+      my-app/src/locs/store-layout-toggle.scss 4:1  root stylesheet
+
+  ✗  sunken-text.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/sunken-text.scss 4:1     root stylesheet
+
+  ✗  sunken-white-input.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/sunken-white-input.scss 4:1  root stylesheet
+
+  ✗  supabase-await-mark-readitemdatasetid.scss
+    Error: expected "(".
+      ╷
+    6 │   id: item.dataset.id, title: item.dataset.title, status: item.dataset.status, activity: item.dataset.activity, gem: item.dataset.gem, service: item.dataset.service, weight: item.dataset.weight, notes: item.dataset.notes, reply: item.dataset.reply;
+      │                   ^
+      ╵
+      my-app/src/locs/supabase-await-mark-readitemdatasetid.scss 6:19  root stylesheet
+
+  ✗  swipe-hint-text.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/swipe-hint-text.scss 4:1  root stylesheet
+
+  ✗  swipedowntoclose-on-header.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2              @forward
+      my-app/src/styles/tokens.scss 34:1                   @use
+      my-app/src/locs/swipedowntoclose-on-header.scss 4:1  root stylesheet
+
+  ✗  theme-toggle-buttons.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2        @forward
+      my-app/src/styles/tokens.scss 34:1             @use
+      my-app/src/locs/theme-toggle-buttons.scss 4:1  root stylesheet
+
+  ✗  tile-strip.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/tile-strip.scss 4:1      root stylesheet
+
+  ✗  title-states.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/title-states.scss 4:1    root stylesheet
+
+  ✗  transparent-fullwidth-drag-zone-for-swipetoclose.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                                    @forward
+      my-app/src/styles/tokens.scss 34:1                                         @use
+      my-app/src/locs/transparent-fullwidth-drag-zone-for-swipetoclose.scss 4:1  root stylesheet
+
+  ✗  typing-indicator.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2    @forward
+      my-app/src/styles/tokens.scss 34:1         @use
+      my-app/src/locs/typing-indicator.scss 4:1  root stylesheet
+
+  ✗  wide-shop-card.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/wide-shop-card.scss 4:1  root stylesheet
+
+  ✗  z30.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/z30.scss 4:1             root stylesheet
+
+  ✗  z31.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/z31.scss 4:1             root stylesheet
+
+  ✗  zindex-20.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/zindex-20.scss 4:1       root stylesheet
+
+──────────────────────────────────────────────────────────────────────
+  ALL FILES
+──────────────────────────────────────────────────────────────────────
+
+  ✗  10-archived-state.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2     @forward
+      my-app/src/styles/tokens.scss 34:1          @use
+      my-app/src/locs/10-archived-state.scss 4:1  root stylesheet
+
+  ✗  11-cta-buttons.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/11-cta-buttons.scss 4:1  root stylesheet
+
+  ✗  12-drawer-system.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2    @forward
+      my-app/src/styles/tokens.scss 34:1         @use
+      my-app/src/locs/12-drawer-system.scss 4:1  root stylesheet
+
+  ✗  13-sr-detail-drawer.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2       @forward
+      my-app/src/styles/tokens.scss 34:1            @use
+      my-app/src/locs/13-sr-detail-drawer.scss 4:1  root stylesheet
+
+  ✗  14-new-sr-form-drawer.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2         @forward
+      my-app/src/styles/tokens.scss 34:1              @use
+      my-app/src/locs/14-new-sr-form-drawer.scss 4:1  root stylesheet
+
+  ✗  2-preview-chrome.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2    @forward
+      my-app/src/styles/tokens.scss 34:1         @use
+      my-app/src/locs/2-preview-chrome.scss 4:1  root stylesheet
+
+  ✗  3-bottom-nav.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/3-bottom-nav.scss 4:1    root stylesheet
+
+  ✗  4-panel-system.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/4-panel-system.scss 4:1  root stylesheet
+
+  ✗  5-tab-switcher.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/5-tab-switcher.scss 4:1  root stylesheet
+
+  ✗  6-sr-list.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/6-sr-list.scss 4:1       root stylesheet
+
+  ✗  7-sr-item.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/7-sr-item.scss 4:1       root stylesheet
+
+  ✗  8-showhide-toggle.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2     @forward
+      my-app/src/styles/tokens.scss 34:1          @use
+      my-app/src/locs/8-showhide-toggle.scss 4:1  root stylesheet
+
+  ✗  active-state-when-bubble-menu-is-open.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                         @forward
+      my-app/src/styles/tokens.scss 34:1                              @use
+      my-app/src/locs/active-state-when-bubble-menu-is-open.scss 4:1  root stylesheet
+
+  ✗  backdrop-scrim-with-blur.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2            @forward
+      my-app/src/styles/tokens.scss 34:1                 @use
+      my-app/src/locs/backdrop-scrim-with-blur.scss 4:1  root stylesheet
+
+  ✗  background-scrim-behind-panel.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                 @forward
+      my-app/src/styles/tokens.scss 34:1                      @use
+      my-app/src/locs/background-scrim-behind-panel.scss 4:1  root stylesheet
+
+  ✗  body-outer.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/body-outer.scss 4:1      root stylesheet
+
+  ✗  bottom-nav.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/bottom-nav.scss 4:1      root stylesheet
+
+  ✗  bottomright-corner-date-id.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2              @forward
+      my-app/src/styles/tokens.scss 34:1                   @use
+      my-app/src/locs/bottomright-corner-date-id.scss 4:1  root stylesheet
+
+  ✗  ccgchatbubble.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/ccgchatbubble.scss 4:1   root stylesheet
+
+  ✗  ccgchatinputcss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/ccgchatinputcss.scss 4:1  root stylesheet
+
+  ✗  ccgchatmessagescss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/ccgchatmessagescss.scss 4:1  root stylesheet
+
+  ✗  ccgchatpaneljs.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/ccgchatpaneljs.scss 5:1  root stylesheet
+
+  ✗  ccgpaneljs.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/ccgpaneljs.scss 4:1      root stylesheet
+
+  ✗  ccgphoneframecss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2    @forward
+      my-app/src/styles/tokens.scss 34:1         @use
+      my-app/src/locs/ccgphoneframecss.scss 5:1  root stylesheet
+
+  ✗  ccgstatusbarcss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/ccgstatusbarcss.scss 4:1  root stylesheet
+
+  ✗  ccgthemecss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/ccgthemecss.scss 4:1     root stylesheet
+
+  ✗  ccgtokenscss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/ccgtokenscss.scss 3:1    root stylesheet
+
+  ✗  ccgtypingindicatorcss.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2         @forward
+      my-app/src/styles/tokens.scss 34:1              @use
+      my-app/src/locs/ccgtypingindicatorcss.scss 4:1  root stylesheet
+
+  ✗  ccgtypingindicatorjs.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2        @forward
+      my-app/src/styles/tokens.scss 34:1             @use
+      my-app/src/locs/ccgtypingindicatorjs.scss 4:1  root stylesheet
+
+  ✗  chat-bubbles.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/chat-bubbles.scss 4:1    root stylesheet
+
+  ✗  chat-helpers.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/chat-helpers.scss 4:1    root stylesheet
+
+  ✗  chat-input-bar.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/chat-input-bar.scss 4:1  root stylesheet
+
+  ✗  chat-messages-area.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/chat-messages-area.scss 4:1  root stylesheet
+
+  ✗  close-button-in-topright.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2            @forward
+      my-app/src/styles/tokens.scss 34:1                 @use
+      my-app/src/locs/close-button-in-topright.scss 4:1  root stylesheet
+
+  ✗  close-button-track.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/close-button-track.scss 4:1  root stylesheet
+
+  ✗  close-button.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/close-button.scss 4:1    root stylesheet
+
+  ✗  dashboard-header.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2    @forward
+      my-app/src/styles/tokens.scss 34:1         @use
+      my-app/src/locs/dashboard-header.scss 4:1  root stylesheet
+
+  ✗  dashboard-placeholder.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2         @forward
+      my-app/src/styles/tokens.scss 34:1              @use
+      my-app/src/locs/dashboard-placeholder.scss 4:1  root stylesheet
+
+  ✗  data.scss
+    Error: Expected ".
+      ╷
+    6 │   label: cut wizard",        sub:"start a new report",  hasNew:false;
+      │                                                                      ^
+      ╵
+      my-app/src/locs/data.scss 6:70  root stylesheet
+
+  ✗  devonly.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/devonly.scss 4:1         root stylesheet
+
+  ✗  dot-colors.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/dot-colors.scss 4:1      root stylesheet
+
+  ✗  drag-handle-header.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/drag-handle-header.scss 4:1  root stylesheet
+
+  ✗  drag-handle.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/drag-handle.scss 4:1     root stylesheet
+
+  ✗  drawer-bottom-buttons.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2         @forward
+      my-app/src/styles/tokens.scss 34:1              @use
+      my-app/src/locs/drawer-bottom-buttons.scss 4:1  root stylesheet
+
+  ✗  drawer-sheet.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/drawer-sheet.scss 4:1    root stylesheet
+
+  ✗  drawer-swipe-right-to-close.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2               @forward
+      my-app/src/styles/tokens.scss 34:1                    @use
+      my-app/src/locs/drawer-swipe-right-to-close.scss 4:1  root stylesheet
+
+  ✗  floating-bubble-icon-menu.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2             @forward
+      my-app/src/styles/tokens.scss 34:1                  @use
+      my-app/src/locs/floating-bubble-icon-menu.scss 4:1  root stylesheet
+
+  ✗  gem-photo-placeholder-circle.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                @forward
+      my-app/src/styles/tokens.scss 34:1                     @use
+      my-app/src/locs/gem-photo-placeholder-circle.scss 4:1  root stylesheet
+
+  ✗  header-plus-button.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/header-plus-button.scss 4:1  root stylesheet
+
+  ✗  horizontal-card-scroll.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2          @forward
+      my-app/src/styles/tokens.scss 34:1               @use
+      my-app/src/locs/horizontal-card-scroll.scss 4:1  root stylesheet
+
+  ✗  inquiries-list.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/inquiries-list.scss 4:1  root stylesheet
+
+  ✗  inquiries-tabs.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/inquiries-tabs.scss 4:1  root stylesheet
+
+  ✗  light-theme-token-overrides.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2               @forward
+      my-app/src/styles/tokens.scss 34:1                    @use
+      my-app/src/locs/light-theme-token-overrides.scss 4:1  root stylesheet
+
+  ✗  nav-row-back-btn-hint.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2         @forward
+      my-app/src/styles/tokens.scss 34:1              @use
+      my-app/src/locs/nav-row-back-btn-hint.scss 4:1  root stylesheet
+
+  ✗  neu-shadow-helpers.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/neu-shadow-helpers.scss 4:1  root stylesheet
+
+  ✗  notification-arrow.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/notification-arrow.scss 4:1  root stylesheet
+
+  ✗  online-dot-chat-breadcrumb.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2              @forward
+      my-app/src/styles/tokens.scss 34:1                   @use
+      my-app/src/locs/online-dot-chat-breadcrumb.scss 4:1  root stylesheet
+
+  ✗  panel-header.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/panel-header.scss 4:1    root stylesheet
+
+  ✗  panel-scrim.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/panel-scrim.scss 4:1     root stylesheet
+
+  ✗  panel-sheet.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/panel-sheet.scss 4:1     root stylesheet
+
+  ✗  panel-swipe-to-close.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2        @forward
+      my-app/src/styles/tokens.scss 34:1             @use
+      my-app/src/locs/panel-swipe-to-close.scss 4:1  root stylesheet
+
+  ✗  panel-title.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/panel-title.scss 4:1     root stylesheet
+
+  ✗  panel-zindex-18-bottom100px-slides-up-behind-nav.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                                    @forward
+      my-app/src/styles/tokens.scss 34:1                                         @use
+      my-app/src/locs/panel-zindex-18-bottom100px-slides-up-behind-nav.scss 4:1  root stylesheet
+
+  ✗  panel.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/panel.scss 4:1           root stylesheet
+
+  ✗  paneltitlemenuactive.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2        @forward
+      my-app/src/styles/tokens.scss 34:1             @use
+      my-app/src/locs/paneltitlemenuactive.scss 4:1  root stylesheet
+
+  ✗  phone-frame.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/phone-frame.scss 4:1     root stylesheet
+
+  ✗  phone-shell.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/phone-shell.scss 4:1     root stylesheet
+
+  ✗  plus-button-track.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2     @forward
+      my-app/src/styles/tokens.scss 34:1          @use
+      my-app/src/locs/plus-button-track.scss 4:1  root stylesheet
+
+  ✗  plus-button.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/plus-button.scss 4:1     root stylesheet
+
+  ✗  portfolio-circles.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2     @forward
+      my-app/src/styles/tokens.scss 34:1          @use
+      my-app/src/locs/portfolio-circles.scss 4:1  root stylesheet
+
+  ✗  product-identity.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2    @forward
+      my-app/src/styles/tokens.scss 34:1         @use
+      my-app/src/locs/product-identity.scss 4:1  root stylesheet
+
+  ✗  profile-overlay.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/profile-overlay.scss 4:1  root stylesheet
+
+  ✗  recover-action-bar.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/recover-action-bar.scss 4:1  root stylesheet
+
+  ✗  recover-link.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/recover-link.scss 4:1    root stylesheet
+
+  ✗  recover-selection-mode.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2          @forward
+      my-app/src/styles/tokens.scss 34:1               @use
+      my-app/src/locs/recover-selection-mode.scss 4:1  root stylesheet
+
+  ✗  reset.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/reset.scss 3:1           root stylesheet
+
+  ✗  review-section.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/review-section.scss 4:1  root stylesheet
+
+  ✗  scrim-zindex-15-stops-at-nav-bottom100px-so-nav-stays-visible.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                                                 @forward
+      my-app/src/styles/tokens.scss 34:1                                                      @use
+      my-app/src/locs/scrim-zindex-15-stops-at-nav-bottom100px-so-nav-stays-visible.scss 4:1  root stylesheet
+
+  ✗  scroll-area.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/scroll-area.scss 4:1     root stylesheet
+
+  ✗  scrollable-body.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/scrollable-body.scss 4:1  root stylesheet
+
+  ✗  section-divider.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/section-divider.scss 4:1  root stylesheet
+
+  ✗  section-headers.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/section-headers.scss 4:1  root stylesheet
+
+  ✗  section-label-row-eg-top-three-recover-link.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                               @forward
+      my-app/src/styles/tokens.scss 34:1                                    @use
+      my-app/src/locs/section-label-row-eg-top-three-recover-link.scss 4:1  root stylesheet
+
+  ✗  send-button.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/send-button.scss 4:1     root stylesheet
+
+  ✗  shop-card.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/shop-card.scss 4:1       root stylesheet
+
+  ✗  show-more-conversation-toggle-row.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                     @forward
+      my-app/src/styles/tokens.scss 34:1                          @use
+      my-app/src/locs/show-more-conversation-toggle-row.scss 4:1  root stylesheet
+
+  ✗  sits-outside-panel-so-overflowhidden-never-clips-it.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                                       @forward
+      my-app/src/styles/tokens.scss 34:1                                            @use
+      my-app/src/locs/sits-outside-panel-so-overflowhidden-never-clips-it.scss 4:1  root stylesheet
+
+  ✗  sliding-highlight-pill.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2          @forward
+      my-app/src/styles/tokens.scss 34:1               @use
+      my-app/src/locs/sliding-highlight-pill.scss 4:1  root stylesheet
+
+  ✗  status-bar.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/status-bar.scss 4:1      root stylesheet
+
+  ✗  status-pill.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/status-pill.scss 4:1     root stylesheet
+
+  ✗  store-grid.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/store-grid.scss 4:1      root stylesheet
+
+  ✗  store-layout-toggle.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2       @forward
+      my-app/src/styles/tokens.scss 34:1            @use
+      my-app/src/locs/store-layout-toggle.scss 4:1  root stylesheet
+
+  ✗  sunken-text.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/sunken-text.scss 4:1     root stylesheet
+
+  ✗  sunken-white-input.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2      @forward
+      my-app/src/styles/tokens.scss 34:1           @use
+      my-app/src/locs/sunken-white-input.scss 4:1  root stylesheet
+
+  ✗  supabase-await-mark-readitemdatasetid.scss
+    Error: expected "(".
+      ╷
+    6 │   id: item.dataset.id, title: item.dataset.title, status: item.dataset.status, activity: item.dataset.activity, gem: item.dataset.gem, service: item.dataset.service, weight: item.dataset.weight, notes: item.dataset.notes, reply: item.dataset.reply;
+      │                   ^
+      ╵
+      my-app/src/locs/supabase-await-mark-readitemdatasetid.scss 6:19  root stylesheet
+
+  ✗  swipe-hint-text.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2   @forward
+      my-app/src/styles/tokens.scss 34:1        @use
+      my-app/src/locs/swipe-hint-text.scss 4:1  root stylesheet
+
+  ✗  swipedowntoclose-on-header.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2              @forward
+      my-app/src/styles/tokens.scss 34:1                   @use
+      my-app/src/locs/swipedowntoclose-on-header.scss 4:1  root stylesheet
+
+  ✗  theme-toggle-buttons.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2        @forward
+      my-app/src/styles/tokens.scss 34:1             @use
+      my-app/src/locs/theme-toggle-buttons.scss 4:1  root stylesheet
+
+  ✗  tile-strip.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/tile-strip.scss 4:1      root stylesheet
+
+  ✗  title-states.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/title-states.scss 4:1    root stylesheet
+
+  ✗  transparent-fullwidth-drag-zone-for-swipetoclose.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2                                    @forward
+      my-app/src/styles/tokens.scss 34:1                                         @use
+      my-app/src/locs/transparent-fullwidth-drag-zone-for-swipetoclose.scss 4:1  root stylesheet
+
+  ✗  typing-indicator.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2    @forward
+      my-app/src/styles/tokens.scss 34:1         @use
+      my-app/src/locs/typing-indicator.scss 4:1  root stylesheet
+
+  ✗  wide-shop-card.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/wide-shop-card.scss 4:1  root stylesheet
+
+  ✗  z30.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/z30.scss 4:1             root stylesheet
+
+  ✗  z31.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/z31.scss 4:1             root stylesheet
+
+  ✗  zindex-20.scss
+    Error: Expected identifier.
+       ╷
+    24 │ $*-margin:          $_a_;  // Light theme token overrides
+       │  ^
+       ╵
+      my-app/src/styles/decs/margin.scss 24:2  @forward
+      my-app/src/styles/tokens.scss 34:1       @use
+      my-app/src/locs/zindex-20.scss 4:1       root stylesheet
+
+
+══════════════════════════════════════════════════════════════════════

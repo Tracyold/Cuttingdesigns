@@ -78,7 +78,6 @@ $_bi_:    8px 0 40px;
 // ────────────────────────────────────────────
 
 // ── * — Light theme token overrides ───────────────
-$*-padding:                    $_a_;  // Light theme token overrides
 
 // ── BAR — phone shell ─────────────────────────────
 $bar-padding:                  $_d_;  // phone shell
@@ -214,7 +213,7 @@ $toggle-padding:               $_m_;  // bottomright corner: date · id
 $toggle-padding-2:             $_ai_;  // Store layout toggle
 
 // ── TYPING(CONTAINER) — Chat helpers ──────────────
-$typing(container)-padding:    $_bf_;  // Chat helpers
+$typingcontainer-padding:    $_bf_;  // Chat helpers
 
 // ── UNKNOWN — Reset ───────────────────────────────
 $unknown-padding:              $_a_;  // Reset
