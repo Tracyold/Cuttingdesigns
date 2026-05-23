@@ -3,23 +3,23 @@
 
 .30 {
   transform: translateY(-4px);
-  opacity: 1;
+  opacity: $opacity30;
 }
 
 .dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+  display: $dot-display;
+  width: $dot-width-3;
+  height: $dot-height-3;
+  border-radius: $dot-border-radius;
   background: var(–ink-mute);
-  opacity: 0.5;
-  animation: typing-dot 1.2s ease-in-out infinite;
+  opacity: $dot-opacity;
+  animation: $dot-animation;
 }
 
 .dotnth-child2 {
-  animation-delay: 0.18s;
+  animation-delay: $dot(2)-animation-delay;
 }
 
 .dotnth-child3 {
-  animation-delay: 0.36s;
+  animation-delay: $dot(3)-animation-delay;
 }

@@ -5,5 +5,5 @@
   display: flex;
   gap: 5px;
   align-items: center;
-  padding: 14px 18px;
+  padding: $typing(container)-padding;
 }

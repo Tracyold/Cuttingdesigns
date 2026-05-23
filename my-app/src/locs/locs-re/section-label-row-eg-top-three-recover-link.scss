@@ -3,25 +3,25 @@
 
 .show-more-label-span {
   color: var(--ink-mute);
-  opacity: 0.6;
-  font-size: 11px;
-  margin-left: 6px;
-  letter-spacing: 0.3px;
+  opacity: $span-opacity;
+  font-size: $span-font-size;
+  margin-left: $span-margin-left;
+  letter-spacing: $span-letter-spacing;
 }
 
 .section-toggle {
-  padding: 6px 0;
-  border-radius: 999px;
-  min-width: 64px;
-  text-align: center;
+  padding: $toggle-padding;
+  border-radius: $toggle-border-radius;
+  min-width: $toggle-min-width;
+  text-align: $toggle-text-align;
   background: var(--base-whisper);
-  border: none;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 600;
+  border: $toggle-border;
+  cursor: $toggle-cursor;
+  font-size: $toggle-font-size;
+  font-weight: $toggle-font-weight;
   color: var(--ink-mute);
   font-family: var(--font);
-  transition: box-shadow 0.2s ease;
+  transition: $toggle-transition;
 }
 
 .section-togglecollapsed {
@@ -33,64 +33,64 @@
 }
 
 .recover-link {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
+  font-size: $link-font-size;
+  font-weight: $link-font-weight;
+  letter-spacing: $link-letter-spacing;
+  text-transform: $link-text-transform;
   color: var(--accent);
-  opacity: 1;
-  background: none;
-  border: none;
-  cursor: pointer;
+  opacity: $link-opacity;
+  background: $link-background;
+  border: $link-border;
+  cursor: $link-cursor;
   font-family: var(--font);
-  padding: 0;
-  pointer-events: auto;
-  display: none;
+  padding: $link-padding;
+  pointer-events: $link-pointer-events;
+  display: $link-display;
 }
 
 .recover-linkactive-link {
-  display: inline;
+  display: $link-display-2;
 }
 
 .recover-mode-inq-item {
-  cursor: pointer;
+  cursor: $item-cursor;
 }
 
 .recover-mode-inq-itemhover {
   outline: 1.5px solid var(--accent);
-  outline-offset: -2px;
-  border-radius: 8px;
+  outline-offset: $item-outline-offset;
+  border-radius: $item-border-radius;
 }
 
 .recover-mode-inq-itemselected-recover {
   outline: 2px solid var(--accent);
-  outline-offset: -2px;
-  border-radius: 8px;
+  outline-offset: $recover-outline-offset;
+  border-radius: $recover-border-radius;
   background: var(--accent-mute);
 }
 
 .recover-bar {
-  display: none;
-  flex-shrink: 0;
-  padding: 24px 24px 32px;
-  gap: 10px;
+  display: $bar-display-2;
+  flex-shrink: $bar-flex-shrink;
+  padding: $bar-padding-2;
+  gap: $bar-gap;
 }
 
 .recover-barvisible {
-  display: flex;
+  display: $visible-display;
 }
 
 .recover-confirm {
-  flex: 1;
-  padding: 18px 20px;
-  border-radius: 999px;
+  flex: $confirm-flex;
+  padding: $confirm-padding;
+  border-radius: $confirm-border-radius;
   background: var(--accent);
-  border: none;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 700;
+  border: $confirm-border;
+  cursor: $confirm-cursor;
+  font-size: $confirm-font-size;
+  font-weight: $confirm-font-weight;
   color: var(--base-mute);
   font-family: var(--font);
   box-shadow: var(--neu-sm);
-  transition: transform 0.12s ease;
+  transition: $confirm-transition;
 }

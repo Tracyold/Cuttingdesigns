@@ -10,17 +10,17 @@
 }
 
 .recover-cancel {
-  padding: 18px 18px;
-  border-radius: 999px;
+  padding: $cancel-padding;
+  border-radius: $cancel-border-radius;
   background: var(--base-whisper);
-  border: none;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 700;
+  border: $cancel-border;
+  cursor: $cancel-cursor;
+  font-size: $cancel-font-size;
+  font-weight: $cancel-font-weight;
   color: var(--ink-mute);
   font-family: var(--font);
   box-shadow: 3px 3px 7px var(--neu-dark), -3px -3px 7px var(--neu-light);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  transition: $cancel-transition;
 }
 
 .light-recover-cancel {
@@ -33,9 +33,9 @@
 }
 
 .pane-archived-inq-item {
-  opacity: 0.7;
-  pointer-events: auto;
-  cursor: pointer;
+  opacity: $item-opacity;
+  pointer-events: $item-pointer-events;
+  cursor: $item-cursor;
 }
 
 .pane-archived-inq-title {
@@ -49,44 +49,44 @@
 }
 
 .pane-archived-inq-sender {
-  opacity: 0.5;
+  opacity: $sender-opacity;
 }
 
 .pane-archived-inq-date-corner {
-  opacity: 0.4;
+  opacity: $corner-opacity-2;
 }
 
 .pane-archived-inq-id {
-  opacity: 0.2;
+  opacity: $id-opacity-2;
 }
 
 .pane-archived-inq-corner-sep {
-  opacity: 0.2;
+  opacity: $sep-opacity-3;
 }
 
 .pane-archived-show-more-label {
-  opacity: 0.5;
+  opacity: $label-opacity;
 }
 
 .inq-cta-wrap {
-  padding: 24px 24px 32px;
-  flex-shrink: 0;
+  padding: $wrap-padding-2;
+  flex-shrink: $wrap-flex-shrink;
 }
 
 .inq-cta-btn {
-  width: 100%;
-  padding: 18px 24px;
-  border-radius: 999px;
+  width: $btn-width-2;
+  padding: $btn-padding;
+  border-radius: $btn-border-radius-3;
   background: var(--sedona);
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 700;
+  border: $btn-border;
+  cursor: $btn-cursor;
+  font-size: $btn-font-size-3;
+  font-weight: $btn-font-weight-2;
   color: #fff7f3;
   font-family: var(--font);
-  letter-spacing: -0.2px;
+  letter-spacing: $btn-letter-spacing;
   box-shadow: var(--neu-sm);
-  transition: transform 0.14s ease, box-shadow 0.14s ease;
+  transition: $btn-transition-2;
 }
 
 .light-inq-cta-btn {

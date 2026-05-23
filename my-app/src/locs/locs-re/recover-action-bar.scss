@@ -7,23 +7,23 @@
 }
 
 .drawer-scrimclosing {
-  opacity: 0;
-  transition: opacity 0.28s ease, backdrop-filter 0.28s ease, -webkit-backdrop-filter 0.28s ease;
+  opacity: $closing-opacity;
+  transition: $closing-transition;
 }
 
 .drawer {
-  position: absolute;
-  top: 12px;
-  right: 0;
-  bottom: 12px;
-  width: 88%;
-  z-index: 31;
+  position: $drawer-position;
+  top: $drawer-top;
+  right: $drawer-right;
+  bottom: $drawer-bottom;
+  width: $drawer-width;
+  z-index: $drawer-z-index;
   background: var(--base);
-  border-radius: 25px 0 0 25px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  will-change: transform;
+  border-radius: $drawer-border-radius;
+  display: $drawer-display;
+  flex-direction: $drawer-flex-direction;
+  overflow: $drawer-overflow;
+  will-change: $drawer-will-change;
   transform: translateX(100%);
   transition: transform 0.46s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
 }
@@ -38,123 +38,123 @@
 }
 
 .drw-handle {
-  display: flex;
-  justify-content: center;
-  padding: 12px 0 0;
-  flex-shrink: 0;
+  display: $handle-display;
+  justify-content: $handle-justify-content;
+  padding: $handle-padding;
+  flex-shrink: $handle-flex-shrink;
 }
 
 .drw-handle-bar {
-  width: 36px;
-  height: 4px;
-  border-radius: 2px;
+  width: $bar-width;
+  height: $bar-height;
+  border-radius: $bar-border-radius;
   background: var(--ink-mute);
-  opacity: 0.3;
+  opacity: $bar-opacity-2;
 }
 
 .drw-nav {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 24px 0;
-  flex-shrink: 0;
+  display: $nav-display;
+  align-items: $nav-align-items;
+  gap: $nav-gap;
+  padding: $nav-padding-2;
+  flex-shrink: $nav-flex-shrink;
 }
 
 .drw-back {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
+  width: $back-width;
+  height: $back-height;
+  border-radius: $back-border-radius;
+  border: $back-border;
+  cursor: $back-cursor;
   background: var(--base-whisper);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: $back-display;
+  align-items: $back-align-items;
+  justify-content: $back-justify-content;
   color: var(--ink-mute);
-  font-size: 16px;
-  flex-shrink: 0;
+  font-size: $back-font-size;
+  flex-shrink: $back-flex-shrink;
   box-shadow: 2px 2px 5px var(--neu-dark), -2px -2px 5px var(--neu-light);
 }
 
 .drw-hint {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  font-size: $hint-font-size-2;
+  font-weight: $hint-font-weight;
+  letter-spacing: $hint-letter-spacing-2;
+  text-transform: $hint-text-transform;
   color: var(--ink-mute);
 }
 
 .drw-body {
-  flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
+  flex: $body-flex;
+  overflow-y: $body-overflow-y;
+  overflow-x: $body-overflow-x;
   scrollbar-width: none;
-  padding: 0 24px 0;
+  padding: $body-padding-2;
 }
 
 .drw-body-webkit-scrollbar {
-  display: none;
+  display: $bar-display-2;
 }
 
 .drw-photo-wrap {
-  display: flex;
-  justify-content: center;
-  padding: 20px 0 18px;
+  display: $wrap-display;
+  justify-content: $wrap-justify-content;
+  padding: $wrap-padding-3;
 }
 
 .drw-photo-circle {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
+  width: $circle-width;
+  height: $circle-height;
+  border-radius: $circle-border-radius;
   background: var(--base-whisper);
   box-shadow: inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  display: $circle-display;
+  align-items: $circle-align-items;
+  justify-content: $circle-justify-content;
+  flex-shrink: $circle-flex-shrink;
 }
 
 .drw-photo-letter {
-  font-size: 38px;
-  font-weight: 800;
+  font-size: $letter-font-size;
+  font-weight: $letter-font-weight;
   color: var(--ink-mute);
-  opacity: 0.2;
-  text-transform: uppercase;
-  letter-spacing: -1px;
+  opacity: $letter-opacity;
+  text-transform: $letter-text-transform;
+  letter-spacing: $letter-letter-spacing;
 }
 
 .drw-product-id {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  font-size: $id-font-size-2;
+  font-weight: $id-font-weight;
+  letter-spacing: $id-letter-spacing-2;
+  text-transform: $id-text-transform;
   color: var(--ink-mute);
-  opacity: 0.5;
-  margin-bottom: 4px;
+  opacity: $id-opacity-3;
+  margin-bottom: $id-margin-bottom;
 }
 
 .drw-product-title {
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  line-height: 1.1;
+  font-size: $title-font-size-4;
+  font-weight: $title-font-weight-3;
+  letter-spacing: $title-letter-spacing-3;
+  line-height: $title-line-height-2;
   color: var(--ink);
-  margin-bottom: 12px;
+  margin-bottom: $title-margin-bottom-3;
 }
 
 .drw-status-row {
-  margin-bottom: 16px;
+  margin-bottom: $row-margin-bottom;
 }
 
 .status-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 14px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  display: $pill-display-2;
+  align-items: $pill-align-items;
+  gap: $pill-gap;
+  padding: $pill-padding;
+  border-radius: $pill-border-radius;
+  font-size: $pill-font-size;
+  font-weight: $pill-font-weight;
+  letter-spacing: $pill-letter-spacing;
 }
 
 .status-pillread {
@@ -168,53 +168,53 @@
 }
 
 .status-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: currentColor;
+  width: $dot-width;
+  height: $dot-height;
+  border-radius: $dot-border-radius;
+  background: $dot-background;
 }
 
 .drw-divider {
-  height: 0.5px;
+  height: $divider-height;
   background: var(--divider);
-  margin: 0 0 16px;
+  margin: $divider-margin;
 }
 
 .drw-message {
-  font-size: 14px;
-  line-height: 1.65;
-  margin-bottom: 16px;
+  font-size: $message-font-size;
+  line-height: $message-line-height;
+  margin-bottom: $message-margin-bottom;
 }
 
 .user-message {
-  font-style: italic;
+  font-style: $message-font-style;
   color: var(--ink-whisper);
 }
 
 .admin-message {
-  font-style: normal;
+  font-style: $message-font-style-2;
   color: var(--ink);
-  padding-left: 12px;
+  padding-left: $message-padding-left;
   border-left: 2px solid var(--accent);
 }
 
 .drw-show-more-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 0 10px;
+  display: $row-display;
+  justify-content: $row-justify-content;
+  align-items: $row-align-items;
+  padding: $row-padding-2;
 }
 
 .drw-show-more-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-size: $label-font-size-3;
+  font-weight: $label-font-weight-2;
+  letter-spacing: $label-letter-spacing-2;
   color: var(--ink-mute);
-  opacity: 0.6;
+  opacity: $label-opacity-2;
 }
 
 .drw-more-overflow {
-  display: none;
+  display: $overflow-display;
 }
 
 .drw-more-overflowopen {

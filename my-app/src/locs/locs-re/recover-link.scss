@@ -5,17 +5,17 @@
 
 
 .cta-btn {
-  width: 100%;
-  padding: 16px 24px;
-  border-radius: 999px;
+  width: $btn-width-2;
+  padding: $btn-padding-2;
+  border-radius: $btn-border-radius-3;
   background: var(--sedona);
-  border: none;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 700;
+  border: $btn-border;
+  cursor: $btn-cursor;
+  font-size: $btn-font-size-4;
+  font-weight: $btn-font-weight-2;
   color: #fff7f3;
   font-family: var(--font);
   box-shadow: var(--neu-sm);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
-  margin-top: 8px;
+  transition: $btn-transition-3;
+  margin-top: $btn-margin-top;
 }

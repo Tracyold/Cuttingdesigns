@@ -3,11 +3,11 @@
 
 .body {
   background: var(--bg-outer);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  display: $body-display;
+  align-items: $body-align-items;
+  justify-content: $body-justify-content;
+  min-height: $body-min-height;
   font-family: var(--font);
-  padding: 32px 16px;
-  transition: background 0.3s ease;
+  padding: $body-padding;
+  transition: $body-transition;
 }
